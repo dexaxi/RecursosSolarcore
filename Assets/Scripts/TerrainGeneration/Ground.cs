@@ -2,35 +2,39 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Ground : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] Generation _generation;
-    [SerializeField] GroundTile[] _tiles;
+    [SerializeField] Generation Generated;
+    [SerializeField] GroundTile[] GroundTiles;
 
     [Header("Generation")]
-    [SerializeField] [Range(0.01f, 10)] float _biomeVariation;
-    [SerializeField] [Range(0.01f, 10)] float _heightVariation;
-    [SerializeField] float _maxX;
-    [SerializeField] float _maxY;
+    [SerializeField] [Range(0.01f, 10)] float BiomeVariation;
+    [SerializeField] [Range(0.01f, 10)] float HeightVariation;
+    [SerializeField] int MaxX;
+    [SerializeField] int MaxY;
+    [SerializeField] [Range(0.01f, 1)] float MinBiomeProportion;
 
-    [SerializeField] WeightedTile[] _tilePrefabs;
-    float _totalBiomeWeight;
+    [SerializeField] WeightedTile[] TilePrefabs;
 
-    public Dictionary<Vector2Int, GroundTile> groundMap;
+    public Dictionary<Vector2Int, GroundTile> GroundMap;
 
     [Header("Settings")]
-    [SerializeField] [Range(0.1f, 5f)] float _cellSize;
-    [SerializeField] Color _gizmosColor;
+    [SerializeField] [Range(0.1f, 5f)] float CellSize;
+    [SerializeField] Color GizmoColor;
 
-    private float TOTAL_TILES;
-    private FastNoiseLite noiseGenerator;
+    private float _totalBiomeWeight;
+    private int _totalTiles;
+    private FastNoiseLite _noiseGenerator;
+    private int _minTilesPerBiome;
+
     public float cellSize
     {
         get
         {
-            return _cellSize;
+            return CellSize;
         }
     }
 
@@ -45,10 +49,12 @@ public class Ground : MonoBehaviour
 
     private void Awake()
     {
-        noiseGenerator = new FastNoiseLite();
-        noiseGenerator.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2S);
-        TOTAL_TILES = _maxX * _maxY;
-        switch (_generation)
+        _noiseGenerator = new FastNoiseLite();
+        _noiseGenerator.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2S);
+        _totalTiles = MaxX * MaxY; 
+        _minTilesPerBiome = (int)(MinBiomeProportion * (_totalTiles / TilePrefabs.Length));
+
+        switch (Generated)
         {
             case Generation.GetFromScene:
                 break;
@@ -67,7 +73,7 @@ public class Ground : MonoBehaviour
         {
             GroundTile tile;
 
-            if (groundMap.TryGetValue(ToCellCoords(target.transform.position), out tile))
+            if (GroundMap.TryGetValue(ToCellCoords(target.transform.position), out tile))
             {
                 target.SetCurrentGroundTile(tile);
             }
@@ -76,97 +82,84 @@ public class Ground : MonoBehaviour
 
     void GenerateMap()
     {
+        if(GroundMap != null) GroundMap.Clear();
         SetGroundGridFromScene();
 
-        float baseX = UnityEngine.Random.Range(-_maxX, _maxX);
-        float basey = UnityEngine.Random.Range(-_maxY, _maxY);
+        float baseX = UnityEngine.Random.Range(-MaxX, MaxX);
+        float basey = UnityEngine.Random.Range(-MaxY, MaxY);
 
-        float[,] falloffMap = new float[(int)_maxX, (int)_maxY];
-        for (int i = 0; i < _maxX; i++) 
-        {
-            for (int j = 0; j < _maxY; j++) 
-            {
-                float iv = i / _maxX * 2 - 1;
-                float jv = j / _maxY * 2 - 1;
-                float v = Mathf.Max(Mathf.Abs(iv), Mathf.Abs(jv));
-                float val = Mathf.Pow(v, 3f) / (Mathf.Pow(v, 3f) + Mathf.Pow(2.2f - 2.2f * v, 3f));
-                falloffMap[i, j] = val;
-            }
-        }
-
-        foreach (var prefab in _tilePrefabs) 
+        foreach (var prefab in TilePrefabs) 
         {
             _totalBiomeWeight += prefab.biomeWeight;
         }
 
-        for (int i = 0; i < _maxX; i++)
+        for (int i = 0; i < MaxX; i++)
         {
-            for (int j = 0; j < _maxY; j++)
+            for (int j = 0; j < MaxY; j++)
             {
                 GroundTile outTile;
                 Vector2Int v = new Vector2Int(i, j);
-                if (groundMap.TryGetValue(v, out outTile) == false)
+                if (GroundMap.TryGetValue(v, out outTile) == false)
                 {
-                    float noiseValue = Mathf.PerlinNoise(baseX + i * _heightVariation, basey + j * _heightVariation);
-                    float biomeNoise = noiseGenerator.GetNoise(baseX + i * _biomeVariation, basey + j * _biomeVariation);
-                    BiomeType biome;
-                    var tile = GetTileBiome(biomeNoise- falloffMap[i, j], out biome);
-                    Debug.Log(biome);
-                    tile.GetComponent<GroundTile>().TerrainType = GetTilePrefab(noiseValue - falloffMap[i, j], (int)biome);
-                    //Debug.Log("noise:" + noiseValue + " " + "biomeNoise: " + biomeNoise + " " + "FalloffValue: " + falloffMap[i, j]);
-                    tile.GetComponent<GroundTile>().AssignMaterial();
-                    var newTile = Instantiate(tile, new Vector3(i * _cellSize, tile.transform.position.y * _cellSize, j * _cellSize), Quaternion.identity);
-
+                    float noiseValue = Mathf.PerlinNoise(baseX + i * HeightVariation, basey + j * HeightVariation);
+                    float biomeNoise = _noiseGenerator.GetNoise(baseX + i * BiomeVariation, basey + j * BiomeVariation);
+                    var tile = GetTileBiome(biomeNoise);
+                    tile.transform.position = new Vector3(tile.transform.position.x, GetTileHeight(noiseValue) ,tile.transform.position.z);
+                    var newTile = Instantiate(tile, new Vector3(i * CellSize, tile.transform.position.y * CellSize, j * CellSize), Quaternion.identity);
                     newTile.transform.parent = transform;
                     outTile = newTile.GetComponent<GroundTile>();
-                    groundMap.Add(v, outTile);
+                    GroundMap.Add(v, outTile);
                 }
             }
         }
+
+        RegenerateIfNotFeasable();
+
     }
 
-    private int CalculateTotalHeightWeight(int biome) 
-    {
-        int totalHeightWeight = 0;
-        for (int i = 0; i < _tilePrefabs[biome].heightWeight.Length; i++)
-        {
-            totalHeightWeight += _tilePrefabs[biome].heightWeight[i];
-        }
-        return totalHeightWeight;
-    }
     private void GenerateRivers() 
     {
     
     }
-    GameObject GetTileBiome(float value, out BiomeType biome)
+
+    private void RegenerateIfNotFeasable() 
     {
-        float biomeThreshhold = 0;
-        for (int i = 0; i < _tilePrefabs.Length; i++) 
+        for (int i = 0; i < TilePrefabs.Length; i++)
         {
-            biomeThreshhold += _tilePrefabs[i].biomeWeight / _totalBiomeWeight;
-            if (value < biomeThreshhold)
+            if (TilePrefabs[i].spawnCount < _minTilesPerBiome)
             {
-                biome = _tilePrefabs[i].tilePrefab.GetComponent<GroundTile>().BiomeType;
-                return _tilePrefabs[i].tilePrefab;
+                Debug.Log("Regenerating because of Biome: " + (BiomeType)i + " spawnCount: " + TilePrefabs[i].spawnCount + " minSpawnCount: " + _minTilesPerBiome);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
-        biome = _tilePrefabs[_tilePrefabs.Length - 1].tilePrefab.GetComponent<GroundTile>().BiomeType;
-        return _tilePrefabs[_tilePrefabs.Length-1].tilePrefab;
     }
 
-    TerrainType GetTilePrefab(float value, int biome)
+    public void Regenerate() 
     {
-        float accumulatedWeight = 0;
-        for (int i = 0; i < _tilePrefabs.Length; i++)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    GameObject GetTileBiome(float value)
+    {
+        float biomeThreshhold = 0;
+        for (int i = 0; i < TilePrefabs.Length; i++) 
         {
-            accumulatedWeight += _tilePrefabs[biome].heightWeight[i] / CalculateTotalHeightWeight(biome);
-            Debug.Log("b: " + (BiomeType)biome + " " + _totalBiomeWeight + " h:" + CalculateTotalHeightWeight(biome));
-            if (value < accumulatedWeight && _tilePrefabs[biome].heightWeight[i] != 0)
+            biomeThreshhold += TilePrefabs[i].biomeWeight / _totalBiomeWeight;
+            if (value < biomeThreshhold && TilePrefabs[i].biomeWeight != 0)
             {
-                Debug.Log((TerrainType)i);
-                return (TerrainType)i;
+                TilePrefabs[i].spawnCount++;
+                return TilePrefabs[i].tilePrefab;
             }
         }
+
+        Debug.Log("Warning! No suitable biome found.");
+        TilePrefabs[TilePrefabs.Length - 1].spawnCount++;
+        return TilePrefabs[TilePrefabs.Length-1].tilePrefab;
+    }
+
+    int GetTileHeight(float value)
+    {
+        Debug.Log("Warning! No Valid Terrain Type Found.");
         return 0;
     }
 
@@ -174,24 +167,24 @@ public class Ground : MonoBehaviour
     [ContextMenu("Set Ground Grid")]
     void SetGroundGridFromScene()
     {
-        _tiles = GetComponentsInChildren<GroundTile>();
-        groundMap = new Dictionary<Vector2Int, GroundTile>();
+        GroundTiles = GetComponentsInChildren<GroundTile>();
+        GroundMap = new Dictionary<Vector2Int, GroundTile>();
 
-        if (_tiles != null && _tiles.Length != 0)
+        if (GroundTiles != null && GroundTiles.Length != 0)
         {
-            for (int i = 0; i < _tiles.Length; i++)
+            for (int i = 0; i < GroundTiles.Length; i++)
             {
-                var cellCoord = ToCellCoords(_tiles[i].transform.position);
-                _tiles[i].SetCellCoord(cellCoord);
+                var cellCoord = ToCellCoords(GroundTiles[i].transform.position);
+                GroundTiles[i].SetCellCoord(cellCoord);
 
-                _tiles[i].name = "Cell (" + cellCoord.x + ", " + cellCoord.y + ")";
-                groundMap.Add(_tiles[i].cellCoord, _tiles[i]);
-                TOTAL_TILES++;
+                GroundTiles[i].name = "Cell (" + cellCoord.x + ", " + cellCoord.y + ")";
+                GroundMap.Add(GroundTiles[i].cellCoord, GroundTiles[i]);
+                _totalTiles++;
             }
 
-            for (int i = 0; i < _tiles.Length; i++)
+            for (int i = 0; i < GroundTiles.Length; i++)
             {
-                _tiles[i].GetNeighBours(groundMap);
+                GroundTiles[i].GetNeighBours(GroundMap);
             }
         }
 
@@ -201,19 +194,19 @@ public class Ground : MonoBehaviour
     {
         Vector3 v = worldPosition;
 
-        v /= _cellSize;
+        v /= CellSize;
 
         return new Vector2Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.z));
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = _gizmosColor;
-        for (int i = 0; i < _maxX; i++)
+        Gizmos.color = GizmoColor;
+        for (int i = 0; i < MaxX; i++)
         {
-            for (int j = 0; j < _maxY; j++)
+            for (int j = 0; j < MaxY; j++)
             {
-                Gizmos.DrawWireCube(new Vector3(_cellSize * i, 0, _cellSize * j), new Vector3(_cellSize, _cellSize, _cellSize));
+                Gizmos.DrawWireCube(new Vector3(CellSize * i, 0, CellSize * j), new Vector3(CellSize, CellSize, CellSize));
             }
         }
     }
@@ -223,8 +216,8 @@ public class Ground : MonoBehaviour
     struct WeightedTile
     {
         public GameObject tilePrefab;
-        public int[] heightWeight;
         public int biomeWeight;
+        public int spawnCount;
     }
 }
 

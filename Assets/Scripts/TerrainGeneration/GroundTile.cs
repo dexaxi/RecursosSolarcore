@@ -7,7 +7,6 @@ using UnityEngine;
 public class GroundTile : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] public TerrainType TerrainType;
     [SerializeField] public BiomeType BiomeType;
 
     [Range(0, 10)] public int weight = 1;
@@ -49,10 +48,7 @@ public class GroundTile : MonoBehaviour
 
         StartCoroutine(IntroAnimationCoroutine());
     }
-    public void AssignMaterial() 
-    {
-        this.GetComponent<MeshRenderer>().material = terrainMaterials[(int)TerrainType];
-    }
+
     IEnumerator IntroAnimationCoroutine()
     {
         float elapsedTime = 0;
