@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1810241591079234767}
   - component: {fileID: 1810241591079234762}
   m_Layer: 0
-  m_Name: Rock Cell
+  m_Name: Biome 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810241591079234738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2.6, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f74a13152dad544abedc7538eb3182c, type: 2}
+  - {fileID: 2100000, guid: 0f29e3c1c576f6641b9e474f6b194480, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,10 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XcellSize: 2
-  YcellSize: 2
+  YcellSize: 0.5
   ZcellSize: 2
-  height: 5
-  _snapToHeight: 1
+  _snapToHeight: 0
   _localPosition: 0
 --- !u!65 &1810241591079234765
 BoxCollider:
@@ -157,7 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8042bb2079a5145803bb04a6951d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neighbours: []
+  TerrainType: 0
+  BiomeType: 0
   weight: 1
   isClosed: 0
   gCost: 0
@@ -165,3 +165,9 @@ MonoBehaviour:
   _cordsOffset: {x: 0.5, y: 0.5}
   _introDepth: -3
   _introSpeed: 20
+  terrainMaterials:
+  - {fileID: 2100000, guid: 0f29e3c1c576f6641b9e474f6b194480, type: 2}
+  - {fileID: 2100000, guid: 5e88a93148f69984e968ecc92408960f, type: 2}
+  - {fileID: 2100000, guid: 8521b32b7fcd7ae41acc48012ada9ec0, type: 2}
+  - {fileID: 2100000, guid: 9f74a13152dad544abedc7538eb3182c, type: 2}
+  neighbours: []

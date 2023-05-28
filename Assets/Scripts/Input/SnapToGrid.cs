@@ -20,8 +20,6 @@ public class SnapToGrid : MonoBehaviour
     public float ZcellSize;
     
     [Space(3)]
-    public float height;
-
     [Header("Settings")]
     [SerializeField] bool _snapToHeight;
     [SerializeField] bool _localPosition;
@@ -41,7 +39,6 @@ public class SnapToGrid : MonoBehaviour
 
         if (_snapToHeight && YcellSize != 0)
             position.y = Mathf.Round(position.y / YcellSize) * YcellSize;
-
 
         if (ZcellSize != 0)
             position.z = Mathf.Round(position.z / ZcellSize) * ZcellSize;

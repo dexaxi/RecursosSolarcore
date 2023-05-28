@@ -7,10 +7,10 @@ using UnityEngine;
 public class GroundTile : MonoBehaviour
 {
     [Header("Settings")]
-    public GroundTile[] neighbours;
+    [SerializeField] public TerrainType TerrainType;
+    [SerializeField] public BiomeType BiomeType;
 
     [Range(0, 10)] public int weight = 1;
-
     public Vector2Int cellCoord { get; private set; }
     public Highlightable highlightable { get; private set; }
 
@@ -29,6 +29,10 @@ public class GroundTile : MonoBehaviour
     [SerializeField] [Range(-25, -1)] float _introDepth;
     [SerializeField] [Range(1, 20)] float _introSpeed;
 
+
+    public Material[] terrainMaterials; //hacky, must be improved;
+
+    public GroundTile[] neighbours;
     private void Awake()
     {
         highlightable = GetComponent<Highlightable>();
@@ -45,7 +49,10 @@ public class GroundTile : MonoBehaviour
 
         StartCoroutine(IntroAnimationCoroutine());
     }
-
+    public void AssignMaterial() 
+    {
+        this.GetComponent<MeshRenderer>().material = terrainMaterials[(int)TerrainType];
+    }
     IEnumerator IntroAnimationCoroutine()
     {
         float elapsedTime = 0;
@@ -68,41 +75,34 @@ public class GroundTile : MonoBehaviour
         cellCoord = v;
     }
 
-    public void GetNeighBours(Dictionary<Vector2Int, GroundTile> groundGrid)
+    public List<GroundTile> GetNeighBours(Dictionary<Vector2Int, GroundTile> groundGrid)
     {
         List<GroundTile> newNeighbours = new List<GroundTile>();
         GroundTile neighbour;
+
         for (int i = -1; i < 2; i++)
         {
             if (i == 0) continue;
-
             if (groundGrid.TryGetValue(cellCoord + new Vector2Int(i, 0), out neighbour))
             {
-
                 newNeighbours.Add(neighbour);
-
             }
-
         }
 
         for (int i = -1; i < 2; i++)
         {
             if (i == 0) continue;
-
             if (groundGrid.TryGetValue(cellCoord + new Vector2Int(0, i), out neighbour))
             {
-
                 newNeighbours.Add(neighbour);
-
             }
-
         }
 
         neighbours = newNeighbours.ToArray();
-
+        return newNeighbours;
     }
 
-    public void GetHexagonalNeighBours(Dictionary<Vector2Int, GroundTile> groundGrid)
+    public List<GroundTile> GetHexagonalNeighBours(Dictionary<Vector2Int, GroundTile> groundGrid)
     {
         List<GroundTile> newNeighbours = new List<GroundTile>();
         GroundTile neighbour;
@@ -111,18 +111,15 @@ public class GroundTile : MonoBehaviour
             for (int j = -1; j < 2; j++)
             {
                 if (i == 0 && j == 0) continue;
-
                 if (groundGrid.TryGetValue(cellCoord + new Vector2Int(i, j), out neighbour))
                 {
-
                     newNeighbours.Add(neighbour);
-
                 }
             }
         }
 
         this.neighbours = newNeighbours.ToArray();
-
+        return newNeighbours;
     }
 
 }
