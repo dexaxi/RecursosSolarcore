@@ -2,17 +2,23 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[System.Serializable]
+public struct HighlightableMaterial
+{
+    [SerializeField] public string name;
+    [SerializeField] public Material material;
+}
+
 public class Highlightable : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] Material _dangerMaterial;
-    [SerializeField] Material _healMaterial;
+    //TODO: Idealmente esto sería un serializable dictionary y santas pascuas
+    [SerializeField] List<HighlightableMaterial> HighlightableMaterials;
 
-    Renderer[] _renderers;
+    private Renderer[] _renderers;
+    private Material[] _originalMaterials;
 
-    Material[] _originalMaterials;
-
-    private void Start()
+    private void Awake()
     {
         List<Renderer> rendererList = new List<Renderer>();
 
@@ -30,24 +36,29 @@ public class Highlightable : MonoBehaviour
         if (_renderers != null && _renderers.Length != 0)
         {
             _originalMaterials = new Material[_renderers.Length];
-
             for (int i = 0; i < _renderers.Length; i++)
             {
                 _originalMaterials[i] = _renderers[i].material;
             }
-
         }
     }
 
-    [ContextMenu("Hightlight")]
-    public void DangerHighlight()
+    public Material GetMaterial(string matName)
     {
-        SetMaterial(_dangerMaterial);
+        foreach (var mat in HighlightableMaterials) { if (mat.name.ToLower().Equals(matName.ToLower())) return mat.material; }
+        Debug.LogWarning("WARNING: NO MATERIAL FOUND WITH PROVIDED NAME: " + matName);
+        return null;
     }
 
-    public void HealHighlight()
+    public void Highlight(string matName) 
     {
-        SetMaterial(_healMaterial);
+        SetMaterial(GetMaterial(matName));
+    }
+
+    [ContextMenu("Hightlight")]
+    public void HighlightMouseEnter()
+    {
+        Highlight("MouseEnter");
     }
 
     [ContextMenu("Unhightlight")]
@@ -59,7 +70,7 @@ public class Highlightable : MonoBehaviour
         }
     }
 
-    void SetMaterial(Material material)
+    private void SetMaterial(Material material)
     {
         foreach (var render in _renderers)
         {

@@ -119,7 +119,7 @@ public class Ground : MonoBehaviour
 
     private void GenerateRivers() 
     {
-    
+        
     }
 
     private void RegenerateIfNotFeasable() 
@@ -152,14 +152,14 @@ public class Ground : MonoBehaviour
             }
         }
 
-        Debug.Log("Warning! No suitable biome found.");
-        TilePrefabs[TilePrefabs.Length - 1].spawnCount++;
-        return TilePrefabs[TilePrefabs.Length-1].tilePrefab;
+        Debug.LogWarning("Warning! No suitable biome found.");
+        TilePrefabs[^1].spawnCount++;
+        return TilePrefabs[^1].tilePrefab;
     }
 
     int GetTileHeight(float value)
     {
-        Debug.Log("Warning! No Valid Terrain Type Found.");
+        Debug.LogWarning("Warning! No Valid Terrain Type Found.");
         return 0;
     }
 
@@ -178,7 +178,7 @@ public class Ground : MonoBehaviour
                 GroundTiles[i].SetCellCoord(cellCoord);
 
                 GroundTiles[i].name = "Cell (" + cellCoord.x + ", " + cellCoord.y + ")";
-                GroundMap.Add(GroundTiles[i].cellCoord, GroundTiles[i]);
+                GroundMap.Add(GroundTiles[i].CellCoord, GroundTiles[i]);
                 _totalTiles++;
             }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+
 [RequireComponent(typeof(Camera))]
 public class ScreenSelector : MonoBehaviour
 {
@@ -21,8 +22,11 @@ public class ScreenSelector : MonoBehaviour
     public Action<Selectable> onSelectionCallback;
     public Action onNothingSelectedCallback;
 
-    InputMapContainer inputMapContainer;
+    private InputMapContainer inputMapContainer;
+    
+    [Header("References")]
     [SerializeField] Button confirm;
+
     private void Awake()
     {
         _camera = GetComponent<Camera>();
@@ -45,22 +49,21 @@ public class ScreenSelector : MonoBehaviour
         if (SystemInfo.deviceType == DeviceType.Handheld && Input.touchCount > 0)
         {
 
-            Touch t;
-            t = Input.GetTouch(0);
-            selectionRay = _camera.ScreenPointToRay(t.position);
+            Touch touch;
+            touch = Input.GetTouch(0);
+            selectionRay = _camera.ScreenPointToRay(touch.position);
 
-            if (Physics.Raycast(selectionRay, out hit, _range, _selectableLayers) && t.phase == UnityEngine.TouchPhase.Began)
+            if (Physics.Raycast(selectionRay, out hit, _range, _selectableLayers) && touch.phase == UnityEngine.TouchPhase.Began)
             {
-                if (!EventSystem.current.IsPointerOverGameObject(t.fingerId))
+                if (!EventSystem.current.IsPointerOverGameObject(touch.fingerId))
                 {
                     if (_selectedObject == null || _selectedObject.gameObject != hit.collider.gameObject)
                     {
-                        TryToSelectTouch(hit.collider.gameObject, t);
+                        TryToSelectTouch(hit.collider.gameObject, touch);
                     }
                 }
-
             }
-            else if (t.phase == UnityEngine.TouchPhase.Canceled)
+            else if (touch.phase == UnityEngine.TouchPhase.Canceled)
             {
                 if (_selectedObject)
                 {
@@ -68,10 +71,7 @@ public class ScreenSelector : MonoBehaviour
 
                     _selectedObject = null;
 
-                    if (onNothingSelectedCallback != null)
-                    {
-                        onNothingSelectedCallback.Invoke();
-                    }
+                    onNothingSelectedCallback?.Invoke();
                 }
             }
 
@@ -104,10 +104,7 @@ public class ScreenSelector : MonoBehaviour
 
                     _selectedObject = null;
 
-                    if (onNothingSelectedCallback != null)
-                    {
-                        onNothingSelectedCallback.Invoke();
-                    }
+                    onNothingSelectedCallback?.Invoke();
                 }
             }
         }
@@ -168,8 +165,7 @@ public class ScreenSelector : MonoBehaviour
                 {
                     _selectedObject.Click();
 
-                    if (onLeftClickCallback != null)
-                        onLeftClickCallback.Invoke(_selectedObject);
+                    onLeftClickCallback?.Invoke(_selectedObject);
                 }
             }
 
@@ -178,15 +174,10 @@ public class ScreenSelector : MonoBehaviour
                 if (_selectedObject != null)
                 {
 
-                    if (onRightClickCallback != null)
-                    {
-                        onRightClickCallback.Invoke(_selectedObject);
-                    }
+                    onRightClickCallback?.Invoke(_selectedObject);
                 }
             }
         }
-
-
 
 
     }
@@ -201,10 +192,8 @@ public class ScreenSelector : MonoBehaviour
             {
                 _selectedObject.Click();
 
-                if (onLeftClickCallback != null)
-                    onLeftClickCallback.Invoke(_selectedObject);
-                if (onRightClickCallback != null)
-                    onRightClickCallback.Invoke(_selectedObject);
+                onLeftClickCallback?.Invoke(_selectedObject);
+                onRightClickCallback?.Invoke(_selectedObject);
             }
         }
     }

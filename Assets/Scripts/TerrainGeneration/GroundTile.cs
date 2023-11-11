@@ -10,8 +10,8 @@ public class GroundTile : MonoBehaviour
     [SerializeField] public BiomeType BiomeType;
 
     [Range(0, 10)] public int weight = 1;
-    public Vector2Int cellCoord { get; private set; }
-    public Highlightable highlightable { get; private set; }
+    public Vector2Int CellCoord { get; private set; }
+    public Highlightable Highlightable { get; private set; }
 
     [HideInInspector]
     public bool isClosed;
@@ -22,19 +22,17 @@ public class GroundTile : MonoBehaviour
 
     Vector3 _originalPosition;
     Vector3 _introStartingPosition;
-    Vector3 _unitIntroStartingPosition;
 
     [SerializeField] Vector2 _cordsOffset;
     [SerializeField] [Range(-25, -1)] float _introDepth;
     [SerializeField] [Range(1, 20)] float _introSpeed;
-
 
     public Material[] terrainMaterials; //hacky, must be improved;
 
     public GroundTile[] neighbours;
     private void Awake()
     {
-        highlightable = GetComponent<Highlightable>();
+        Highlightable = GetComponent<Highlightable>();
     }
 
     void Start()
@@ -44,7 +42,7 @@ public class GroundTile : MonoBehaviour
     void IntroAnimation()
     {
         _originalPosition = transform.position;
-        _introStartingPosition = _originalPosition + new Vector3(0, 0.1f + _cordsOffset.x * Mathf.Abs(cellCoord.x) + _cordsOffset.y * Mathf.Abs(cellCoord.y), 0) * _introDepth;
+        _introStartingPosition = _originalPosition + new Vector3(0, 0.1f + _cordsOffset.x * Mathf.Abs(CellCoord.x) + _cordsOffset.y * Mathf.Abs(CellCoord.y), 0) * _introDepth;
 
         StartCoroutine(IntroAnimationCoroutine());
     }
@@ -66,9 +64,10 @@ public class GroundTile : MonoBehaviour
 
         transform.position = _originalPosition;
     }
+
     public void SetCellCoord(Vector2Int v)
     {
-        cellCoord = v;
+        CellCoord = v;
     }
 
     public List<GroundTile> GetNeighBours(Dictionary<Vector2Int, GroundTile> groundGrid)
@@ -79,7 +78,7 @@ public class GroundTile : MonoBehaviour
         for (int i = -1; i < 2; i++)
         {
             if (i == 0) continue;
-            if (groundGrid.TryGetValue(cellCoord + new Vector2Int(i, 0), out neighbour))
+            if (groundGrid.TryGetValue(CellCoord + new Vector2Int(i, 0), out neighbour))
             {
                 newNeighbours.Add(neighbour);
             }
@@ -88,7 +87,7 @@ public class GroundTile : MonoBehaviour
         for (int i = -1; i < 2; i++)
         {
             if (i == 0) continue;
-            if (groundGrid.TryGetValue(cellCoord + new Vector2Int(0, i), out neighbour))
+            if (groundGrid.TryGetValue(CellCoord + new Vector2Int(0, i), out neighbour))
             {
                 newNeighbours.Add(neighbour);
             }
@@ -107,7 +106,7 @@ public class GroundTile : MonoBehaviour
             for (int j = -1; j < 2; j++)
             {
                 if (i == 0 && j == 0) continue;
-                if (groundGrid.TryGetValue(cellCoord + new Vector2Int(i, j), out neighbour))
+                if (groundGrid.TryGetValue(CellCoord + new Vector2Int(i, j), out neighbour))
                 {
                     newNeighbours.Add(neighbour);
                 }

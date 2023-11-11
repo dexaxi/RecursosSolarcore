@@ -15,27 +15,22 @@ public class Selectable : MonoBehaviour
     private void Awake()
     {
         _collider = GetComponent<Collider>();
+        if (gameObject.layer < LayerMask.NameToLayer("Selectable")) gameObject.layer = LayerMask.NameToLayer("Selectable");
     }
 
     public void Select()
     {
-
-        if (selectAction != null)
-            selectAction.Invoke();
+        selectAction?.Invoke();
     }
 
     public void Deselect()
     {
-        if (deselectAction != null)
-            deselectAction.Invoke();
-
+        deselectAction?.Invoke();
     }
 
     public void Click()
     {
-        if (clickAction != null)
-            clickAction.Invoke();
-
+        clickAction?.Invoke();
     }
 
     public void EnableSelection()
@@ -47,6 +42,4 @@ public class Selectable : MonoBehaviour
     {
         _collider.enabled = false;
     }
-
-
 }
