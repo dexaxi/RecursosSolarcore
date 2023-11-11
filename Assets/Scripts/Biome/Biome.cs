@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Biome : MonoBehaviour
+[CreateAssetMenu(fileName = "Biome", menuName = "RecursosSolarcore/Biome", order = 0)]
+[System.Serializable]
+public class Biome : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public new string name;
+    public BiomeType Type;
+    public string Description;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public WeightedTile TilePrefab;
+
+    [HideInInspector]
+    public List<GroundTile> biomeTiles;
 }

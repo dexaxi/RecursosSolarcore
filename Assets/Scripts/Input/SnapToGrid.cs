@@ -5,7 +5,6 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class SnapToGrid : MonoBehaviour
 {
-#if UNITY_EDITOR_64
     const int _cellMaxSize = 100;
     [Space(3)]
     [Range(0.1f, _cellMaxSize)]
@@ -52,7 +51,5 @@ public class SnapToGrid : MonoBehaviour
         else
             transform.position = position;
     }
-
-#endif
 }
 

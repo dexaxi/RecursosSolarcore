@@ -11,7 +11,7 @@ public class UIInfoManager : MonoBehaviour
     [SerializeField] Image _currentSpriteBackground;
     [SerializeField] Sprite[] _portraitSprites;
 
-    public TextMeshProUGUI unitName
+    public TextMeshProUGUI UnitName
     {
         get
         {
@@ -19,18 +19,16 @@ public class UIInfoManager : MonoBehaviour
         }
         set
         {
-            _unitName = unitName;
+            _unitName = UnitName;
         }
     }
 
-    public Target currentTarget { get; private set; }
+    public Target CurrentTarget { get; private set; }
 
     public void SetTargetUnit(Target target)
     {
-        currentTarget = target;
-        Color color;
-        ColorUtility.TryParseHtmlString("#14f7ff", out color );
-        _currentSpriteBackground.color = color;                
-
+        CurrentTarget = target;
+        ColorUtility.TryParseHtmlString("#14f7ff", out Color color);
+        _currentSpriteBackground.color = color;
     }
 }

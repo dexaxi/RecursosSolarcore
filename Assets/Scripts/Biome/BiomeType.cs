@@ -1,5 +1,5 @@
 public enum BiomeType 
 {
-    BiomeType_Biome1 = 0,
-    BiomeType_Biome2 = 1
+    Biome1 = 0,
+    Biome2 = 1
 }

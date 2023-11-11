@@ -14,8 +14,8 @@ public class Target : MonoBehaviour
     [Header("Settings")]
     [SerializeField] TargetType _targetType;
 
-    private string _targetCode;
-    public string targetCode
+    private readonly string _targetCode;
+    public string TargetCode
     {
         get
         {
@@ -23,7 +23,7 @@ public class Target : MonoBehaviour
         }
     }
 
-    public TargetType targetType
+    public TargetType TargetType
     {
         get
         {
@@ -33,8 +33,8 @@ public class Target : MonoBehaviour
 
     [SerializeField] [Range(0, 10)] int _maxHealth;
 
-    public int currentHealth { get; private set; }
-    public int maxHealth
+    public int CurrentHealth { get; private set; }
+    public int MaxHealth
     {
         get
         {
@@ -42,25 +42,25 @@ public class Target : MonoBehaviour
         }
     }
 
-    public bool isAlive
+    public bool IsAlive
     {
         get
         {
-            return currentHealth > 0;
+            return CurrentHealth > 0;
         }
     }
 
 
-    public Highlightable highlightable { get; private set; }
+    public Highlightable Highlightable { get; private set; }
 
-    public GroundTile currentGroundTile { get; private set; }
+    public GroundTile CurrentGroundTile { get; private set; }
 
-    CameraMovement _cameraMovement;
+    private CameraMovement _cameraMovement;
 
 
     void Awake()
     {
-        highlightable = GetComponent<Highlightable>();
+        Highlightable = GetComponent<Highlightable>();
 
         _cameraMovement = FindObjectOfType<CameraMovement>();
 
@@ -73,7 +73,7 @@ public class Target : MonoBehaviour
 
     public void SetCurrentGroundTile(GroundTile tile)
     {
-        currentGroundTile = tile;
+        CurrentGroundTile = tile;
     }
 
     void Start()
@@ -94,7 +94,7 @@ public class Target : MonoBehaviour
     {
             foreach (TextMeshProUGUI tmpro in _statsMesh) 
             {
-                tmpro.text += $"{GetParameterName(new { currentHealth })}: {currentHealth}";
+                tmpro.text += $"{GetParameterName(new { CurrentHealth })}: {CurrentHealth}";
             }
     }
 
