@@ -165,4 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightableMaterials:
   - name: MouseEnter
-    material: {fileID: 2100000, guid: a4b62a69d54e80347bd546999c6d4b9e, type: 2}
+    material: {fileID: 2100000, guid: b7d4843ec79674a42bedfb0c6d56f3e4, type: 2}
+  - name: InvalidTerrain
+    material: {fileID: 2100000, guid: 6767c389e6f9f2346a95338c80c882de, type: 2}

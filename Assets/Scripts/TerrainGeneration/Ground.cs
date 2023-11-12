@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Ground : MonoBehaviour
 {
+    public static Ground Instance;
+
     [Header("References")]
     [SerializeField] Generation Generated;
     [SerializeField] GroundTile[] GroundTiles;
@@ -24,7 +26,6 @@ public class Ground : MonoBehaviour
     [SerializeField] [Range(0.1f, 5f)] float CellSize;
     [SerializeField] Color GizmoColor;
 
-    private BiomeHandler _biomeHandler;
     private Biome[] _biomeScriptableObjects;
     private float _totalBiomeWeight;
     private int _totalTiles;
@@ -53,16 +54,19 @@ public class Ground : MonoBehaviour
 
     private void Awake()
     {
+
+        if (Instance == null) Instance = this;
+        else DestroyImmediate(Instance);
+
         _noiseGenerator = new FastNoiseLite();
         _noiseGenerator.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2S);
         _totalTiles = MaxX * MaxY;
         HasLoaded = false;
-        _biomeHandler = FindObjectOfType<BiomeHandler>();
 
-        _biomeHandler.AddBiomeFilter(BiomeType.Greenland);
-        _biomeHandler.AddBiomeFilter(BiomeType.Water);
-        _biomeHandler.AddBiomeFilter(BiomeType.Rocky);
-        _biomeHandler.AddBiomeFilter(BiomeType.Desert);
+        BiomeHandler.Instance.AddBiomeFilter(BiomeType.Greenland);
+        BiomeHandler.Instance.AddBiomeFilter(BiomeType.Water);
+        BiomeHandler.Instance.AddBiomeFilter(BiomeType.Rocky);
+        BiomeHandler.Instance.AddBiomeFilter(BiomeType.Desert);
         StartMapGeneration();
     }
 
@@ -82,14 +86,6 @@ public class Ground : MonoBehaviour
         }
 
         SetGroundGridFromScene();
-
-        foreach (var target in FindObjectsOfType<Target>())
-        {
-            if (GroundMap.TryGetValue(ToCellCoords(target.transform.position), out GroundTile tile))
-            {
-                target.SetCurrentGroundTile(tile);
-            }
-        }
     }
 
     void GenerateMap()
@@ -121,7 +117,7 @@ public class Ground : MonoBehaviour
                     var newTile = Instantiate(tile, new Vector3(i * CellSize, tile.transform.position.y * CellSize, j * CellSize), Quaternion.identity);
                     newTile.transform.parent = transform;
                     outTile = newTile.GetComponent<GroundTile>();
-                    outTile.SetBiome(biome, _biomeHandler);
+                    outTile.SetBiome(biome);
                     GroundMap.Add(v, outTile);
                 }
             }
@@ -189,7 +185,7 @@ public class Ground : MonoBehaviour
         GroundTiles = GetComponentsInChildren<GroundTile>();
         GroundMap = new Dictionary<Vector2Int, GroundTile>();
 
-        _biomeScriptableObjects = _biomeHandler.GetFilteredBiomes().ToArray();
+        _biomeScriptableObjects = BiomeHandler.Instance.GetFilteredBiomes().ToArray();
         _minTilesPerBiome = (int)(MinBiomeProportion * (_totalTiles / _biomeScriptableObjects.Length));
 
         if (GroundTiles != null && GroundTiles.Length != 0)

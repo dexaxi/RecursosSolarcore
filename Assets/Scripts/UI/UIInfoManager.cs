@@ -6,29 +6,20 @@ using TMPro;
 public class UIInfoManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] TextMeshProUGUI _unitName;
-    [SerializeField] Image _currentSprite;
-    [SerializeField] Image _currentSpriteBackground;
-    [SerializeField] Sprite[] _portraitSprites;
+    [SerializeField] TextMeshProUGUI _infoText;
+    [SerializeField] Image _infoCurrentSprite;
+    [SerializeField] Image _infoCurrentBackground;
 
-    public TextMeshProUGUI UnitName
+    public TextMeshProUGUI InfoText
     {
         get
         {
-            return _unitName;
+            return _infoText;
         }
         set
         {
-            _unitName = UnitName;
+            _infoText = InfoText;
         }
     }
 
-    public Target CurrentTarget { get; private set; }
-
-    public void SetTargetUnit(Target target)
-    {
-        CurrentTarget = target;
-        ColorUtility.TryParseHtmlString("#14f7ff", out Color color);
-        _currentSpriteBackground.color = color;
-    }
 }

@@ -18,6 +18,9 @@ public class Highlightable : MonoBehaviour
     private Renderer[] _renderers;
     private Material[] _originalMaterials;
 
+    public Material CurrentMaterial { get; private set; }
+    public string CurrentMaterialName { get; private set; }
+
     private void Awake()
     {
         UpdateOriginalMaterials();
@@ -57,7 +60,9 @@ public class Highlightable : MonoBehaviour
 
     public void Highlight(string matName) 
     {
-        SetMaterial(GetMaterial(matName));
+        CurrentMaterial = GetMaterial(matName);
+        CurrentMaterialName = matName;
+        SetMaterial(CurrentMaterial);
     }
 
     [ContextMenu("Hightlight")]
@@ -82,6 +87,5 @@ public class Highlightable : MonoBehaviour
             render.material = material;
         }
     }
-
 
 }

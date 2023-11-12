@@ -11,41 +11,46 @@ using System.Linq.Expressions;
 
 public class BiomeHandler : MonoBehaviour
 {
-    private readonly Dictionary<BiomeType, Biome> biomes = new();
+    public static BiomeHandler Instance;
+
+    private readonly Dictionary<BiomeType, Biome> _biomes = new();
 
     public Dictionary<BiomeType, List<GroundTile>> TilesPerBiome = new();
 
-    [SerializeField] private List<BiomeType> BiomeFilters = new();
+    [SerializeField] private List<BiomeType> _biomeFilters = new();
 
     private void Awake()
     {
+        if (Instance == null) Instance = this;
+        else Destroy(this);
+
         var biomeArray = Resources.LoadAll("ScriptableObjects/Biomes", typeof(Biome));
         foreach (Biome biome in biomeArray.Cast<Biome>())
         {
             biome.StartBiome();
-            biomes[biome.Type] = biome;
+            _biomes[biome.Type] = biome;
             TilesPerBiome[biome.Type] = new List<GroundTile>();
         }
     }
 
     public bool AddBiomeFilter(BiomeType biome) 
     {
-        if (BiomeFilters.Contains(biome)) return false;
-        BiomeFilters.Add(biome);
+        if (_biomeFilters.Contains(biome)) return false;
+        _biomeFilters.Add(biome);
         return true;
     }
     
     public bool RemoveBiomeFilter(BiomeType biome) 
     {
-        return BiomeFilters.Remove(biome);
+        return _biomeFilters.Remove(biome);
     }
 
     public List<Biome> GetFilteredBiomes()
     {
         List<Biome> returnBiomes = new();
-        for (int i = 0; i < BiomeFilters.Count; i++)
+        for (int i = 0; i < _biomeFilters.Count; i++)
         {
-            returnBiomes.Add(biomes[BiomeFilters[i]]);
+            returnBiomes.Add(_biomes[_biomeFilters[i]]);
         }
         return returnBiomes;
     }

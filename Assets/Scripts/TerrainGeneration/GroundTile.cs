@@ -118,20 +118,20 @@ public class GroundTile : MonoBehaviour
         return newNeighbours;
     }
 
-    public void SetBiome(Biome biome, BiomeHandler biomeHandler) 
+    public void SetBiome(Biome biome) 
     {
         Biome = biome;
         GetComponent<MeshFilter>().mesh = Biome.Mesh;
         GetComponent<MeshRenderer>().material = Biome.Material;
         Highlightable.UpdateOriginalMaterials();
-        biomeHandler.TilesPerBiome[Biome.Type].Add(this);
+        BiomeHandler.Instance.TilesPerBiome[Biome.Type].Add(this);
     }
 
     private void HighlightBiomeTiles() 
     {
         if (!Draggable.IsDragging) 
         {
-        List < GroundTile > biomeTiles = FindObjectOfType<BiomeHandler>().TilesPerBiome[Biome.Type];
+        List < GroundTile > biomeTiles = BiomeHandler.Instance.TilesPerBiome[Biome.Type];
         foreach (GroundTile tile in biomeTiles) 
         {
             tile.Highlightable.Highlight("Highlight");
@@ -141,7 +141,7 @@ public class GroundTile : MonoBehaviour
     
     private void UnhighlightBiomeTiles() 
     {
-        List < GroundTile > biomeTiles = FindObjectOfType<BiomeHandler>().TilesPerBiome[Biome.Type];
+        List < GroundTile > biomeTiles = BiomeHandler.Instance.TilesPerBiome[Biome.Type];
         foreach (GroundTile tile in biomeTiles) 
         {
             tile.Highlightable.Unhighlight();

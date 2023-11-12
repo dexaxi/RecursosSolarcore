@@ -14,13 +14,10 @@ public class IsOnTouchDevice : MonoBehaviour
 
     private void Awake()
     {
-        if (SystemInfo.deviceType != DeviceType.Handheld)
+        if (SystemInfo.deviceType == DeviceType.Handheld)
         {
-            if (mobileDeviceAction != null)
-            {
-                mobileDeviceAction.Invoke();
-            }
-
+            mobileDeviceAction?.Invoke();
+            Application.targetFrameRate = 120;
             foreach (GameObject go in DesktopArray)
             {
                 go.SetActive(false);
@@ -34,10 +31,7 @@ public class IsOnTouchDevice : MonoBehaviour
 
         else
         {
-            if (desktopDeviceAction != null)
-            {
-                mobileDeviceAction.Invoke();
-            }
+            desktopDeviceAction?.Invoke();
 
             foreach (GameObject go in DesktopArray)
             {

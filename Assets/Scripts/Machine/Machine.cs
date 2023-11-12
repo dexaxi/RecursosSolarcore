@@ -9,10 +9,11 @@ public class Machine : ScriptableObject
 {
     public const float SELL_COST_MULTIPLIER = 0.8f;
     public new string name;
+    public MachineType Type;
     public string Description;
     public float Cost;
-    public MeshFilter MeshFilter;
-    public MeshRenderer MeshRenderer;
+    public Mesh MeshFilter;
+    public Material MeshRenderer;
 
     public float CalculateSellCost()
     {
