@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f2aadf987821644a8327a532c2e644, type: 3}
   m_Name: Biome2
   m_EditorClassIdentifier: 
-  name: Biome2
+  name: Water biome
   Type: 1
-  Description: Biome2 Description
-  TilePrefab:
-    tilePrefab: {fileID: 1810241591079234738, guid: 3f1e9e61fe75cbc4da589bff98ea237e, type: 3}
-    biomeWeight: 1
-    spawnCount: 0
+  Description: Water terrain
+  Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  Material: {fileID: 2100000, guid: f5ffb23c71776424f8f776c97d3fd190, type: 2}
+  tilePrefab: {fileID: 1810241591079234738, guid: b6e990fa36720ba419cbd35af466d5d5, type: 3}
+  biomeWeight: 1
   biomeTiles: []
+  spawnCount: 24

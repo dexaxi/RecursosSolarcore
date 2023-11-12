@@ -9,15 +9,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1810241591079234737}
+  - component: {fileID: 1810241591079234762}
+  - component: {fileID: 1810241591079234767}
+  - component: {fileID: 1810241591079234766}
   - component: {fileID: 1810241591079234736}
   - component: {fileID: 1810241591079234739}
-  - component: {fileID: 1810241591079234766}
   - component: {fileID: 1810241591079234765}
   - component: {fileID: 1810241591079234764}
-  - component: {fileID: 1810241591079234767}
-  - component: {fileID: 1810241591079234762}
+  - component: {fileID: -7065260921662222213}
   m_Layer: 0
-  m_Name: Biome 2
+  m_Name: BiomeCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,6 +39,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1810241591079234762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810241591079234738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b8042bb2079a5145803bb04a6951d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClosed: 0
+  Biome: {fileID: 0}
+  _cordsOffset: {x: 0.5, y: 0.5}
+  _introDepth: -3
+  _introSpeed: 20
+  neighbours: []
+--- !u!114 &1810241591079234767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810241591079234738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9ca44f827307344b126b46c1f1cdfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighlightableMaterials:
+  - name: Highlight
+    material: {fileID: 2100000, guid: b7d4843ec79674a42bedfb0c6d56f3e4, type: 2}
+--- !u!114 &1810241591079234766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810241591079234738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6126dda5c2c543f46884c0ccd4dd97e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XcellSize: 2
+  YcellSize: 0.5
+  ZcellSize: 2
+  _snapToHeight: 0
+  _localPosition: 0
+  _doFixHeight: 1
+  _fixedHeight: 0
 --- !u!23 &1810241591079234736
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58,7 +111,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1a5903867c8f0a4a8a94c3fe36dad11, type: 2}
+  - {fileID: 2100000, guid: bce32739db90b6843ac7f0179bcaa6b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,23 +141,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810241591079234738}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1810241591079234766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810241591079234738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6126dda5c2c543f46884c0ccd4dd97e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  XcellSize: 2
-  YcellSize: 0.5
-  ZcellSize: 2
-  _snapToHeight: 0
-  _localPosition: 0
 --- !u!65 &1810241591079234765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -130,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb459caa44638964a886711503a8f35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1810241591079234767
+--- !u!114 &-7065260921662222213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,34 +175,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1810241591079234738}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de9ca44f827307344b126b46c1f1cdfd, type: 3}
+  m_Script: {fileID: 11500000, guid: e83d7782d6605e0498c48381b16d9936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dangerMaterial: {fileID: 2100000, guid: b94bf167c58044c45ab0377faa9da5f1, type: 2}
-  _healMaterial: {fileID: 2100000, guid: 4fcf3b55ef65e5e4f92d928308e3fe99, type: 2}
---- !u!114 &1810241591079234762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810241591079234738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8042bb2079a5145803bb04a6951d61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BiomeType: 1
-  weight: 1
-  isClosed: 0
-  gCost: 0
-  parent: {fileID: 0}
-  _cordsOffset: {x: 0.5, y: 0.5}
-  _introDepth: -3
-  _introSpeed: 20
-  terrainMaterials:
-  - {fileID: 2100000, guid: 0f29e3c1c576f6641b9e474f6b194480, type: 2}
-  - {fileID: 2100000, guid: d1a5903867c8f0a4a8a94c3fe36dad11, type: 2}
-  - {fileID: 2100000, guid: 981abf7a53e6a964fba6bc48555ec31a, type: 2}
-  - {fileID: 2100000, guid: a4b62a69d54e80347bd546999c6d4b9e, type: 2}
-  neighbours: []

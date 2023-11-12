@@ -1,5 +1,7 @@
 public enum BiomeType 
 {
-    Biome1 = 0,
-    Biome2 = 1
+    Greenland = 0,
+    Water = 1,
+    Rocky = 2,
+    Desert = 3
 }

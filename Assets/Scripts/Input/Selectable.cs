@@ -11,6 +11,8 @@ public class Selectable : MonoBehaviour
     public Action clickAction;
     public Action selectAction;
     public Action deselectAction;
+    public Action hoverAction;
+    public Action stopHoverAction;
 
     private void Awake()
     {
@@ -31,6 +33,16 @@ public class Selectable : MonoBehaviour
     public void Click()
     {
         clickAction?.Invoke();
+    }
+
+    public void Hover() 
+    {
+        hoverAction?.Invoke();
+    }
+
+    public void StopHover() 
+    {
+        stopHoverAction?.Invoke(); 
     }
 
     public void EnableSelection()

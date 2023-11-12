@@ -4,25 +4,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Draggable : MonoBehaviour
+public class Draggable : Hoverable
 {
+    public static bool IsDragging;
+
     public bool IsDraggable { get; private set; } = true;
 
     protected Vector3 _mousePosOffset;
     protected bool _isDragging;
-    protected bool _isMouseOver;
-
-    protected Highlightable _highlightable;
-
-    public virtual void OnMouseOver() { }
-    public virtual void OnMouseEnter() 
-    {
-        _isMouseOver = true;
-    }
-    public virtual void OnMouseExit() 
-    {
-        _isMouseOver = false;
-    }
 
     public virtual void OnMouseDown()
     {
@@ -33,11 +22,13 @@ public class Draggable : MonoBehaviour
     public virtual void OnMouseUp() 
     {
         _isDragging = false;
+        IsDragging = false;
     }
 
     public virtual void OnMouseDrag()
     {
         _isDragging = true;
+        IsDragging = true;
         if (IsDraggable) 
         {
             Vector3 screenPos = new(Input.mousePosition.x, Input.mousePosition.y, GetDraggableItemWorldPosToScreenPoint().z);

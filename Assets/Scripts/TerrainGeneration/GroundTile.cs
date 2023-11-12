@@ -1,38 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(Selectable))]
 [RequireComponent(typeof(Highlightable))]
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(MeshFilter))]
 public class GroundTile : MonoBehaviour
 {
-    [Header("Settings")]
-    [SerializeField] public BiomeType BiomeType;
-
-    [Range(0, 10)] public int weight = 1;
     public Vector2Int CellCoord { get; private set; }
     public Highlightable Highlightable { get; private set; }
+    public Selectable Selectable { get; private set; }
 
     [HideInInspector]
     public bool isClosed;
-    [HideInInspector]
-    public float gCost;
-    [HideInInspector]
-    public GroundTile parent;
 
     Vector3 _originalPosition;
     Vector3 _introStartingPosition;
 
+    [Header("Settings")]
+    [SerializeField] public Biome Biome;
     [SerializeField] Vector2 _cordsOffset;
     [SerializeField] [Range(-25, -1)] float _introDepth;
     [SerializeField] [Range(1, 20)] float _introSpeed;
-
-    public Material[] terrainMaterials; //hacky, must be improved;
 
     public GroundTile[] neighbours;
     private void Awake()
     {
         Highlightable = GetComponent<Highlightable>();
+        Selectable = GetComponent<Selectable>();
+        Selectable.hoverAction += HighlightBiomeTiles;
+        Selectable.stopHoverAction += UnhighlightBiomeTiles;
+        Selectable.clickAction += PrintBiomeData;
     }
 
     void Start()
@@ -99,14 +101,13 @@ public class GroundTile : MonoBehaviour
 
     public List<GroundTile> GetHexagonalNeighBours(Dictionary<Vector2Int, GroundTile> groundGrid)
     {
-        List<GroundTile> newNeighbours = new List<GroundTile>();
-        GroundTile neighbour;
+        List<GroundTile> newNeighbours = new();
         for (int i = -1; i < 2; i++)
         {
             for (int j = -1; j < 2; j++)
             {
                 if (i == 0 && j == 0) continue;
-                if (groundGrid.TryGetValue(CellCoord + new Vector2Int(i, j), out neighbour))
+                if (groundGrid.TryGetValue(CellCoord + new Vector2Int(i, j), out GroundTile neighbour))
                 {
                     newNeighbours.Add(neighbour);
                 }
@@ -117,4 +118,58 @@ public class GroundTile : MonoBehaviour
         return newNeighbours;
     }
 
+    public void SetBiome(Biome biome, BiomeHandler biomeHandler) 
+    {
+        Biome = biome;
+        GetComponent<MeshFilter>().mesh = Biome.Mesh;
+        GetComponent<MeshRenderer>().material = Biome.Material;
+        Highlightable.UpdateOriginalMaterials();
+        biomeHandler.TilesPerBiome[Biome.Type].Add(this);
+    }
+
+    private void HighlightBiomeTiles() 
+    {
+        if (!Draggable.IsDragging) 
+        {
+        List < GroundTile > biomeTiles = FindObjectOfType<BiomeHandler>().TilesPerBiome[Biome.Type];
+        foreach (GroundTile tile in biomeTiles) 
+        {
+            tile.Highlightable.Highlight("Highlight");
+        }
+        }
+    }    
+    
+    private void UnhighlightBiomeTiles() 
+    {
+        List < GroundTile > biomeTiles = FindObjectOfType<BiomeHandler>().TilesPerBiome[Biome.Type];
+        foreach (GroundTile tile in biomeTiles) 
+        {
+            tile.Highlightable.Unhighlight();
+        }
+    }
+
+    [ContextMenu("PrintTileData")]
+    public void PrintTileData() 
+    {
+        string data;
+        data = "Tile Data\n";
+        data += "Coords: " + CellCoord.ToString() + "\n";
+        data += "BiomeType: " + Biome.Type + "\n";
+
+        Debug.Log(data);
+    }
+
+    [ContextMenu("PrintBiomeData")]
+    public void PrintBiomeData() 
+    {
+        string data = "";
+        data += "Biome Data\n";
+        data += "Name: " + Biome.name + "\n";
+        data += "Description: " + Biome.Description + "\n";
+        data += "Type: " + Biome.Type + "\n";
+        data += "spawnCount: " + Biome.spawnCount + "\n";
+        data += "biomeWeight: " + Biome.biomeWeight + "\n";
+        data += "tilePrefab.name: " + Biome.tilePrefab.name + "\n";
+        Debug.Log(data);
+    }
 }

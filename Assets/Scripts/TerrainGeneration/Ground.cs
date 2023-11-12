@@ -25,7 +25,7 @@ public class Ground : MonoBehaviour
     [SerializeField] Color GizmoColor;
 
     private BiomeHandler _biomeHandler;
-    private WeightedTile[] _tilePrefabs;
+    private Biome[] _biomeScriptableObjects;
     private float _totalBiomeWeight;
     private int _totalTiles;
     private FastNoiseLite _noiseGenerator;
@@ -38,6 +38,9 @@ public class Ground : MonoBehaviour
             return CellSize;
         }
     }
+
+    [HideInInspector]
+    public bool HasLoaded { get; private set; }
 
     const float RootOf2 = 1.41421356f;
     const float MinimumFloatValue = 0.01f;
@@ -52,12 +55,14 @@ public class Ground : MonoBehaviour
     {
         _noiseGenerator = new FastNoiseLite();
         _noiseGenerator.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2S);
-        _totalTiles = MaxX * MaxY; 
-
+        _totalTiles = MaxX * MaxY;
+        HasLoaded = false;
         _biomeHandler = FindObjectOfType<BiomeHandler>();
 
-        _biomeHandler.AddBiomeFilter(BiomeType.Biome1);
-        _biomeHandler.AddBiomeFilter(BiomeType.Biome2);
+        _biomeHandler.AddBiomeFilter(BiomeType.Greenland);
+        _biomeHandler.AddBiomeFilter(BiomeType.Water);
+        _biomeHandler.AddBiomeFilter(BiomeType.Rocky);
+        _biomeHandler.AddBiomeFilter(BiomeType.Desert);
         StartMapGeneration();
     }
 
@@ -83,20 +88,19 @@ public class Ground : MonoBehaviour
             if (GroundMap.TryGetValue(ToCellCoords(target.transform.position), out GroundTile tile))
             {
                 target.SetCurrentGroundTile(tile);
-                _biomeHandler.TilesPerBiome[tile.BiomeType].Add(tile);
             }
         }
     }
 
     void GenerateMap()
     {
-        if(GroundMap != null) GroundMap.Clear();
+        GroundMap?.Clear();
         SetGroundGridFromScene();
 
         float baseX = UnityEngine.Random.Range(-MaxX, MaxX);
         float basey = UnityEngine.Random.Range(-MaxY, MaxY);
 
-        foreach (var prefab in _tilePrefabs) 
+        foreach (var prefab in _biomeScriptableObjects) 
         {
             _totalBiomeWeight += prefab.biomeWeight;
         }
@@ -106,23 +110,24 @@ public class Ground : MonoBehaviour
             for (int j = 0; j < MaxY; j++)
             {
                 GroundTile outTile;
-                Vector2Int v = new Vector2Int(i, j);
-                if (GroundMap.TryGetValue(v, out outTile) == false)
+                Vector2Int v = new(i, j);
+                if (GroundMap.TryGetValue(v, out _) == false)
                 {
                     float noiseValue = Mathf.PerlinNoise(baseX + i * HeightVariation, basey + j * HeightVariation);
                     float biomeNoise = _noiseGenerator.GetNoise(baseX + i * BiomeVariation, basey + j * BiomeVariation);
-                    var tile = GetTileBiome(biomeNoise);
-                    tile.transform.position = new Vector3(tile.transform.position.x, GetTileHeight(noiseValue) ,tile.transform.position.z);
+                    var biome = GetTileBiome(biomeNoise);
+                    var tile = biome.tilePrefab;
+                    tile.transform.position = new Vector3(tile.transform.position.x, GetTileHeight(biome.Type) ,tile.transform.position.z);
                     var newTile = Instantiate(tile, new Vector3(i * CellSize, tile.transform.position.y * CellSize, j * CellSize), Quaternion.identity);
                     newTile.transform.parent = transform;
                     outTile = newTile.GetComponent<GroundTile>();
+                    outTile.SetBiome(biome, _biomeHandler);
                     GroundMap.Add(v, outTile);
                 }
             }
         }
 
         RegenerateIfNotFeasable();
-
     }
 
     private void GenerateRivers() 
@@ -132,14 +137,16 @@ public class Ground : MonoBehaviour
 
     private void RegenerateIfNotFeasable() 
     {
-        for (int i = 0; i < _tilePrefabs.Length; i++)
+        for (int i = 0; i < _biomeScriptableObjects.Length; i++)
         {
-            if (_tilePrefabs[i].spawnCount < _minTilesPerBiome)
+            if (_biomeScriptableObjects[i].spawnCount < _minTilesPerBiome)
             {
-                Debug.Log("Regenerating because of Biome: " + (BiomeType)i + " spawnCount: " + _tilePrefabs[i].spawnCount + " minSpawnCount: " + _minTilesPerBiome);
+                Debug.Log("Regenerating because of Biome: " + (BiomeType)i + " spawnCount: " + _biomeScriptableObjects[i].spawnCount + " minSpawnCount: " + _minTilesPerBiome);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
+        Debug.Log("Map loaded successfully.");
+        HasLoaded = true;
     }
 
     public void Regenerate() 
@@ -147,28 +154,32 @@ public class Ground : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    GameObject GetTileBiome(float value)
+    Biome GetTileBiome(float value)
     {
         float biomeThreshhold = 0;
-        for (int i = 0; i < _tilePrefabs.Length; i++) 
+        for (int i = 0; i < _biomeScriptableObjects.Length; i++) 
         {
-            biomeThreshhold += _tilePrefabs[i].biomeWeight / _totalBiomeWeight;
-            if (value < biomeThreshhold && _tilePrefabs[i].biomeWeight != 0)
+            biomeThreshhold += _biomeScriptableObjects[i].biomeWeight / _totalBiomeWeight;
+            if (value < biomeThreshhold && _biomeScriptableObjects[i].biomeWeight != 0)
             {
-                _tilePrefabs[i].spawnCount++;
-                return _tilePrefabs[i].tilePrefab;
+                _biomeScriptableObjects[i].spawnCount++;
+                return _biomeScriptableObjects[i];
             }
         }
-
         Debug.LogWarning("Warning! No suitable biome found.");
-        _tilePrefabs[^1].spawnCount++;
-        return _tilePrefabs[^1].tilePrefab;
+        _biomeScriptableObjects[^1].spawnCount++;
+        return _biomeScriptableObjects[^1];
     }
 
-    int GetTileHeight(float value)
+    float GetTileHeight(BiomeType type)
     {
-        Debug.LogWarning("Warning! No Valid Terrain Type Found.");
-        return 0;
+        switch (type)
+        {
+            default:
+                return 0;
+            case BiomeType.Water:
+                return -0.3f;
+        }
     }
 
 
@@ -178,8 +189,8 @@ public class Ground : MonoBehaviour
         GroundTiles = GetComponentsInChildren<GroundTile>();
         GroundMap = new Dictionary<Vector2Int, GroundTile>();
 
-        _tilePrefabs = _biomeHandler.GetFilteredBiomes().ToArray();
-        _minTilesPerBiome = (int)(MinBiomeProportion * (_totalTiles / _tilePrefabs.Length));
+        _biomeScriptableObjects = _biomeHandler.GetFilteredBiomes().ToArray();
+        _minTilesPerBiome = (int)(MinBiomeProportion * (_totalTiles / _biomeScriptableObjects.Length));
 
         if (GroundTiles != null && GroundTiles.Length != 0)
         {
@@ -221,5 +232,44 @@ public class Ground : MonoBehaviour
             }
         }
     }
+
+    private int[,] RotateMatrixCounterClockwise(int[,] oldMatrix)
+    {
+        int[,] newMatrix = new int[oldMatrix.GetLength(1), oldMatrix.GetLength(0)];
+        int newColumn, newRow = 0;
+        for (int oldColumn = oldMatrix.GetLength(1) - 1; oldColumn >= 0; oldColumn--)
+        {
+            newColumn = 0;
+            for (int oldRow = 0; oldRow < oldMatrix.GetLength(0); oldRow++)
+            {
+                newMatrix[newRow, newColumn] = oldMatrix[oldRow, oldColumn];
+                newColumn++;
+            }
+            newRow++;
+        }
+        return newMatrix;
+    }
+
+    private int[,] RotateMatrixNTimes(int[,] oldMatrix, int times)
+    {
+        int[,] returnMatrix = oldMatrix;
+        while (times > 0) 
+        {
+            returnMatrix = RotateMatrixCounterClockwise(returnMatrix);
+            times--;
+        }
+        return returnMatrix;
+    }
+
+    public GroundTile GetTileFromCellCoords(Vector2Int cellCoords) 
+    {
+        return GroundMap[cellCoords];
+    }
+
+    public GroundTile GetTileFromCellCoords(int x, int y) 
+    {
+        return GroundMap[new Vector2Int(x, y)];
+    }
+
 }
 

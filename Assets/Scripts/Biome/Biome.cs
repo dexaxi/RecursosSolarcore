@@ -6,12 +6,27 @@ using UnityEngine;
 [System.Serializable]
 public class Biome : ScriptableObject
 {
+    [Header("Text")]
     public new string name;
     public BiomeType Type;
     public string Description;
 
-    public WeightedTile TilePrefab;
+    [Header("Rendering")]
+    public Mesh Mesh;
+    public Material Material;
+
+    [Header("Logic")]
+    public GameObject tilePrefab;
+    public int biomeWeight;
 
     [HideInInspector]
     public List<GroundTile> biomeTiles;
+
+    [HideInInspector]
+    public int spawnCount;
+
+    public void StartBiome() 
+    {
+        spawnCount = 0;
+    }
 }

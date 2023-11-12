@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Highlightable))]
-[RequireComponent(typeof(Selectable))]
 public class PlaceableMachine : Draggable
 {
     [SerializeField] private Machine _machine;
-    private Selectable _selectable;
 
     public override void OnMouseOver()
     {
@@ -17,13 +14,11 @@ public class PlaceableMachine : Draggable
     public override void OnMouseEnter()
     {
         base.OnMouseEnter();
-        _highlightable.Highlight("MouseEnter");
     }
 
     public override void OnMouseExit()
     {
         base.OnMouseExit();
-        if (!_isDragging) _highlightable.Unhighlight();
     }
 
     public override void OnMouseDown()
@@ -34,7 +29,6 @@ public class PlaceableMachine : Draggable
     public override void OnMouseUp() 
     {
         base.OnMouseUp();
-        if (!_isMouseOver) _highlightable.Unhighlight();
     }
 
     public override void OnMouseDrag()
@@ -54,6 +48,17 @@ public class PlaceableMachine : Draggable
     private void HandleSelectActions() 
     {
         _selectable.clickAction += ShowMachineInfo;
+        _selectable.hoverAction += HighlightOnHover;
+        _selectable.stopHoverAction += UnhighlightOnLeave;
+    }
+
+    private void HighlightOnHover() 
+    {
+        _highlightable.Highlight("MouseEnter");
+    }
+    private void UnhighlightOnLeave() 
+    {
+        if (!_isDragging) _highlightable.Unhighlight();
     }
 
     public void ShowMachineInfo() 

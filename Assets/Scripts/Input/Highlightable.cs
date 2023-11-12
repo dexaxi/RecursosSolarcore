@@ -20,6 +20,11 @@ public class Highlightable : MonoBehaviour
 
     private void Awake()
     {
+        UpdateOriginalMaterials();
+    }
+
+    public void UpdateOriginalMaterials() 
+    {
         List<Renderer> rendererList = new List<Renderer>();
 
         foreach (var renderer in GetComponentsInChildren<Renderer>())
