@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlaceableMachine : Draggable
 {
+    [Header("Machine Settings")]
     [SerializeField] private Machine _machine;
 
     public override void OnMouseOver()
