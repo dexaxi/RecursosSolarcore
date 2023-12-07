@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class Ground : MonoBehaviour
 {
@@ -215,6 +216,17 @@ public class Ground : MonoBehaviour
         v /= CellSize;
 
         return new Vector2Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.z));
+    }
+
+    public Vector2Int FindEmptyCellCoords() 
+    {
+        GroundTile[] tiles = FindObjectsOfType<GroundTile>();
+        foreach (GroundTile tile in tiles) 
+        {
+            if (!tile.isClosed) return ToCellCoords(tile.transform.position);
+        }
+
+        return Vector2Int.zero;
     }
 
     private void OnDrawGizmos()

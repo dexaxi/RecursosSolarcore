@@ -14,7 +14,7 @@ public class Machine : ScriptableObject
     public float Cost;
     public Mesh MeshFilter;
     public Material MeshRenderer;
-
+    public Sprite ShopSprite;
     public float CalculateSellCost()
     {
         return Cost * SELL_COST_MULTIPLIER;

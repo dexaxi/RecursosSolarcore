@@ -13,16 +13,28 @@ public class MachineShop : MonoBehaviour
         _itemHolders = GetComponentsInChildren<ItemHolder>();
     }
 
+    private void Start()
+    {
+        MachineHandler.Instance.AddMachineFilter(MachineType.Type01);
+        MachineHandler.Instance.AddMachineFilter(MachineType.Type02);
+        MachineHandler.Instance.AddMachineFilter(MachineType.Type03);
+        MachineHandler.Instance.AddMachineFilter(MachineType.Type04);
+        MachineHandler.Instance.AddMachineFilter(MachineType.Type05);
+        MachineHandler.Instance.AddMachineFilter(MachineType.Type06);
+        PopulateShop();
+    }
+
     public void PopulateShop()
     {
         MachineHandler machineHandler = MachineHandler.Instance;
 
         _allFilteredMachines = machineHandler.GetFilteredMachines();
         Queue<Machine> machineQueue = new(_allFilteredMachines);
-
         foreach (ItemHolder itemHolder in _itemHolders) 
         {
-            itemHolder.SetMachine(machineQueue.Dequeue());
+            Machine machine = machineQueue.Dequeue();
+            Debug.Log(machine.name);
+            itemHolder.SetMachine(machine);
         }
     }
 

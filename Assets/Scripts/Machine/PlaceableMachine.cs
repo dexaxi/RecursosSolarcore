@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
+using TMPro;
 using UnityEngine;
 
 public class PlaceableMachine : Draggable
@@ -35,7 +35,9 @@ public class PlaceableMachine : Draggable
         base.OnMouseUp();
         if (Ground.Instance.GroundMap.TryGetValue(Ground.Instance.ToCellCoords(transform.position), out GroundTile tile))
         {
+            if (GroundTile != null) GroundTile.isClosed = false;
             GroundTile = tile;
+            GroundTile.isClosed = true;
         }
 
         if (!IsOnValidTerrain())
