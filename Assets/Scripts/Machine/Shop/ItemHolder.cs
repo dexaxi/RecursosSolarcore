@@ -19,7 +19,7 @@ public class ItemHolder : MonoBehaviour
     {
         _machineItem.SetMachine(machine);
         _image.sprite = _machineItem.GetMachine().ShopSprite;
-        _button.onClick.AddListener(_machineItem.InstantiateMachine);
+        _button.onClick.AddListener(_machineItem.BuyMachine);
     }
 
     public MachineShopItem GetMachineItem()

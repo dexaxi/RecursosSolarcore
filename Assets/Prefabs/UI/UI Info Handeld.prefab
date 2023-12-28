@@ -55,11 +55,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc82b28d991bc0b4bb5c036fad999388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitName: {fileID: 8231369157685965025}
-  _currentSprite: {fileID: 6593096310577204239}
-  _currentSpriteBackground: {fileID: 4041687815905937556}
-  _portraitSprites:
-  - {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
+  _currentMoney: {fileID: 8231369157685965025}
+  _infoCurrentSprite: {fileID: 0}
+  _infoCurrentBackground: {fileID: 0}
 --- !u!1 &2480933416685260323
 GameObject:
   m_ObjectHideFlags: 0

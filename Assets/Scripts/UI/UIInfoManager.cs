@@ -6,19 +6,19 @@ using TMPro;
 public class UIInfoManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] TextMeshProUGUI _infoText;
+    [SerializeField] TextMeshProUGUI _currentMoney;
     [SerializeField] Image _infoCurrentSprite;
     [SerializeField] Image _infoCurrentBackground;
 
-    public TextMeshProUGUI InfoText
+    public TextMeshProUGUI CurrentMoney
     {
         get
         {
-            return _infoText;
+            return _currentMoney;
         }
         set
         {
-            _infoText = InfoText;
+            _currentMoney = CurrentMoney;
         }
     }
 

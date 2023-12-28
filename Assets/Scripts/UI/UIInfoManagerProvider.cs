@@ -8,7 +8,7 @@ public class UIInfoManagerProvider : MonoBehaviour
     [SerializeField]UIInfoManager _handUIInfo;
     [SerializeField]UIInfoManager _desktopUIInfo;
 
-    public UIInfoManager infoManager
+    public UIInfoManager InfoManager
     {
         get
         {
