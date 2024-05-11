@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.557387, g: 0.90517485, b: 0.9622642, a: 0.7372549}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -554,9 +554,9 @@ MonoBehaviour:
   PopUpHeaderText: Header
   PopUpBodyText: Lorem ipsum dolor et sid amet, lorem ipsum dolor et sid amet, lorem
     ipsum
-  PrimaryBackground: {r: 0.38113207, g: 0.8928217, b: 1, a: 0}
-  HeaderBackground: {r: 0.3184051, g: 0.74129194, b: 0.9811321, a: 0}
-  BodyBackground: {r: 0.31764707, g: 0.7411765, b: 0.98039216, a: 0}
+  PrimaryBackground: {r: 1, g: 1, b: 1, a: 0}
+  HeaderBackground: {r: 1, g: 1, b: 1, a: 0}
+  BodyBackground: {r: 1, g: 1, b: 1, a: 0}
   HeaderTextColor: {r: 1, g: 1, b: 1, a: 0}
   BodyTextColor: {r: 1, g: 1, b: 1, a: 0}
   HeadText: {fileID: 4809970328587123654}
@@ -566,9 +566,9 @@ MonoBehaviour:
       m_Calls: []
   Background: {fileID: 8072780178411805736}
   HeaderBackgroundImage: {fileID: 6170929199488290151}
-  GenericCanvasGroup: {fileID: 8602778230574118166}
-  GenericBodyText: {fileID: 4809970328561895374}
-  GenericBackground: {fileID: 6924477295586038344}
+  InfoCanvasGroup: {fileID: 8602778230574118166}
+  InfoBodyText: {fileID: 4809970328561895374}
+  InfoBackground: {fileID: 6924477295586038344}
   OptionCanvasGroup: {fileID: 7603548457038987988}
   OptionBodyText: {fileID: 7962910759414587949}
   OptionBackground: {fileID: 2268235846608197532}
@@ -580,6 +580,9 @@ MonoBehaviour:
   CancelCallback:
     m_PersistentCalls:
       m_Calls: []
+  backGroundSprite: {fileID: 21300000, guid: 1a1ede665872e3445b7293591e13089c, type: 3}
+  headerSprite: {fileID: 21300000, guid: e4fe122ab354edf41b0da040b1345dd1, type: 3}
+  bodySprite: {fileID: 21300000, guid: 081acf3449db9084895f5a80c83e3d6e, type: 3}
 --- !u!1 &4809970329289904200
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 100.00003, y: -114.99997}
+  m_AnchoredPosition: {x: -100, y: -114.99997}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4809970329289904204
@@ -739,7 +742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -100, y: -114.99997}
+  m_AnchoredPosition: {x: 100, y: -114.99997}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4809970329483164201
@@ -1410,7 +1413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08714841, g: 0.5661593, b: 0.6415094, a: 0.7372549}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1580,7 +1583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08714841, g: 0.5661593, b: 0.6415094, a: 0.7372549}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1656,7 +1659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08714841, g: 0.5661593, b: 0.6415094, a: 0.7372549}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

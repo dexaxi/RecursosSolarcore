@@ -55,7 +55,6 @@ public class Ground : MonoBehaviour
 
     private void Awake()
     {
-
         if (Instance == null) Instance = this;
         else DestroyImmediate(Instance);
 
@@ -64,10 +63,10 @@ public class Ground : MonoBehaviour
         _totalTiles = MaxX * MaxY;
         HasLoaded = false;
 
-        BiomeHandler.Instance.AddBiomeFilter(BiomeType.Greenland);
-        BiomeHandler.Instance.AddBiomeFilter(BiomeType.Water);
-        BiomeHandler.Instance.AddBiomeFilter(BiomeType.Rocky);
-        BiomeHandler.Instance.AddBiomeFilter(BiomeType.Desert);
+        //BiomeHandler.Instance.AddBiomeFilter(BiomeType.Greenland);
+        //BiomeHandler.Instance.AddBiomeFilter(BiomeType.Water);
+        //BiomeHandler.Instance.AddBiomeFilter(BiomeType.Rocky);
+        //BiomeHandler.Instance.AddBiomeFilter(BiomeType.Desert);
         StartMapGeneration();
     }
 

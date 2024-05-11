@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
-  m_Name: TestMachine03
+  m_Name: TestMachine07
   m_EditorClassIdentifier: 
-  name: TestMachine03
-  Type: 2
+  name: TestMachine07
+  Type: 6
   Description: Maquina para hacer cosas supongo
-  Cost: 50000
+  Cost: 696969
   MeshFilter: {fileID: 0}
-  MeshRenderer: {fileID: 2100000, guid: 68d9464d0cd4fbf48a81abf378167c7f, type: 2}
+  MeshRenderer: {fileID: 2100000, guid: 74117f645ca87544896e430b75e9a316, type: 2}
   ShopSprite: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}

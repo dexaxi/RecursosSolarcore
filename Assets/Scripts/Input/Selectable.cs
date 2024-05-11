@@ -22,26 +22,31 @@ public class Selectable : MonoBehaviour
 
     public void Select()
     {
+        if (IsUsingUI.isUsingUI) return;
         selectAction?.Invoke();
     }
 
     public void Deselect()
     {
+        if (IsUsingUI.isUsingUI) return;
         deselectAction?.Invoke();
     }
 
     public void Click()
     {
+        if (IsUsingUI.isUsingUI) return;
         clickAction?.Invoke();
     }
 
     public void Hover() 
     {
+        if (IsUsingUI.isUsingUI) return;
         hoverAction?.Invoke();
     }
 
     public void StopHover() 
     {
+        if (IsUsingUI.isUsingUI) return;
         stopHoverAction?.Invoke(); 
     }
 

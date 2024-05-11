@@ -19,6 +19,7 @@ public class ItemHolder : MonoBehaviour
     {
         _machineItem.SetMachine(machine);
         _image.sprite = _machineItem.GetMachine().ShopSprite;
+        _button.onClick.RemoveAllListeners();
         _button.onClick.AddListener(_machineItem.BuyMachine);
     }
 
@@ -27,4 +28,17 @@ public class ItemHolder : MonoBehaviour
         return _machineItem;
     }
 
+    public void DisableHolder() 
+    {
+        _button.gameObject.SetActive(false);
+        _image.gameObject.SetActive(false);
+        _machineItem.gameObject.SetActive(false);
+    }
+    
+    public void EnableHolder() 
+    {
+        _button.gameObject.SetActive(true);
+        _image.gameObject.SetActive(true);
+        _machineItem.gameObject.SetActive(true);
+    }
 }

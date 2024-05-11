@@ -90,4 +90,9 @@ public class PlaceableMachine : Draggable
     {
         return GroundTile?.Biome.Type != BiomeType.Water;
     }
+
+    public void ConfirmPlacement()
+    {
+        if (IsOnValidTerrain()) Debug.Log("Placed");
+    }
 }

@@ -44,6 +44,7 @@ public class ScreenSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (IsUsingUI.isUsingUI) return;
         RaycastHit hit;
         Ray selectionRay;
         if (SystemInfo.deviceType == DeviceType.Handheld && Input.touchCount > 0)

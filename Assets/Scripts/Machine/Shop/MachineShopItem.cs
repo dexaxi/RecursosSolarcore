@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class MachineShopItem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _priceTextObject;
     [SerializeField] private GameObject machinePrefab;
-    [SerializeField] private GameObject popupPrefab;
     private PlayerCurrencyManager _currencyManager;
     private Machine _machine;
 
@@ -27,21 +27,26 @@ public class MachineShopItem : MonoBehaviour
     {
         return _machine;
     }
-    
-    public void BuyMachine() 
+
+    public void BuyMachine()
+    {
+        var popUp = GenericPopUpLoader.LoadGenericPopUp();
+        UnityEvent acceptEvent = new();
+        acceptEvent.AddListener(PerformBuyMachine);
+        popUp.BuildOptionPopupPlainColor("Buy " + _machine.name, "This operation will cost " + _machine.Cost, 1, new Color(155, 155, 155, 0.3f), new Color(0, 155, 155, 0.6f), new Color(0, 155, 155, 0.6f), Color.white, Color.white, acceptEvent);
+    }
+
+    private void PerformBuyMachine()
     {
         float cost = _machine.Cost;
         if (_currencyManager.RemoveCurrency(cost))
         {
             InstantiateMachine();
         }
-        else 
+        else
         {
-            Canvas canvas = FindObjectOfType<Canvas>();
-            Vector3 center = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0.0f);
-            var instance = Instantiate(popupPrefab, center, Quaternion.identity, canvas.transform);
-            GenericPopUp popUp = instance.GetComponent<GenericPopUp>();
-            popUp.BuildInfoPopupPlainColor("Warning!", "You are out of funds for this purchase...", 2, Color.blue, Color.cyan, Color.cyan, Color.white, Color.white, null);
+            var popUp = GenericPopUpLoader.LoadGenericPopUp();
+            popUp.BuildInfoPopupPlainColor("Warning!", "You are out of funds for this purchase...", 1, new Color(155, 155, 155, 0.3f), new Color(0, 155, 155, 0.6f), new Color(0, 155, 155, 0.6f), Color.white, Color.white);
             Debug.LogWarning("WARNING: Not enough funds...");
         }
     }
@@ -51,6 +56,9 @@ public class MachineShopItem : MonoBehaviour
         Vector3 mousePos = CameraUtils.MainCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePos -= new Vector3(0, 0, -8.0f);
         var instance = Instantiate(machinePrefab, mousePos, Quaternion.identity);
+        if (_machine.MeshRenderer != null) instance.GetComponent<MeshRenderer>().material = _machine.MeshRenderer;
+        if (_machine.MeshFilter != null) instance.GetComponent<MeshFilter>().mesh = _machine.MeshFilter;
+        instance.GetComponent<Highlightable>().UpdateOriginalMaterials();
         Vector2Int cellCoords = Ground.Instance.FindEmptyCellCoords();
         instance.transform.position = new Vector3(cellCoords.x, 0, cellCoords.y);
     }
