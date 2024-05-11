@@ -22,6 +22,18 @@ MonoBehaviour:
   SelectedSolutions:
   - {fileID: 11400000, guid: 336fc28ca47ac1b4092925f244d647b6, type: 2}
   - {fileID: 11400000, guid: 8c6666d15346b8840825ba7a314083a0, type: 2}
-  SelectedBiomes: 0000000004000000010000000200000003000000
-  RuleType: 0
-  WaterLevels: 
+  SelectedBiomes: 00000000010000000200000003000000
+  RuleType: 3
+  WaterChannels: 
+  ForceBiomePositions:
+    list:
+    - Key: 0
+      Value: 4
+    - Key: 1
+      Value: 2
+    - Key: 3
+      Value: 1
+    - Key: 2
+      Value: 3
+    - Key: 4
+      Value: 0

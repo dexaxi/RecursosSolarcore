@@ -92,7 +92,7 @@ public class BiomeHandler : MonoBehaviour
         return rule.SortBiomes(biomes);
     }
     
-    public List<Biome> SortBiomesForceOrder(List<Biome> biomes, Dictionary<int, BiomeType> biomeForcePositions) 
+    public List<Biome> SortBiomesForceOrder(List<Biome> biomes, SerializableDictionary<int, BiomeType> biomeForcePositions) 
     {
         BiomeSortingRule rule = new()
         {

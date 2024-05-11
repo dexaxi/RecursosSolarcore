@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -17,12 +18,27 @@ public class Level : ScriptableObject
     public List<BiomeType> SelectedBiomes;
 
     [Header("Biome Sorting Settings")]
+    [Header("Default: will use the order you've set in Selected Biomes. Compatible with Water Channels\n"
+        + "Random: will randomize all of the biomes.\n"
+        + "Random: Respect Water will randomize all of the biomes except whatever is explicitly indicated in the Water Channels\n"
+        + "Forced: Biome Position will force the biome order according to the ForceBiomePositions dictionary.")]
+    [Space(10)]
     public SortingRuleType RuleType;
-    [Tooltip("Choose what channels should have water. On a 4 biome level, 1 & 2 would mean that 0 and 4 should have land biomes. Compatible with Default and Random Respect Water modes. IMPORTANT: The amount of channels should be <= the amount of water biome types (Ocean, River...).")]
+    
+    [Space(20)]
+    [Header("Water Channels")]
+    [Header("Choose what channels should have water. On a 4 biome level, 1 & 2 would mean that 0 and 4 should have land biomes."
+        + "Compatible with Default and Random Respect Water modes. IMPORTANT: The amount of channels should be <= the amount of " +
+        "water biome types (Ocean, River...).")]
+    [Space(10)]
     public List<int> WaterChannels;
-    [Tooltip("This Dictionary is only useful for ForceBiomePositions.")]
+    
+    [Header("Forced Biome Positions")]
+    [Header("This Dictionary is only useful for ForceBiomePositions. Key is index, value is what biome goes in that index. " +
+        "IMPORTANT: There can only be as many positions a biomes.")]
+    [Space(20)]
     [SerializeField] public SerializableDictionary <int, BiomeType> ForceBiomePositions;
-
+    
     private float _budget;
 
     public float CalculateBudget() 
@@ -58,12 +74,9 @@ public class Level : ScriptableObject
 
     public void InitLevel() 
     {
-        foreach (EnviroProblem problem in EnviroProblems)
+        foreach (BiomeType biome in SelectedBiomes)
         {
-            foreach (BiomeType biome in SelectedBiomes)
-            {
-                if (problem.PossibleBiomes.Contains(biome)) BiomeHandler.Instance.AddBiomeFilter(biome);
-            }
+            BiomeHandler.Instance.AddBiomeFilter(biome);
         }
 
         foreach (ActionPlan plan in SelectedSolutions) 

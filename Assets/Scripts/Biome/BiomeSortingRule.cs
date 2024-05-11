@@ -26,7 +26,7 @@ public class BiomeSortingRule
 
     public SortingRuleType SortingRule;
 
-    public Dictionary<int, BiomeType> BiomeForcePositions = new();
+    public SerializableDictionary<int, BiomeType> BiomeForcePositions = new();
 
     public List<Biome> SortBiomes(List<Biome> biomes)
     {
