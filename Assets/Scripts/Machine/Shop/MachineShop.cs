@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MachineShop : MonoBehaviour
 {
+    public static MachineShop Instance;
+
     [Header("References")]
     [SerializeField] private Button PrevButton;
     [SerializeField] private Button NextButton;
@@ -13,27 +15,20 @@ public class MachineShop : MonoBehaviour
 
     private ItemHolder[] _itemHolders;
 
+    private CanvasGroup _canvasGroup;
     private List<Machine> _allFilteredMachines = new();
     private int _currentShopIndex;
 
     private void Awake()
     {
+        if (Instance == null) Instance = this;
+        else Destroy(this);
+
         _itemHolders = GetComponentsInChildren<ItemHolder>();
+        _canvasGroup = GetComponent<CanvasGroup>();
         PrevButton.onClick.AddListener(PrevShopTabPressed);
         NextButton.onClick.AddListener(NextShopTabPressed);
         _currentShopIndex = 0;
-    }
-
-    private void Start()
-    {
-        MachineHandler.Instance.AddMachineFilter(MachineType.Type01);
-        MachineHandler.Instance.AddMachineFilter(MachineType.Type02);
-        MachineHandler.Instance.AddMachineFilter(MachineType.Type03);
-        MachineHandler.Instance.AddMachineFilter(MachineType.Type04);
-        MachineHandler.Instance.AddMachineFilter(MachineType.Type05);
-        MachineHandler.Instance.AddMachineFilter(MachineType.Type06);
-        MachineHandler.Instance.AddMachineFilter(MachineType.Type07);
-        PopulateShop();
     }
 
     public void PopulateShop()
@@ -86,5 +81,21 @@ public class MachineShop : MonoBehaviour
             PrevButton.gameObject.SetActive(false);
             NextButton.gameObject.SetActive(false);
         }
+    }
+
+    [ContextMenu("EnableShop")]
+    public void EnableShop()
+    {
+        _canvasGroup.alpha = 1;
+        _canvasGroup.interactable = true;
+        _canvasGroup.blocksRaycasts = true;
+    }
+
+    [ContextMenu("DisableShop")]
+    public void DisableShop()
+    {
+        _canvasGroup.alpha = 0;
+        _canvasGroup.interactable = false;
+        _canvasGroup.blocksRaycasts = false;
     }
 }

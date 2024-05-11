@@ -45,6 +45,14 @@ public class BiomeHandler : MonoBehaviour
         return _biomeFilters.Remove(biome);
     }
 
+    public void ClearBiomeFilters()
+    {
+        foreach (BiomeType type in _biomeFilters)
+        {
+            _biomeFilters.Remove(type);
+        }
+    }
+
     public List<Biome> GetFilteredBiomes()
     {
         List<Biome> returnBiomes = new();

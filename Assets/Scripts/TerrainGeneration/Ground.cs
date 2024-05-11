@@ -32,7 +32,6 @@ public class Ground : MonoBehaviour
     private int _totalTiles;
     private FastNoiseLite _noiseGenerator;
     private int _minTilesPerBiome;
-
     public float cellSize
     {
         get
@@ -63,11 +62,7 @@ public class Ground : MonoBehaviour
         _totalTiles = MaxX * MaxY;
         HasLoaded = false;
 
-        //BiomeHandler.Instance.AddBiomeFilter(BiomeType.Greenland);
-        //BiomeHandler.Instance.AddBiomeFilter(BiomeType.Water);
-        //BiomeHandler.Instance.AddBiomeFilter(BiomeType.Rocky);
-        //BiomeHandler.Instance.AddBiomeFilter(BiomeType.Desert);
-        StartMapGeneration();
+        //StartMapGeneration();
     }
 
     public void StartMapGeneration()
@@ -174,6 +169,7 @@ public class Ground : MonoBehaviour
             default:
                 return 0;
             case BiomeType.Water:
+            case BiomeType.Ocean:
                 return -0.3f;
         }
     }
@@ -185,7 +181,8 @@ public class Ground : MonoBehaviour
         GroundTiles = GetComponentsInChildren<GroundTile>();
         GroundMap = new Dictionary<Vector2Int, GroundTile>();
 
-        _biomeScriptableObjects = BiomeHandler.Instance.GetFilteredBiomes().ToArray();
+         var unorderedBiomes = BiomeHandler.Instance.GetFilteredBiomes();
+        _biomeScriptableObjects = ResourceGame.Instance.Level.HandleSortingRule().ToArray();
         _minTilesPerBiome = (int)(MinBiomeProportion * (_totalTiles / _biomeScriptableObjects.Length));
 
         if (GroundTiles != null && GroundTiles.Length != 0)

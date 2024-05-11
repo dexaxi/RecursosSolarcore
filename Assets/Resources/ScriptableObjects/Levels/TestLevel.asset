@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34f201f735ec32e4da01a90aaebfcb29, type: 3}
+  m_Name: TestLevel
+  m_EditorClassIdentifier: 
+  name: Level1
+  Description: Level1 Test
+  LevelIndex: 1
+  EnviroProblems:
+  - {fileID: 11400000, guid: a313a94e3af7d8d469f6d21655a72160, type: 2}
+  - {fileID: 11400000, guid: ab5b9fb9477c98d43aacf2e22102c902, type: 2}
+  - {fileID: 11400000, guid: 513216c43c5efc74a941cb5e7f64e7d6, type: 2}
+  SelectedSolutions:
+  - {fileID: 11400000, guid: 336fc28ca47ac1b4092925f244d647b6, type: 2}
+  - {fileID: 11400000, guid: 8c6666d15346b8840825ba7a314083a0, type: 2}
+  SelectedBiomes: 0000000004000000010000000200000003000000
+  RuleType: 0
+  WaterLevels: 

@@ -9,5 +9,5 @@ public class ActionPlan : ScriptableObject
     public new string name;
     public string description;
 
-
+    public List<MachineType> PossibleMachines;
 }

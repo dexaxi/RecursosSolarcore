@@ -35,6 +35,14 @@ public class MachineHandler : MonoBehaviour
         return _machineFilters.Remove(machine);
     }
 
+    public void ClearMachineFilters() 
+    {
+        foreach (MachineType type in _machineFilters) 
+        {
+            _machineFilters.Remove(type);
+        }
+    }
+
     public List<Machine> GetFilteredMachines()
     {
         List<Machine> returnMachines = new();

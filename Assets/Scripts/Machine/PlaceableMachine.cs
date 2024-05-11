@@ -88,7 +88,7 @@ public class PlaceableMachine : Draggable
 
     public bool IsOnValidTerrain() 
     {
-        return GroundTile?.Biome.Type != BiomeType.Water;
+        return GroundTile?.Biome.Type != BiomeType.Water && GroundTile?.Biome.Type != BiomeType.Ocean;
     }
 
     public void ConfirmPlacement()
