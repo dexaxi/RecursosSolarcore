@@ -45,6 +45,7 @@ public class ScreenSelector : MonoBehaviour
     void Update()
     {
         if (IsUsingUI.IsUIEnabled()) return;
+        if (Selectable.SELECTABLE_LOCK != null && Selectable.SELECTABLE_LOCK != _selectedObject) return;
         RaycastHit hit;
         Ray selectionRay;
         if (SystemInfo.deviceType == DeviceType.Handheld && Input.touchCount > 0)
@@ -77,7 +78,6 @@ public class ScreenSelector : MonoBehaviour
                     onNothingSelectedCallback?.Invoke();
                 }
             }
-
         }
 
         else if (SystemInfo.deviceType == DeviceType.Desktop)

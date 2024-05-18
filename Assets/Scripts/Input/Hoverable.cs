@@ -11,14 +11,25 @@ public class Hoverable : MonoBehaviour
 
     public bool IsMouseOver { get; private set; }
 
-    public virtual void OnMouseOver() { }
+    public virtual void OnMouseOver() 
+    {
+        if (IsUsingUI.IsUIEnabled()) return;
+        if (Selectable.SELECTABLE_LOCK != null && Selectable.SELECTABLE_LOCK != _selectable) return;
+
+    }
     public virtual void OnMouseEnter()
     {
+        if (IsUsingUI.IsUIEnabled()) return;
+        if (Selectable.SELECTABLE_LOCK != null && Selectable.SELECTABLE_LOCK != _selectable) return;
+
         _selectable.Hover();
         IsMouseOver = true;
     }
     public virtual void OnMouseExit()
     {
+        if (IsUsingUI.IsUIEnabled()) return;
+        if (Selectable.SELECTABLE_LOCK != null && Selectable.SELECTABLE_LOCK != _selectable) return;
+
         _selectable.StopHover();
         IsMouseOver = false;
     }

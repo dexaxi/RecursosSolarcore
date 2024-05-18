@@ -43,7 +43,7 @@ public class Level : ScriptableObject
         _budget = 0;
         foreach(EnviroProblem problem in EnviroProblems) 
         {
-            _budget += 1000;
+            _budget += 100000;
         }
         return _budget;
     }
@@ -87,5 +87,7 @@ public class Level : ScriptableObject
         MachineShop.Instance.PopulateShop();
         
         Ground.Instance.StartMapGeneration();
+
+        PlayerCurrencyManager.Instance.AddCurrency(CalculateBudget());
     }
 }

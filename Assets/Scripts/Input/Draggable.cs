@@ -23,6 +23,9 @@ public class Draggable : Hoverable
 
     public virtual void OnMouseDown()
     {
+        if (IsUsingUI.IsUIEnabled()) return;
+        if (Selectable.SELECTABLE_LOCK != null && Selectable.SELECTABLE_LOCK != _selectable) return;
+
         Vector3 offsetScreenPos = new(Input.mousePosition.x, Input.mousePosition.y, GetDraggableItemWorldPosToScreenPoint().z);
         _mousePosOffset = transform.position - CameraUtils.MainCamera.ScreenToWorldPoint(offsetScreenPos);
         _prevScale = transform.localScale;
@@ -36,6 +39,9 @@ public class Draggable : Hoverable
 
     public virtual void OnMouseUp() 
     {
+        if (IsUsingUI.IsUIEnabled()) return;
+        if (Selectable.SELECTABLE_LOCK != null && Selectable.SELECTABLE_LOCK != _selectable) return;
+
         //private
         _isDragging = false;
         //Static
@@ -49,6 +55,9 @@ public class Draggable : Hoverable
 
     public virtual void OnMouseDrag()
     {
+        if (IsUsingUI.IsUIEnabled()) return;
+        if (Selectable.SELECTABLE_LOCK != null && Selectable.SELECTABLE_LOCK != _selectable) return;
+
         //private
         _isDragging = true;
         //static

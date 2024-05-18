@@ -14,6 +14,8 @@ public class PlaceableMachine : Draggable
     public bool HasBeenFirstPlaced { get; private set; }
     public GroundTile GroundTile { get; private set; }
 
+    public Vector2Int PrevCoords { get; private set; }
+
     public override void OnMouseOver()
     {
         base.OnMouseOver();
@@ -69,6 +71,8 @@ public class PlaceableMachine : Draggable
         
         UpdateGroundTile();
         HandleInvalidTerrainHighlight();
+
+        Selectable.SELECTABLE_LOCK = GetComponent<Selectable>();
     }
 
     private void HandleHighlightableAwake() 
@@ -81,8 +85,8 @@ public class PlaceableMachine : Draggable
 
     private void FindEmptyCells() 
     {
-        Vector2Int cellCoords = Ground.Instance.FindEmptyCellCoords();
-        transform.position = new Vector3(cellCoords.x, GetFixedHeight(), cellCoords.y);
+        Vector2Int cellCoords = MachineHandler.Instance.FindEmptyCellCoords();
+        transform.position = Ground.Instance.ToWorldCoords(cellCoords, GetFixedHeight());
     }
 
     private void HandleSelectActions() 
@@ -91,9 +95,11 @@ public class PlaceableMachine : Draggable
         _selectable.hoverAction += HighlightOnHover;
         _selectable.stopHoverAction += UnhighlightOnLeave;
     }
+
     public void ShowMachineInfo()
     {
         if (!IsPlaced) return;
+        Selectable.SELECTABLE_LOCK = GetComponent<Selectable>();
         DisplayMachineContextMenu();
     }
 
@@ -111,9 +117,7 @@ public class PlaceableMachine : Draggable
         Vector2Int cellCoords = Ground.Instance.ToCellCoords(transform.position);
         if (Ground.Instance.GroundMap.TryGetValue(cellCoords, out GroundTile tile))
         {
-            if (GroundTile != null) GroundTile.isClosed = false;
             GroundTile = tile;
-            GroundTile.isClosed = true;
         }
     }
 
@@ -131,16 +135,32 @@ public class PlaceableMachine : Draggable
 
     public bool ConfirmPlacement()
     {
-        IsPlaced = IsOnValidTerrain();
-        HasBeenFirstPlaced = HasBeenFirstPlaced || IsOnValidTerrain();
-        return IsOnValidTerrain();
+        bool isOnValidTerrain = IsOnValidTerrain();
+        if (!isOnValidTerrain && !HasBeenFirstPlaced)
+        {
+            return false;
+        }
+        else if (!isOnValidTerrain)
+        {
+            CancelMove(PrevCoords);
+        }
+        else 
+        {
+            MachineHandler.Instance.PlacedMachines[PrevCoords] = null;
+            MachineHandler.Instance.PlacedMachines[Ground.Instance.ToCellCoords(transform.position)] = this;
+        }
+        HasBeenFirstPlaced = true;
+        IsPlaced = true;
+        _highlightable.Unhighlight();
+        return isOnValidTerrain;
     }
     
     public void Move()
     {
         IsPlaced = false;
+        PrevCoords = GetCoords();
     }
-    
+
     public Vector2Int GetCoords() 
     {
         return Ground.Instance.ToCellCoords(transform.position);
@@ -181,17 +201,20 @@ public class PlaceableMachine : Draggable
         IsDragging = false;
         UpdateGroundTile();
         UnhighlightOnLeave();
-        MachineDisplay.Instance.ExitDisplay();
+        MachineDisplay.Instance.ShowSellDisplay();
         IsPlaced = true;
     }
 
     public float GetFixedHeight() { return _snapToGrid.FixedHeight; }
     public bool IsOnValidTerrain()
     {
+        return true;
         bool validBiome = GroundTile?.Biome.Type != BiomeType.Water && GroundTile?.Biome.Type != BiomeType.Ocean;
         Vector2Int cellCoords = Ground.Instance.ToCellCoords(transform.position);
         bool hasValidCellCoords = cellCoords.x < Ground.Instance.MaxX && cellCoords.y < Ground.Instance.MaxY && cellCoords.x >= 0 && cellCoords.y >= 0;
-        return validBiome && hasValidCellCoords;
+        MachineHandler.Instance.PlacedMachines.TryGetValue(Ground.Instance.ToCellCoords(transform.position), out PlaceableMachine placeableMachine);
+        bool isTileOccupiedByOtherMachine = placeableMachine != this && placeableMachine != null;
+        return validBiome && hasValidCellCoords && !isTileOccupiedByOtherMachine;
     }
 
     public void CopyMachine(Machine machine) 

@@ -9,6 +9,8 @@ public class MachineHandler : MonoBehaviour
 
     private readonly Dictionary<MachineType, Machine> _machines = new();
 
+    public Dictionary<Vector2Int, PlaceableMachine> PlacedMachines = new();
+
     [SerializeField] private List<MachineType> _machineFilters = new();
 
     private void Awake()
@@ -52,5 +54,23 @@ public class MachineHandler : MonoBehaviour
         }
         return returnMachines;
     }
+
+    public Vector2Int FindEmptyCellCoords()
+    {
+        GroundTile[] tiles = FindObjectsOfType<GroundTile>();
+
+        PlacedMachines.TryGetValue(tiles[tiles.Length/2].CellCoord, out PlaceableMachine centerPlaceable);
+        if (centerPlaceable == null) return tiles[tiles.Length / 2].CellCoord;
+
+
+        foreach (GroundTile tile in tiles)
+        {
+            PlacedMachines.TryGetValue(tile.CellCoord, out PlaceableMachine placeableMachine);
+            if (placeableMachine == null) return tile.CellCoord;
+        }
+
+        return Vector2Int.zero;
+    }
+
 
 }

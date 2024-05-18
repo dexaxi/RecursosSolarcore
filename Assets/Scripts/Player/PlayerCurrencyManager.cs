@@ -17,10 +17,6 @@ public class PlayerCurrencyManager : MonoBehaviour
 
         _infoManager = FindObjectOfType<UIInfoManager>();
     }
-    private void Start()
-    {
-        AddCurrency(50000);
-    }
 
     public void AddCurrency(float amount) 
     {

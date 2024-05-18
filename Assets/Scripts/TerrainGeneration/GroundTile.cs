@@ -11,12 +11,9 @@ using UnityEngine.XR;
 [RequireComponent(typeof(MeshFilter))]
 public class GroundTile : MonoBehaviour
 {
-    public Vector2Int CellCoord { get; private set; }
+    [field: SerializeField] public Vector2Int CellCoord { get; private set; }
     public Highlightable Highlightable { get; private set; }
     public Selectable Selectable { get; private set; }
-
-    [HideInInspector]
-    public bool isClosed;
 
     Vector3 _originalPosition;
     Vector3 _introStartingPosition;

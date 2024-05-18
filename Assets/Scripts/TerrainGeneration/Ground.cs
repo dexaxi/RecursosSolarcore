@@ -221,17 +221,6 @@ public class Ground : MonoBehaviour
         return new Vector3(v.x, height, v.y);
     }
 
-    public Vector2Int FindEmptyCellCoords() 
-    {
-        GroundTile[] tiles = FindObjectsOfType<GroundTile>();
-        foreach (GroundTile tile in tiles) 
-        {
-            if (!tile.isClosed) return ToCellCoords(tile.transform.position);
-        }
-
-        return Vector2Int.zero;
-    }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = GizmoColor;

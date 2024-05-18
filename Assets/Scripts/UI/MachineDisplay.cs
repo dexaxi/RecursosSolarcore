@@ -25,8 +25,6 @@ public class MachineDisplay : MonoBehaviour
     [SerializeField] Button     cancelPlacement;
     [SerializeField] Button     canvelMove;
 
-    private Vector2Int _prevCoords;
-
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -47,7 +45,6 @@ public class MachineDisplay : MonoBehaviour
 
     public void SetMachine(PlaceableMachine machine)
     {
-        CancelOperation();
         _machine = machine;
     }
 
@@ -59,7 +56,6 @@ public class MachineDisplay : MonoBehaviour
     public void MoveMachine()
     {
         _machine.Move();
-        _prevCoords = _machine.GetCoords();
     }
 
     public void ConfirmPlacement()
@@ -78,7 +74,7 @@ public class MachineDisplay : MonoBehaviour
 
     public void CancelMove()
     {
-        _machine.CancelMove(_prevCoords);
+        _machine.CancelMove(_machine.PrevCoords);
     }
 
     public void ExitDisplay() 
@@ -87,39 +83,31 @@ public class MachineDisplay : MonoBehaviour
         DisableMoveUI();
         DisablePlaceUI();
         MachineShop.Instance.EnableShopButton();
-    }
-
-    private void CancelOperation() 
-    {
-        if (_machine != null && !_machine.IsPlaced)
-        {
-            if (!_machine.HasBeenFirstPlaced)
-                CancelPlacement();
-            else 
-                CancelMove();
-        }
+        Selectable.UnlockSelectable();
     }
 
     public void ShowMoveDisplay() 
     {
-        ExitDisplay();
-        MachineShop.Instance.DisableShopButton();
+        DisableSellUI();
+        DisablePlaceUI();
         EnableMoveUI();
+        MachineShop.Instance.DisableShopButton();
         MoveMachine();
     }
     
     public void ShowPlaceDisplay() 
     {
-        ExitDisplay();
-        MachineShop.Instance.DisableShopButton();
+        DisableMoveUI();
+        DisableSellUI();
         EnablePlaceUI();
-        _prevCoords = _machine.GetCoords();
+        MachineShop.Instance.DisableShopButton();
         MoveMachine();
     }
 
     public void ShowSellDisplay() 
     {
-        ExitDisplay();
+        DisableMoveUI();
+        DisablePlaceUI();
         MachineShop.Instance.DisableShopButton();
         EnableSellUI();
     }
