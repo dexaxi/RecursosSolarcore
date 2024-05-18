@@ -17,5 +17,5 @@ MonoBehaviour:
   Description: Maquina para hacer cosas supongo
   Cost: 12000
   MeshFilter: {fileID: 0}
-  MeshRenderer: {fileID: 2100000, guid: f5ffb23c71776424f8f776c97d3fd190, type: 2}
+  MeshRenderer: {fileID: 2100000, guid: 981abf7a53e6a964fba6bc48555ec31a, type: 2}
   ShopSprite: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}

@@ -5,11 +5,16 @@ using UnityEngine;
 
 public class PlayerCurrencyManager : MonoBehaviour
 {
+    public static PlayerCurrencyManager Instance;
+
     private UIInfoManager _infoManager; 
     public float Currency { get; private set; }
 
     private void Awake()
     {
+        if (Instance == null) Instance = this;
+        else Destroy(this);
+
         _infoManager = FindObjectOfType<UIInfoManager>();
     }
     private void Start()

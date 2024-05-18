@@ -44,7 +44,7 @@ public class ScreenSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsUsingUI.isUsingUI) return;
+        if (IsUsingUI.IsUIEnabled()) return;
         RaycastHit hit;
         Ray selectionRay;
         if (SystemInfo.deviceType == DeviceType.Handheld && Input.touchCount > 0)
@@ -62,6 +62,8 @@ public class ScreenSelector : MonoBehaviour
                     {
                         TryToSelectTouch(hit.collider.gameObject, touch);
                     }
+
+                    ConfirmTouch();
                 }
             }
             else if (touch.phase == UnityEngine.TouchPhase.Canceled)
@@ -147,9 +149,9 @@ public class ScreenSelector : MonoBehaviour
 
             if (onSelectionCallback != null && !EventSystem.current.IsPointerOverGameObject(t.fingerId))
             {
-                onSelectionCallback.Invoke(_selectedObject);    
+                onSelectionCallback.Invoke(_selectedObject);
             }
-
+            _selectedObject.Click();
         }
 
         return _selectedObject != null;

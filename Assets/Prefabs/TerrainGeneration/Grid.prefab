@@ -80,8 +80,8 @@ MonoBehaviour:
   GroundTiles: []
   BiomeVariation: 3
   HeightVariation: 0.1
-  MaxX: 9
-  MaxY: 9
+  <MaxX>k__BackingField: 9
+  <MaxY>k__BackingField: 9
   MinBiomeProportion: 0.132
   CellSize: 2
   GizmoColor: {r: 0.028630257, g: 1, b: 0, a: 0}

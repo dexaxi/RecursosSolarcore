@@ -117,7 +117,9 @@ MonoBehaviour:
   doHeightOnDrag: 1
   scaleOnDrag: 1.2
   heightOnDrag: 0.1
-  _machine: {fileID: 11400000, guid: 0236ba30f94eff44899b77f7bd688f0f, type: 2}
+  _machine: {fileID: 0}
+  _machineReturnSpeed: 200
+  IsPlaced: 0
 --- !u!114 &5070200472257248136
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -190,7 +190,7 @@ public class GenericPopUp : MonoBehaviour
 
     private void EnableBasePopUp() 
     {
-        IsUsingUI.isUsingUI = true;
+        IsUsingUI.IsUsingPopUp = true;
         _popupCanvasGroup.alpha = 1;
         _popupCanvasGroup.interactable = true;
         _popupCanvasGroup.blocksRaycasts = true;
@@ -224,7 +224,7 @@ public class GenericPopUp : MonoBehaviour
 
     private void ClosePopUp()
     {
-        IsUsingUI.isUsingUI = false;
+        IsUsingUI.IsUsingPopUp = false;
         _popupCanvasGroup.alpha = 0;
         _popupCanvasGroup.interactable = false;
         _popupCanvasGroup.blocksRaycasts = false;

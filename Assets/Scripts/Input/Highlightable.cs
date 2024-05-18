@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -20,11 +21,6 @@ public class Highlightable : MonoBehaviour
 
     public Material CurrentMaterial { get; private set; }
     public string CurrentMaterialName { get; private set; }
-
-    private void Awake()
-    {
-        UpdateOriginalMaterials();
-    }
 
     public void UpdateOriginalMaterials() 
     {
@@ -82,6 +78,7 @@ public class Highlightable : MonoBehaviour
 
     private void SetMaterial(Material material)
     {
+        if (_renderers == null) return;
         foreach (var render in _renderers)
         {
             render.material = material;

@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Draggable : Hoverable
@@ -16,7 +12,7 @@ public class Draggable : Hoverable
 
     private Vector3 _prevScale;
 
-    SnapToGrid _snapToGrid;
+    protected SnapToGrid _snapToGrid;
     float _prevHeight;
 
     [Header("Draggable Settings")]
@@ -74,9 +70,15 @@ public class Draggable : Hoverable
         return CameraUtils.MainCamera.WorldToScreenPoint(transform.position);
     }
 
-    public virtual void Awake()
+    public override void Awake()
     {
+        base.Awake();
+        
         if (gameObject.layer < LayerMask.NameToLayer("Draggable")) gameObject.layer = LayerMask.NameToLayer("Draggable");
         _snapToGrid = GetComponent<SnapToGrid>();
+
+        _prevScale = transform.localScale;
+        _prevHeight = _snapToGrid.FixedHeight;
+
     }
 }

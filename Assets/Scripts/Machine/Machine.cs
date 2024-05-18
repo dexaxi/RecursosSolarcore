@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Machine : ScriptableObject
 {
-    public const float SELL_COST_MULTIPLIER = 0.8f;
+    public static float SELL_COST_MULTIPLIER = 0.8f;
     public new string name;
     public MachineType Type;
     public string Description;
@@ -17,5 +17,16 @@ public class Machine : ScriptableObject
     public float CalculateSellCost()
     {
         return Cost * SELL_COST_MULTIPLIER;
+    }
+
+    public Machine() 
+    {
+        name = "MachineXXX";
+        Type = MachineType.Type01;
+        Description = "Machine Uninitialized";
+        Cost = -1;
+        MeshFilter = null;
+        MeshRenderer = null;
+        ShopSprite = null;
     }
 }

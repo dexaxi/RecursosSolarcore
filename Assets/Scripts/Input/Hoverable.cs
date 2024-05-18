@@ -22,10 +22,14 @@ public class Hoverable : MonoBehaviour
         _selectable.StopHover();
         IsMouseOver = false;
     }
-
-    private void Awake()
+    public virtual void Awake()
     {
         if (_highlightable == null) _highlightable = GetComponent<Highlightable>();
         if (_selectable == null) _selectable = GetComponent<Selectable>();
+    }
+
+    public virtual void Start() 
+    {
+        
     }
 }

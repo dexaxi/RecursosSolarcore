@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class IsUsingUI
+public class IsUsingUI
 {
-    public static bool isUsingUI = false;
+    public static bool IsUsingPopUp = false;
+    public static bool IsUsingShop = false;
+    public static bool IsUIEnabled() 
+    {
+        return IsUsingShop || IsUsingPopUp;
+    }
 }

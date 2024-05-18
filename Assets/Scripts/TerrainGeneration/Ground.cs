@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem.Composites;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
@@ -17,8 +18,8 @@ public class Ground : MonoBehaviour
     [Header("Generation")]
     [SerializeField] [Range(0.01f, 10)] float BiomeVariation;
     [SerializeField] [Range(0.01f, 10)] float HeightVariation;
-    [SerializeField] int MaxX;
-    [SerializeField] int MaxY;
+    [field: SerializeField] public int MaxX { get; private set; }
+    [field: SerializeField] public int MaxY { get; private set; }
     [SerializeField] [Range(0.01f, 1)] float MinBiomeProportion;
 
     public Dictionary<Vector2Int, GroundTile> GroundMap;
@@ -212,6 +213,12 @@ public class Ground : MonoBehaviour
         v /= CellSize;
 
         return new Vector2Int(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.z));
+    }
+
+    public Vector3 ToWorldCoords(Vector2Int cellPosition, float height) 
+    {
+        Vector2 v = new Vector2(cellPosition.x, cellPosition.y) * CellSize;
+        return new Vector3(v.x, height, v.y);
     }
 
     public Vector2Int FindEmptyCellCoords() 
