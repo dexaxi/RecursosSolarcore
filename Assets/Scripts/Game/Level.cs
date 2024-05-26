@@ -71,6 +71,9 @@ public class Level : ScriptableObject
 
     public void InitLevel() 
     {
+        MachineHandler.Instance.PopulateMachineResources();
+        BiomeHandler.Instance.PopulateBiomeResources();
+
         foreach (BiomeType biome in SelectedBiomes)
         {
             BiomeHandler.Instance.AddBiomeFilter(biome);

@@ -33,6 +33,7 @@ public class Ground : MonoBehaviour
     private int _totalTiles;
     private FastNoiseLite _noiseGenerator;
     private int _minTilesPerBiome;
+
     public float cellSize
     {
         get
@@ -56,14 +57,13 @@ public class Ground : MonoBehaviour
     private void Awake()
     {
         if (Instance == null) Instance = this;
-        else DestroyImmediate(Instance);
+        else Destroy(Instance);
 
         _noiseGenerator = new FastNoiseLite();
         _noiseGenerator.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2S);
         _totalTiles = MaxX * MaxY;
         HasLoaded = false;
-
-        //StartMapGeneration();
+        SceneLoader.Instance.HOLD_LOADING = true;
     }
 
     public void StartMapGeneration()
@@ -134,16 +134,20 @@ public class Ground : MonoBehaviour
             if (_biomeScriptableObjects[i].spawnCount < _minTilesPerBiome)
             {
                 Debug.Log("Regenerating because of Biome: " + (BiomeType)i + " spawnCount: " + _biomeScriptableObjects[i].spawnCount + " minSpawnCount: " + _minTilesPerBiome);
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Regenerate();
+                return;
             }
         }
         Debug.Log("Map loaded successfully.");
         HasLoaded = true;
+        SceneLoader.Instance.HOLD_LOADING = false;
     }
 
     public void Regenerate() 
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneLoader.Instance.HOLD_LOADING = false;
+        SceneManager.UnloadScene( (int) SceneIndex.LEVEL_SCENE);
+        SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SCENE);
     }
 
     Biome GetTileBiome(float value)
@@ -182,7 +186,7 @@ public class Ground : MonoBehaviour
         GroundTiles = GetComponentsInChildren<GroundTile>();
         GroundMap = new Dictionary<Vector2Int, GroundTile>();
 
-         var unorderedBiomes = BiomeHandler.Instance.GetFilteredBiomes();
+         //var unorderedBiomes = BiomeHandler.Instance.GetFilteredBiomes();
         _biomeScriptableObjects = ResourceGame.Instance.Level.HandleSortingRule().ToArray();
         _minTilesPerBiome = (int)(MinBiomeProportion * (_totalTiles / _biomeScriptableObjects.Length));
 
@@ -272,6 +276,5 @@ public class Ground : MonoBehaviour
         GroundMap.TryGetValue(new Vector2Int(x, y), out GroundTile returnValue);
         return returnValue;
     }
-
 }
 

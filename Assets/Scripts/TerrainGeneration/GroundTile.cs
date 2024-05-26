@@ -128,11 +128,11 @@ public class GroundTile : MonoBehaviour
     {
         if (!Draggable.IsDragging) 
         {
-        List < GroundTile > biomeTiles = BiomeHandler.Instance.TilesPerBiome[Biome.Type];
-        foreach (GroundTile tile in biomeTiles) 
-        {
-            tile.Highlightable.Highlight("Highlight");
-        }
+            List < GroundTile > biomeTiles = BiomeHandler.Instance.TilesPerBiome[Biome.Type];
+            foreach (GroundTile tile in biomeTiles) 
+            {
+                tile.Highlightable.Highlight("Highlight");
+            }
         }
     }    
     

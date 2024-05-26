@@ -17,7 +17,11 @@ public class MachineHandler : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(this);
+        PopulateMachineResources();
+    }
 
+    public void PopulateMachineResources() 
+    {
         var machineArray = Resources.LoadAll("ScriptableObjects/Machines", typeof(Machine));
         foreach (Machine machine in machineArray.Cast<Machine>())
         {
@@ -39,10 +43,7 @@ public class MachineHandler : MonoBehaviour
 
     public void ClearMachineFilters() 
     {
-        foreach (MachineType type in _machineFilters) 
-        {
-            _machineFilters.Remove(type);
-        }
+        _machineFilters.Clear();
     }
 
     public List<Machine> GetFilteredMachines()

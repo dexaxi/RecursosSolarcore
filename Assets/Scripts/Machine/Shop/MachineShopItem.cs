@@ -9,13 +9,7 @@ public class MachineShopItem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _priceTextObject;
     [SerializeField] private GameObject machinePrefab;
-    private PlayerCurrencyManager _currencyManager;
     private Machine _machine;
-
-    private void Awake() 
-    {
-        _currencyManager = FindObjectOfType<PlayerCurrencyManager>();
-    }
 
     public void SetMachine(Machine machine) 
     {
@@ -42,7 +36,7 @@ public class MachineShopItem : MonoBehaviour
     private void PerformBuyMachine()
     {
         float cost = _machine.Cost;
-        if (_currencyManager.RemoveCurrency(cost))
+        if (PlayerCurrencyManager.Instance.RemoveCurrency(cost))
         {
             InstantiateMachine();
             MachineShop.Instance.DisableShop();
