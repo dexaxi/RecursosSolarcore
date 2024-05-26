@@ -208,7 +208,6 @@ public class PlaceableMachine : Draggable
     public float GetFixedHeight() { return _snapToGrid.FixedHeight; }
     public bool IsOnValidTerrain()
     {
-        return true;
         bool validBiome = GroundTile?.Biome.Type != BiomeType.Water && GroundTile?.Biome.Type != BiomeType.Ocean;
         Vector2Int cellCoords = Ground.Instance.ToCellCoords(transform.position);
         bool hasValidCellCoords = cellCoords.x < Ground.Instance.MaxX && cellCoords.y < Ground.Instance.MaxY && cellCoords.x >= 0 && cellCoords.y >= 0;
