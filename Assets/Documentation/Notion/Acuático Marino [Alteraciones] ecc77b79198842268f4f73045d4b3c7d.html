@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Acuático Marino [Alteraciones]</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ecc77b79-1988-4226-8f4f-73045d4b3c7d" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🌊</span></div><h1 class="page-title">Acuático Marino [Alteraciones]</h1><p class="page-description"></p></header><div class="page-body"><h2 id="bf654abe-8195-4c76-a995-261c4f8382f7" class="block-color-yellow_background"><strong>Perdida de biodiversidad por sobrepesca</strong></h2><hr id="9dd8d7cb-1380-4094-831e-e07a89d49eef"/><p id="c6e5f66b-5bb1-4d12-8e34-1a33c3358c2d" class="block-color-gray_background"><strong>Proceso de Pérdida de Biodiversidad por Sobrepesca:</strong></p><ol type="1" id="75f6528f-3fc6-42fb-913b-bb92f68f6b1e" class="numbered-list" start="1"><li><strong>Pesca con Redes de Arrastre: </strong>La pesca con redes de arrastre implica arrastrar grandes redes por el fondo del mar, capturando todas las especies marinas que se encuentren a su paso, incluyendo las especies objetivo (peces comerciales) y no objetivo (otros peces, invertebrados, corales).</li></ol><ol type="1" id="6ff31b12-be31-43a6-9129-e34bf6e56e81" class="numbered-list" start="2"><li><strong>Impacto Directo en Especies Objetivo: </strong>La captura intensiva de especies objetivo, como peces de arrecife, disminuye sus poblaciones, afecta la biodiversidad marina y altera la cadena trófica.</li></ol><ol type="1" id="5544ec56-5bfc-4d13-940a-c21d457a572a" class="numbered-list" start="3"><li><strong>Daño a los Hábitats: </strong>Además, las redes de arrastre dañan los arrecifes de coral y otros hábitats del fondo marino.</li></ol><p id="4a55860e-1502-4c9c-acb7-31c439ba95ac" class="">
+</p><p id="8f672f5c-41af-44d9-a880-f575a44d4d9f" class="block-color-gray_background"><strong>Parámetros Indicadores:</strong></p><p id="b76f98d3-5c27-42f8-aec1-30f3b668bc64" class=""><strong>Fauna:</strong><div class="indented"><ul id="3e3fe266-a268-4d07-96cf-2c51932e9e0b" class="bulleted-list"><li style="list-style-type:disc"><strong>Indicador</strong>: <span style="border-bottom:0.05em solid">Disminución en la población de especies objetivo</span> (especialmente peces de arrecife) y <span style="border-bottom:0.05em solid">Daño en las estructuras de los corales</span><ul id="bb841433-a7e8-43f8-81a2-ce1882b2accd" class="bulleted-list"><li style="list-style-type:circle"><strong>Explicación</strong>: La pesca intensiva reduce las especies, incluyendo los peces de arrecife esenciales para los ecosistemas marinos. Además, los corales, que albergan y protegen a muchas especies, son dañados por las redes de arrastre.</li></ul><ul id="acd63a83-3085-4fa1-8a9e-db2694932179" class="bulleted-list"><li style="list-style-type:circle"><strong>Consecuencias</strong>:<ul id="71e71ac6-e7a6-4558-ad09-9636a7ef3a1b" class="bulleted-list"><li style="list-style-type:square"><strong>Pérdida de biodiversidad marina</strong>: La reducción de poblaciones de peces afecta a la diversidad de especies en el ecosistema marino.</li></ul><ul id="51bab19c-007c-4248-89bc-de1c8fe33fd0" class="bulleted-list"><li style="list-style-type:square"><strong>Alteración de la cadena trófica marina</strong>: La disminución de especies clave en la cadena alimentaria afecta a otras especies que dependen de ellas, alterando las dinámicas del ecosistema.</li></ul><ul id="5caabc44-e5db-43a1-8232-21ac5ad4c6f4" class="bulleted-list"><li style="list-style-type:square"><strong>Degradación de los hábitats coralinos</strong>: La destrucción de corales reduce la capacidad del ecosistema para sustentar una biodiversidad rica y variada.</li></ul></li></ul></li></ul></div></p><p id="7e7e9359-f9df-4e80-a7c0-332ee8651f27" class=""><strong>Agua:</strong><div class="indented"><ul id="df9565af-21a3-401b-b770-a208968272cd" class="bulleted-list"><li style="list-style-type:disc"><strong>Indicador</strong>: <span style="border-bottom:0.05em solid">Aumento de sedimentos (Turbidez del agua)</span><ul id="fa52a053-8edb-4c8c-91ea-b16078798d98" class="bulleted-list"><li style="list-style-type:circle"><strong>Explicación</strong>: El arrastre de redes remueve el sedimento del fondo marino, aumentando la turbidez del agua. Esto reduce la cantidad de luz que penetra en el agua, afectando la fotosíntesis de las algas y corales.</li></ul><ul id="7e37787d-f641-4910-b674-29ab869ede7e" class="bulleted-list"><li style="list-style-type:circle"><strong>Consecuencias</strong>:<ul id="37585f9b-3ee1-4ba3-9098-06e34bedf62a" class="bulleted-list"><li style="list-style-type:square"><strong>Degradación de los hábitats coralinos</strong>: La alta turbidez afecta a la fotosíntesis de las algas que habitan en los corales, dañando el crecimiento y la supervivencia de los mismos.<ul id="515c668b-ba30-4bec-a562-a06c7e79d050" class="toggle"><li><details open=""><summary>Info extra</summary><p id="9e6442cd-4fd3-475e-a319-ab4e10ee7b2b" class=""><mark class="highlight-gray">Los corales no realizan la fotosíntesis. Sin embargo, muchos corales tienen una relación simbiótica con algas fotosintéticas llamadas zooxantelas, que viven en sus tejidos. Las zooxantelas realizan la fotosíntesis y proporcionan nutrientes a los corales. Por lo tanto, la turbidez del agua afecta a las zooxantelas y, por ende, a los corales.</mark></p></details></li></ul></li></ul><ul id="c2a2f30a-bc5b-4e04-9b88-6520d23294ce" class="bulleted-list"><li style="list-style-type:square"><strong>Disminución en la calidad del agua</strong>: La turbidez reduce la calidad del agua, afectando a diversas especies marinas.</li></ul></li></ul></li></ul></div></p><h2 id="ca52671a-94c3-4c69-a0bd-6aed1c42ad45" class="block-color-yellow_background"><strong>Aumento de la temperatura del agua</strong></h2><hr id="dd25e012-8361-4d45-8be1-0757b13fc6b3"/><p id="2a2b47e5-aa4f-4677-a9e3-4860f589baa5" class="block-color-gray_background"><strong>Proceso de Aumento de la Temperatura del Agua:</strong></p><ol type="1" id="5a487e91-e2ca-4108-a110-542c7ae3bed8" class="numbered-list" start="1"><li><strong>Calentamiento Global y Radiación Solar: </strong>El aumento de la temperatura global debido al cambio climático y el aumento de la radiación solar directa contribuyen al calentamiento de los océanos.</li></ol><ol type="1" id="46e0209e-6d4b-4fc5-bd24-e43e4acbc582" class="numbered-list" start="2"><li><strong>Impacto en el Ecosistema Marino: </strong>El aumento de la temperatura del agua impacta en la vida marina, causando estrés en corales, cambios en la distribución de especies y enfermedades marinas.</li></ol><p id="80668680-7467-4209-8d68-22b4c1559750" class="">
+</p><p id="7f4bb50a-c35f-4cb1-9b1e-18a825cad122" class="block-color-gray_background"><strong>Parámetros Indicadores:</strong></p><p id="6af2f7ff-bf00-4d8f-8966-17274b29d903" class=""><strong>Agua:</strong><div class="indented"><ul id="abb3e492-d167-4f78-ae54-bf8e70c4baf7" class="bulleted-list"><li style="list-style-type:disc"><strong>Indicador</strong>: <span style="border-bottom:0.05em solid">Incremento de la temperatura media del agua</span><ul id="e22c5fae-22da-4a7e-a5d8-a75036fd2ee8" class="bulleted-list"><li style="list-style-type:circle"><strong>Explicación</strong>: El aumento de la temperatura del agua afecta directamente a las condiciones de vida de las especies marinas.</li></ul><ul id="91896925-0a4a-4a3f-8401-20a8c7f4fdd2" class="bulleted-list"><li style="list-style-type:circle"><strong>Consecuencias</strong>:<ul id="960e2655-48f6-459d-b7a6-5b7dd4174414" class="bulleted-list"><li style="list-style-type:square"><strong>Pérdida de biodiversidad marina</strong>: Las especies que no pueden adaptarse a las temperaturas más altas mueren o se desplazan.</li></ul><ul id="49bbf8e0-a73d-4270-917e-e2e632a9867e" class="bulleted-list"><li style="list-style-type:square"><strong>Aumento en enfermedades marinas</strong>: Las temperaturas más altas favorecen la proliferación de patógenos y enfermedades, que pueden afectar a una amplia gama de especies marinas.</li></ul></li></ul></li></ul></div></p><p id="c7cd9e16-0882-46ef-9c09-23d98036dd7f" class=""><strong>Fauna:</strong><div class="indented"><ul id="e15cde95-ad3e-494b-8727-eb800c007656" class="bulleted-list"><li style="list-style-type:disc"><strong>Indicador</strong>: <span style="border-bottom:0.05em solid">Cambios en la distribución y reproducción de especies marinas</span> y <span style="border-bottom:0.05em solid">Blanqueo y mortalidad de corales</span><ul id="78523f53-d6c9-45c8-9a5d-28ffc37f0e74" class="bulleted-list"><li style="list-style-type:circle"><strong>Explicación</strong>: Los corales sufren estrés térmico y blanqueamiento con el aumento de temperatura del agua, lo que puede llevar a su muerte. Estas altas temperaturas también pueden alterar los ciclos reproductivos y la distribución geográfica de otros organismos marinos.</li></ul><ul id="90de7a0a-f6c8-499f-84ff-dc7109e928c2" class="bulleted-list"><li style="list-style-type:circle"><strong>Consecuencias</strong>:<ul id="9a93d491-bcbd-4bff-89be-95c5c190d779" class="bulleted-list"><li style="list-style-type:square"><strong>Pérdida de biodiversidad marina</strong>: Los cambios en la reproducción y distribución de las especies tiene un impacto en la biodiversidad y la estructura del ecosistema marino. Además, la muerte de los corales afecta a todas las especies que dependen de los arrecifes de coral para obtener alimento y refugio.</li></ul><ul id="099a0813-e415-4433-8ffd-61b7bc3a2db8" class="bulleted-list"><li style="list-style-type:square"><strong>Degradación de los hábitats coralinos</strong>: La destrucción de corales reduce la capacidad del ecosistema para sustentar una biodiversidad rica y variada.</li></ul></li></ul></li></ul></div></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

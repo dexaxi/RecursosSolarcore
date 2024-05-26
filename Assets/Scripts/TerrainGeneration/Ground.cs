@@ -263,12 +263,14 @@ public class Ground : MonoBehaviour
 
     public GroundTile GetTileFromCellCoords(Vector2Int cellCoords) 
     {
-        return GroundMap[cellCoords];
+        GroundMap.TryGetValue(cellCoords, out GroundTile returnValue);
+        return returnValue;
     }
 
     public GroundTile GetTileFromCellCoords(int x, int y) 
     {
-        return GroundMap[new Vector2Int(x, y)];
+        GroundMap.TryGetValue(new Vector2Int(x, y), out GroundTile returnValue);
+        return returnValue;
     }
 
 }

@@ -15,8 +15,8 @@ public class Hoverable : MonoBehaviour
     {
         if (IsUsingUI.IsUIEnabled()) return;
         if (Selectable.SELECTABLE_LOCK != null && Selectable.SELECTABLE_LOCK != _selectable) return;
-
     }
+
     public virtual void OnMouseEnter()
     {
         if (IsUsingUI.IsUIEnabled()) return;

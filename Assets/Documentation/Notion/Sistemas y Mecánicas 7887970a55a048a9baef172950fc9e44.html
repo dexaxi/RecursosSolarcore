@@ -1,0 +1,680 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Sistemas y Mecánicas</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7887970a-55a0-48a9-baef-172950fc9e44" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⚙️</span></div><h1 class="page-title">Sistemas y Mecánicas</h1><p class="page-description"></p></header><div class="page-body"><nav id="a997018e-2a6f-42ad-bbf9-97be44556f02" class="block-color-default table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ea2ec464-a22d-4061-8622-9f133ce23ce8">Sistemas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7baf5fa5-521b-4e46-b525-f391e99cf836"><strong>🍃 S1. Recursos</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#13271e47-714c-427e-aaa7-abf74ee57246"><strong>SS1.1. Máquinas</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#8911591c-23dc-4a87-9046-794792d36aa0"><strong>SS1.2. Recursos</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b287a12f-2f6e-436c-973b-bb1b5c10c97e"><strong>SS1.3. Moneda</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#eae42979-215f-435b-b7cc-8f2d6f625b14"><strong>SS1.4. Información</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#4ee9c78a-e811-43d3-ba85-9b14d7605273">Mecánicas S1</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#79bee9c2-c6c0-4959-b5b7-4ea4773f0dc1"><strong>⭕ S2. Objetivos</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#3ad488fc-d4ea-4ac8-aad6-2d11ce67f9e6"><strong>SS2.1. Objetivos globales</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#9df54343-b3e3-434a-8b03-8bbaaf23ad70"><strong>SS2.2. Objetivos principales</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#56ea3773-9873-467e-8941-c134977932ca"><strong>SS2.3. Objetivos secundarios</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#fadf2f09-1173-4147-8af4-3ca7a7478fb0">Mecánicas S2</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f3f84837-270d-49b2-b1d6-5fb475771ad0"><strong>⛏ S3. Restauración</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#6adf55fc-8ff3-4853-9242-67f295c53d9f"><strong>SS3.1. Investigación</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#d503ae41-29ec-46a4-b6e1-a333b222ec21"><strong>SS3.2. Planificación</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#963d17d7-e87e-429e-87fc-63128fb1a69d"><strong>SS3.2. Restauración</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#14fa4bd7-7901-4011-b930-6f2b94060ba8">Mecánicas S3</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ba26b744-81b7-42bc-bc90-9566b2181b05">Tabla de Sistemas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#05280555-5bcb-458f-b469-748742cb2194">Tabla de Recursos</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#6591f4b4-029a-48fc-bb4b-876d90b3766d">⚙ Mecánicas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#da84f22c-5927-4f8d-a785-7634792b21af">Mecánicas S1</a></div></nav><h1 id="ea2ec464-a22d-4061-8622-9f133ce23ce8" class="">Sistemas</h1><h2 id="7baf5fa5-521b-4e46-b525-f391e99cf836" class="block-color-teal_background"><strong>🍃 S1. Recursos</strong></h2><hr id="1f10da2a-fb82-4c93-abda-1ba600df49eb"/><p id="d2c8a323-842d-4ce6-9cd7-51915b373bfb" class="">El sistema de recursos engloba los diferentes elementos que los jugadores necesitan para progresar en el nivel y completar los objetivos.</p><h3 id="13271e47-714c-427e-aaa7-abf74ee57246" class="block-color-teal_background"><strong>SS1.1. Máquinas</strong></h3><p id="e55da6c6-6a0b-42f8-b410-ffa39d590dc8" class="">Este subsistema se encarga de todo lo relacionado con las máquinas que el jugador puede utilizar en el juego. Incluye varias mecánicas, tales como la <strong>selección</strong> y <strong>colocación</strong> de máquinas en el mapa, cada una con un costo por unidad asignada. Las máquinas se usan para cumplir tareas específicas, de forma autónoma o con ayuda de la interacción del jugador. Además, las máquinas también pueden ser <strong>mejoradas</strong> a modo de actualización.</p><h3 id="8911591c-23dc-4a87-9046-794792d36aa0" class="block-color-teal_background"><strong>SS1.2. Recursos</strong></h3><p id="31ea6500-14ea-4124-aa93-fd513434d551" class="">Los recursos son aquellos objetos que se pueden comprar o almacenar (y que no son máquinas), como semillas o corales de plástico. Son necesarios para llevar a cabo ciertas tareas de restauración en el juego. Los recursos también tienen un costo asociado por unidad.</p><p id="675fcad7-a20f-4698-b738-3c4d46e20077" class="">También se pueden <strong>seleccionar</strong> y <strong>colocar</strong>.</p><h3 id="b287a12f-2f6e-436c-973b-bb1b5c10c97e" class="block-color-teal_background"><strong>SS1.3. Moneda</strong></h3><p id="31fbec37-fda2-4ef8-93d9-65d4d0e9cea4" class="">La moneda se utiliza para <strong>comprar</strong> recursos, máquinas y otros elementos que puedan ser necesarios. La moneda se obtiene a través de diferentes acciones: capital inicial, completar objetivos y <strong>vender</strong> recursos. Es exclusiva dentro del contexto del nivel, lo que significa que cada nivel tiene su propia economía que no se extrapola fuera del mismo.</p><h3 id="eae42979-215f-435b-b7cc-8f2d6f625b14" class="block-color-teal_background"><strong>SS1.4. Información</strong></h3><p id="df67c85b-2918-4d3e-adfb-ff1905b37e89" class="">La información también es un recurso que se puede obtener a lo largo del transcurso de un nivel. Esto incluye información sobre el estado inicial del nivel, el estado actual del bioma, las características de las diferentes zonas del mapa y la ubicación de elementos importantes.</p><p id="9eef7ced-6b76-4bea-9884-7df919e03ed9" class="">Dicha información se consigue a través del informe inicial, que se podrá <strong>consultar </strong>en cualquier momento, y del análisis de zonas por casillas hecho con las máquinas de investigación, que <strong>revelará </strong>datos relevantes por cada terreno analizado.</p><h3 id="4ee9c78a-e811-43d3-ba85-9b14d7605273" class="block-color-gray_background">Mecánicas S1</h3><div id="f804bbe6-eef1-414a-8a13-bc7cc68be990" class="column-list"><div id="782b3a20-ff53-412c-a246-e0797680f60f" style="width:50%" class="column"><ul id="c8e78265-2a8c-4cb0-bbac-de8e1eedde81" class="bulleted-list"><li style="list-style-type:disc"><strong>Seleccionar</strong></li></ul><ul id="622980e7-4fd8-442c-9496-6adec336125c" class="bulleted-list"><li style="list-style-type:disc"><strong>Comprar</strong></li></ul><ul id="231f84e4-f2ae-401b-bc4f-4a891c5cedf4" class="bulleted-list"><li style="list-style-type:disc"><strong>Mejorar máquinas</strong></li></ul><ul id="c926dc75-1884-45e8-a164-db6c6ce48946" class="bulleted-list"><li style="list-style-type:disc"><strong>Conseguir y analizar información</strong></li></ul></div><div id="3f497c19-c5a6-44a0-a2f0-d2020cf16368" style="width:50%" class="column"><ul id="deeb1905-1e6b-4f6c-87a8-319120d71ffe" class="bulleted-list"><li style="list-style-type:disc"><strong>Colocar</strong></li></ul><ul id="f0a0973a-9b4c-4cc5-a172-a32148eec494" class="bulleted-list"><li style="list-style-type:disc"><strong>Vender</strong></li></ul><ul id="36c295b3-7158-40af-9ed0-2e757f0ec649" class="bulleted-list"><li style="list-style-type:disc"><strong>Gestión de recursos</strong></li></ul></div></div><h2 id="79bee9c2-c6c0-4959-b5b7-4ea4773f0dc1" class="block-color-red_background"><strong>⭕ S2. Objetivos</strong></h2><hr id="2dcc5cbf-6cb3-4735-b426-db16cabce164"/><p id="87a025bc-6810-41e8-ac06-535e99c839eb" class="">El sistema de objetivos engloba todos los objetivos del juego, incluyendo los principales y secundarios.</p><h3 id="3ad488fc-d4ea-4ac8-aad6-2d11ce67f9e6" class="block-color-red_background"><strong>SS2.1. Objetivos globales</strong></h3><p id="a4cc708c-590e-48a0-b210-e55701b51ed3" class="">Este subsistema se encarga de los objetivos globales del juego. Tales como ir superando los distintos niveles y avanzar en la “trama”.</p><h3 id="9df54343-b3e3-434a-8b03-8bbaaf23ad70" class="block-color-red_background"><strong>SS2.2. Objetivos principales</strong></h3><p id="e244d7e9-e74f-4735-a6a3-67ea412c8a4d" class="">Este subsistema engloba los objetivos esenciales para completar cada nivel del juego. Dichos objetivos se deben cumplir (al menos en un % de completado) para finalizar el nivel.</p><h3 id="56ea3773-9873-467e-8941-c134977932ca" class="block-color-red_background"><strong>SS2.3. Objetivos secundarios</strong></h3><p id="07b34eb3-792a-4f3f-8e35-00de3fccf6fb" class="">Este subsistema engloba los objetivos opcionales del nivel que el jugador puede completar para obtener <strong>recompensas adicionales</strong>.</p><h3 id="fadf2f09-1173-4147-8af4-3ca7a7478fb0" class="block-color-gray_background">Mecánicas S2</h3><ul id="d3814ec7-823d-4a21-9408-df73b1b19f17" class="bulleted-list"><li style="list-style-type:disc"><strong>Cumplir objetivos:</strong> Cumplir los objetivos principales y secundarios del nivel para poder completarlo y/o recibir recompensas.</li></ul><p id="520f978f-1101-48dc-b064-ca0f1dcab854" class="">
+</p><h2 id="f3f84837-270d-49b2-b1d6-5fb475771ad0" class="block-color-blue_background"><strong>⛏ S3. Restauración</strong></h2><hr id="20ea2784-e31a-43fe-9320-87f63a0af060"/><p id="df69d8dd-e70a-4cb2-bcd9-223fa896ab9b" class="">Este sistema engloba todos los sistemas relativos a la restauración de los diferentes biomas/zonas de cada nivel.</p><h3 id="6adf55fc-8ff3-4853-9242-67f295c53d9f" class="block-color-blue_background"><strong>SS3.1. Investigación</strong></h3><p id="dae781fa-708f-47bd-8a8b-c9f53cbd3300" class="">Análisis e identificación de los problemas de los diferentes biomas del juego. El jugador tendrá que recopilar información sobre la zona, como el tipo de terreno, la flora y fauna presentes y los problemas ambientales existentes. Esta investigación se realizará mediante la <strong>colocación</strong> de máquinas de diagnóstico en casillas de cada zona.</p><h3 id="d503ae41-29ec-46a4-b6e1-a333b222ec21" class="block-color-blue_background"><strong>SS3.2. Planificación</strong></h3><p id="2cf220fb-7fb0-4373-8973-138c2a91baa9" class="">Este subsistema se encarga de la planificación previa a la restauración. En él, el jugador tendrá que establecer un plan de acción para llevar a cabo la restauración, teniendo en cuenta el presupuesto disponible, el estado y características del medio y los objetivos a cumplir. El plan será semi-predefinido (en base a la investigación y análisis previos) e incluirá una selección del tipo de acciones que se llevarán a cabo y en qué orden.</p><h3 id="963d17d7-e87e-429e-87fc-63128fb1a69d" class="block-color-blue_background"><strong>SS3.2. Restauración</strong></h3><p id="551e0b9b-4b06-4a16-9c67-c0688a227b06" class="">Este subsistema engloba la restauración en tiempo real. El jugador tendrá que realizar las acciones previamente planificadas en el subsistema SS3.2 Planificación. Esto lo llevará a cabo mediante la <strong>colocación</strong> y monitorización de máquinas y recursos. Identificando en todo momento los objetivos y procesos más prioritarios y haciendo un buen uso de la moneda para no quedarse sin recursos antes de poder completar el nivel con éxito.</p><h3 id="14fa4bd7-7901-4011-b930-6f2b94060ba8" class="block-color-gray_background">Mecánicas S3</h3><ul id="591b6501-ddfd-4841-8e60-56bfa4933a09" class="bulleted-list"><li style="list-style-type:disc"><strong>Planificar:</strong> Establecer un plan de acción inicial. Dicho plan podrá ser modificado si se detectan fallos, pudiendo regresar a un estado anterior.</li></ul><ul id="dd02b3de-b961-4229-826b-cdf27ed827fd" class="bulleted-list"><li style="list-style-type:disc"><strong>Recopilar información:</strong> El jugador tendrá que recopilar información sobre la zona para identificar los problemas a resolver, empleando máquinas de diagnóstico. Dicha información deberá ser<strong> visible</strong> en todo momento (a no ser que la máquina sea vendida).</li></ul><ul id="705cf69c-2685-4c5a-9223-4362a6a7d499" class="bulleted-list"><li style="list-style-type:disc"><strong>Restaurar:</strong> El jugador tendrá que llevar a cabo las acciones previamente planificadas para conseguir que el ecosistema se recupere, haciendo uso de todas las mecánicas anteriormente descritas.</li></ul><ul id="ee503e27-898a-4eba-95fe-b54893afebf0" class="bulleted-list"><li style="list-style-type:disc"><strong>Minijuegos de puzles de optimización: </strong>En la fase de restauración algunas máquinas requieren resolver una serie de mini puzles dinámicos de optimización de recursos.</li></ul><p id="cbd4d5a1-9d3b-4d8c-9d26-6e93c91685bc" class="">
+</p><h2 id="ba26b744-81b7-42bc-bc90-9566b2181b05" class="block-color-gray_background">Tabla de Sistemas</h2><hr id="f37ead46-43f0-456a-8d67-6f67a8edca69"/><table id="4df5f51c-7cbe-46a4-bfd0-529bef93500e" class="simple-table"><tbody><tr id="1006254e-c7b5-4487-9271-e35b4fa1d600"><td id="UbvE" class="block-color-brown_background"><strong>ID</strong></td><td id="XyQD" class="block-color-brown_background"><strong>Nombre</strong></td><td id="&gt;:YE" class="block-color-brown_background" style="width:542px"><strong>Descripción</strong></td></tr><tr id="585c4854-2940-43ef-a0c9-15a5d0004e7b"><td id="UbvE" class="">S1</td><td id="XyQD" class=""><strong>Recursos</strong></td><td id="&gt;:YE" class="" style="width:542px">Este sistema engloba los diferentes recursos del juego: máquinas, recursos, moneda e información.</td></tr><tr id="939b00b4-f63e-41ee-90d9-eb7a295beef3"><td id="UbvE" class="">SS1.1</td><td id="XyQD" class=""><strong>Máquinas</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba todo lo relativo a las diferentes máquinas que el jugador puede utilizar en el juego.</td></tr><tr id="6449b17d-7e4d-4c70-88a1-f75fa607eb63"><td id="UbvE" class="">SS1.2</td><td id="XyQD" class=""><strong>Recursos</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba los diferentes recursos que el jugador puede adquirir en el juego, ya sea comprándolos (como semillas) o fabricándolos (como corales de plástico).</td></tr><tr id="6495ab05-1cdc-41fe-b218-2650be81d4c0"><td id="UbvE" class="">SS1.3</td><td id="XyQD" class=""><strong>Moneda</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba la moneda del juego empleada para comprar recursos, máquinas, etc.</td></tr><tr id="fcc65381-6399-4ed9-86df-c89e91f3ef15"><td id="UbvE" class="">SS1.4</td><td id="XyQD" class=""><strong>Información</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba los datos y la información que se le propicia al jugador y la que este puede recopilar sobre las zonas y su estado actual.</td></tr><tr id="1a0a8e6c-bfa7-4b7e-bc8d-aa0099fd0e08"><td id="UbvE" class="">S2</td><td id="XyQD" class=""><strong>Objetivos</strong></td><td id="&gt;:YE" class="" style="width:542px">Este sistema engloba todos los objetivos del juego.</td></tr><tr id="b95a5211-00da-4969-99f1-a8adf77fe74c"><td id="UbvE" class="">SS2.1</td><td id="XyQD" class=""><strong>Objetivos globales</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba la gestión de niveles y los objetivos globales del juego.</td></tr><tr id="8de7d217-634b-4953-9751-3cdbbcb9bbeb"><td id="UbvE" class="">SS2.2</td><td id="XyQD" class=""><strong>Objetivos principales</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba los objetivos esenciales para completar cada nivel del juego.</td></tr><tr id="e5d7e8bc-4f45-482a-8f01-aaa303c7ecac"><td id="UbvE" class="">SS2.3</td><td id="XyQD" class=""><strong>Objetivos secundarios</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba los objetivos opcionales del nivel que el jugador puede completar para obtener recompensas adicionales.</td></tr><tr id="acb1521d-04ef-46d9-99e8-90f7b850b227"><td id="UbvE" class="">S3</td><td id="XyQD" class=""><strong>Restauración</strong></td><td id="&gt;:YE" class="" style="width:542px">Este sistema engloba la restauración de los diferentes ecosistemas del juego.</td></tr><tr id="9f62273f-7f2a-4609-a7d8-7c6f91e16691"><td id="UbvE" class="">SS3.1</td><td id="XyQD" class=""><strong>Planificación</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba la planificación de la restauración..</td></tr><tr id="cc4d2309-e770-4361-b989-b235060b5bf9"><td id="UbvE" class="">SS3.2</td><td id="XyQD" class=""><strong>Investigación</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba la investigación de los diferentes ecosistemas, es decir, el análisis de la zona para identificar los problemas a resolver.</td></tr><tr id="5aaf7865-88bb-4ddf-917f-196b17af1755"><td id="UbvE" class="">SS3.3</td><td id="XyQD" class=""><strong>Restauración</strong></td><td id="&gt;:YE" class="" style="width:542px">Subsistema que engloba la restauración en tiempo real de los diferentes ecosistemas.</td></tr></tbody></table><h2 id="05280555-5bcb-458f-b469-748742cb2194" class="block-color-gray_background">Tabla de Recursos</h2><hr id="3245e061-60ad-44af-ade6-3f70111899e1"/><table id="29a33aed-ae1b-45f3-b2fa-1ba0c1c77b40" class="simple-table"><tbody><tr id="87d1e87a-89b9-4b13-a64f-0d6561750261"><td id="TGG&gt;" class="block-color-brown_background"><strong>Nombre del recurso</strong></td><td id="d`hj" class="block-color-brown_background" style="width:463px"><strong>Descripción</strong></td></tr><tr id="8b898b39-0e0f-4332-8509-eb383c72b72f"><td id="TGG&gt;" class=""><strong>Máquinas</strong></td><td id="d`hj" class="" style="width:463px">Utilizadas para tareas específicas. Tienen un coste inicial de compra.</td></tr><tr id="2e79f717-012c-47b7-97bf-9af84d3b4ae3"><td id="TGG&gt;" class=""><strong>Recursos</strong></td><td id="d`hj" class="" style="width:463px">Comprados o fabricados para la restauración. (Semillas, utensilios, etc)</td></tr><tr id="b72f92fd-db99-4422-a630-49c0d313f9a2"><td id="TGG&gt;" class=""><strong>Dinero</strong></td><td id="d`hj" class="" style="width:463px">Utilizado para comprar recursos y máquinas.</td></tr><tr id="9dada75f-1e3f-4d16-a1cb-b3ffe3ec5f39"><td id="TGG&gt;" class=""><strong>Información</strong></td><td id="d`hj" class="" style="width:463px">Los datos recopilados de cada casilla/zona y los proporcionados al inicio del nivel.</td></tr><tr id="760ce639-0aca-4fb8-92e1-fc34b6266588"><td id="TGG&gt;" class=""><strong>Habilidades especiales</strong></td><td id="d`hj" class="" style="width:463px">Mejoras para las máquinas (opcional).</td></tr></tbody></table><h1 id="6591f4b4-029a-48fc-bb4b-876d90b3766d" class="">⚙ Mecánicas</h1><h2 id="da84f22c-5927-4f8d-a785-7634792b21af" class="block-color-teal_background">Mecánicas S1</h2><hr id="4fe95d74-67ac-4e5a-8ef8-62ef12e3eb86"/><p id="7586b517-c587-432f-b0e1-577465bc8a85" class="block-color-gray_background"><strong>🖱 Seleccionar</strong></p><blockquote id="cc71f88e-e79c-4b56-81c4-0884f0b38634" class="">Seleccionar una máquina u objeto y visualizar su información.</blockquote><p id="3ee4ead1-6780-4af1-821d-dc8661a79311" class="block-color-gray_background"><strong>↕ Colocar</strong></p><blockquote id="d489608d-34f5-4196-b082-3e375c69cb0d" class="">Colocar la máquina u objeto seleccionado en una casilla del mapa. Al hacerlo se mostrará la casilla en la que se coloca y el rango de actuación (por casillas).</blockquote><p id="527d5e10-d7e5-4f88-8238-126826badd9b" class="block-color-gray_background"><strong>🔼 Mejorar máquinas</strong></p><blockquote id="131a331d-ad32-45c0-8488-1b68e02bce18" class="">Actualizar las máquinas que ya han sido colocadas en el mapa  para que realice más tareas, tenga más rango/eficiencia o se adapte para ejecutar otra fase de restauración diferente a la inicial. Esta mecánica sólo es relativa al SS1.1 Máquinas. <em>-Pendiente de revisión, es posible excluir esta mecánica-</em></blockquote><p id="c6101252-ccb0-4c47-844d-aaf7bea39538" class="block-color-gray_background"><strong>💰 Comprar</strong></p><blockquote id="88dc8590-6a6d-4a5e-886e-4c8d9331ec1f" class="">Comprar máquinas o recursos haciendo uso de la moneda.</blockquote><p id="1865cc5a-ab23-4f43-b5f4-eedcf3b701a4" class="block-color-gray_background"><strong>💸 Vender</strong></p><blockquote id="462b9a61-0e72-4f94-a1ac-ef2db03e0ab2" class="">Vender<strong> </strong>máquinas o recursos. Se otorgará un % del precio inicial del producto.</blockquote><p id="ce47f11e-ab82-441b-a8f3-0f819ab70054" class="block-color-gray_background"><strong>📋 Gestión de recursos</strong></p><blockquote id="5998983b-3288-4b8d-86e4-980838a0e2ee" class="">Gestionar todos los recursos disponibles.</blockquote><p id="9add1217-6af2-4939-9168-fb5e5ff299e8" class="block-color-gray_background"><strong>📑 Conseguir y analizar información</strong></p><blockquote id="6b7494d5-c5a1-41d0-8e11-1142bd1adb94" class="">Conseguir, visualizar, procesar y analizar la información relativa al estado de los biomas de cada nivel.</blockquote><p id="0aeb4b0c-f87c-4603-95a6-29781bf8a472" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
