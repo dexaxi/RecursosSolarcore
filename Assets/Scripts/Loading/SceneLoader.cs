@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,8 +17,8 @@ public enum SceneIndex
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
-    
     public AsyncOperation SceneLoadAsyncOperation;
+    private AsyncOperation _loadingSceneOp;
     
     public bool IS_LOADING { get; private set; }
     public bool HOLD_LOADING;
@@ -63,9 +64,9 @@ public class SceneLoader : MonoBehaviour
         PrintLoadingScene(nextScreen);
         PrintUnloadingScene(_previousQueuedItem);
 
-        var loadingScreenLoadOp = SceneManager.LoadSceneAsync( (int) SceneIndex.LOADING_SCREEN, LoadSceneMode.Single);
+        _loadingSceneOp = SceneManager.LoadSceneAsync( (int) SceneIndex.LOADING_SCREEN, LoadSceneMode.Single);
         
-        while (!loadingScreenLoadOp.isDone)
+        while (!_loadingSceneOp.isDone)
         {
             yield return null;
         }
