@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b87b7045c01a40039c29111029704d7, type: 3}
+  m_Name: XD Import Settings
+  m_EditorClassIdentifier: 
+  prefabOutputPath: Assets/AdobeXD/XDImport/{name}/GeneratedPrefabs/{name}
+  assetOutputDirectoryPath: Assets/AdobeXD/XDImport/{name}/GeneratedAssets/{name}
+  metaOutputPath: Assets/AdobeXD/XDImport/{name}/GeneratedMetas/{name}
+  fontDirectoryPath: Assets/Fonts/
+  texturePreset: {fileID: 0}
+  triggers:
+  - {fileID: 11400000, guid: 7f434e7031bb7444e937036ca602eebc, type: 2}
+  - {fileID: 11400000, guid: 6da40c026b904884b917cb1b59641c73, type: 2}
+  - {fileID: 11400000, guid: 0b3ea451cbc0c404e95fed1153f0da62, type: 2}
+  spriteSaveScale: 1
+  reimportLayout: 1
+  reimportAsset: 1
+  logType: 0
+  objectParsers:
+  - {fileID: 11400000, guid: 420d5a41c1326df49998364c7a27ee18, type: 2}
+  groupParsers: []
+  xdTriggers: []
+  akyuiOutputPath: Assets/AdobeXD/XDImport/{name}/DumpAkyui

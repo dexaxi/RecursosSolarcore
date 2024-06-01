@@ -143,10 +143,8 @@ public class Ground : MonoBehaviour
         SceneLoader.Instance.HOLD_LOADING = false;
     }
 
-    public void Regenerate() 
+    public void Regenerate()  
     {
-        SceneLoader.Instance.HOLD_LOADING = false;
-        SceneManager.UnloadScene( (int) SceneIndex.LEVEL_SCENE);
         SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SCENE);
     }
 

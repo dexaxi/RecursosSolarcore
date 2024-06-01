@@ -59,13 +59,25 @@ public class SceneLoader : MonoBehaviour
     {
         IS_LOADING = true;
         SceneIndex nextScreen = _loadingQueue.Dequeue();
+        
         PrintLoadingScene(nextScreen);
-        //save load operation for progress bars/data
-        SceneLoadAsyncOperation = SceneManager.LoadSceneAsync( (int) SceneIndex.LOADING_SCREEN, LoadSceneMode.Additive);
+        PrintUnloadingScene(_previousQueuedItem);
+
+        var loadingScreenLoadOp = SceneManager.LoadSceneAsync( (int) SceneIndex.LOADING_SCREEN, LoadSceneMode.Single);
+        
+        while (!loadingScreenLoadOp.isDone)
+        {
+            yield return null;
+        }
+
+        PrintUnloadingFinished(_previousQueuedItem);
+        _previousQueuedItem = nextScreen;
+         
+
         SceneLoadAsyncOperation = SceneManager.LoadSceneAsync( (int) nextScreen, LoadSceneMode.Additive);
 
         //wait until loading is done
-        while (!SceneLoadAsyncOperation.isDone)
+        while (HOLD_LOADING && !SceneLoadAsyncOperation.isDone)
         {
             yield return null;
         }
@@ -73,17 +85,6 @@ public class SceneLoader : MonoBehaviour
         PrintLoadingFinished(nextScreen);
 
         yield return new WaitForSeconds(1);
-
-        PrintUnloadingScene(_previousQueuedItem);
-
-        var sceneUnload = SceneManager.UnloadSceneAsync((int)_previousQueuedItem);
-        while (HOLD_LOADING && !sceneUnload.isDone)
-        {
-            yield return null;
-        }
-
-        _previousQueuedItem = nextScreen;
-        PrintUnloadingFinished(_previousQueuedItem);
 
         if (_loadingQueue.Count == 0) 
         {
@@ -133,6 +134,6 @@ public class SceneLoader : MonoBehaviour
     
     public void PrintUnloadingFinished(SceneIndex index) 
     {
-        Debug.Log("UNLOADING: " + SceneIndexToString(index) + "FINISHED");
+        Debug.Log("UNLOADING: " + SceneIndexToString(index) + " FINISHED");
     }
 }
