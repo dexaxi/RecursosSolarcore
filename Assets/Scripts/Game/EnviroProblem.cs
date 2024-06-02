@@ -7,8 +7,11 @@ using UnityEngine;
 public class EnviroProblem : ScriptableObject
 {
     public new string name;
-    public string description;
-
+    public string Description;
+    public EnviroProblemType Type;
+    public Sprite Sprite;
+    public Color color;
     public List<BiomeType> PossibleBiomes;
     public List<ActionPlan> PossibleSolutions;
+    public List<EnviroConsequenceType> RelatedConsecuences;
 }

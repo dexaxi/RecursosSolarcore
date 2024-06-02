@@ -145,7 +145,7 @@ public class Ground : MonoBehaviour
 
     public void Regenerate()  
     {
-        SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SCENE);
+        SceneLoader.Instance.ReloadScene();
     }
 
     Biome GetTileBiome(float value)

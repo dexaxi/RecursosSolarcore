@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,15 +8,16 @@ using UnityEngine.UI;
 public class LevelSelector : MonoBehaviour
 {
     //TEMP
-    [field: SerializeField] private Button Level1Button;
+    [field: SerializeField] private Button LoadLevel;
 
     private void Awake()
     {
-        Level1Button.onClick.AddListener(LoadLevel1);
+        LoadLevel.onClick.AddListener(LoadAssignedLevel);
     }
 
-    private void LoadLevel1() 
+    private void LoadAssignedLevel() 
     {
-        SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SCENE);
+        ResourceGame.Instance.SetLevel("TestLevel");
+        SceneLoader.Instance.LoadScene(SceneIndex.PROBLEM_SCREEN);
     }
 }

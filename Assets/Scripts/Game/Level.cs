@@ -10,7 +10,7 @@ public class Level : ScriptableObject
 
     public int LevelIndex;
 
-    public List<EnviroProblem> EnviroProblems;
+    public List<EnviroProblemType> EnviroProblems;
     public List<ActionPlan> SelectedSolutions;
     public List<BiomeType> SelectedBiomes;
 
@@ -41,7 +41,7 @@ public class Level : ScriptableObject
     public float CalculateBudget() 
     {
         _budget = 0;
-        foreach(EnviroProblem problem in EnviroProblems) 
+        foreach(EnviroProblemType problem in EnviroProblems) 
         {
             _budget += 100000;
         }
@@ -69,28 +69,68 @@ public class Level : ScriptableObject
         }
     }
 
+    public void InitRelationLevel() 
+    {
+        RelationHandler.Instance.PopulateProblems();
+        RelationHandler.Instance.PopulateConsequences();
+        GenerateProblemFilters();
+        GenerateConsequenceFilters();
+    }
+
     public void InitLevel() 
     {
         MachineHandler.Instance.PopulateMachineResources();
         BiomeHandler.Instance.PopulateBiomeResources();
+        RelationHandler.Instance.PopulateProblems();
+        RelationHandler.Instance.PopulateConsequences();
 
-        foreach (BiomeType biome in SelectedBiomes)
-        {
-            BiomeHandler.Instance.AddBiomeFilter(biome);
-        }
+        GenerateBiomeFilters();
+        GenerateMachineFilters();
+        GenerateProblemFilters();
+        GenerateConsequenceFilters();
 
-        foreach (ActionPlan plan in SelectedSolutions) 
-        {
-            foreach(MachineType machine in plan.PossibleMachines) 
-            {
-                MachineHandler.Instance.AddMachineFilter(machine);
-            }
-        }
-        
         MachineShop.Instance.PopulateShop();
         
         Ground.Instance.StartMapGeneration();
 
         PlayerCurrencyManager.Instance.AddCurrency(CalculateBudget());
+    }
+
+
+    private void GenerateMachineFilters() 
+    {
+        foreach (ActionPlan plan in SelectedSolutions)
+        {
+            foreach (MachineType machine in plan.PossibleMachines)
+            {
+                MachineHandler.Instance.AddMachineFilter(machine);
+            }
+        }
+    }
+    private void GenerateBiomeFilters() 
+    {
+        foreach (BiomeType biome in SelectedBiomes)
+        {
+            BiomeHandler.Instance.AddBiomeFilter(biome);
+        }
+    }
+    private void GenerateProblemFilters() 
+    {
+        foreach (EnviroProblemType problem in EnviroProblems)
+        {
+            RelationHandler.Instance.AddProblemFilter(problem);
+        }
+    }
+
+    private void GenerateConsequenceFilters() 
+    {
+        List<EnviroProblem> filteredProblems = RelationHandler.Instance.GetFilteredProblems();
+        foreach (EnviroProblem problem in filteredProblems) 
+        {
+            foreach (EnviroConsequenceType consequence in problem.RelatedConsecuences) 
+            {
+                RelationHandler.Instance.AddConsequenceFilter(consequence);
+            }
+        }
     }
 }

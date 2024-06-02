@@ -20,9 +20,9 @@ public class LoadingUIManager : MonoBehaviour
     private void Update()
     {
         //Loading progress bar + % text
-        if (SceneLoader.Instance.SceneLoadAsyncOperation != null && !SceneLoader.Instance.SceneLoadAsyncOperation.isDone)
+        if (SceneLoader.Instance.IS_LOADING)
         {
-            float progressValue = Mathf.Clamp01(SceneLoader.Instance.SceneLoadAsyncOperation.progress / 0.9f);
+            float progressValue = Mathf.Clamp01(SceneLoader.Instance.GetLoadingProgress() / 0.9f);
             _progressBar.value = progressValue;
             _loadingText.text = Mathf.Round(progressValue * 100) + "%";
         }
