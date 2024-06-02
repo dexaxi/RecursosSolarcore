@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using AnKuchen.Map;
 using Cysharp.Threading.Tasks;
 using System.Reflection;
-using Palmmedia.ReportGenerator.Core;
 
 public class MainMenuHandler : MonoBehaviour
 {

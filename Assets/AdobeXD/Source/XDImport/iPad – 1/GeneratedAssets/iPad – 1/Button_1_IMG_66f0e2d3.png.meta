@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 57101dc370e18474ab6608bf26a68497
+guid: ae416ab66472ec84292998cee903d701
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 101, y: 0, z: 101, w: 0}
+  spriteBorder: {x: 45, y: 0, z: 45, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 208
+    maxTextureSize: 206
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -178,6 +178,6 @@ TextureImporter:
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: '{"hash":3443632516,"source_width":208,"source_height":91}'
+  userData: '{"hash":2534966481,"source_width":206,"source_height":91}'
   assetBundleName: 
   assetBundleVariant: 
