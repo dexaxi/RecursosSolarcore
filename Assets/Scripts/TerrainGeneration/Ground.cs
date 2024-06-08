@@ -63,7 +63,8 @@ public class Ground : MonoBehaviour
         _noiseGenerator.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2S);
         _totalTiles = MaxX * MaxY;
         HasLoaded = false;
-        SceneLoader.Instance.HOLD_LOADING = true;
+
+        ResourceGame.Instance.ProcessActiveScene();
     }
 
     public void StartMapGeneration()
@@ -132,7 +133,7 @@ public class Ground : MonoBehaviour
         for (int i = 0; i < _biomeScriptableObjects.Length; i++)
         {
             if (_biomeScriptableObjects[i].spawnCount < _minTilesPerBiome)
-            {
+            {   
                 Debug.Log("Regenerating because of Biome: " + (BiomeType)i + " spawnCount: " + _biomeScriptableObjects[i].spawnCount + " minSpawnCount: " + _minTilesPerBiome);
                 Regenerate();
                 return;

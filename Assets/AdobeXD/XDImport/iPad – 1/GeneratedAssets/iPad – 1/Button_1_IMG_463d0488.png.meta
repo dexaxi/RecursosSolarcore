@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 45, y: 0, z: 45, w: 0}
+  spriteBorder: {x: 45, y: 45, z: 45, w: 45}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 208
+    maxTextureSize: 209
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -178,6 +178,6 @@ TextureImporter:
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: '{"hash":2720037171,"source_width":208,"source_height":91}'
+  userData: '{"hash":4203777537,"source_width":209,"source_height":92}'
   assetBundleName: 
   assetBundleVariant: 

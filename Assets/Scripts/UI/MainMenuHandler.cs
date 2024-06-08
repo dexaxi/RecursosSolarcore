@@ -48,7 +48,7 @@ public class MainMenuHandler : MonoBehaviour
         }
         private void Play()
         {
-            SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SELECTOR);
+            SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SELECTOR, 0, true);
         }
         private void QuitGame()
         {

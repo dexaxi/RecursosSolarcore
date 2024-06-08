@@ -1,6 +1,8 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class ResourceGame : MonoBehaviour
@@ -11,9 +13,14 @@ public class ResourceGame : MonoBehaviour
 
     public readonly List<Level> Levels = new();
 
+
     private void Start()
     {
-        if (Instance == null) Instance = this;
+        if (Instance) 
+        {
+            Destroy(gameObject);
+            return;
+        }
         else 
         {
             Instance = this;
@@ -22,10 +29,9 @@ public class ResourceGame : MonoBehaviour
         }
 
         PopulatetAllLevels();
-        SceneManager.sceneLoaded += ProcessActiveScene;
     }
     
-    public void ProcessActiveScene(Scene scene, LoadSceneMode mode)
+    public void ProcessActiveScene()
     {
         switch (SceneLoader.GetActiveSceneIndex())
         {

@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RelationHandler : MonoBehaviour
 {
+    public Button DEBUG_NEXTLEVEL;
+
     public static RelationHandler Instance { get; private set; }
 
     private readonly Dictionary<EnviroProblemType, EnviroProblem> _problems = new();
@@ -18,6 +21,13 @@ public class RelationHandler : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(this);
         PopulateProblems();
+
+        DEBUG_NEXTLEVEL.onClick.AddListener(LoadNextLevel);
+    }
+
+    private void LoadNextLevel() 
+    {
+        SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SCENE, 1000);
     }
     
     public void PopulateProblems()

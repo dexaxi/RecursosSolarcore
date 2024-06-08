@@ -8,16 +8,20 @@ using UnityEngine.UI;
 public class LevelSelector : MonoBehaviour
 {
     //TEMP
-    [field: SerializeField] private Button LoadLevel;
+    [field: SerializeField] private List<Button> LevelButtons;
 
     private void Awake()
     {
-        LoadLevel.onClick.AddListener(LoadAssignedLevel);
+        foreach(Button level in LevelButtons) 
+        {
+            LevelProvider levelProvider = level.GetComponent<LevelProvider>();
+            level.onClick.AddListener( delegate { LoadAssignedLevel(levelProvider.LevelName); } );
+        }
     }
 
-    private void LoadAssignedLevel() 
+    private void LoadAssignedLevel(string levelName) 
     {
-        ResourceGame.Instance.SetLevel("TestLevel");
-        SceneLoader.Instance.LoadScene(SceneIndex.PROBLEM_SCREEN);
+        ResourceGame.Instance.SetLevel(levelName);
+        SceneLoader.Instance.LoadScene(SceneIndex.PROBLEM_SCREEN, 0, true);
     }
 }

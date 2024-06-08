@@ -1,13 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.IO.IsolatedStorage;
 using System.Linq;
-using System.Xml;
-using Unity.VisualScripting;
 using UnityEngine;
-using System.Security.Cryptography;
-using System;
-using System.Linq.Expressions;
 
 public class BiomeHandler : MonoBehaviour
 {
@@ -102,5 +95,4 @@ public class BiomeHandler : MonoBehaviour
         };
         return rule.SortBiomes(biomes);
     }
-
 }

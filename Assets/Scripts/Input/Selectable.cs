@@ -15,7 +15,7 @@ public class Selectable : MonoBehaviour
     public Action hoverAction;
     public Action stopHoverAction;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _collider = GetComponent<Collider>();
         if (gameObject.layer < LayerMask.NameToLayer("Selectable")) gameObject.layer = LayerMask.NameToLayer("Selectable");

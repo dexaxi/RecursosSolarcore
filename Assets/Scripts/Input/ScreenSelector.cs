@@ -35,7 +35,7 @@ public class ScreenSelector : MonoBehaviour
     private void Start()
     {
         inputMapContainer = FindObjectOfType<InputMapContainer>();
-        confirm.onClick.AddListener(() =>
+        confirm?.onClick.AddListener(() =>
        {
            ConfirmTouch();
        });
