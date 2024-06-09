@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ecosystem_Structure_Alterations
   m_EditorClassIdentifier: 
   name: Ecosystem_Structure_Alterations
+  Title: Ecosystem Structure Alterations
   Description: Ecosystem_Structure_Alterations
   Type: 6
   Sprite: {fileID: 0}

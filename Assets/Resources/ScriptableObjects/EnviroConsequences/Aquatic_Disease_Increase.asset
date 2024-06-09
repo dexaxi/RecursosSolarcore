@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Aquatic_Disease_Increase
   m_EditorClassIdentifier: 
   name: Aquatic_Disease_Increase
+  Title: Aquatic Disease Increase
   Description: Aquatic_Disease_Increase
   Type: 12
   Sprite: {fileID: 0}

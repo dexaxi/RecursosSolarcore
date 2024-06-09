@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Biodiversity_Loss
   m_EditorClassIdentifier: 
   name: Biodiversity_Loss
+  Title: Biodiversity Loss
   Description: Biodiversity_Loss oh shit
   Type: 0
   Sprite: {fileID: 21300000, guid: e5600378dd761e64d9423790c482bf36, type: 3}

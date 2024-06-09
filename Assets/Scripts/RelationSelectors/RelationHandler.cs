@@ -1,6 +1,8 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,6 +57,14 @@ public class RelationHandler : MonoBehaviour
         var consequenceArray = Resources.LoadAll("ScriptableObjects/EnviroConsequences", typeof(EnviroConsequence));
         foreach (EnviroConsequence consequence in consequenceArray.Cast<EnviroConsequence>())
         {
+            consequence.RelatedProblems.Clear();
+            foreach (EnviroProblem problem in _problems.Values)
+            {
+                if (problem.RelatedConsecuences.Contains(consequence.Type))
+                {
+                    consequence.RelatedProblems.Add(problem.Type);
+                }
+            }
             _consequences[consequence.Type] = consequence;
         }
     }
@@ -107,18 +117,30 @@ public class RelationHandler : MonoBehaviour
         }
         return returnConsequences;
     }
-
+    
     public void InitLevel(BiomeType type)
     {
-        List<EnviroProblem> allFilteredProblems = GetFilteredProblems();
-        List<EnviroProblem> biomeFitlteredProblems = new();
-        foreach (EnviroProblem problem in allFilteredProblems) 
-        {
-            if (problem.PossibleBiomes.Contains(type)) biomeFitlteredProblems.Add(problem);
-        }
-        if (biomeFitlteredProblems.Count > 3) Debug.LogError("ERROR: TOO MANY PROBLEMS PER BIOME"); 
-        BookInfoProvider provider = new(type, biomeFitlteredProblems);
+        BookInfoProvider provider = GenerateBookInfoProvider(type);
+        RelationUIManager.Instance.StartPaper(provider);
         BookUIManager.Instance.StartBook(provider);
         RelationUIManager.Instance.DisplayBook();
+    }
+
+
+    public BookInfoProvider GenerateBookInfoProvider(BiomeType type) 
+    {
+        List<EnviroProblem> allFilteredProblems = GetFilteredProblems();
+        List<EnviroProblem> biomeFilteredProblems = new();
+        foreach (EnviroProblem problem in allFilteredProblems)
+        {
+            if (problem.PossibleBiomes.Contains(type))
+            {
+                biomeFilteredProblems.Add(problem);
+            }
+        }
+
+        if (biomeFilteredProblems.Count > 3) Debug.LogError("ERROR: TOO MANY PROBLEMS PER BIOME");
+
+        return new BookInfoProvider(type, biomeFilteredProblems);
     }
 }

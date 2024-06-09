@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Desertification
   m_EditorClassIdentifier: 
   name: Desertification
+  Title: Desertification
   Description: Desertification
   Type: 2
   Sprite: {fileID: 0}

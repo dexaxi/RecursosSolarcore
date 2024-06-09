@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fire_Rate_Increase
   m_EditorClassIdentifier: 
   name: Fire_Rate_Increase
+  Title: Fire Rate Increase
   Description: Fire_Rate_Increase
   Type: 5
   Sprite: {fileID: 0}

@@ -17,4 +17,5 @@ public class EnviroProblem : ScriptableObject
     public List<BiomeType> PossibleBiomes;
     public List<ActionPlan> PossibleSolutions;
     public List<EnviroConsequenceType> RelatedConsecuences;
+    public List<EnviroProblemType> RelatedProblems;
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInfoManagerProvider : MonoBehaviour
 {
@@ -19,4 +20,13 @@ public class UIInfoManagerProvider : MonoBehaviour
             return _desktopUIInfo;
         }
     }
+
+    public Button BookButton;
+
+    private void Awake()
+    {
+        BookButton.onClick.AddListener(OpenBook);
+    }
+
+    private void OpenBook(){ RelationUIManager.Instance.DisplayBook(); }
 }

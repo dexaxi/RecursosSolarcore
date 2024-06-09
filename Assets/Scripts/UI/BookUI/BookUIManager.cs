@@ -126,7 +126,6 @@ public class BookUiElements : IMappedObject
     {
         List<EnviroProblemProvider> problems = _provider.EnviroProblems;
 
-        _photoUI.Photo.sprite = _provider.BiomeSprite;
         
         int scrollbarVal = (int) (_diagnosticsInfoUI.Scrollbar.value * _diagnosticsInfoUI.Scrollbar.numberOfSteps);
         if (scrollbarVal >= 2.5) scrollbarVal -= 1;
@@ -150,6 +149,9 @@ public class BookUiElements : IMappedObject
         _provider = provider;
         _problemCount = _provider.EnviroProblems.Count;
         List<EnviroProblemProvider> problems = _provider.EnviroProblems;
+
+        _photoUI.Photo.sprite = _provider.BiomeSprite;
+        _titleUI.Title.text = _provider.BiomeName;
 
         UpdateScrollBar();
 

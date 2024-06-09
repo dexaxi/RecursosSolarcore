@@ -7,8 +7,10 @@ using UnityEngine;
 public class EnviroConsequence : ScriptableObject
 {
     public new string name;
+    public string Title;
     public string Description;
     public EnviroConsequenceType Type;
     public Sprite Sprite;
     public Color color;
+    [HideInInspector] public readonly List<EnviroProblemType> RelatedProblems = new();
 }

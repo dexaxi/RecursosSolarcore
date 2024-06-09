@@ -30,4 +30,5 @@ MonoBehaviour:
   PossibleSolutions:
   - {fileID: 11400000, guid: 336fc28ca47ac1b4092925f244d647b6, type: 2}
   - {fileID: 11400000, guid: 8c6666d15346b8840825ba7a314083a0, type: 2}
-  RelatedConsecuences: 03000000000000000200000008000000
+  RelatedConsecuences: 0300000000000000
+  RelatedProblems: 0700000000000000
