@@ -16,17 +16,17 @@ public struct EnviroProblemProvider
     public EnviroProblemSection Section;
     public EnviroProblemType Type;
     public string Title;
-    public string Description;
-    public Sprite Sprite;
+    public List<string> Descriptions;
+    public List<Sprite> Sprites;
     public Sprite Icon;
     public List<EnviroConsequenceType> Consequences;
-    public EnviroProblemProvider(EnviroProblemSection section, EnviroProblemType type, string title, string description, Sprite sprite, Sprite icon, List<EnviroConsequenceType> consequences) 
+    public EnviroProblemProvider(EnviroProblemSection section, EnviroProblemType type, string title, List<string> descriptions, List<Sprite> sprites, Sprite icon, List<EnviroConsequenceType> consequences) 
     {
         Section = section;
         Type = type;
         Title = title;
-        Description = description;
-        Sprite = sprite;
+        Descriptions = descriptions;
+        Sprites = sprites;
         Icon = icon;
         Consequences = consequences;
     }
@@ -49,9 +49,9 @@ public class BookInfoProvider
             {
                 Section = problem.Section,
                 Type = problem.Type,
-                Title = problem.name,
-                Description = problem.Description,
-                Sprite = problem.Sprite,
+                Title = problem.Title,
+                Descriptions = problem.Descriptions,
+                Sprites = problem.Sprites,
                 Icon = problem.Icon,
                 Consequences = problem.RelatedConsecuences,
             };

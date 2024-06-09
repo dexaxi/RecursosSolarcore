@@ -1,9 +1,7 @@
 using AnKuchen.Map;
-using Cysharp.Threading.Tasks.Triggers;
-using System.Collections;
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,6 +48,7 @@ public class BookUiElements : IMappedObject
     public CanvasGroup CanvasGroup { get; private set; }
 
     private int _problemCount;
+    BookInfoProvider _provider;
 
     public BookUiElements() { }
     public BookUiElements(IMapper mapper, 
@@ -69,11 +68,10 @@ public class BookUiElements : IMappedObject
     private PhotoUiElements _photoUI;
     private TitleUiElements _titleUI;
     private DataInfoUiElements _dataInfoUI;
-    private List<DataUiElements> _dataUI;
+    private List<DataUiElements> _dataUI = new();
     private ExIconsUiElements _exIconUI;
     private DiagnosisTitleUiElements _diagnosticsTitleUI;
-    private DiagnosisInfoUiElements _diasgnosticsInfoUI;
-
+    private DiagnosisInfoUiElements _diagnosticsInfoUI;
     public void Initialize(IMapper mapper,
         UICache photoMapper,
         UICache titleMapper,
@@ -110,26 +108,56 @@ public class BookUiElements : IMappedObject
         _diagnosticsTitleUI = new DiagnosisTitleUiElements(diagnosticsTitleMapper);
         _diagnosticsTitleUI.Root.SetActive(true);
 
-        _diasgnosticsInfoUI = new DiagnosisInfoUiElements(diagnosticsInfoMapper);
-        _diasgnosticsInfoUI.Root.SetActive(true);
+        _diagnosticsInfoUI = new DiagnosisInfoUiElements(diagnosticsInfoMapper);
+        _diagnosticsInfoUI.Root.SetActive(true);
 
+        HandleScrollBarUpdate().Forget();
         UpdateProvider(provider);
+    }
+
+    private async UniTask HandleScrollBarUpdate() 
+    {
+        await UniTask.WaitUntilValueChanged(_diagnosticsInfoUI.Scrollbar, x => x.value);
+        UpdateScrollBar();
+        HandleScrollBarUpdate().Forget();
+    }
+
+    private void UpdateScrollBar() 
+    {
+        List<EnviroProblemProvider> problems = _provider.EnviroProblems;
+
+        _photoUI.Photo.sprite = _provider.BiomeSprite;
+        
+        int scrollbarVal = (int) (_diagnosticsInfoUI.Scrollbar.value * _diagnosticsInfoUI.Scrollbar.numberOfSteps);
+        if (scrollbarVal >= 2.5) scrollbarVal -= 1;
+
+        _diagnosticsTitleUI.Text.text = problems[scrollbarVal].Title;
+        for (int i = 0; i < problems[scrollbarVal].Descriptions.Count; i++)
+        {
+            _diagnosticsInfoUI.Texts[i].text = problems[scrollbarVal].Descriptions[i];
+            _diagnosticsInfoUI.Sprites[i].sprite = problems[scrollbarVal].Sprites[i];
+        }
+
+        for (int i = _problemCount; i < _diagnosticsInfoUI.Texts.Count; i++)
+        {
+            _diagnosticsInfoUI.Texts[i].text = problems[scrollbarVal].Descriptions[i];
+            _diagnosticsInfoUI.Sprites[i].sprite = problems[scrollbarVal].Sprites[i];
+        }
     }
 
     public void UpdateProvider(BookInfoProvider provider) 
     {
-        _problemCount = provider.EnviroProblems.Count;
-        List<EnviroProblemProvider> problems = provider.EnviroProblems;
+        _provider = provider;
+        _problemCount = _provider.EnviroProblems.Count;
+        List<EnviroProblemProvider> problems = _provider.EnviroProblems;
 
-        _photoUI.Photo.sprite = provider.BiomeSprite;
+        UpdateScrollBar();
+
         for (int i = 0; i < _problemCount; i++)
         {
-            _dataUI[i].Section.text = provider.GetEnviroProblemSectionString(problems[i].Section);
+            _dataUI[i].Section.text = _provider.GetEnviroProblemSectionString(problems[i].Section);
             _dataUI[i].Text.text = problems[i].Title;
             _dataUI[i].Icon.sprite = problems[i].Icon;
-
-            _diasgnosticsInfoUI.Texts[i].text = problems[i].Description;
-            _diasgnosticsInfoUI.Sprites[i].sprite = problems[i].Sprite;
         }
 
         for (int i = _problemCount; i < _dataUI.Count; i++)
@@ -137,9 +165,6 @@ public class BookUiElements : IMappedObject
             _dataUI[i].Section.enabled = false;
             _dataUI[i].Text.enabled = false;
             _dataUI[i].Icon.enabled = false;
-
-            _diasgnosticsInfoUI.Texts[i].enabled = false;
-            _diasgnosticsInfoUI.Sprites[i].enabled = false;
         }
     }
 
@@ -222,7 +247,7 @@ public class ExIconsUiElements : IMappedObject
 {
     public IMapper Mapper { get; private set; }
     public GameObject Root { get; private set; }
-    public List<Image> ExIcons { get; private set; }
+    public List<Image> ExIcons { get; private set; } = new();
 
     public ExIconsUiElements() { }
     public ExIconsUiElements(IMapper mapper) { Initialize(mapper); }
@@ -260,9 +285,9 @@ public class DiagnosisInfoUiElements : IMappedObject
 {
     public IMapper Mapper { get; private set; }
     public GameObject Root { get; private set; }
-    public List<TextMeshProUGUI> Texts { get; private set; }
-    public List<Image> Sprites { get; private set; }
-
+    public List<TextMeshProUGUI> Texts { get; private set; } = new();
+    public List<Image> Sprites { get; private set; } = new();
+    public Scrollbar Scrollbar { get; private set; } 
     public DiagnosisInfoUiElements() { }
     public DiagnosisInfoUiElements(IMapper mapper) { Initialize(mapper); }
 
@@ -278,6 +303,8 @@ public class DiagnosisInfoUiElements : IMappedObject
         Sprites.Add(mapper.Get<Image>("Diag_Image1"));
         Sprites.Add(mapper.Get<Image>("Diag_Image2"));
         Sprites.Add(mapper.Get<Image>("Diag_Image3"));
+
+        Scrollbar = mapper.Get<Scrollbar>("Scrollbar");
 
     }
 }

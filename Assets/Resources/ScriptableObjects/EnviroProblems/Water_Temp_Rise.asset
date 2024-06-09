@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: Water_Temp_Rise
   m_EditorClassIdentifier: 
   name: Water_Temp_Rise
-  Description: Water_Temp_Rise
+  Title: Water Temperature Rise
+  Descriptions:
+  - Water
+  - Temp
+  - Rise
   Type: 3
-  Sprite: {fileID: 0}
+  Section: 0
+  Sprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Icon: {fileID: 0}
   color: {r: 0, g: 0.42866278, b: 1, a: 0}
-  PossibleBiomes: 000000000200000002000000
+  PossibleBiomes: 0400000001000000
   PossibleSolutions:
   - {fileID: 11400000, guid: 336fc28ca47ac1b4092925f244d647b6, type: 2}
   - {fileID: 11400000, guid: 8c6666d15346b8840825ba7a314083a0, type: 2}

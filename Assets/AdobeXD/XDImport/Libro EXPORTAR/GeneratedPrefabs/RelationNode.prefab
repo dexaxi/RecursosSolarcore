@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <NodeType>k__BackingField: 0
+  Relations: 
 --- !u!1 &5362363555069471770
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,3 +634,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <NodeType>k__BackingField: 1
+  Relations: 

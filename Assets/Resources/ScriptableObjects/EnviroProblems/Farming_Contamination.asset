@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: Farming_Contamination
   m_EditorClassIdentifier: 
   name: Farming_Contamination
-  Description: Farming_Contamination
+  Title: Farming Contamination
+  Descriptions:
+  - farming is
+  - contaminated
+  - omfg
   Type: 7
-  Sprite: {fileID: 0}
+  Section: 0
+  Sprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Icon: {fileID: 0}
   color: {r: 0.3565462, g: 0.18378428, b: 0.6603774, a: 0}
-  PossibleBiomes: 000000000200000002000000
+  PossibleBiomes: 00000000
   PossibleSolutions:
   - {fileID: 11400000, guid: 336fc28ca47ac1b4092925f244d647b6, type: 2}
   - {fileID: 11400000, guid: 8c6666d15346b8840825ba7a314083a0, type: 2}

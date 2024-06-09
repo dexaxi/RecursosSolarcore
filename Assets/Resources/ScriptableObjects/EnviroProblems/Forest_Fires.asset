@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: Forest_Fires
   m_EditorClassIdentifier: 
   name: Forest_Fires
-  Description: Forest_Fires
+  Title: Forest Fires
+  Descriptions:
+  - forest
+  - fires
+  - are very bad
   Type: 4
-  Sprite: {fileID: 0}
+  Section: 0
+  Sprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Icon: {fileID: 0}
   color: {r: 1, g: 0.18753722, b: 0, a: 0}
-  PossibleBiomes: 000000000200000002000000
+  PossibleBiomes: 02000000
   PossibleSolutions:
   - {fileID: 11400000, guid: 336fc28ca47ac1b4092925f244d647b6, type: 2}
   - {fileID: 11400000, guid: 8c6666d15346b8840825ba7a314083a0, type: 2}

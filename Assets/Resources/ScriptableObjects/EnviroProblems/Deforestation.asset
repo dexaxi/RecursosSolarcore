@@ -13,9 +13,18 @@ MonoBehaviour:
   m_Name: Deforestation
   m_EditorClassIdentifier: 
   name: Deforestation
-  Description: Deforestation is really bad
+  Title: Deforestation
+  Descriptions:
+  - Deforestation
+  - is
+  - very bad
   Type: 0
-  Sprite: {fileID: 21300000, guid: f95f697d66d238446b1ab717def09945, type: 3}
+  Section: 0
+  Sprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Icon: {fileID: 0}
   color: {r: 0.06549895, g: 1, b: 0, a: 0}
   PossibleBiomes: 00000000
   PossibleSolutions:
