@@ -9,7 +9,9 @@ public class EnviroProblem : ScriptableObject
     public new string name;
     public string Description;
     public EnviroProblemType Type;
+    public EnviroProblemSection Section;
     public Sprite Sprite;
+    public Sprite Icon;
     public Color color;
     public List<BiomeType> PossibleBiomes;
     public List<ActionPlan> PossibleSolutions;

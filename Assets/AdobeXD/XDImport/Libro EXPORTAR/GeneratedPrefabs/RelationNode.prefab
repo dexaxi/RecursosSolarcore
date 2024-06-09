@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6257518549782713602}
   - component: {fileID: 5435919036274286889}
   - component: {fileID: 7062442670231040213}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Elipse 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2070193118428848091}
   - component: {fileID: 6442337694392236557}
   - component: {fileID: 5929744030161999280}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 5065329202695623235}
   - component: {fileID: 4945056750019209523}
   - component: {fileID: 362159454217329617}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2112562771163306641}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3688747100212145858}
   - component: {fileID: 7053842477064199092}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RelationNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2977313188105729044}
-  m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 3307595585950688436}
   - component: {fileID: 8824605291444236294}
   - component: {fileID: 8711468584821320139}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7814370448872825164}
-  m_Layer: 0
+  - component: {fileID: 6446398885905116569}
+  m_Layer: 5
   m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,6 +493,19 @@ RectTransform:
   m_AnchoredPosition: {x: -252.5, y: -0.00390625}
   m_SizeDelta: {x: 52, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6446398885905116569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4935966913240363628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca8c7a4c4efd9e49aa41e3d2cfc7df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NodeType>k__BackingField: 0
 --- !u!1 &5362363555069471770
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +517,7 @@ GameObject:
   - component: {fileID: 619368806924856905}
   - component: {fileID: 8774205185137702044}
   - component: {fileID: 1756340983848589207}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Elipse 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +591,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2875337814541714513}
-  m_Layer: 0
+  - component: {fileID: 4946898276754721229}
+  m_Layer: 5
   m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,3 +620,16 @@ RectTransform:
   m_AnchoredPosition: {x: 252.5, y: -0.0036621094}
   m_SizeDelta: {x: 52, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4946898276754721229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757078309401838145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bca8c7a4c4efd9e49aa41e3d2cfc7df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <NodeType>k__BackingField: 1

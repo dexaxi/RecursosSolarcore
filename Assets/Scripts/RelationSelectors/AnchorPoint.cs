@@ -6,22 +6,77 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+public enum NodeType 
+{
+    NoType = -1,
+    EnviroProblem_Problem = 0,
+    EnviroProblem_Consequence = 1,
+    EnviroConsequence_Problem = 2
+}
+
 public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
+    [field: SerializeField] public NodeType NodeType { get; private set; }
+
     private LineSpawner _spawner;
-
-    private bool _performDraw;
-
+    private RelationUIManager _relationUIManager;
     private RectTransform _rect;
+
+    private EnviroProblemType _problemType;
+    private EnviroConsequenceType _consequenceType;
+
+    public List<int> Relations;
+    
+    private bool _performDraw;
+    private Color _prevColor;
     private void Awake()
     {
         _spawner = GetComponentInParent<LineSpawner>();
         _rect = GetComponent<RectTransform>();
+        _relationUIManager = GetComponentInParent<RelationUIManager>();
     }
+
+    public NodeType GetNodeType() { return NodeType; }
+
+    public void SetDataType(int dataType)
+    {
+        switch (GetNodeType()) 
+        {
+            case NodeType.EnviroConsequence_Problem:
+                _consequenceType = (EnviroConsequenceType) dataType;
+                break;
+            case NodeType.EnviroProblem_Problem:
+            case NodeType.EnviroProblem_Consequence:
+                _problemType = (EnviroProblemType) dataType;
+                break;
+            case NodeType.NoType:
+            default:
+                Debug.LogError($"Trying to assign Data Type: {dataType} to invalid Node Type {GetNodeType()}.");
+                break;
+        }
+    }
+
+    public int GetDataType() 
+    {
+        switch (GetNodeType())
+        {
+            case NodeType.EnviroConsequence_Problem:
+                return (int) _consequenceType;
+            case NodeType.EnviroProblem_Problem:
+            case NodeType.EnviroProblem_Consequence:
+                return (int) _problemType ;
+            case NodeType.NoType:
+            default:
+                Debug.LogError($"Trying to get Data Type from invalid Node type: {NodeType}.");
+                return -1;
+        }
+    }
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("Mouse Down");
+        _prevColor = GetComponentInChildren<Image>().color;
         GetComponentInChildren<Image>().color = Color.green;
         DrawLine();
     }
@@ -47,27 +102,105 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         
         if (!_performDraw) 
         {
-            HandleMouseUp(line);
+            HandleMouseUp(line, GetScreenMousePos());
             return;
         }
-
-        Vector3 screenPos = new(Input.mousePosition.x, Input.mousePosition.y, CameraUtils.MainCamera.WorldToScreenPoint(transform.position).z);
-        Vector3 pos = CameraUtils.MainCamera.ScreenToWorldPoint(screenPos);
+        Vector3 mousePos = GetMousePositionWorldPos();
         Vector3 anchorPos = GetAnchorWorldPos();
         line.positionCount = 2;
         line.SetPosition(0, anchorPos);
-        line.SetPosition(1, pos);
+        line.SetPosition(1, mousePos);
         DrawLoop(line).Forget();
     }
 
     private Vector3 GetAnchorWorldPos() 
     {
-       return new Vector3(_rect.position.x, _rect.position.y, _spawner.transform.position.z - 2);
+       return new Vector3(_rect.position.x, _rect.position.y, transform.position.z - 1);
+    }
+    private Vector3 GetScreenMousePos() 
+    {
+        return new(Input.mousePosition.x, Input.mousePosition.y, CameraUtils.MainCamera.WorldToScreenPoint(transform.position).z);
     }
 
-    private void HandleMouseUp(LineRenderer line) 
+    private Vector3 GetMousePositionWorldPos() 
     {
-        GetComponentInChildren<Image>().color = Color.white;
+        Vector3 screenPos = GetScreenMousePos();
+        Vector3 pos = CameraUtils.MainCamera.ScreenToWorldPoint(screenPos);
+        return pos;
+    }
+
+    private void HandleMouseUp(LineRenderer line, Vector3 mousePos) 
+    {
+
+        List<AnchorPoint> results = _relationUIManager.RaycastNodes(mousePos);
+        if (results.Count > 1) { Debug.LogError("ERROR: Trying to link more than 2 nodes"); HandleIncorrectNodeLink(line); return;  }
+        if (results.Count == 0) { HandleIncorrectNodeLink(line); return; }
+        AnchorPoint destNode = results[0];
+        if (!CheckRelationValid(destNode)) { HandleIncorrectNodeLink(line); return; }
+
+        destNode.GetComponentInChildren<Image>().color = Color.green;
+    }
+
+    private bool CheckRelationValid(AnchorPoint dest) 
+    {
+        bool res = true;
+        NodeType destNodeType = dest.GetNodeType();
+        bool isValidRelationType;
+        if (IsProblem(GetNodeType()))
+        {
+            isValidRelationType = CheckProblemRelation(dest);
+        }
+        else 
+        {
+            isValidRelationType = CheckConsequenceRelation(dest);
+        }
+
+        if (!isValidRelationType) { res = false; return res; }
+
+        return res;
+    }
+
+    private bool CheckProblemRelation(AnchorPoint dest) 
+    {
+        bool res;
+        switch (GetNodeType())
+        {
+            case NodeType.EnviroProblem_Consequence:
+                    res = dest.GetNodeType() == NodeType.EnviroConsequence_Problem;
+                break;
+            case NodeType.EnviroProblem_Problem:
+                    res = dest.GetNodeType() == NodeType.EnviroProblem_Problem;
+                break;
+            default:
+                res = false;
+                break;
+        }
+        return res;
+    }
+    
+    private bool CheckConsequenceRelation(AnchorPoint dest) 
+    {
+        bool res = false;
+        switch (GetNodeType())
+        {
+            case NodeType.EnviroConsequence_Problem:
+                res = dest.GetNodeType() == NodeType.EnviroProblem_Consequence;
+                break;
+            default:
+                res = false;
+                break;
+        }
+        return res;
+    }
+
+    public bool IsProblem(NodeType nodeType) 
+    {
+        return nodeType == NodeType.EnviroProblem_Problem || nodeType == NodeType.EnviroProblem_Consequence;
+    }
+
+    private void HandleIncorrectNodeLink(LineRenderer line) 
+    {
         Destroy(line.gameObject);
+        GetComponentInChildren<Image>().color = _prevColor;
     }
 }

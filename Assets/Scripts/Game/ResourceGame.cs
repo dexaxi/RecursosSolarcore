@@ -14,7 +14,7 @@ public class ResourceGame : MonoBehaviour
     public readonly List<Level> Levels = new();
 
 
-    private void Start()
+    private void Awake()
     {
         if (Instance) 
         {

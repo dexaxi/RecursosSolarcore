@@ -18,11 +18,20 @@ public class RelationHandler : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(this);
-        PopulateProblems();
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
 
         DEBUG_NEXTLEVEL.onClick.AddListener(LoadNextLevel);
+    }
+
+    private void Start()
+    {
+        ResourceGame.Instance.ProcessActiveScene();
     }
 
     private void LoadNextLevel() 
@@ -32,6 +41,7 @@ public class RelationHandler : MonoBehaviour
     
     public void PopulateProblems()
     {
+        _problems.Clear();
         var problemArray = Resources.LoadAll("ScriptableObjects/EnviroProblems", typeof(EnviroProblem));
         foreach (EnviroProblem problem in problemArray.Cast<EnviroProblem>())
         {
@@ -41,6 +51,7 @@ public class RelationHandler : MonoBehaviour
 
     public void PopulateConsequences()
     {
+        _consequences.Clear();
         var consequenceArray = Resources.LoadAll("ScriptableObjects/EnviroConsequences", typeof(EnviroConsequence));
         foreach (EnviroConsequence consequence in consequenceArray.Cast<EnviroConsequence>())
         {
@@ -54,6 +65,7 @@ public class RelationHandler : MonoBehaviour
         _problemFilters.Add(problem);
         return true;
     }
+
     public bool AddConsequenceFilter(EnviroConsequenceType consequence)
     {
         if (_consequenceFilters.Contains(consequence)) return false;
@@ -94,5 +106,19 @@ public class RelationHandler : MonoBehaviour
             returnConsequences.Add(_consequences[_consequenceFilters[i]]);
         }
         return returnConsequences;
+    }
+
+    public void InitLevel(BiomeType type)
+    {
+        List<EnviroProblem> allFilteredProblems = GetFilteredProblems();
+        List<EnviroProblem> biomeFitlteredProblems = new();
+        foreach (EnviroProblem problem in allFilteredProblems) 
+        {
+            if (problem.PossibleBiomes.Contains(type)) biomeFitlteredProblems.Add(problem);
+        }
+        if (biomeFitlteredProblems.Count > 3) Debug.LogError("ERROR: TOO MANY PROBLEMS PER BIOME"); 
+        BookInfoProvider provider = new(type, biomeFitlteredProblems);
+        BookUIManager.Instance.StartBook(provider);
+        RelationUIManager.Instance.DisplayBook();
     }
 }

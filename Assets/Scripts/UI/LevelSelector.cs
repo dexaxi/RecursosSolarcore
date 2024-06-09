@@ -22,6 +22,6 @@ public class LevelSelector : MonoBehaviour
     private void LoadAssignedLevel(string levelName) 
     {
         ResourceGame.Instance.SetLevel(levelName);
-        SceneLoader.Instance.LoadScene(SceneIndex.PROBLEM_SCREEN, 0, true);
+        SceneLoader.Instance.LoadScene(SceneIndex.PROBLEM_SCREEN, 300);
     }
 }

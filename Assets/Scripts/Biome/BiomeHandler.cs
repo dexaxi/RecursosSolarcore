@@ -21,6 +21,9 @@ public class BiomeHandler : MonoBehaviour
     }
     public void PopulateBiomeResources() 
     {
+        _biomes.Clear();
+        TilesPerBiome.Clear();
+
         var biomeArray = Resources.LoadAll("ScriptableObjects/Biomes", typeof(Biome));
         foreach (Biome biome in biomeArray.Cast<Biome>())
         {

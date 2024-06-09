@@ -1961,10 +1961,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid
       objectReference: {fileID: 0}
-    - target: {fileID: 7454351889211617665, guid: 33a12708fe1907f42979225ed747ba4a, type: 3}
-      propertyPath: MinBiomeProportion
-      value: 0.58
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33a12708fe1907f42979225ed747ba4a, type: 3}
 --- !u!1001 &8033359681163829790

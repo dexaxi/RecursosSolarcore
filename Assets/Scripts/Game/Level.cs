@@ -73,8 +73,15 @@ public class Level : ScriptableObject
     {
         RelationHandler.Instance.PopulateProblems();
         RelationHandler.Instance.PopulateConsequences();
+        BiomeHandler.Instance.PopulateBiomeResources();
+        MachineHandler.Instance.PopulateMachineResources();
+
         GenerateProblemFilters();
         GenerateConsequenceFilters();
+        GenerateBiomeFilters();
+
+        BiomeType startingType = BiomeHandler.Instance.GetFilteredBiomes()[0].Type;
+        RelationHandler.Instance.InitLevel(startingType);
     }
 
     public void InitLevel() 

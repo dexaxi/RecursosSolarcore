@@ -232,9 +232,9 @@ public class SceneLoader : MonoBehaviour
         return SceneManager.UnloadSceneAsync((int)index);
     }
 
-    public void ReloadScene()
+    public void ReloadScene(int wait = 0, bool ignoreLoadingScreen = false)
     {
-        LoadScene(GetActiveSceneIndex());
+        LoadScene(GetActiveSceneIndex(), wait, ignoreLoadingScreen);
     }
 
     public string SceneIndexToString(SceneIndex index) 

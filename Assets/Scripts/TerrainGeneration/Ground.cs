@@ -63,7 +63,9 @@ public class Ground : MonoBehaviour
         _noiseGenerator.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2S);
         _totalTiles = MaxX * MaxY;
         HasLoaded = false;
-
+    }
+    private void Start()
+    {
         ResourceGame.Instance.ProcessActiveScene();
     }
 
@@ -146,7 +148,7 @@ public class Ground : MonoBehaviour
 
     public void Regenerate()  
     {
-        SceneLoader.Instance.ReloadScene();
+        SceneLoader.Instance.ReloadScene(300);
     }
 
     Biome GetTileBiome(float value)

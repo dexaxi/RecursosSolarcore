@@ -22,6 +22,7 @@ public class MachineHandler : MonoBehaviour
 
     public void PopulateMachineResources() 
     {
+        _machines.Clear();
         var machineArray = Resources.LoadAll("ScriptableObjects/Machines", typeof(Machine));
         foreach (Machine machine in machineArray.Cast<Machine>())
         {
