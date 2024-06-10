@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5d8c8f0eb0fa34485b1dd4ccb18313, type: 3}
   m_Name: Acidification
   m_EditorClassIdentifier: 
-  name: Aquatic_Habitat_Fragmentation
-  Title: Aquatic Habitat Fragmentation
-  Description: Aquatic Habitat Fragmentation
+  name: Acidification
+  Title: Acidification
+  Description: Acidification
   Type: 3
   Section: 0
   Icon: {fileID: 0}

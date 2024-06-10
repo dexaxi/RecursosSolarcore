@@ -336,6 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3688747100212145858}
   - component: {fileID: 7053842477064199092}
+  - component: {fileID: 1443305963204431225}
   m_Layer: 5
   m_Name: RelationNode
   m_TagString: Untagged
@@ -379,6 +380,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RenderedLine: {fileID: 302043117188651954, guid: 10f8d265b7bdf9f4e899bc5594aae521, type: 3}
+--- !u!225 &1443305963204431225
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977313188105729044}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3597811692681630449
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <NodeType>k__BackingField: 0
-  Relations: 
+  RelatedProblems: 
+  RelatedConsequences: 
 --- !u!1 &5362363555069471770
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,4 +648,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <NodeType>k__BackingField: 1
-  Relations: 
+  RelatedProblems: 
+  RelatedConsequences: 

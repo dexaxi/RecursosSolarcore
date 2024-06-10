@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5d8c8f0eb0fa34485b1dd4ccb18313, type: 3}
   m_Name: Toxic_Acumulation
   m_EditorClassIdentifier: 
-  name: asdas
-  Title: asdas
-  Description: asdas
+  name: Toxic_Acumulation
+  Title: Toxic Acumulation
+  Description: Toxic Acumulation
   Type: 16
   Section: 0
   Icon: {fileID: 0}

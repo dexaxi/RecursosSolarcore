@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5d8c8f0eb0fa34485b1dd4ccb18313, type: 3}
   m_Name: Vegetation_Dependant_Species_Loss
   m_EditorClassIdentifier: 
-  name: asdas
-  Title: asdas
-  Description: asdas
+  name: Vegetation_Dependant_Species_Loss
+  Title: Vegetation Dependant Species Loss
+  Description: Vegetation Dependant Species Loss
   Type: 14
   Section: 2
   Icon: {fileID: 0}

@@ -262,7 +262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <NodeType>k__BackingField: 2
-  Relations: 
+  RelatedProblems: 
+  RelatedConsequences: 
 --- !u!1 &6499315278506621766
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2959783570652452081}
   - component: {fileID: 1131128883474238653}
+  - component: {fileID: 3542354801406431405}
   m_Layer: 0
   m_Name: ConsequenceRelation
   m_TagString: Untagged
@@ -316,6 +318,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RenderedLine: {fileID: 302043117188651954, guid: 10f8d265b7bdf9f4e899bc5594aae521, type: 3}
+--- !u!225 &3542354801406431405
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499315278506621766}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7809140716556373328
 GameObject:
   m_ObjectHideFlags: 0

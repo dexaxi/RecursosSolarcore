@@ -23,7 +23,7 @@ public class RelationUIManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null) 
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;
@@ -34,18 +34,20 @@ public class RelationUIManager : MonoBehaviour
         _relationBooks.Root.SetActive(true);
 
         _raycaster = GetComponent<GraphicRaycaster>();
-        
+    }
+
+    public void UpdateNodeDictionary() 
+    {
         List<LineSpawner> spawners = GetComponentsInChildren<LineSpawner>().ToList();
-        foreach (LineSpawner spawner in spawners) 
+        foreach (LineSpawner spawner in spawners)
         {
             List<AnchorPoint> _nodes = spawner.GetComponentsInChildren<AnchorPoint>().ToList();
             NodeDictionary[spawner] = _nodes;
-            
+
             var Text = spawner.GetComponentInChildren<TextMeshProUGUI>();
             if (_nodes[0].IsProblem(_nodes[0].NodeType)) _problemTexts.Add(Text);
             else _consecuenceTexts.Add(Text);
         }
-
     }
 
     public List<AnchorPoint> RaycastNodes(Vector3 mousePos) 
@@ -85,41 +87,114 @@ public class RelationUIManager : MonoBehaviour
         UpdatePaper(allConsequences, provider.EnviroProblems);
     }
 
+
+    public int CalculateAllPossibleRelations()
+    {
+        Dictionary<EnviroProblemType, List<EnviroConsequenceType>> probCon = new();
+        Dictionary<EnviroProblemType, List<EnviroProblemType>> probProb = new();
+        foreach (LineSpawner spawner in NodeDictionary.Keys) 
+        {
+            if (spawner.GetComponent<CanvasGroup>().interactable == false) continue;
+            List<AnchorPoint> nodes = NodeDictionary[spawner];
+            foreach (AnchorPoint node in nodes) 
+            {
+                switch(node.NodeType) 
+                {
+                    case NodeType.EnviroProblem_Problem:
+                        var nodeDataType = (EnviroProblemType) node.GetDataType();
+                        foreach (EnviroProblemType problem in node.RelatedProblems) 
+                        {
+                            if (!probProb.ContainsKey(problem)) probProb[problem] = new();
+                            if (!probProb.ContainsKey(nodeDataType)) probProb[nodeDataType] = new();
+                            bool contained = false;
+                            foreach (AnchorPoint anchorNode in nodes) 
+                            {
+                                if ((EnviroProblemType)anchorNode.GetDataType() == problem) 
+                                {
+                                    contained = true;
+                                    continue;
+                                }
+                            }
+                            if (problem != nodeDataType && contained && nodes.Contains(node) && !probProb[problem].Contains(nodeDataType) && !probProb[nodeDataType].Contains(problem)) probProb[problem].Add(nodeDataType); 
+                        }
+                        break;
+                    case NodeType.EnviroProblem_Consequence:
+                        nodeDataType = (EnviroProblemType) node.GetDataType();
+                        foreach (EnviroConsequenceType consequence in node.RelatedConsequences) 
+                        {
+                            if (!probCon.ContainsKey(nodeDataType)) probCon[nodeDataType] = new();
+                            probCon[(EnviroProblemType) node.GetDataType()].Add(consequence);
+                        }
+                        break;
+                }
+            }
+        }
+        int count = 0;
+        foreach(var cons in probCon.Values) 
+        {
+            count += cons.Count;
+        }
+        foreach(var probs in probProb.Values) 
+        {
+            count += probs.Count;
+        }
+
+        return count;
+    }
+
     public void UpdatePaper(List<EnviroConsequence> consequences, List<EnviroProblemProvider> problems) 
     {
-        for(int i = 0; i < consequences.Count; i++) 
+        UpdateNodeDictionary();
+
+        for (int i = 0; i < consequences.Count; i++) 
         {
             var spawner = _consecuenceTexts[i].GetComponentInParent<LineSpawner>();
             var nodes = NodeDictionary[spawner];
             foreach (AnchorPoint node in nodes)
             {
-                node.RelatedProblems = consequences[i].RelatedProblems;
-                node.SetDataType((int) consequences[i].Type);
+                if (node.GetNodeType() == NodeType.EnviroConsequence_Problem) 
+                {
+                    node.RelatedProblems = consequences[i].RelatedProblems;
+                    node.SetDataType((int) consequences[i].Type);
+                }
             }
             _consecuenceTexts[i].text = consequences[i].Title;
+            _consecuenceTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().alpha = 1.0f;
+            _consecuenceTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().blocksRaycasts = true;
+            _consecuenceTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().interactable = true;
         }
-        
-        for(int i = 0; i < problems.Count; i++) 
+
+        for (int i = 0; i < problems.Count; i++) 
         {
             var spawner = _problemTexts[i].GetComponentInParent<LineSpawner>();
             var nodes = NodeDictionary[spawner];
             foreach (AnchorPoint node in nodes)
             {
-                node.RelatedConsequences = problems[i].Consequences;
-                node.RelatedProblems = problems[i].Problems;
-                node.SetDataType((int)problems[i].Type);
+                if (node.GetNodeType() == NodeType.EnviroProblem_Problem || node.GetNodeType() == NodeType.EnviroProblem_Consequence) 
+                {
+                    node.RelatedConsequences = problems[i].Consequences;
+                    node.RelatedProblems = problems[i].Problems;
+                    node.SetDataType((int)problems[i].Type);
+                }
             }
             _problemTexts[i].text = problems[i].Title;
+            _problemTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().alpha = 1.0f;
+            _problemTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().blocksRaycasts = true;
+            _problemTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().interactable = true;
         }
-        
-        for(int i = consequences.Count; i < _consecuenceTexts.Count;i++) 
+
+        for (int i = consequences.Count; i < _consecuenceTexts.Count;i++) 
         {
-            _consecuenceTexts[i].GetComponentInParent<LineSpawner>().enabled = false;
+            _consecuenceTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().alpha = 0.0f;
+            _consecuenceTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().blocksRaycasts = false;
+            _consecuenceTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().interactable = false;
         }
         
         for(int i = problems.Count; i < _problemTexts.Count;i++) 
         {
-            _problemTexts[i].GetComponentInParent<LineSpawner>().enabled = false;
+            _problemTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().alpha = 0.0f;
+            _problemTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().blocksRaycasts = false;
+            _problemTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().interactable = false;
         }
     }
 

@@ -187,6 +187,7 @@ public class RelationHandler : MonoBehaviour
         RelationUIManager.Instance.StartPaper(provider);
         BookUIManager.Instance.StartBook(provider);
         RelationUIManager.Instance.DisplayBook();
+        AnchorPoint.AllPossibleRelationsCount = RelationUIManager.Instance.CalculateAllPossibleRelations();
     }
 
     public BookInfoProvider GenerateBookInfoProvider(BiomeType type) 

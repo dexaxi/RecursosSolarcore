@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.Triggers;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -21,6 +22,8 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public static Dictionary<EnviroProblemType, List<EnviroConsequenceType>> ExistingProbConsRelationships = new();
     public static Dictionary<EnviroConsequenceType, List<EnviroProblemType>> ExistingConsProbRelationships = new();
     public static Dictionary<EnviroProblemType, List<EnviroProblemType>> ExistingProblemRelationships = new();
+
+    public static int AllPossibleRelationsCount = 0;
 
     private LineSpawner _spawner;
     private RelationUIManager _relationUIManager;
@@ -145,10 +148,38 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         if (!CheckRelationValid(destNode)) { HandleIncorrectNodeLink(line); return; }
         if (!UpdateExistingRelationships(destNode)) { HandleIncorrectNodeLink(line); return; }
 
+        if (GetUniqueRelationCount() == AllPossibleRelationsCount) Debug.Log("FINISHED");
         destNode.GetComponentInChildren<Image>().color = Color.green;
     }
 
-    private bool UpdateExistingRelationships(AnchorPoint dest) 
+    private int GetUniqueRelationCount() 
+    {
+        int count = 0;
+        Dictionary<EnviroProblemType, EnviroConsequenceType> probCon = new();
+        Dictionary<EnviroProblemType, EnviroProblemType> probProb = new();
+
+        foreach (EnviroProblemType problem in ExistingProbConsRelationships.Keys) 
+        {
+            foreach (EnviroConsequenceType consequence in ExistingProbConsRelationships[problem]) 
+            {
+                probCon[problem] = consequence;
+            }
+        }
+
+        foreach (EnviroProblemType problem in ExistingProblemRelationships.Keys) 
+        {
+            foreach (EnviroProblemType problem2 in ExistingProblemRelationships[problem]) 
+            {
+                if (probProb.TryGetValue(problem, out _) == false && probProb.TryGetValue(problem2, out _) == false)
+                    probProb[problem] = problem2;
+            }
+        }
+
+        count = probCon.Values.Count + probProb.Values.Count;
+        return count;
+    }
+
+private bool UpdateExistingRelationships(AnchorPoint dest) 
     {
         bool res = false;
         EnviroProblemType problemType;

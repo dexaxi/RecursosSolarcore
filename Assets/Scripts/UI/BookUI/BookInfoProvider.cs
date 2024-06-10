@@ -53,19 +53,19 @@ public class BookInfoProvider
         List<EnviroProblem> problems = GetFilteredProblems(alteration);
         foreach (EnviroProblem problem in problems) 
         {
-            EnviroProblemProvider provider = new()
-            {
-                Section = problem.Section,
-                Type = problem.Type,
-                Title = problem.Title,
-                AlterationDescriptionList = alteration.DescriptionList,
-                AlterationTitle = alteration.Title,
-                AlterationSpritesDescriptions = alteration.SpriteDescriptions,
-                ProblemIcon = problem.Icon,
-                Consequences = problem.RelatedConsecuences,
-                Problems = problem.RelatedProblems
-            };
-            EnviroProblems.Add(provider);
+                EnviroProblemProvider provider = new()
+                {
+                    Section = problem.Section,
+                    Type = problem.Type,
+                    Title = problem.Title,
+                    AlterationDescriptionList = alteration.DescriptionList,
+                    AlterationTitle = alteration.Title,
+                    AlterationSpritesDescriptions = alteration.SpriteDescriptions,
+                    ProblemIcon = problem.Icon,
+                    Consequences = problem.RelatedConsecuences,
+                    Problems = problem.RelatedProblems
+                };
+                EnviroProblems.Add(provider);
         }
     }
 
