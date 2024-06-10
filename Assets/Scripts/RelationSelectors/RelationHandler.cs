@@ -13,7 +13,7 @@ public class RelationHandler : MonoBehaviour
 
     private readonly Dictionary<EnviroAlterationType, EnviroAlteration> _alterations= new();
     private readonly Dictionary<EnviroProblemType, EnviroProblem> _problems = new();
-    private readonly Dictionary<EnviroConsequenceType, EnviroConsequence> _consequences= new();
+    private readonly Dictionary<EnviroConsequenceType, EnviroConsequence> _consequences = new();
 
     [SerializeField] private GameObject BiomeBubble;
     [SerializeField] private List<EnviroAlterationType> _alterationFilters = new();

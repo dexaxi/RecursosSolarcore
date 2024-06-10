@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Water_Quality_Decrease
   Title: Water Quality Decrease
   Description: Water_Quality_Decrease
-  Type: 13
+  Type: 14
   Sprite: {fileID: 0}
   color: {r: 0, g: 0.3744688, b: 1, a: 0}

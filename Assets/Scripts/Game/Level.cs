@@ -100,15 +100,6 @@ public class Level : ScriptableObject
 
     public void InitRelationLevel() 
     {
-        RelationHandler.Instance.PopulateAlterations();
-        GenrateAlterationFilters();
-        
-        RelationHandler.Instance.PopulateProblems();
-        GenerateProblemFilters();
-
-        RelationHandler.Instance.PopulateConsequences();
-        GenerateConsequenceFilters();
-
         RelationHandler.Instance.InitBookUI(CurrentRelationBiome);
     }
 
