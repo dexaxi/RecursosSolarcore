@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea5d8c8f0eb0fa34485b1dd4ccb18313, type: 3}
-  m_Name: Water_Species_Decrease
+  m_Name: Water_Species_Behaviour_Changes
   m_EditorClassIdentifier: 
   name: Water_Species_Decrease
   Title: Water Species Decrease
