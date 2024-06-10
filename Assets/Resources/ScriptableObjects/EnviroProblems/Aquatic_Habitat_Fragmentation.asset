@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Aquatic_Habitat_Fragmentation
   Title: Aquatic Habitat Fragmentation
   Description: Aquatic Habitat Fragmentation
-  Type: 16
+  Type: 21
   Section: 1
   Icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}

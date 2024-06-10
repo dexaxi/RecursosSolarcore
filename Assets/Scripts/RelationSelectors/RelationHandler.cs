@@ -159,7 +159,10 @@ public class RelationHandler : MonoBehaviour
         List<EnviroProblem> returnProblems = new();
         for (int i = 0; i < _problemFilters.Count; i++)
         {
-            returnProblems.Add(_problems[_problemFilters[i]]);
+            if (_problems.TryGetValue(_problemFilters[i], out EnviroProblem problem))
+            {
+                returnProblems.Add(problem);
+            }
         }
         return returnProblems;
     }

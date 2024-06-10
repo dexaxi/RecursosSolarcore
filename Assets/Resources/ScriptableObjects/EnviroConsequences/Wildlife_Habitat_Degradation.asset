@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d249e6281b75624bb52656ab50af599, type: 3}
-  m_Name: Coral_Habitat_Degradation
+  m_Name: Wildlife_Habitat_Degradation
   m_EditorClassIdentifier: 
   name: Coral_Habitat_Degradation
   Title: Coral Habitat Degradation
   Description: Coral_Habitat_Degradation
-  Type: 12
+  Type: 8
   Sprite: {fileID: 0}
-  color: {r: 1, g: 0, b: 0.76872206, a: 0}
+  color: {r: 1, g: 0.4529273, b: 0, a: 0}

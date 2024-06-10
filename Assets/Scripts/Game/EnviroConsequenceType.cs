@@ -9,6 +9,7 @@ public enum EnviroConsequenceType
     Fire_Rate_Increase,
     Ecosystem_Structure_Alterations,
     Ecological_Conectivity_Loss,
+    Wildlife_Habitat_Degradation,
 
     //Water
     Water_Retention_Rates,

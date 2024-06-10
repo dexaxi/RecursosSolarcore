@@ -15,17 +15,15 @@ MonoBehaviour:
   name: TestLevel
   Description: Level1 Test
   LevelIndex: 1
-  SelectedBiomes: 00000000010000000200000003000000
+  SelectedBiomes: 000000000500000004000000
   RuleType: 3
   WaterChannels: 
   ForceBiomePositions:
     list:
     - Key: 1
-      Value: 2
-    - Key: 3
-      Value: 1
-    - Key: 2
-      Value: 3
-    - Key: 4
       Value: 0
-  CurrentRelationBiome: 3
+    - Key: 2
+      Value: 5
+    - Key: 3
+      Value: 4
+  CurrentRelationBiome: 0

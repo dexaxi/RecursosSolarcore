@@ -4,5 +4,6 @@ public enum BiomeType
     Water = 1,
     Rocky = 2,
     Desert = 3,
-    Ocean = 4
+    Ocean = 4,
+    Forest = 5
 }

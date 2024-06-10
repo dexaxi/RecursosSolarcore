@@ -15,10 +15,10 @@ MonoBehaviour:
   name: Invertebrate_Species_Loss
   Title: Invertebrate Species Loss
   Description: Invertebrate Species Loss
-  Type: 4
-  Section: 2
+  Type: 7
+  Section: 1
   Icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   PossibleSolutions: 000000000400000004000000
-  RelatedConsecuences: 02000000
-  RelatedProblems: 0a000000
+  RelatedConsecuences: 00000000
+  RelatedProblems: 0300000005000000

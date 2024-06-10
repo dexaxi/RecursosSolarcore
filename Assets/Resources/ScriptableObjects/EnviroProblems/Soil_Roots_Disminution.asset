@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea5d8c8f0eb0fa34485b1dd4ccb18313, type: 3}
-  m_Name: Coral_Structure_Damage
+  m_Name: Soil_Roots_Disminution
   m_EditorClassIdentifier: 
-  name: Coral_Structure_Damage
-  Title: Coral Structure Damage
-  Description: Coral Structure Damage
-  Type: 5
-  Section: 1
+  name: asdasasdas
+  Title: asdas
+  Description: asdas
+  Type: 6
+  Section: 0
   Icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
-  PossibleSolutions: 0100000002000000
-  RelatedConsecuences: 090000000a000000
-  RelatedProblems: 08000000
+  PossibleSolutions: 
+  RelatedConsecuences: 0100000002000000
+  RelatedProblems: 0e000000

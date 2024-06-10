@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea5d8c8f0eb0fa34485b1dd4ccb18313, type: 3}
-  m_Name: River_Flux_Alteration
+  m_Name: Acidification
   m_EditorClassIdentifier: 
-  name: asdas
-  Title: asdas
-  Description: asdas
-  Type: 14
+  name: Aquatic_Habitat_Fragmentation
+  Title: Aquatic Habitat Fragmentation
+  Description: Aquatic Habitat Fragmentation
+  Type: 3
   Section: 0
   Icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   PossibleSolutions: 
-  RelatedConsecuences: 
-  RelatedProblems: 
+  RelatedConsecuences: 0200000003000000
+  RelatedProblems: 07000000

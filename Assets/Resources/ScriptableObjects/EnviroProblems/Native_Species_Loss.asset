@@ -20,5 +20,5 @@ MonoBehaviour:
   Icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   PossibleSolutions: 0700000000000000
-  RelatedConsecuences: 01000000
-  RelatedProblems: 00000000
+  RelatedConsecuences: 00000000
+  RelatedProblems: 0d000000

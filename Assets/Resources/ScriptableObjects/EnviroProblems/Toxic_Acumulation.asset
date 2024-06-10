@@ -15,8 +15,8 @@ MonoBehaviour:
   name: asdas
   Title: asdas
   Description: asdas
-  Type: 13
-  Section: 1
+  Type: 16
+  Section: 0
   Icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   PossibleSolutions: 

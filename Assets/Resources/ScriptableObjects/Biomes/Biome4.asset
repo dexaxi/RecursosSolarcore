@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64f2aadf987821644a8327a532c2e644, type: 3}
-  m_Name: Ocean
+  m_Name: Biome4
   m_EditorClassIdentifier: 
-  name: Ocean
-  Type: 4
-  Description: Ocean  terrain
-  Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  Material: {fileID: 2100000, guid: ad86b8786df563849a6a7d74cc73d9ce, type: 2}
-  tilePrefab: {fileID: 1810241591079234738, guid: b6e990fa36720ba419cbd35af466d5d5, type: 3}
-  biomeWeight: 4
+  name: Forest
+  Type: 5
+  Description: Forest description
+  Mesh: {fileID: -3040160402251708652, guid: 7d3f8ba939ae02f4da8f0ccd52f8645b, type: 3}
+  Material: {fileID: 2100000, guid: ea47ae5678d0f014b9db931f4864cc40, type: 2}
+  tilePrefab: {fileID: 1810241591079234738, guid: 72f932d52504e3c489d03a0fb6070a86, type: 3}
+  biomeWeight: 3
   biomeTiles: []
-  spawnCount: 19
+  spawnCount: 46
   Sprite: {fileID: 0}
-  EnviroAlterations: 0200000003000000
+  EnviroAlterations: 0400000005000000

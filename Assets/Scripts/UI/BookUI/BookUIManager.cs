@@ -125,7 +125,6 @@ public class BookUiElements : IMappedObject
     private void UpdateScrollBar() 
     {
         List<EnviroProblemProvider> problems = _provider.EnviroProblems;
-
         
         int scrollbarVal = (int) (_diagnosticsInfoUI.Scrollbar.value * _diagnosticsInfoUI.Scrollbar.numberOfSteps);
         if (scrollbarVal >= 2.5) scrollbarVal -= 1;

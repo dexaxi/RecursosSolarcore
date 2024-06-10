@@ -15,10 +15,10 @@ MonoBehaviour:
   name: asdas
   Title: asdas
   Description: asdas
-  Type: 7
+  Type: 22
   Section: 0
   Icon: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 0.9341817, b: 1, a: 0}
   PossibleSolutions: 
   RelatedConsecuences: 
   RelatedProblems: 

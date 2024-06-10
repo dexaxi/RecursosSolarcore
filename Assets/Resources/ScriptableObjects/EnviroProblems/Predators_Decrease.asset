@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea5d8c8f0eb0fa34485b1dd4ccb18313, type: 3}
-  m_Name: Soil_Compactation
+  m_Name: Predators_Decrease
   m_EditorClassIdentifier: 
-  name: asdas
-  Title: asdas
-  Description: asdas
-  Type: 5
-  Section: 0
+  name: Predators_Decrease
+  Title: Predators_Decrease
+  Description: Predators_Decrease
+  Type: 18
+  Section: 1
   Icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   PossibleSolutions: 
-  RelatedConsecuences: 020000000300000009000000
-  RelatedProblems: 07000000
+  RelatedConsecuences: 
+  RelatedProblems: 
