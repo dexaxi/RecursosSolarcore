@@ -21,4 +21,4 @@ MonoBehaviour:
   color: {r: 0, g: 0, b: 0, a: 0}
   PossibleSolutions: 
   RelatedConsecuences: 00000000
-  RelatedProblems: 010000000600000000000000
+  RelatedProblems: 01000000060000000000000002000000

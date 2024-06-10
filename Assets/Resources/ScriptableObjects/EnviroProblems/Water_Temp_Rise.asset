@@ -20,5 +20,5 @@ MonoBehaviour:
   Icon: {fileID: 0}
   color: {r: 0, g: 0.9341817, b: 1, a: 0}
   PossibleSolutions: 
-  RelatedConsecuences: 
-  RelatedProblems: 
+  RelatedConsecuences: 000000000d000000
+  RelatedProblems: 170000000b000000
