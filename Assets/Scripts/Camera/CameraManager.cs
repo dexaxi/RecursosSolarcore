@@ -30,14 +30,14 @@ public class CameraManager : MonoBehaviour
 
     public void SetBookCamera() 
     {
-        SetCameraTransform(new Vector3(-20, 0, 0), Vector3.zero);
+        SetCameraTransform(new Vector3(-40, 0, 0), Vector3.zero);
         MainCamera.orthographic = true;
         UpdateCameraCanvas(); 
     }
     public void SetGameplayCamera() 
     {
-        SetCameraTransform(new Vector3(8, 11, -8), new Vector3(45, 0, 0));
-        MainCamera.orthographic = false;
+        SetCameraTransform(new Vector3(0, 7, 0), new Vector3(30, 45, 0));
+        MainCamera.orthographic = true;
         UpdateCameraCanvas();
     }
 
