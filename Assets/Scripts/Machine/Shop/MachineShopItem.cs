@@ -9,13 +9,7 @@ public class MachineShopItem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _priceTextObject;
     [SerializeField] private GameObject machinePrefab;
-    private PlayerCurrencyManager _currencyManager;
     private Machine _machine;
-
-    private void Awake() 
-    {
-        _currencyManager = FindObjectOfType<PlayerCurrencyManager>();
-    }
 
     public void SetMachine(Machine machine) 
     {
@@ -36,13 +30,13 @@ public class MachineShopItem : MonoBehaviour
         acceptEvent.AddListener(PerformBuyMachine);
         UnityEvent cancelEvent = new();
         cancelEvent.AddListener(MachineShop.Instance.EnableShopItems);
-        popUp.BuildOptionPopupPlainColor("Buy " + _machine.name, "This operation will cost " + _machine.Cost, 1, new Color(155, 155, 155, 0.3f), new Color(0, 155, 155, 0.6f), new Color(0, 155, 155, 0.6f), Color.white, Color.white, acceptEvent, cancelEvent);
+        popUp.BuildOptionPopupPlainColor("Buy " + _machine.name, "This operation will cost " + _machine.Cost, 1, Color.white, Color.white, Color.white, Color.black, Color.black, acceptEvent, cancelEvent);
     }
 
     private void PerformBuyMachine()
     {
         float cost = _machine.Cost;
-        if (_currencyManager.RemoveCurrency(cost))
+        if (PlayerCurrencyManager.Instance.RemoveCurrency(cost))
         {
             InstantiateMachine();
             MachineShop.Instance.DisableShop();
@@ -50,7 +44,7 @@ public class MachineShopItem : MonoBehaviour
         else
         {
             var popUp = GenericPopUpLoader.LoadGenericPopUp();
-            popUp.BuildInfoPopupPlainColor("Warning!", "You are out of funds for this purchase...", 1, new Color(155, 155, 155, 0.3f), new Color(0, 155, 155, 0.6f), new Color(0, 155, 155, 0.6f), Color.white, Color.white);
+            popUp.BuildInfoPopupPlainColor("Warning!", "You are out of funds for this purchase...", 1, Color.white, Color.white, Color.white, Color.black, Color.black);
             Debug.LogWarning("WARNING: Not enough funds...");
         }
         MachineShop.Instance.EnableShopItems();

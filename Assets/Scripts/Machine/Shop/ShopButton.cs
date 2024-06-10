@@ -23,4 +23,18 @@ public class ShopButton : MonoBehaviour
         _button.interactable = true;
     }
 
+    public void HideButton()
+    {
+        var canvas = GetComponent<CanvasGroup>();
+        canvas.alpha = 0.0f;
+        canvas.interactable = false;
+        canvas.blocksRaycasts = false;
+    }
+    public void ShowButton() 
+    {
+        var canvas = GetComponent<CanvasGroup>();
+        canvas.alpha = 1.0f;
+        canvas.interactable = true;
+        canvas.blocksRaycasts = true;
+    }
 }

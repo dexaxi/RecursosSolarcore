@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3194990012115242645}
   - component: {fileID: 3194990012115242642}
   - component: {fileID: 3194990012115242643}
-  - component: {fileID: 3194990012115242640}
   m_Layer: 0
   m_Name: MapHandlers
   m_TagString: Untagged
@@ -26,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3194990012115242644}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -60,16 +59,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _machineFilters: 
---- !u!114 &3194990012115242640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3194990012115242644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b9ab878a380914cbdc40f3cc27d1a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: {fileID: 11400000, guid: 44862b4e5eda00948808f24e871c4172, type: 2}

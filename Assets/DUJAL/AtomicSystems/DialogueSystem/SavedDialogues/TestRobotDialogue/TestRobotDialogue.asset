@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2474724dc3b9c2a4c8af98a07322689d, type: 3}
+  m_Name: TestRobotDialogue
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: TestRobotDialogue
+  <DialogueGroups>k__BackingField:
+    list: []
+  <UngroupedDialogues>k__BackingField:
+  - {fileID: 11400000, guid: 7145e4cfdab60c54dadbc2c226d40a1d, type: 2}
+  - {fileID: 11400000, guid: 5c273f1669249af4cafb9c67f439f874, type: 2}
+  - {fileID: 11400000, guid: 02255810e8024df4380c2833d0e91fdb, type: 2}
+  - {fileID: 11400000, guid: b08773038d7f5f9448a2be2d19670746, type: 2}

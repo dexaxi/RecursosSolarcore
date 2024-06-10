@@ -46,4 +46,6 @@ public class PlayerCurrencyManager : MonoBehaviour
     {
         _infoManager.CurrentMoney.text = Currency.ToString();
     }
+
+    public void SetCurrency(float amount) { Currency = amount; UpdateCurrencyUI(); }
 }

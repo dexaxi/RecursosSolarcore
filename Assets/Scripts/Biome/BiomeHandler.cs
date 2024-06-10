@@ -1,13 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.IO.IsolatedStorage;
 using System.Linq;
-using System.Xml;
-using Unity.VisualScripting;
 using UnityEngine;
-using System.Security.Cryptography;
-using System;
-using System.Linq.Expressions;
 
 public class BiomeHandler : MonoBehaviour
 {
@@ -23,6 +16,13 @@ public class BiomeHandler : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(this);
+
+        PopulateBiomeResources();
+    }
+    public void PopulateBiomeResources() 
+    {
+        _biomes.Clear();
+        TilesPerBiome.Clear();
 
         var biomeArray = Resources.LoadAll("ScriptableObjects/Biomes", typeof(Biome));
         foreach (Biome biome in biomeArray.Cast<Biome>())
@@ -47,10 +47,7 @@ public class BiomeHandler : MonoBehaviour
 
     public void ClearBiomeFilters()
     {
-        foreach (BiomeType type in _biomeFilters)
-        {
-            _biomeFilters.Remove(type);
-        }
+        _biomeFilters.Clear();
     }
 
     public List<Biome> GetFilteredBiomes()
@@ -101,5 +98,4 @@ public class BiomeHandler : MonoBehaviour
         };
         return rule.SortBiomes(biomes);
     }
-
 }

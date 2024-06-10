@@ -21,3 +21,5 @@ MonoBehaviour:
   biomeWeight: 3
   biomeTiles: []
   spawnCount: 0
+  Sprite: {fileID: 0}
+  EnviroAlterations: 0600000007000000

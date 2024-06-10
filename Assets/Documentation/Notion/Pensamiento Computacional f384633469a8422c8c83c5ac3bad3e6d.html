@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Pensamiento Computacional</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f3846334-69a8-422c-8c83-c5ac3bad3e6d" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🧠</span></div><h1 class="page-title">Pensamiento Computacional</h1><p class="page-description"></p></header><div class="page-body"><hr id="14f282a5-3974-476f-a54c-7b9a2044eba1"/><ul id="e15d47ec-13dc-48fa-9ff0-d2de2971d678" class="toggle"><li><details open=""><summary><strong>Imagen PC</strong></summary><figure id="61f897c1-85d1-4eca-939c-5f2afd1e9d88" class="image"><a href="Pensamiento_computacional_ingls_(1).png"><img style="width:605px" src="Pensamiento_computacional_ingls_(1).png"/></a></figure></details></li></ul><ul id="19e20781-bb27-499c-a7e0-43609e01d4d2" class="toggle"><li><details open=""><summary><strong>Tabla PC (Inglés)</strong></summary><table id="030852fe-78db-4a7b-8877-3fbbfc800079" class="simple-table"><thead class="simple-table-header"><tr id="bb72ba7e-cd72-46ba-bdf9-268a04043855"><th id="Ci:F" class="simple-table-header-color simple-table-header"><strong>Categoría</strong></th><th id="l@gM" class="simple-table-header-color simple-table-header" style="width:521px"><strong>Características</strong></th></tr></thead><tbody><tr id="2414deba-a25d-4d70-b749-c8bbe635caf1"><th id="Ci:F" class="simple-table-header-color simple-table-header">Abstraction</th><td id="l@gM" class="" style="width:521px">- Removing unnecessary details;</td></tr><tr id="323e2681-e01f-4f1a-b0d4-2bc7a79b3c70"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Spotting key elements in problem;</td></tr><tr id="d3f501a6-fd17-4cd8-baf3-e72df1f7b4ff"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Pattern recognition;</td></tr><tr id="a843add2-089d-4f37-b346-858505e3c427"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Choosing a representation of a system.</td></tr><tr id="dd65221a-5cf0-40eb-8893-7164b556a06d"><th id="Ci:F" class="simple-table-header-color simple-table-header">Algorithmic thinking</th><td id="l@gM" class="" style="width:521px">- Thinking in terms of sequences and rules;</td></tr><tr id="c9a5b61d-d80b-420b-8a45-2887050793b8"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Executing an algorithm;</td></tr><tr id="bd8fa952-5203-43a1-aaa4-3a4665d72498"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Iteration, recursion, parallelism;</td></tr><tr id="b7d74767-2e96-4af9-9752-6e061c2bb7f2"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Conditionals logic;</td></tr><tr id="2f0c948b-495f-40d5-8f53-1b8f2ccd9428"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Creating an algorithm.</td></tr><tr id="1df3b080-f030-44d0-bf2e-26664a36fc0f"><th id="Ci:F" class="simple-table-header-color simple-table-header">Decomposition</th><td id="l@gM" class="" style="width:521px">- Breaking down tasks;</td></tr><tr id="ea8c1477-59e2-4cc7-9c93-8ff5bca42fd2"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Thinking about problems in terms of component parts;</td></tr><tr id="384b94a8-4c79-4a4f-ac6c-8d145a5b0734"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Making decisions about dividing into sub-tasks with integration in mind.</td></tr><tr id="3d806535-3e49-4537-b753-086ad986dfa1"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- e.g. deduction.</td></tr><tr id="7086c38d-c853-4a4c-a58d-151a0efa9245"><th id="Ci:F" class="simple-table-header-color simple-table-header">Evaluation</th><td id="l@gM" class="" style="width:521px">- Finding best solution;</td></tr><tr id="fc2153c7-828d-4d74-a449-5330e70e7b3b"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Making decisions about good use of resources;</td></tr><tr id="c0241aa7-ba6d-4f3b-ab63-ef92b637239e"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Fitness for purpose;</td></tr><tr id="44584e89-1d45-49e6-b65c-c567ffdd50e7"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Debugging;</td></tr><tr id="4d697dfb-c2a3-444a-83c4-38d0a83da51e"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Error spotting;</td></tr><tr id="1844c3e8-020f-48d8-a24d-eacebcb6ab86"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Efficiency, execution limits.</td></tr><tr id="38898179-7c55-432f-a03f-34eb78c8b7c2"><th id="Ci:F" class="simple-table-header-color simple-table-header">Data analysis</th><td id="l@gM" class="" style="width:521px">- Data representation;</td></tr><tr id="b29dcd24-149c-4df7-a340-876d47cfc93a"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Data management;</td></tr><tr id="668e0d7f-3107-4cdf-a759-ad1788a6342e"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Data processing.</td></tr><tr id="52072136-e3b4-412f-8ee3-17510926b615"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Data analysis</td></tr><tr id="03527f0e-5e9a-4a77-9113-b5dcef03c38f"><th id="Ci:F" class="simple-table-header-color simple-table-header">Generalization</th><td id="l@gM" class="" style="width:521px">- Identifying patterns as well as similarities and connections;</td></tr><tr id="907ab139-edff-4d92-a6e4-800971b9fd42"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Solving new problems based on already-solved problems;</td></tr><tr id="0f09b2eb-02cb-438d-bd9c-244011279901"><th id="Ci:F" class="simple-table-header-color simple-table-header"></th><td id="l@gM" class="" style="width:521px">- Utilizing the general solution, e.g. induction.</td></tr></tbody></table></details></li></ul><h3 id="44dfd3a3-da4d-45d2-80e0-d4aca3c3e553" class="block-color-gray_background">Tabla PC</h3><table id="c197814a-024f-4883-bd99-66efa8950416" class="simple-table"><thead class="simple-table-header"><tr id="5ae4595f-7b99-4e8f-a859-382bd1762b87"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"><strong>Categoría</strong></th><th id="NgOY" class="simple-table-header-color simple-table-header" style="width:556px"><strong>Características</strong></th></tr></thead><tbody><tr id="f3a25ac2-b0a8-40cd-ad28-b3591099feb7"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px">Abstracción</th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-blue_background">Eliminación de detalles innecesarios</mark></td></tr><tr id="39f9549c-60e2-49ea-89b9-6eec47690af0"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Identificación de elementos clave en un problema</mark></td></tr><tr id="d73d0369-7690-46af-a766-529394c0eb90"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Reconocimiento de patrones</td></tr><tr id="5398ef3d-25e5-4661-84e0-23326ad2d56e"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Elección de una representación de un sistema.</td></tr><tr id="4c46c805-74e7-49fa-a2a0-ee912c8fe615"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px">Pensamiento algorítmico</th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Pensar en términos de secuencias y reglas</mark></td></tr><tr id="ac4c459d-23df-4a16-bff6-143c5f15eda8"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Ejecución de un algoritmo</td></tr><tr id="c85095da-d329-4a02-a7a4-1ad6c96b7c97"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Iteración, recursión, paralelismo</td></tr><tr id="9e015252-48f9-4336-b9d4-b1964a6ee82d"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Lógica condicional</td></tr><tr id="a4ad0379-a87b-43be-9aab-86bd47fc6417"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Creación de un algoritmo</td></tr><tr id="ffbc04d0-f741-4ca9-aa7c-9b5383854e8c"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px">Descomposición</th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Desglose de tareas</mark></td></tr><tr id="431cf33e-7a48-424b-a3d0-80881aa0b40a"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Pensar en problemas en función de las partes que lo componen</mark></td></tr><tr id="56f4b1f6-36ec-4740-a25f-26575a90cbbf"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Tomar decisiones sobre la división en subtareas con integración en mente, por ejemplo, deducción.</td></tr><tr id="90875cfd-36ee-4ff4-be8a-786473b26ea7"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px">Evaluación</th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Encontrar la mejor solución</mark></td></tr><tr id="1b7c5e48-0c5a-483f-97da-2f854cce317b"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Tomar decisiones sobre el buen uso de los recursos</mark></td></tr><tr id="170ad3df-431b-4cad-91ca-0c6e622ab8b3"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Adecuarse al propósito</td></tr><tr id="81a37236-3f02-40a4-8bb8-57e83e335f23"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Depuración</mark></td></tr><tr id="c912118d-6812-4e99-b8f4-45595675be37"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Detección de errores</mark></td></tr><tr id="c590a0d9-143c-4a9e-a196-bec76a77cf79"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-blue_background">Eficiencia</mark>, límites de ejecución</td></tr><tr id="ba6df78a-7a90-4906-a855-da50f5b21ada"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px">Análisis de datos</th><td id="NgOY" class="" style="width:556px">- Representación de datos</td></tr><tr id="567b5991-8733-4ea4-8b22-4d8595406ecb"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Gestión de datos</td></tr><tr id="b252331c-773d-40a2-be0a-6aea8db89636"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-blue_background">Procesamiento de datos</mark></td></tr><tr id="4a591dfd-7ba9-43a6-89c1-532b41c0e72d"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Análisis de datos</mark></td></tr><tr id="7f218e38-bde7-4617-ac19-a5dc6fada25d"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px">Generalización</th><td id="NgOY" class="" style="width:556px">- Identificación de patrones, así como similitudes y conexiones</td></tr><tr id="0abde607-5421-437b-a0e7-0c5b47f5e705"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- <mark class="highlight-yellow_background">Resolver nuevos problemas basados en problemas ya resueltos</mark></td></tr><tr id="05b31b0b-5420-49c0-99e7-f1653e7b3b87"><th id="uO[S" class="simple-table-header-color simple-table-header" style="width:151.0833282470703px"></th><td id="NgOY" class="" style="width:556px">- Utilización de la solución general, por ejemplo, inducción</td></tr></tbody></table><h3 id="dfffd6b5-99f6-4406-8fbc-f75209fbcaa6" class="block-color-gray_background">Relación Diseño - PC</h3><hr id="dbea0f0a-0b0d-4583-ba17-85e4526b570f"/><p id="7d8b85c1-fd39-4fdf-b63c-89c11a2653b0" class="block-color-gray_background"><strong>Abstracción</strong></p><ul id="02522b82-8c8e-414b-96a1-b1009c2e1af3" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-blue_background">Eliminación de detalles innecesarios</mark></strong><ul id="2cd16e87-9ba9-4061-9187-955ffaa306ac" class="bulleted-list"><li style="list-style-type:circle">A la hora de realizar los diagramas de correlación entre indicadores (datos) y sus consecuencias, se reduce al mínimo imprescindible la explicación del contexto de la alteración del ecosistema.</li></ul></li></ul><hr id="0d11ee43-3398-40d8-8b0a-d14829cbf7e6"/><ul id="fa22a69b-819d-4be1-9e08-631277b53163" class="bulleted-list"><li style="list-style-type:disc"><strong><mark class="highlight-default">Identificación de elementos clave en un problema</mark></strong><ul id="1db75610-0d9c-4ec8-a164-4fa1645e3eb8" class="bulleted-list"><li style="list-style-type:circle">Dentro de un nivel, es necesario identificar y priorizar los problemas clave de un ecosistema.</li></ul></li></ul><hr id="32e9eb89-ae76-4431-8f75-1bd4b60745c4"/><ul id="7d11aabb-0386-431d-bae9-da3cdb0b12da" class="bulleted-list"><li style="list-style-type:disc"><strong>Reconocimiento de patrones</strong></li></ul><hr id="b7a0351f-0d94-4146-ab39-ed6e60d7e9b6"/><ul id="bcc678dc-7d96-4f58-92dd-80b6dfb0e3c3" class="bulleted-list"><li style="list-style-type:disc"><strong>Elección de una representación de un sistema.</strong></li></ul><hr id="8639a943-2916-43cc-aaea-f6a7bcbd6c34"/><p id="53699929-b8a5-433e-9835-810e87265050" class="block-color-gray_background"><strong>Pensamiento algorítmico</strong></p><ul id="c5e16dbc-ca78-47b1-bd3d-e7153b693621" class="bulleted-list"><li style="list-style-type:disc"><strong>Pensar en términos de secuencias y reglas</strong><ul id="19ac013d-a0ed-4382-955e-ee3285b1a714" class="bulleted-list"><li style="list-style-type:circle">A la hora de restaurar un ecosistema, está todo claramente separado de forma secuencial. Incluso el propio nivel se desarrolla de forma secuencial. A su vez, la elección de un plan de restauración siempre está supeditada a una serie de reglas.</li></ul></li></ul><hr id="a9f12530-4199-40f9-b5d2-c6a347412653"/><ul id="d65fe7e2-d5c0-4a07-866d-245c62c22116" class="bulleted-list"><li style="list-style-type:disc"><strong>Ejecución de un algoritmo</strong></li></ul><hr id="a1ee1e8f-8bd6-49ed-9a0f-5152868ae78b"/><ul id="6d0f281a-e775-41db-a853-321dc66bb014" class="bulleted-list"><li style="list-style-type:disc"><strong>Iteración, recursión, paralelismo</strong></li></ul><hr id="0f99bad8-74ae-4d17-b2d1-7b41f6e9e87e"/><ul id="d7b1ab8e-65ac-41ad-9827-e5bbd9c6987f" class="bulleted-list"><li style="list-style-type:disc"><strong>Lógica condicional</strong></li></ul><hr id="3007564c-6e42-4276-bb80-edfeca6004cb"/><ul id="f7ce8ffa-f3c1-4931-aeb7-8b33191e0113" class="bulleted-list"><li style="list-style-type:disc"><strong>Creación de un algoritmo</strong></li></ul><hr id="17f9023a-6dce-4982-8aaf-8f6626c611e3"/><p id="86771ace-efe6-4984-aaf7-fe66dac99bb0" class="block-color-gray_background"><strong>Descomposición</strong></p><ul id="585ecc2a-f868-43c9-b7a4-aad966a9e7ac" class="bulleted-list"><li style="list-style-type:disc"><strong>Desglose de tareas</strong><ul id="97a790c5-c42a-423d-91ae-d7c48229cc05" class="bulleted-list"><li style="list-style-type:circle">Un nivel está visiblemente desglosado en diferentes tareas y subtareas. Para completar el nivel es necesario restaurar todos los biomas y para restaurar cada bioma hay que finalizar todas las fases del plan de restauración (que pueden considerarse tareas a cumplimentar).</li></ul><ul id="4142b309-3add-469b-a417-1a993f28133d" class="bulleted-list"><li style="list-style-type:circle">Además, hay una serie de objetivos secundarios cuyo cumplimiento será necesario para el correcto desarrollo del nivel y para conseguir gestionar adecuadamente los recursos. Todo ello con el objetivo global de restaurar los ecosistemas y completar el nivel.</li></ul></li></ul><hr id="384f7a57-3f1a-49b7-aeee-0d7ebbedbc6a"/><ul id="0a94954b-dc0f-41dc-992a-ec7b9ecf1b7d" class="bulleted-list"><li style="list-style-type:disc"><strong>Pensar en problemas en función de las partes que lo componen</strong><ul id="a4fb2fcf-b3d3-4132-b08c-6d023de4667a" class="bulleted-list"><li style="list-style-type:circle">idem arriba</li></ul></li></ul><hr id="7947887b-61e4-4bbf-8086-7e50d3afa33d"/><ul id="f1a92e84-7140-4cb4-af77-ef83e9b2c289" class="bulleted-list"><li style="list-style-type:disc"><strong>Tomar decisiones sobre la división en subtareas con integración en mente, por ejemplo, deducción.</strong></li></ul><hr id="d861372b-e212-40bd-816d-a9aa5e07fc2b"/><p id="257df876-460d-47e6-8b73-ae84f010d8c1" class="block-color-gray_background"><strong>Evaluación</strong></p><ul id="56988761-31a2-40c0-a614-528dbe7f6591" class="bulleted-list"><li style="list-style-type:disc"><strong>Encontrar la mejor solución</strong><ul id="960589bb-3509-40fa-a130-82b5ba3ebf4e" class="bulleted-list"><li style="list-style-type:circle">A lo largo del desarrollo de cada nivel es importante analizar y escoger buenas soluciones. Quizá cuando estableces el plan de restauración para cada bioma es cuando es más importante encontrar una buena solución, así como cuando escoges qué bioma restaurar primero. Esos serían los momentos más claves, ya que es donde más se va a penalizar un fallo del jugador.</li></ul></li></ul><hr id="52887a4d-d28f-4b57-ac5c-6fe4a522b654"/><ul id="9919d977-7d6a-4538-b00d-5f33cdeabab5" class="bulleted-list"><li style="list-style-type:disc"><strong>Tomar decisiones sobre el buen uso de los recursos</strong><ul id="b4572a95-0bb4-44dc-9c6f-aa1269766f80" class="bulleted-list"><li style="list-style-type:circle">El jugador tiene recursos (moneda) limitados y debe hacer un buen uso de ellos para poder completar los niveles.</li></ul></li></ul><hr id="682900fd-ec16-4992-afa7-9c1322164590"/><ul id="45a2c464-867c-4525-9add-431a5cdf375d" class="bulleted-list"><li style="list-style-type:disc"><strong>Adecuarse al propósito</strong></li></ul><hr id="536bc062-5d52-4328-a501-400f3d820c48"/><ul id="4ef8d327-75c8-44ba-b15b-39272751f5a7" class="bulleted-list"><li style="list-style-type:disc"><strong>Depuración y Detección de errores</strong><ul id="53eb7aac-2c8b-460c-a34a-179582a04509" class="bulleted-list"><li style="list-style-type:circle">Es posible cometer errores y es importante detectarlos y subsanarlos a tiempo. La idea es dejar cierto margen para que los jugadores puedan echarse atrás y arreglar los fallos.</li></ul></li></ul><hr id="2e340953-9a31-48a2-95df-d92f1364fce9"/><ul id="fc675889-93a2-49a4-9a41-69224fea338b" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue_background"><strong>Eficiencia</strong></mark><strong>, límites de ejecución</strong></li></ul><hr id="e0ea3e52-b503-46f4-b56b-5102f75fb596"/><p id="ecd0a5df-615a-46ba-b7b9-812b2c3ff3a1" class="block-color-gray_background"><strong>Análisis de datos</strong></p><ul id="19be1ed8-34e5-4cb8-a5f6-9131b94850da" class="bulleted-list"><li style="list-style-type:disc"><strong>Representación de datos</strong></li></ul><hr id="6c79ce9e-455f-41ec-a5e9-2f028bc7a8db"/><ul id="d8673a8e-b699-4ed1-aadb-ba89ff43dad5" class="bulleted-list"><li style="list-style-type:disc"><strong>Gestión de datos</strong></li></ul><hr id="3b7ec896-76ed-4221-bc4d-a7f0b008b163"/><ul id="47ec8317-10e6-4670-86ae-1847c95dc132" class="bulleted-list"><li style="list-style-type:disc"><strong>Procesamiento de datos</strong></li></ul><hr id="a2151865-fe78-4bf5-9b41-affe4e01981f"/><ul id="9430a76d-9eb5-4c55-9a05-5b9b166380a9" class="bulleted-list"><li style="list-style-type:disc"><strong>Análisis de datos</strong><ul id="749abe24-615b-4acd-9af2-97582c700265" class="bulleted-list"><li style="list-style-type:circle">Las máquinas de investigación muestran una serie de datos que posteriormente el jugador analiza para poder correlacionarlos con consecuencias.</li></ul></li></ul><hr id="7e26e72f-b7e5-47d1-9d68-13748a79d941"/><p id="1c22564c-9da5-4574-ba32-ded06a0ec1d8" class="block-color-gray_background"><strong>Generalización</strong></p><ul id="4b9c6ea2-ae45-425a-8e7b-bab5d52c2bd6" class="bulleted-list"><li style="list-style-type:disc"><strong>Identificación de patrones, así como </strong><mark class="highlight-blue_background"><strong>similitudes y conexiones</strong></mark></li></ul><hr id="83eef120-dc47-4da4-a414-747f76916858"/><ul id="1fb775f8-42a6-4d70-bdd9-1b43fd9c118f" class="bulleted-list"><li style="list-style-type:disc"><strong>Resolver nuevos problemas basados en problemas ya resueltos</strong><ul id="e554b4c9-74fc-4acb-b3ee-4d36d4921ca9" class="bulleted-list"><li style="list-style-type:circle">A menudo las alteraciones de los ecosistemas tienen factores en común, a lo largo del progreso en el videojuego los jugadores podrán ir discerniendo que existen muchas correlaciones entre alteraciones y sus consecuencias.<br/>Por ejemplo: Si hay un problema con el suelo (del tipo que sea) la flora no va a poder prosperar correctamente y si la flora no está en sus condiciones más óptimas, la fauna tampoco lo estará.<br/></li></ul></li></ul><hr id="bdbefa93-bb63-4a72-b3c4-47323e34f40d"/><ul id="dfc3fae2-837a-4f4c-a6ba-51571143bc6a" class="bulleted-list"><li style="list-style-type:disc"><strong>Utilización de la solución general, por ejemplo, inducción</strong></li></ul><hr id="d3a5e7f5-c4f5-4a4e-b426-a53b5f4cd986"/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

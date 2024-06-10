@@ -45,6 +45,7 @@ public class MachineDisplay : MonoBehaviour
 
     public void SetMachine(PlaceableMachine machine)
     {
+        _machine?.UnHighlightRange();
         _machine = machine;
     }
 
@@ -82,6 +83,7 @@ public class MachineDisplay : MonoBehaviour
         DisableSellUI();
         DisableMoveUI();
         DisablePlaceUI();
+        _machine.UnHighlightRange();
         MachineShop.Instance.EnableShopButton();
         Selectable.UnlockSelectable();
     }

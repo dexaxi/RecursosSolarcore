@@ -21,6 +21,7 @@ public class MachineShop : MonoBehaviour
     private List<Machine> _allFilteredMachines = new();
     private int _currentShopIndex;
 
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -136,6 +137,15 @@ public class MachineShop : MonoBehaviour
     public void DisableShopButton() 
     {
         shopButton.DisableButton();    
+    }
+
+    public void HideShopButton() 
+    {
+        shopButton.HideButton();
+    }
+    public void ShowShopButton() 
+    {
+        shopButton.ShowButton();
     }
 
     public void EnableShopButton()

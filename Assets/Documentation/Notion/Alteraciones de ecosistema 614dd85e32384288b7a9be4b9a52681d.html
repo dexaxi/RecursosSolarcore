@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Alteraciones de ecosistema</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="614dd85e-3238-4288-b7a9-be4b9a52681d" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🌳</span></div><h1 class="page-title">Alteraciones de ecosistema</h1><p class="page-description"></p></header><div class="page-body"><nav id="9b9f03ee-0917-46cd-9032-8cefacddfb66" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8ed791ec-d96d-457a-8ee9-c3d8c3d74546">Tabla de alteraciones</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#84233659-20c7-40b4-a5df-76c74b42bc10">Biomas</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#499db79a-86a3-460f-8ff5-e7c497a8b2ea">B1. Selva</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#2f7b0a6b-00e3-480f-9e3f-131fad79db0a">B2. Acuático Marino / Arrecifes</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#eadd5d64-8146-459f-bb11-7b987924cdc4">B3. Acuático Ríos</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#845dbe10-a213-45ed-8931-ae44e1daa66e">B4. Bosque Templado</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#12ac4df9-0e86-4d93-b1fa-a9d988540cf0">B5. Tundra</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#46acb979-3984-44e6-bc16-2fdc27af7211">B6. Pradera</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#bea6d1b9-b3e4-4e0a-98be-fe7b9311dade">B7. Mediterráneo</a></div></nav><h2 id="8ed791ec-d96d-457a-8ee9-c3d8c3d74546" class="block-color-gray_background">Tabla de alteraciones</h2><hr id="8c2eb642-0427-40fc-a49f-2d53dbbe20ea"/><table id="8eec4d1a-3c76-47e7-ac6c-e81ab44d8221" class="simple-table"><thead class="simple-table-header"><tr id="07d2b33c-ae9d-4d2a-9185-74af0107eec2"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px"><strong>Nombre del Bioma</strong></th><th id="OfWM" class="simple-table-header-color simple-table-header">Alteración</th><th id="woCj" class="simple-table-header-color simple-table-header" style="width:359px"><strong>Descripción</strong></th></tr></thead><tbody><tr id="a87cca65-3985-475f-b742-87764101a9a8"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Selva</th><td id="OfWM" class="">Deforestación</td><td id="woCj" class="" style="width:359px">Por la tala de árboles excesiva. Puede provocar pérdida de biodiversidad y disminución de la cubierta vegetal.</td></tr><tr id="a05cdbb9-86e7-4fe1-9f76-c424e04f4b09"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Selva</th><td id="OfWM" class="">Degradación del suelo</td><td id="woCj" class="" style="width:359px"></td></tr><tr id="2e554abb-ee63-400c-ac78-b07f7a79543c"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Acuático marino / arrecifes</th><td id="OfWM" class="">Pérdida de biodiversidad por sobrepesca</td><td id="woCj" class="" style="width:359px">La pesca con redes de arrastre pueden dañar los arrecifes de coral y otros hábitats marinos.</td></tr><tr id="cebaac21-1e10-4112-868f-73633ca6a7d2"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Acuático marino / arrecifes</th><td id="OfWM" class="">Aumento de la temperatura del agua</td><td id="woCj" class="" style="width:359px">Aumento de la temperatura y de la radiación solar.</td></tr><tr id="a1a247a7-4358-48f5-b012-24a25ea74676"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Acuático (ríos)</th><td id="OfWM" class="">Contaminación de las aguas</td><td id="woCj" class="" style="width:359px">El agua se contamina con sustancias tóxicas, lo que puede dañar la biodiversidad.</td></tr><tr id="5b84f4c3-cb3d-4b4e-85f5-1f50d46c9029"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Acuático (ríos)</th><td id="OfWM" class="">Eutrofización</td><td id="woCj" class="" style="width:359px">El exceso de nutrientes en el agua puede causar una proliferación de algas y la reducción de oxígeno en el agua.</td></tr><tr id="9125fd43-0cf6-4675-ba70-2e8c2a3f2d83"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Acuático (ríos)</th><td id="OfWM" class="">Daño morfológico</td><td id="woCj" class="" style="width:359px">La construcción de presas y canales puede afectar a la calidad del agua y al flujo de agua.</td></tr><tr id="9927a24c-8b6f-4476-9c51-ea182babe6d7"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Mediterráneo</th><td id="OfWM" class="">Desertificación</td><td id="woCj" class="" style="width:359px">La degradación del suelo en áreas secas, principalmente por actividades humanas.</td></tr><tr id="847bcb56-3391-48ca-b961-4cc3a3630984"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Mediterráneo</th><td id="OfWM" class="">Contaminación del suelo por actividades agrícolas</td><td id="woCj" class="" style="width:359px">La utilización excesiva de pesticidas y fertilizantes que afecta la calidad del suelo.</td></tr><tr id="979dd462-b904-4f05-88f1-7c6f15dae3a1"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Bosque Templado</th><td id="OfWM" class="">Incendios forestales</td><td id="woCj" class="" style="width:359px">Los incendios forestales pueden destruir la cubierta vegetal y reducir la biodiversidad.</td></tr><tr id="cb3a8370-9dfd-4f24-9427-1ccb84e668a9"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Bosque Templado</th><td id="OfWM" class="">Falta de depredadores</td><td id="woCj" class="" style="width:359px">La ausencia de depredadores como el lobo puede causar un aumento en la población de herbívoros.</td></tr><tr id="0060a6ec-3d97-4b52-903b-fbb31265ccf1"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Tundra</th><td id="OfWM" class="">Derretimiento del permafrost</td><td id="woCj" class="" style="width:359px">El cambio climático está provocando el derretimiento del permafrost, lo que aumenta la erosión del suelo.</td></tr><tr id="8aee3729-5ed0-4900-9c2b-de95b298aa58"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Tundra</th><td id="OfWM" class="">Cambio en los patrones de precipitación</td><td id="woCj" class="" style="width:359px">Alteraciones en la cantidad y distribución de las precipitaciones que afectan el ecosistema.</td></tr><tr id="40380e40-c90c-457c-943e-4f37072e0e6e"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Pradera</th><td id="OfWM" class="">Conversión a tierras agrícolas</td><td id="woCj" class="" style="width:359px">Transformación de áreas de pradera en tierras agrícolas que afecta la biodiversidad.</td></tr><tr id="5347f7df-7248-457e-bc30-4831836f20fc"><th id="tqbX" class="simple-table-header-color simple-table-header" style="width:117.47222900390625px">Pradera</th><td id="OfWM" class="">Fragmentación del hábitat por desarrollo urbano</td><td id="woCj" class="" style="width:359px">La expansión urbana divide y reduce el hábitat natural.</td></tr></tbody></table><h2 id="84233659-20c7-40b4-a5df-76c74b42bc10" class="block-color-gray_background">Biomas</h2><hr id="209b1d62-d6a4-4bdc-af08-21c980b1ba11"/><figure id="7e84f2a9-49b4-4b7a-be39-e90c67be6a90" class="link-to-page"><a href="Para%CC%81metros%20indicadores%207e84f2a949b44b7abe39e90c67be6a90.html"><img class="icon" src="https://www.notion.so/icons/triangle-dashed_orange.svg"/>Parámetros indicadores</a></figure><h3 id="499db79a-86a3-460f-8ff5-e7c497a8b2ea" class="block-color-teal_background">B1. Selva</h3><figure id="9ba7d539-39d0-4739-8d88-14316f690fe7" class="block-color-teal_background link-to-page"><a href="Selva%20%5BAlteraciones%5D%209ba7d53939d047398d8814316f690fe7.html"><span class="icon">🌴</span>Selva [Alteraciones]</a></figure><hr id="1ba9b7c1-3642-4731-b538-5ffb14856c4f"/><p id="f0d60754-690f-451c-bc73-e494de67c592" class="block-color-yellow_background"><strong>Deforestación</strong></p><p id="6a2d53d4-7b9e-4b1d-9850-1f695f6df89a" class="">Tala excesiva de árboles que puede provocar pérdida de biodiversidad y disminución de la cubierta vegetal.</p><table id="b3b20fbe-048b-430d-9b83-ba44816416c2" class="simple-table"><thead class="simple-table-header"><tr id="a52000fa-f25b-4d10-8472-1eccbfadfead"><th id="&gt;&lt;Wo" class="simple-table-header-color simple-table-header" style="width:91px">Parámetro</th><th id="qPq^" class="simple-table-header-color simple-table-header" style="width:300.1111145019531px">Indicador</th><th id="=`K_" class="simple-table-header-color simple-table-header" style="width:318px">Consecuencias</th></tr></thead><tbody><tr id="3d367cf9-0704-4e1d-8c48-83683f66a6a5"><th id="&gt;&lt;Wo" class="simple-table-header-color simple-table-header" style="width:91px">Suelo</th><td id="qPq^" class="" style="width:300.1111145019531px">Disminución de materia orgánica, aumento de la erosión</td><td id="=`K_" class="" style="width:318px">Pérdida de biodiversidad, Degradación del suelo, Desertificación</td></tr><tr id="d890d867-d528-43c1-bd66-9c3cce0f102f"><th id="&gt;&lt;Wo" class="simple-table-header-color simple-table-header" style="width:91px">Flora</th><td id="qPq^" class="" style="width:300.1111145019531px">Reducción de especies nativas</td><td id="=`K_" class="" style="width:318px">Pérdida de biodiversidad</td></tr><tr id="213cda29-b541-4069-8d48-413258bdc1d0"><th id="&gt;&lt;Wo" class="simple-table-header-color simple-table-header" style="width:91px">Fauna</th><td id="qPq^" class="" style="width:300.1111145019531px">Disminución de la diversidad de especies animales</td><td id="=`K_" class="" style="width:318px">Pérdida de biodiversidad</td></tr></tbody></table><p id="fa34405f-8be9-4bfb-a418-ffbc1a5204a6" class="block-color-yellow_background"><strong>Degradación del suelo (por agricultura intensiva)</strong></p><p id="a23f2a1b-4cce-4f5c-a08e-de608720855f" class="">Proceso de deterioro del suelo debido a actividades humanas como la agricultura intensiva.</p><table id="d334862d-4008-4168-8583-365d3e8acc38" class="simple-table"><thead class="simple-table-header"><tr id="3a7eaffa-4a26-4661-86e8-e2553426a952"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="72e821cd-58fd-43eb-bf80-c055455f62b4"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Suelo</th><td id="_pRl" class="" style="width:294.1111145019531px">Aumento de la erosión, compactación del suelo</td><td id="pBU{" class="" style="width:314px">Pérdida de productividad agrícola, Pérdida de biodiversidad, Desertificación, Reducción en la capacidad de almacenamiento de agua</td></tr><tr id="0909b0fa-ee46-4180-a983-483e85aff282"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Reducción de especies nativas</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr><tr id="d8a2e5d0-9134-4661-a1a7-b671ef9f4b78"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Reducción de cantidad de invertebrados del suelo</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr></tbody></table><h3 id="2f7b0a6b-00e3-480f-9e3f-131fad79db0a" class="block-color-blue_background">B2. Acuático Marino / Arrecifes</h3><figure id="ecc77b79-1988-4226-8f4f-73045d4b3c7d" class="block-color-blue_background link-to-page"><a href="Acua%CC%81tico%20Marino%20%5BAlteraciones%5D%20ecc77b79198842268f4f73045d4b3c7d.html"><span class="icon">🌊</span>Acuático Marino [Alteraciones]</a></figure><hr id="062ca345-67cf-4434-b3dd-7e8c0118bd07"/><p id="91a6083d-cb0b-400a-8e03-d8d8289075a3" class="block-color-yellow_background"><strong>Perdida de biodiversidad por sobrepesca</strong></p><p id="56155e88-cbd9-460e-bb41-de34833610ed" class="">La pesca con redes de arrastre puede dañar los arrecifes de coral y otros hábitats marinos.</p><table id="48e5fa52-f60f-4a2f-8b6c-a69c7adc1804" class="simple-table"><thead class="simple-table-header"><tr id="9a6cb0fc-c367-4358-9d66-5e8231be1fd1"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="681077e7-a501-4d46-ad8c-3ffcd33293bf"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Disminución en la población de especies objetivo (especialmente peces de arrecife), Daño a las estructuras de los corales</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad marina, Alteración de la cadena trófica marina, Degradación de los hábitats coralinos</td></tr><tr id="2d157ac5-69b3-4052-896b-056345d32457"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Agua</th><td id="_pRl" class="" style="width:294.1111145019531px">Aumento de sedimentos (Turbidez del agua)</td><td id="pBU{" class="" style="width:314px">Degradación de los hábitats coralinos, Disminución en la calidad del agua</td></tr></tbody></table><p id="b0a01892-ed19-4fcf-94da-cb2d57e1a375" class="block-color-yellow_background"><strong>Aumento de la temperatura del agua</strong></p><p id="16bb7558-c1a7-4748-b062-a06fe7b16b93" class="">El aumento de la temperatura y de la radiación solar afecta negativamente a los ecosistemas marinos.</p><table id="488db052-85c2-4d10-9d22-065f6b56050a" class="simple-table"><thead class="simple-table-header"><tr id="c9fb2fcc-4a1d-4a7d-b829-d33f98fb4df5"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="ed8391f9-5e94-41ff-9e4d-8a940f835836"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Agua</th><td id="_pRl" class="" style="width:294.1111145019531px">Incremento de la temperatura media del agua</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad marina, Aumento en enfermedades marinas</td></tr><tr id="62e112a9-6f17-4847-95c3-694e72db55da"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Cambios en la distribución y reproducción de especies marinas, Blanqueo y mortalidad de corales</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad marina, Degradación de los ecosistemas coralinos</td></tr></tbody></table><h3 id="eadd5d64-8146-459f-bb11-7b987924cdc4" class="block-color-blue_background">B3. Acuático Ríos</h3><hr id="f4bace03-59b6-4312-bed1-6304d5c1d15a"/><p id="c5cdcba6-d20a-4aec-856a-d4db8d9d32f1" class="block-color-yellow_background"><strong>Contaminación de las aguas</strong></p><p id="73071d26-46f0-4c1d-ab39-9292977e8318" class="">El agua se contamina con sustancias tóxicas, lo que puede dañar la biodiversidad.</p><table id="abe59451-e2fa-4eea-9b5b-b2cff602565a" class="simple-table"><thead class="simple-table-header"><tr id="c69106af-053e-44d3-bc9c-78944ed4806c"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="c531fcad-feec-4147-81bc-caf163ee2141"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Agua</th><td id="_pRl" class="" style="width:294.1111145019531px">Presencia de metales pesados y pesticidas en concentraciones elevadas</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad acuática, Contaminación de la cadena alimentaria, Degradación de la calidad del agua potable, Aumento en la toxicidad del ecosistema acuático</td></tr><tr id="3930e198-39d6-4484-8014-ba7bba282b10"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Aumento de la mortalidad de peces y otros organismos acuáticos</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad acuática</td></tr></tbody></table><p id="e85d4f23-db49-483b-a3fb-9527ad697cb2" class="">
+</p><p id="ca315a4c-5005-4f22-a7cd-5dadc07350a7" class="block-color-yellow_background"><strong>Eutrofización</strong></p><p id="d38c6f27-ff14-41a2-a1b2-5b7a7caf4cf2" class="">El exceso de nutrientes en el agua puede causar una proliferación de algas y la reducción de oxígeno.</p><table id="11ef6083-8028-4cf5-b1b3-b859f6ca4287" class="simple-table"><thead class="simple-table-header"><tr id="96bdf0f9-f061-455e-aea0-ac664ec65801"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="5d4d0b5b-8bc8-4710-accf-529370629ab6"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Agua</th><td id="_pRl" class="" style="width:294.1111145019531px">Aumento de concentraciones de nitratos y fosfatos</td><td id="pBU{" class="" style="width:314px">Hipoxia y zonas muertas en el agua, Alteraciones en la cadena trófica acuática, Cambios en las propiedades fisicoquímicas del agua</td></tr><tr id="b25ce410-c9c5-451f-ba28-72d88ff73ad1"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Proliferación excesiva de algas (algas nocivas)</td><td id="pBU{" class="" style="width:314px">Hipoxia y zonas muertas en el agua</td></tr><tr id="db07cc82-ba94-4acc-8859-e006e09e79a8"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Disminución de los niveles de oxígeno disuelto, cambios en la composición de especies</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad acuática</td></tr></tbody></table><p id="1aa2b5a6-3604-41da-b28e-7fe2dd9de41c" class="">
+</p><p id="64275efa-9618-4219-b4e9-a1ab30e7b73e" class="block-color-yellow_background"><strong>Daño morfológico</strong></p><p id="f932458e-18b6-47a0-bf2b-6ae99b9e3395" class="">La construcción de presas y canales puede afectar a la calidad del agua y al flujo de agua.</p><table id="25424805-01cb-4f2c-86c5-52950f78fa62" class="simple-table"><thead class="simple-table-header"><tr id="07970efa-7952-4c01-ba4a-90bc117122f9"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="e0d8d36b-85a7-40d7-835a-5c2b06606d6f"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Agua</th><td id="_pRl" class="" style="width:294.1111145019531px">Alteración en el flujo y caudal del río</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad acuática, Alteración de los ciclos hidrológicos</td></tr><tr id="b0756d85-8308-4cd6-9b71-c4e174df0b26"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Suelo</th><td id="_pRl" class="" style="width:294.1111145019531px">Erosión de las riberas y sedimentos en suspensión</td><td id="pBU{" class="" style="width:314px">Aumento de la sedimentación</td></tr><tr id="3ea1dea7-af85-47a3-84ef-e26fe102867d"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Fragmentación de los hábitats acuáticos</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad acuática</td></tr></tbody></table><h3 id="845dbe10-a213-45ed-8931-ae44e1daa66e" class="block-color-orange_background">B4. Bosque Templado</h3><figure id="173feced-330b-4eb7-a8fa-f16cc178f4c5" class="block-color-orange_background link-to-page"><a href="Bosque%20Templado%20%5BAlteraciones%5D%20173feced330b4eb7a8faf16cc178f4c5.html"><span class="icon">🌳</span>Bosque Templado [Alteraciones]</a></figure><hr id="f6275312-3a4c-4881-b041-4f8b10c915f2"/><p id="ee15cdc5-5a98-4767-b385-351a533468d2" class="block-color-yellow_background"><strong>Incendios forestales</strong></p><p id="07ee311f-66f6-4cf5-9a24-2cc82cfb3614" class="">Los incendios forestales pueden destruir la cubierta vegetal y reducir la biodiversidad.</p><table id="728b9e67-4753-4c51-949f-7fb9caec3cff" class="simple-table"><thead class="simple-table-header"><tr id="524218a0-6639-4bff-94e2-e01dcc98c921"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="c43f9600-9e73-4376-aa9f-d55252b72787"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Suelo</th><td id="_pRl" class="" style="width:294.1111145019531px">Aumento de cenizas y nutrientes de combustión, reducción de la retención de agua, cambios en la estructura del suelo</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad, Degradación del suelo, Aumento de la erosión, Aumento en la frecuencia de incendios futuros</td></tr><tr id="a62d301e-d130-4257-a7e3-30225b076150"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Reducción de la cobertura vegetal</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr><tr id="fffbbad5-7419-46c9-9d63-a8755b4633f8"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Mortalidad y desplazamiento de animales</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr></tbody></table><p id="fa73b582-2ce1-4470-9a58-1a75733b2b2f" class="">
+</p><p id="d1cfe767-0db9-4ff5-bae8-db48fce25673" class="block-color-yellow_background"><strong>Falta de depredadores</strong></p><p id="14a1226b-4616-48cc-b26e-b96ffdb88c22" class="">La ausencia de depredadores como el lobo puede causar un aumento en la población de herbívoros.</p><table id="356a9861-7dd3-4afd-b5fe-b7bcd57f5216" class="simple-table"><thead class="simple-table-header"><tr id="2a6e9ff6-9984-4681-8383-dba7cf873e6b"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="c6f1ee09-4921-444b-8e97-58ced17faca3"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Aumento en la población de herbívoros, aumento en la competencia intraespecífica</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad, Cambio en la estructura del ecosistema</td></tr><tr id="8504808f-30e6-4777-8b48-b85950795b88"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Degradación de la vegetación (por exceso de herbívoros)</td><td id="pBU{" class="" style="width:314px">Degradación del hábitat</td></tr></tbody></table><p id="d0cacb9e-a768-49d0-9004-72cfe945f765" class="">
+</p><h3 id="12ac4df9-0e86-4d93-b1fa-a9d988540cf0" class="block-color-teal_background">B5. Tundra</h3><hr id="c9a303d8-896e-4615-8b3a-e19ed66bc1c2"/><p id="115bea67-b3ed-44c0-92f5-da0a0791c63c" class="block-color-yellow_background"><strong>Derretimiento del permafrost</strong></p><p id="665d5c30-356e-478e-a395-f9c9aa46cdb1" class="">El cambio climático está provocando el derretimiento del permafrost, lo que aumenta la erosión del suelo.</p><table id="743b09d3-1817-4574-83d4-f53e6e97324a" class="simple-table"><thead class="simple-table-header"><tr id="6bdbbf0f-27ad-411e-9faf-4c8a46c6334a"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="a6118981-c14b-4a8d-ba91-cd2cab380b31"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Suelo</th><td id="_pRl" class="" style="width:294.1111145019531px">Desestabilización del suelo, aumento de la erosión, emisión de gases de efecto invernadero</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad, Aumento de la erosión, Alteraciones en los ciclos hidrológicos, Inundaciones locales</td></tr><tr id="5d705b9d-adec-41bd-a5cc-16dfb2de6a5a"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Cambio en la composición de la vegetación</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr><tr id="89739577-a5a0-4c3a-b947-9b825244ac7d"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Pérdida de hábitats específicos, cambios en la distribución de especies</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr></tbody></table><p id="45a1494d-dc5b-48e5-8802-e5a62dac12f9" class="">
+</p><p id="04a3451d-d703-4af4-8082-931e55235e1a" class="block-color-yellow_background"><strong>Cambio en los patrones de precipitación</strong></p><p id="c7cbf15e-5d5a-43d4-82e2-ed7313af7e74" class="">Alteraciones en la cantidad y distribución de las precipitaciones que afectan el ecosistema.</p><table id="65720d97-7d44-49d6-89e2-1c971045f784" class="simple-table"><thead class="simple-table-header"><tr id="116284db-ce59-4153-8139-605bd9c38732"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="ef012f18-d59c-4187-9cae-02857978fe94"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Suelo</th><td id="_pRl" class="" style="width:294.1111145019531px">Cambios en la humedad del suelo</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad, Degradación del suelo, Alteración de los ciclos hidrológicos</td></tr><tr id="1d632712-087b-4352-b7d6-1df86b63b020"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Alteraciones en la distribución de plantas</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr><tr id="b6c49a05-e8d0-4621-a59a-f0779cace5dc"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Cambio en la distribución de especies, cambios en los patrones migratorios</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr></tbody></table><p id="4f0b8134-6fd4-4bd4-ae7c-561eaf2cb124" class="">
+</p><h3 id="46acb979-3984-44e6-bc16-2fdc27af7211" class="block-color-teal_background">B6. Pradera</h3><hr id="473ca73f-2587-4a62-8aac-3112ee449413"/><p id="3b15eb05-4ace-480d-9087-90fc85ba995d" class="block-color-yellow_background"><strong>Conversión a tierras agrícolas</strong></p><p id="e5e274aa-847a-48a0-a46f-a2a5437fd603" class="">Transformación de áreas de pradera en tierras agrícolas que afecta la biodiversidad.</p><table id="9be4e89d-5eb2-4833-ab16-a8169dc120c6" class="simple-table"><thead class="simple-table-header"><tr id="4e06a41c-9a3e-4ca0-809c-2e9137d40452"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="0efb9f39-3fc7-4589-ab52-f6da58975220"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Suelo</th><td id="_pRl" class="" style="width:294.1111145019531px">Compactación del suelo, pérdida de nutrientes, compactación por maquinaria agrícola</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad, Degradación del suelo, Aumento de la erosión</td></tr><tr id="e824f5f5-8847-46f7-b5e2-bdf694e18d5d"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Reducción de vegetación nativa (aumento de cultivos agrícolas)</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr><tr id="60713ecf-cc50-448c-b73a-5146eb76b159"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Pérdida de hábitats naturales</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr></tbody></table><p id="ea7e56b5-c7ac-4dde-a76f-95cb24ac3c03" class="">
+</p><p id="3876fa93-0aa0-4f39-9433-5875bac1addf" class="block-color-yellow_background"><strong>Fragmentación del hábitat por desarrollo urbano</strong></p><p id="89875dec-1226-424c-8064-bfe2a6173973" class="">La expansión urbana divide y reduce el hábitat natural.</p><table id="9002f505-f103-476b-abd7-bc1e349ffb66" class="simple-table"><thead class="simple-table-header"><tr id="8994ae05-8e01-4257-9a9d-e625d6f2c847"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="3621339f-ca3d-4a1a-a115-50ded798df88"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Suelo</th><td id="_pRl" class="" style="width:294.1111145019531px">Compactación, contaminación del suelo</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad, Degradación del suelo</td></tr><tr id="0343c978-103b-41de-bdfe-dabd1853245a"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Reducción de áreas verdes, aumento de especies invasoras</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr><tr id="320414fe-efeb-4888-8228-f6ffd98973aa"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Pérdida de hábitats, disminución de la conectividad entre poblaciones</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad, Pérdida de conectividad ecológica</td></tr></tbody></table><p id="e1982ca7-708a-4f5c-8faa-15e3378f298e" class="">
+</p><h3 id="bea6d1b9-b3e4-4e0a-98be-fe7b9311dade" class="block-color-teal_background">B7. Mediterráneo</h3><hr id="95dc0c01-af5a-4966-a983-8fdc90f993f9"/><p id="c6065010-6ca2-4a3a-8427-b1df83994dcd" class="block-color-yellow_background"><strong>Desertificación</strong></p><p id="f97dac97-569e-44c0-adf4-589d7ad93226" class="">La degradación del suelo en áreas secas, principalmente por actividades humanas.</p><table id="e1bf3004-a6f1-43ed-949e-dc3ac442fd29" class="simple-table"><thead class="simple-table-header"><tr id="b5717b34-3997-4b96-8120-9aa6446fdcd7"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="262b836f-f34e-4708-a180-295480d9e0ac"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Suelo</th><td id="_pRl" class="" style="width:294.1111145019531px">Aumento de la salinidad, pérdida de estructura y nutrientes</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad, Degradación del suelo, Aumento de la erosión y desertificación</td></tr><tr id="0402a61a-fa14-444c-89be-72300e8e42b6"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Reducción de la vegetación, aumento de especies resistentes a la sequía, reducción en la capacidad de resiliencia</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr><tr id="b930aef3-10d3-4fc5-b9b1-674804464ddc"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Disminución de especies dependientes de vegetación densa</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr></tbody></table><p id="1209097b-657a-43f2-92d6-f58bfeea756c" class="">
+</p><p id="b4198a9f-418b-4d9f-9026-986153267dd6" class="block-color-yellow_background"><strong>Contaminación del suelo por actividades agrícolas</strong></p><p id="5a32fd71-a8b8-487a-986f-5f851ab9ab06" class="">La utilización excesiva de pesticidas y fertilizantes que afecta la calidad del suelo.</p><table id="a9d732fc-7b35-4e21-9a58-e0a78898759b" class="simple-table"><thead class="simple-table-header"><tr id="f3f6e51d-d1e1-453f-90d8-84b1e1eaf7aa"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Parámetro</th><th id="_pRl" class="simple-table-header-color simple-table-header" style="width:294.1111145019531px">Indicador</th><th id="pBU{" class="simple-table-header-color simple-table-header" style="width:314px">Consecuencias</th></tr></thead><tbody><tr id="e9773a9b-fc81-4da9-8fc7-40071bfa03dc"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Suelo</th><td id="_pRl" class="" style="width:294.1111145019531px">Presencia de pesticidas y fertilizantes, alteración de la estructura del suelo</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad, Degradación del suelo, Contaminación de la cadena alimentaria</td></tr><tr id="3f044309-692b-46ca-b1f6-0ae155cc0ff3"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Flora</th><td id="_pRl" class="" style="width:294.1111145019531px">Reducción del recuento de especies nativas, aumento de especies invasoras</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr><tr id="577dafa3-c51a-42d8-be5c-ce0a122581b6"><th id="V}Mt" class="simple-table-header-color simple-table-header" style="width:98px">Fauna</th><td id="_pRl" class="" style="width:294.1111145019531px">Toxicidad en especies terrestres, disminución de la diversidad de especies, bioacumulación de tóxicos</td><td id="pBU{" class="" style="width:314px">Pérdida de biodiversidad</td></tr></tbody></table><p id="4f8b4630-18d5-4d9f-aead-eae7885a79f7" class="">
+</p><p id="90849014-b512-49fa-8f01-6d9a1cb275a2" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
