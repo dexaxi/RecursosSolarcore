@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <NodeType>k__BackingField: 2
+  Relations: 
 --- !u!1 &6499315278506621766
 GameObject:
   m_ObjectHideFlags: 0

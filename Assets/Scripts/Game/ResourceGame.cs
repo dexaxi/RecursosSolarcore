@@ -5,6 +5,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+public enum LevelSceneFlow 
+{
+    Invalid = -1,
+    PreLevel = 0,
+    ShowBiomeBubbles,
+    RelationPhase,
+    Gameplay,
+    OutsideGameplay = 99
+}
+
 public class ResourceGame : MonoBehaviour
 {
     public static ResourceGame Instance;
@@ -13,6 +23,7 @@ public class ResourceGame : MonoBehaviour
 
     public readonly List<Level> Levels = new();
 
+    private LevelSceneFlow _currentSceneFlow;
 
     private void Awake()
     {
@@ -31,18 +42,34 @@ public class ResourceGame : MonoBehaviour
         PopulatetAllLevels();
     }
     
-    public void ProcessActiveScene()
+    public void ProcessActiveScene(LevelSceneFlow flow = LevelSceneFlow.Invalid)
     {
         switch (SceneLoader.GetActiveSceneIndex())
         {
             case SceneIndex.LEVEL_SCENE:
-                Level.InitLevel();
-                break;
-            case SceneIndex.PROBLEM_SCREEN:
-                Level.InitRelationLevel();
+                _currentSceneFlow = flow;
+                switch (flow) 
+                {
+                    case LevelSceneFlow.PreLevel:
+                        Level.InitPreLevel();
+                        break;
+                    case LevelSceneFlow.ShowBiomeBubbles:
+                        Level.InitBubblePhase();
+                        break;
+                    case LevelSceneFlow.RelationPhase:
+                        Level.InitRelationLevel();
+                        break;
+                    case LevelSceneFlow.Gameplay:
+                        Level.InitLevel();
+                        break;
+                    default:
+                        Debug.LogError("Trying to load in game level flow with invalid state.");
+                        break;
+                }
                 break;
             case SceneIndex.LEVEL_SELECTOR:
             case SceneIndex.MAIN_MENU:
+                _currentSceneFlow = LevelSceneFlow.OutsideGameplay;
                 break;
             case SceneIndex.NO_SCENE:
             default:
@@ -50,7 +77,6 @@ public class ResourceGame : MonoBehaviour
                 break;
         }
     }
-
     public void SetLevel(string level) 
     {
         Level = GetLevelFromString(level)
@@ -76,6 +102,16 @@ public class ResourceGame : MonoBehaviour
         {
             Levels.Add(level);
         }
+    }
+
+    public void SetBubblePhase() 
+    {
+        ProcessActiveScene(LevelSceneFlow.ShowBiomeBubbles);
+    }
+
+    public void UpdateLevelBubbleBiome(BiomeType biome) 
+    {
+        Level.CurrentRelationBiome = biome;
     }
 
 }

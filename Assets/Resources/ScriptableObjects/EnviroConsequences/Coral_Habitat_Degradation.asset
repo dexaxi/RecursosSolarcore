@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Coral_Habitat_Degradation
   m_EditorClassIdentifier: 
   name: Coral_Habitat_Degradation
+  Title: Coral Habitat Degradation
   Description: Coral_Habitat_Degradation
   Type: 11
   Sprite: {fileID: 0}

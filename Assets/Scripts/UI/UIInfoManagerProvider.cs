@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInfoManagerProvider : MonoBehaviour
 {
@@ -18,5 +19,9 @@ public class UIInfoManagerProvider : MonoBehaviour
             }
             return _desktopUIInfo;
         }
+    }
+
+    private void Awake()
+    {
     }
 }

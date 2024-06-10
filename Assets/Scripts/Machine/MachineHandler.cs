@@ -17,15 +17,26 @@ public class MachineHandler : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(this);
-        PopulateMachineResources();
     }
 
     public void PopulateMachineResources() 
     {
         _machines.Clear();
         var machineArray = Resources.LoadAll("ScriptableObjects/Machines", typeof(Machine));
+        var alterations = RelationHandler.Instance.GetFilteredAlterations();
+        var problems = RelationHandler.Instance.GetFilteredProblems();
         foreach (Machine machine in machineArray.Cast<Machine>())
         {
+            foreach (EnviroAlteration alteration in alterations) 
+            {
+                foreach(EnviroProblem problem in problems) 
+                {
+                    if (alteration.EnviroProblems.Contains(problem.Type) && problem.PossibleSolutions.Contains(machine.Type))
+                    {
+                        machine.CompatibleBiomes.Add(alteration.Biome);
+                    }
+                }
+            }
             _machines[machine.Type] = machine;
         }
     }

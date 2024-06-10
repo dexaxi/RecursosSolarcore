@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Water_Trophic_Chain_Alterations
   m_EditorClassIdentifier: 
   name: Water_Trophic_Chain_Alterations
+  Title: Water Trophic Chain Alterations
   Description: Water_Trophic_Chain_Alterations
   Type: 10
   Sprite: {fileID: 0}

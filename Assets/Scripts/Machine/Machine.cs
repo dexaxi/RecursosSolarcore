@@ -15,7 +15,7 @@ public class Machine : ScriptableObject
     public Material MeshRenderer;
     public Sprite ShopSprite;
     public Texture2D RangePattern;
-    public List<BiomeType> CompatibleBiomes;
+    [HideInInspector] public List<BiomeType> CompatibleBiomes;
 
     private HighlightPattern _highlightPattern;
 

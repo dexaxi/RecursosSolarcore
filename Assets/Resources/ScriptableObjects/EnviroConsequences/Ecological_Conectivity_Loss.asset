@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ecological_Conectivity_Loss
   m_EditorClassIdentifier: 
   name: Ecological_Conectivity_Loss
+  Title: Ecological Conectivity Loss
   Description: Ecological_Conectivity_Loss
   Type: 7
   Sprite: {fileID: 0}

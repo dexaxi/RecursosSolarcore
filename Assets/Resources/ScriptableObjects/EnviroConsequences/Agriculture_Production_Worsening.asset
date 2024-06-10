@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Agriculture_Production_Worsening
   m_EditorClassIdentifier: 
   name: Agriculture_Production_Worsening
+  Title: Agriculture Production Worsening
   Description: Agriculture_Production_Worsening
   Type: 3
   Sprite: {fileID: 0}

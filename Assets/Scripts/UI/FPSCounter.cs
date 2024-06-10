@@ -12,11 +12,15 @@ public class FPSCounter : MonoBehaviour
 
     private void Awake()
     {
-        QualitySettings.vSyncCount = 0;
-        _textMeshProUGUI = GetComponent<TextMeshProUGUI>();
-        Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        waitForFrequency = new WaitForSecondsRealtime(0.5f);
-        StartCoroutine(FPS());
+        if (Debug.isDebugBuild)
+        {
+            QualitySettings.vSyncCount = 0;
+            _textMeshProUGUI = GetComponent<TextMeshProUGUI>();
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            waitForFrequency = new WaitForSecondsRealtime(0.5f);
+            StartCoroutine(FPS());
+        }
+        else Destroy(gameObject);
     }
 
     private IEnumerator FPS()

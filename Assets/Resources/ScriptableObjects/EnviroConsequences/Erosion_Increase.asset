@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Erosion_Increase
   m_EditorClassIdentifier: 
   name: Erosion_Increase
+  Title: Erosion Increase
   Description: Erosion_Increase
   Type: 4
   Sprite: {fileID: 0}

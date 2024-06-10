@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Water_Biodiversity_Loss
   m_EditorClassIdentifier: 
   name: Water_Biodiversity_Loss
+  Title: Water Biodiversity Loss
   Description: Water_Biodiversity_Loss
   Type: 9
   Sprite: {fileID: 0}

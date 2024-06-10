@@ -1,7 +1,9 @@
 using AnKuchen.Map;
+using Cysharp.Threading.Tasks.Triggers;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,8 +18,8 @@ public class RelationUIManager : MonoBehaviour
     [field: SerializeField] private UICache relationUICache = default;
     private GraphicRaycaster _raycaster;
     private RelationBookUiElements _relationBooks;
-
-    private List<BookInfoProvider> _bookBiomes;
+    private readonly List<TextMeshProUGUI> _consecuenceTexts = new();
+    private readonly List<TextMeshProUGUI> _problemTexts = new();
 
     private void Awake()
     {
@@ -29,6 +31,9 @@ public class RelationUIManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        _relationBooks = new RelationBookUiElements(relationUICache, this);
+        _relationBooks.Root.SetActive(true);
+
         _raycaster = GetComponent<GraphicRaycaster>();
         
         List<LineSpawner> spawners = GetComponentsInChildren<LineSpawner>().ToList();
@@ -36,10 +41,11 @@ public class RelationUIManager : MonoBehaviour
         {
             List<AnchorPoint> _nodes = spawner.GetComponentsInChildren<AnchorPoint>().ToList();
             NodeDictionary[spawner] = _nodes;
+            
+            var Text = spawner.GetComponentInChildren<TextMeshProUGUI>();
+            if (_nodes[0].IsProblem(_nodes[0].NodeType)) _problemTexts.Add(Text);
+            else _consecuenceTexts.Add(Text);
         }
-
-        _relationBooks = new RelationBookUiElements(relationUICache, this);
-        _relationBooks.Root.SetActive(true);
 
     }
 
@@ -61,6 +67,61 @@ public class RelationUIManager : MonoBehaviour
         }
 
         return returnList;
+    }
+
+    public void StartPaper(BookInfoProvider provider) 
+    {
+        Dictionary<EnviroProblemProvider, List<EnviroConsequence>> problemConsequencesDict = provider.GetFilteredConsequences(provider.EnviroProblems);
+        List<EnviroConsequence> allConsequences = new();
+        foreach (EnviroProblemProvider problem in problemConsequencesDict.Keys)
+        {
+            foreach (EnviroConsequence consequence in problemConsequencesDict[problem])
+            {
+                if (!allConsequences.Contains(consequence)) allConsequences.Add(consequence);
+            }
+        }
+        if (allConsequences.Count > 4) Debug.LogError("ERROR: TOO MANY CONSEQUENCES PER BIOME");
+
+
+        UpdatePaper(allConsequences, provider.EnviroProblems);
+    }
+
+    public void UpdatePaper(List<EnviroConsequence> consequences, List<EnviroProblemProvider> problems) 
+    {
+        for(int i = 0; i < consequences.Count; i++) 
+        {
+            var spawner = _consecuenceTexts[i].GetComponentInParent<LineSpawner>();
+            var nodes = NodeDictionary[spawner];
+            foreach (AnchorPoint node in nodes)
+            {
+                node.RelatedProblems = consequences[i].RelatedProblems;
+                node.SetDataType((int) consequences[i].Type);
+            }
+            _consecuenceTexts[i].text = consequences[i].Title;
+        }
+        
+        for(int i = 0; i < problems.Count; i++) 
+        {
+            var spawner = _problemTexts[i].GetComponentInParent<LineSpawner>();
+            var nodes = NodeDictionary[spawner];
+            foreach (AnchorPoint node in nodes)
+            {
+                node.RelatedConsequences = problems[i].Consequences;
+                node.RelatedProblems = problems[i].Problems;
+                node.SetDataType((int)problems[i].Type);
+            }
+            _problemTexts[i].text = problems[i].Title;
+        }
+        
+        for(int i = consequences.Count; i < _consecuenceTexts.Count;i++) 
+        {
+            _consecuenceTexts[i].GetComponentInParent<LineSpawner>().enabled = false;
+        }
+        
+        for(int i = problems.Count; i < _problemTexts.Count;i++) 
+        {
+            _problemTexts[i].GetComponentInParent<LineSpawner>().enabled = false;
+        }
     }
 
     public void DisplayBook() 
@@ -121,6 +182,8 @@ public class RelationBookUiElements : IMappedObject
         Manager.GetComponent<CanvasGroup>().interactable = true;
         Manager.GetComponent<CanvasGroup>().alpha = 1.0f;
         Manager.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+        CameraManager.Instance.SetBookCamera();
     }
 
     public void DisableBookMenu() 
@@ -131,6 +194,8 @@ public class RelationBookUiElements : IMappedObject
         Manager.GetComponent<CanvasGroup>().alpha = 0.0f;
         Manager.GetComponent<CanvasGroup>().blocksRaycasts = false;
         Manager.GetComponent<CanvasGroup>().interactable = false;
+
+        CameraManager.Instance?.SetGameplayCamera();
     }
 
     public void ShowBook() 

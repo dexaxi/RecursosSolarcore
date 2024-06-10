@@ -139,6 +139,15 @@ public class MachineShop : MonoBehaviour
         shopButton.DisableButton();    
     }
 
+    public void HideShopButton() 
+    {
+        shopButton.HideButton();
+    }
+    public void ShowShopButton() 
+    {
+        shopButton.ShowButton();
+    }
+
     public void EnableShopButton()
     {
         shopButton.EnableButton();

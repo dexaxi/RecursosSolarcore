@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10216a98d44e3174da1a3f826613d4f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG_NEXTLEVEL: {fileID: 0}
+  BiomeBubble: {fileID: 4095190797372312715, guid: d984b325c51f913488ff30ab4de872ed, type: 3}
   _problemFilters: 
   _consequenceFilters: 

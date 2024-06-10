@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Water_Retention_Rates
   m_EditorClassIdentifier: 
   name: Water_Retention_Rates
+  Title: Water Retention Rates
   Description: Water_Retention_Rates
   Type: 8
   Sprite: {fileID: 0}

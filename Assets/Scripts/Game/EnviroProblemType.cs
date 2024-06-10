@@ -1,24 +1,24 @@
 public enum EnviroProblemType
 {
-    // Jungle
-    Deforestation = 0,
-    Farming_Caused_Soil_Degradation,
-    // Ocean
-    Over_Fishing,
+    Organic_Material_Loss,
+    Native_Species_Loss,
+    Species_Diversity_Loss,
+
+    Soil_Compactation,
+    Invertebrate_Species_Loss,
+
+    Coral_Structure_Damage,
+    Sediment_Increase,
     Water_Temp_Rise,
-    // Forest
-    Forest_Fires,
-    Predator_Lack,
-    // Mediterranean
-    Desertification,
-    Farming_Contamination,
-   
-    //UNUSED
-    Eutrophication,
-    Water_Contamination,
-    Morphologic_Damage,
-    Permafrost_Unfreeze,
-    Precipitation_Change,
-    Farming_Soil_Conversion,
-    Habitat_Fragmentation_Urban_Development,
+    Coral_Death,
+
+    Salinization_Increase,
+    Vegetation_Loss,
+    Vegetation_Dependant_Species_Loss,
+    Pesticides,
+    Toxic_Acumulation,
+
+    River_Flux_Alteration,
+    River_Erosion,
+    Aquatic_Habitat_Fragmentation,
 }

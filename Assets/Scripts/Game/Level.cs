@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Level", menuName = "RecursosSolarcore/Level", order = 1)]
@@ -10,8 +11,6 @@ public class Level : ScriptableObject
 
     public int LevelIndex;
 
-    public List<EnviroProblemType> EnviroProblems;
-    public List<ActionPlan> SelectedSolutions;
     public List<BiomeType> SelectedBiomes;
 
     [Header("Biome Sorting Settings")]
@@ -37,11 +36,12 @@ public class Level : ScriptableObject
     [SerializeField] public SerializableDictionary <int, BiomeType> ForceBiomePositions;
     
     private float _budget;
+    [HideInInspector] public BiomeType CurrentRelationBiome;
 
     public float CalculateBudget() 
     {
         _budget = 0;
-        foreach(EnviroProblemType problem in EnviroProblems) 
+        foreach(EnviroAlterationType alteration in SelectedBiomes) 
         {
             _budget += 100000;
         }
@@ -69,51 +69,67 @@ public class Level : ScriptableObject
         }
     }
 
-    public void InitRelationLevel() 
+    public void InitPreLevel() 
     {
-        RelationHandler.Instance.PopulateProblems();
-        RelationHandler.Instance.PopulateConsequences();
         BiomeHandler.Instance.PopulateBiomeResources();
-        MachineHandler.Instance.PopulateMachineResources();
-
-        GenerateProblemFilters();
-        GenerateConsequenceFilters();
         GenerateBiomeFilters();
 
-        BiomeType startingType = BiomeHandler.Instance.GetFilteredBiomes()[0].Type;
-        RelationHandler.Instance.InitLevel(startingType);
+        RelationHandler.Instance.PopulateAlterations();
+        GenrateAlterationFilters();
+        
+        RelationHandler.Instance.PopulateProblems();
+        GenerateProblemFilters();
+        
+        RelationHandler.Instance.PopulateConsequences();
+        GenerateConsequenceFilters();
+        
+        MachineHandler.Instance.PopulateMachineResources();
+        GenerateMachineFilters();
+
+        Ground.Instance.StartMapGeneration();
+
+        MachineShop.Instance.HideShopButton();
+        RoboDialogueManager.Instance.StartRoboDialogue("TestLevelIntroDialogueGraph");
+    }
+
+    public void InitBubblePhase()
+    {
+        IsUsingUI.IsInBubblePhase = true;
+        RelationHandler.Instance.SpawnBiomeBubbles();
+    }
+
+    public void InitRelationLevel() 
+    {
+        RelationHandler.Instance.PopulateAlterations();
+        GenrateAlterationFilters();
+        
+        RelationHandler.Instance.PopulateProblems();
+        GenerateProblemFilters();
+
+        RelationHandler.Instance.PopulateConsequences();
+        GenerateConsequenceFilters();
+
+        RelationHandler.Instance.InitBookUI(CurrentRelationBiome);
     }
 
     public void InitLevel() 
     {
-        MachineHandler.Instance.PopulateMachineResources();
-        BiomeHandler.Instance.PopulateBiomeResources();
-        RelationHandler.Instance.PopulateProblems();
-        RelationHandler.Instance.PopulateConsequences();
-
-        GenerateBiomeFilters();
-        GenerateMachineFilters();
-        GenerateProblemFilters();
-        GenerateConsequenceFilters();
-
         MachineShop.Instance.PopulateShop();
-        
-        Ground.Instance.StartMapGeneration();
-
         PlayerCurrencyManager.Instance.AddCurrency(CalculateBudget());
     }
 
-
     private void GenerateMachineFilters() 
     {
-        foreach (ActionPlan plan in SelectedSolutions)
+        var enviroProblems = RelationHandler.Instance.GetFilteredProblems();
+        foreach (var problem in enviroProblems) 
         {
-            foreach (MachineType machine in plan.PossibleMachines)
+            foreach (MachineType machine in problem.PossibleSolutions)
             {
                 MachineHandler.Instance.AddMachineFilter(machine);
             }
         }
     }
+
     private void GenerateBiomeFilters() 
     {
         foreach (BiomeType biome in SelectedBiomes)
@@ -121,11 +137,26 @@ public class Level : ScriptableObject
             BiomeHandler.Instance.AddBiomeFilter(biome);
         }
     }
+    private void GenrateAlterationFilters() 
+    {
+        var biomes = BiomeHandler.Instance.GetFilteredBiomes();
+        foreach (var biome in biomes)
+        {
+            var count = biome.EnviroAlterations.Count;
+            var random = Random.Range(0, count);
+            RelationHandler.Instance.AddAlterationFilter(biome.EnviroAlterations[random]);
+        }
+    }
+
     private void GenerateProblemFilters() 
     {
-        foreach (EnviroProblemType problem in EnviroProblems)
+        List<EnviroAlteration> filteredAlterations = RelationHandler.Instance.GetFilteredAlterations();
+        foreach (EnviroAlteration enviroAlteration in filteredAlterations)
         {
-            RelationHandler.Instance.AddProblemFilter(problem);
+            foreach (EnviroProblemType problem in enviroAlteration.EnviroProblems)
+            {
+                RelationHandler.Instance.AddProblemFilter(problem);
+            }
         }
     }
 
