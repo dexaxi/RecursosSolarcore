@@ -31,6 +31,9 @@ public class RelationUIManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        _relationBooks = new RelationBookUiElements(relationUICache, this);
+        _relationBooks.Root.SetActive(true);
+
         _raycaster = GetComponent<GraphicRaycaster>();
         
         List<LineSpawner> spawners = GetComponentsInChildren<LineSpawner>().ToList();
@@ -44,8 +47,6 @@ public class RelationUIManager : MonoBehaviour
             else _consecuenceTexts.Add(Text);
         }
 
-        _relationBooks = new RelationBookUiElements(relationUICache, this);
-        _relationBooks.Root.SetActive(true);
     }
 
     public List<AnchorPoint> RaycastNodes(Vector3 mousePos) 
@@ -194,7 +195,7 @@ public class RelationBookUiElements : IMappedObject
         Manager.GetComponent<CanvasGroup>().blocksRaycasts = false;
         Manager.GetComponent<CanvasGroup>().interactable = false;
 
-        CameraManager.Instance.SetGameplayCamera();
+        CameraManager.Instance?.SetGameplayCamera();
     }
 
     public void ShowBook() 
