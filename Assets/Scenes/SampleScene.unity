@@ -180,7 +180,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &40826346
 MonoBehaviour:
@@ -495,7 +495,7 @@ PrefabInstance:
     - target: {fileID: 4334206633677879512, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
       propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1164522904842647651}
+      objectReference: {fileID: 719487732}
     - target: {fileID: 6976923974481850964, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
       propertyPath: m_Camera
       value: 
@@ -510,7 +510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6976923974481850965, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6976923974481850965, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -587,10 +587,6 @@ PrefabInstance:
     - target: {fileID: 6976923974481850974, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
       propertyPath: m_Name
       value: RobotUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6976923974481850974, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
@@ -768,7 +764,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &500506116
 GameObject:
@@ -871,7 +867,7 @@ RectTransform:
   - {fileID: 126777686}
   - {fileID: 1112071883}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -922,7 +918,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1594092001733083034, guid: 6a72145ad90efdb42b53e507e671b968, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1594092001733083034, guid: 6a72145ad90efdb42b53e507e671b968, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1063,7 +1059,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 26.956, y: -30, z: 0}
 --- !u!114 &705507996
 MonoBehaviour:
@@ -1085,6 +1081,17 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &719487732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1270889340596179366, guid: 25faa59f5bdbb1a4188018b4bcafbb6a, type: 3}
+  m_PrefabInstance: {fileID: 1319674346}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10216a98d44e3174da1a3f826613d4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &729075035 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4038753323003731640, guid: db819c17aa370dd499faf6adf0aea241, type: 3}
@@ -1141,7 +1148,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1065991487 stripped
 GameObject:
@@ -1293,7 +1300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1270889340596179365, guid: 25faa59f5bdbb1a4188018b4bcafbb6a, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1270889340596179365, guid: 25faa59f5bdbb1a4188018b4bcafbb6a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1362,7 +1369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 898961891063585178, guid: 18893eb255f8b3640876c7773061bcf2, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 898961891063585178, guid: 18893eb255f8b3640876c7773061bcf2, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1520,7 +1527,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1807531310
 PrefabInstance:
@@ -1531,7 +1538,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1750384261577754117, guid: 1aa48773f74a30f4d9095c530bf16e16, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1750384261577754117, guid: 1aa48773f74a30f4d9095c530bf16e16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1724,7 +1731,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1164522904579714464, guid: 2d559b6cff0548d438aa7723e373d460, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1164522904579714464, guid: 2d559b6cff0548d438aa7723e373d460, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1772,17 +1779,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d559b6cff0548d438aa7723e373d460, type: 3}
---- !u!114 &1164522904842647651 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1164522904579714467, guid: 2d559b6cff0548d438aa7723e373d460, type: 3}
-  m_PrefabInstance: {fileID: 1164522904842647649}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72b9ab878a380914cbdc40f3cc27d1a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1402385853105422206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1800,7 +1796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1402385853365241648, guid: 5bda5c8b95b645846a3069f1b16e3c42, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1402385853365241648, guid: 5bda5c8b95b645846a3069f1b16e3c42, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1901,7 +1897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3194990012115242645, guid: 42a1eb2a702043d4ea5585b6fd85b162, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3194990012115242645, guid: 42a1eb2a702043d4ea5585b6fd85b162, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1954,7 +1950,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3938996330961976852, guid: 334457c24f3fa2f4e94f1b4e20e2ee9a, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3938996330961976852, guid: 334457c24f3fa2f4e94f1b4e20e2ee9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2173,7 +2169,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7454351888294935288, guid: 33a12708fe1907f42979225ed747ba4a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7454351888294935288, guid: 33a12708fe1907f42979225ed747ba4a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2351,7 +2347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6835925412344303043, guid: 9f0a8f3766b0f28468ef1ac4dabf7503, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6835925412344303043, guid: 9f0a8f3766b0f28468ef1ac4dabf7503, type: 3}
       propertyPath: m_AnchorMax.x

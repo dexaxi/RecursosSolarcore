@@ -2,6 +2,7 @@ using AnKuchen.Map;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -111,6 +112,8 @@ public class BookUiElements : IMappedObject
         _diagnosticsInfoUI = new DiagnosisInfoUiElements(diagnosticsInfoMapper);
         _diagnosticsInfoUI.Root.SetActive(true);
 
+        _diagnosticsTitleUI.Title.text = "Diagnostics: ";
+
         HandleScrollBarUpdate().Forget();
         UpdateProvider(provider);
     }
@@ -125,21 +128,43 @@ public class BookUiElements : IMappedObject
     private void UpdateScrollBar() 
     {
         List<EnviroProblemProvider> problems = _provider.EnviroProblems;
-        
-        int scrollbarVal = (int) (_diagnosticsInfoUI.Scrollbar.value * _diagnosticsInfoUI.Scrollbar.numberOfSteps);
-        if (scrollbarVal >= 2.5) scrollbarVal -= 1;
+        var tmproCount = _diagnosticsInfoUI.Texts.Count;
+        var descriptionCount = _provider.EnviroProblems[0].AlterationDescriptionList.Count;
 
-        _diagnosticsTitleUI.Text.text = problems[scrollbarVal].Title;
-        for (int i = 0; i < problems[scrollbarVal].AlterationDescriptionList.Count; i++)
+        if ((float) descriptionCount / tmproCount <= 1.0f)
         {
-            _diagnosticsInfoUI.Texts[i].text = problems[scrollbarVal].AlterationDescriptionList[i];
-            _diagnosticsInfoUI.Sprites[i].sprite = problems[scrollbarVal].AlterationSpritesDescriptions[i];
+            _diagnosticsInfoUI.Scrollbar.GetComponent<CanvasGroup>().alpha = 0.0f;
+            _diagnosticsInfoUI.Scrollbar.GetComponent<CanvasGroup>().interactable = false;
+            _diagnosticsInfoUI.Scrollbar.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        }
+        else
+        {
+            _diagnosticsInfoUI.Scrollbar.GetComponent<CanvasGroup>().alpha = 1.0f;
+            _diagnosticsInfoUI.Scrollbar.GetComponent<CanvasGroup>().interactable = true;
+            _diagnosticsInfoUI.Scrollbar.GetComponent<CanvasGroup>().blocksRaycasts = true;
         }
 
-        for (int i = _problemCount; i < _diagnosticsInfoUI.Texts.Count; i++)
+        var nsteps = (int)((float)descriptionCount / tmproCount);
+        _diagnosticsInfoUI.Scrollbar.numberOfSteps = nsteps == 1 ? nsteps + 1 : nsteps;
+        _diagnosticsInfoUI.Scrollbar.size = 1.0f / _diagnosticsInfoUI.Scrollbar.numberOfSteps;
+
+        int scrollbarVal = Mathf.RoundToInt(_diagnosticsInfoUI.Scrollbar.value + 0.01f * tmproCount);
+
+        _diagnosticsTitleUI.Text.text = problems[0].AlterationTitle;
+        for (int i = 0; i < tmproCount; i++)
         {
-            _diagnosticsInfoUI.Texts[i].text = problems[scrollbarVal].AlterationDescriptionList[i];
-            _diagnosticsInfoUI.Sprites[i].sprite = problems[scrollbarVal].AlterationSpritesDescriptions[i];
+            if (i + (scrollbarVal * tmproCount) >= descriptionCount) continue; 
+            _diagnosticsInfoUI.Texts[i].text = problems[0].AlterationDescriptionList[i + (scrollbarVal * tmproCount)];
+            _diagnosticsInfoUI.Sprites[i].sprite = problems[0].AlterationSpritesDescriptions[i + (scrollbarVal * tmproCount)];
+        }
+
+        for (int i = 0; i < _diagnosticsInfoUI.Texts.Count; i++)
+        {
+            if (i + (scrollbarVal * tmproCount) >= descriptionCount) 
+            {
+                _diagnosticsInfoUI.Texts[i].text = "";
+                _diagnosticsInfoUI.Sprites[i].enabled = false;
+            }
         }
     }
 

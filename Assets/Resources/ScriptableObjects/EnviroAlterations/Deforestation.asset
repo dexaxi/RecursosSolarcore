@@ -18,11 +18,17 @@ MonoBehaviour:
   - Deforestation
   - is
   - Bad
+  - Yes it is
+  - I really
+  - hate it
   Type: 0
   SpriteDescriptions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: c24edd92b47e37a4cb310b0f1135287a, type: 3}
+  - {fileID: 21300000, guid: f39a4e35ad4884a4dbc08c6840237edd, type: 3}
+  - {fileID: 21300000, guid: 43ad51e043491b94d8f6c62d55ac5ede, type: 3}
+  - {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
+  - {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+  - {fileID: 21300000, guid: aff9348da607874458c1f31a05ef07f9, type: 3}
   Icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   Biome: 0

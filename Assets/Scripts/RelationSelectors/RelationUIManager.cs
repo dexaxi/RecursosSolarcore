@@ -29,7 +29,6 @@ public class RelationUIManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
 
         _relationBooks = new RelationBookUiElements(relationUICache, this);
         _relationBooks.Root.SetActive(true);

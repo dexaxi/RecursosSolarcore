@@ -104,11 +104,6 @@ public class ResourceGame : MonoBehaviour
         }
     }
 
-    public void SetBubblePhase() 
-    {
-        ProcessActiveScene(LevelSceneFlow.ShowBiomeBubbles);
-    }
-
     public void UpdateLevelBubbleBiome(BiomeType biome) 
     {
         Level.CurrentRelationBiome = biome;
