@@ -16,7 +16,7 @@ MonoBehaviour:
   <Text>k__BackingField: Anyways, play this bullshit minigame dude
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 0}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: b08773038d7f5f9448a2be2d19670746, type: 2}
   <DialogueType>k__BackingField: 0
   <IsStartingDialogue>k__BackingField: 0
   <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}

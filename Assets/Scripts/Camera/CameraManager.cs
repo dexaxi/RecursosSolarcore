@@ -41,15 +41,12 @@ public class CameraManager : MonoBehaviour
         UpdateCameraCanvas();
     }
 
-    private void UpdateCameraCanvas() 
+    public void UpdateCameraCanvas() 
     {
         List<Canvas> canvases = FindObjectsOfType<Canvas>().ToList();
         foreach (Canvas c in canvases)
         {
-            if (c.renderMode == RenderMode.ScreenSpaceCamera)
-            {
-                c.worldCamera = MainCamera;
-            }
+            c.worldCamera = MainCamera;
         }
     }
 

@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DUJAL.IndependentComponents.Floater;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,14 @@ using UnityEngine.UI;
 
 public class RelationHandler : MonoBehaviour
 {
-    public Button DEBUG_NEXTLEVEL;
-
     public static RelationHandler Instance { get; private set; }
 
+    private readonly Dictionary<EnviroAlterationType, EnviroAlteration> _alterations= new();
     private readonly Dictionary<EnviroProblemType, EnviroProblem> _problems = new();
     private readonly Dictionary<EnviroConsequenceType, EnviroConsequence> _consequences= new();
 
+    [SerializeField] private GameObject BiomeBubble;
+    [SerializeField] private List<EnviroAlterationType> _alterationFilters = new();
     [SerializeField] private List<EnviroProblemType> _problemFilters = new();
     [SerializeField] private List<EnviroConsequenceType> _consequenceFilters = new();
 
@@ -27,18 +29,25 @@ public class RelationHandler : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        DEBUG_NEXTLEVEL.onClick.AddListener(LoadNextLevel);
     }
 
-    private void Start()
+    public void PopulateAlterations()
     {
-        ResourceGame.Instance.ProcessActiveScene();
-    }
-
-    private void LoadNextLevel() 
-    {
-        SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SCENE, 1000);
+        _alterations.Clear();
+        var problemArray = Resources.LoadAll("ScriptableObjects/EnviroAlterations", typeof(EnviroAlteration));
+        var biomes = BiomeHandler.Instance.GetFilteredBiomes();
+        foreach (EnviroAlteration alteration in problemArray.Cast<EnviroAlteration>())
+        {
+            foreach (Biome biome in biomes)
+            {
+                if (biome.EnviroAlterations.Contains(alteration.Type))
+                {
+                    alteration.Biome = biome.Type;
+                    continue;
+                }
+            }
+            _alterations[alteration.Type] = alteration;
+        }
     }
     
     public void PopulateProblems()
@@ -68,7 +77,43 @@ public class RelationHandler : MonoBehaviour
             _consequences[consequence.Type] = consequence;
         }
     }
+
+    public void SpawnBiomeBubbles() 
+    {
+        var biomeTiles = BiomeHandler.Instance.TilesPerBiome;
+        foreach (var biome in biomeTiles.Keys) 
+        {
+            Vector3 sumPoint = Vector3.zero;
+            var count = 0;
+            foreach(var tile in biomeTiles[biome]) 
+            {
+                sumPoint += tile.transform.position;
+                count++;
+            }
+            Vector3 finalPos = count > 0 ? sumPoint / count : Vector3.zero;
+            if (finalPos != Vector3.zero) 
+            {
+                Vector3 adjustedPos = finalPos;
+                var bubble = Instantiate(BiomeBubble, adjustedPos, Quaternion.identity).GetComponent<BiomeBubble>();
+                bubble.SetBiomeType(biome);
+                bubble.GetComponentInChildren<FloaterComponent>().SetOffset(new Vector3(0, 1.5f, 0));
+            }
+        }
+    }
+
+    public void KillBiomeBubbles() 
+    {
+        var bubbles = FindObjectsOfType<BiomeBubble>();
+        foreach (var bubble in bubbles) { Destroy(bubble.gameObject); }
+    }
     
+    public bool AddAlterationFilter(EnviroAlterationType alteration)
+    {
+        if (_alterationFilters.Contains(alteration)) return false;
+        _alterationFilters.Add(alteration);
+        return true;
+    }
+
     public bool AddProblemFilter(EnviroProblemType problem)
     {
         if (_problemFilters.Contains(problem)) return false;
@@ -96,6 +141,17 @@ public class RelationHandler : MonoBehaviour
     {
         _consequenceFilters.Clear();
         _problemFilters.Clear();
+        _alterationFilters.Clear();
+    }
+
+    public List<EnviroAlteration> GetFilteredAlterations()
+    {
+        List<EnviroAlteration> returnAlterations = new();
+        for (int i = 0; i < _alterationFilters.Count; i++)
+        {
+            returnAlterations.Add(_alterations[_alterationFilters[i]]);
+        }
+        return returnAlterations;
     }
 
     public List<EnviroProblem> GetFilteredProblems()
@@ -118,7 +174,7 @@ public class RelationHandler : MonoBehaviour
         return returnConsequences;
     }
     
-    public void InitLevel(BiomeType type)
+    public void InitBookUI(BiomeType type)
     {
         BookInfoProvider provider = GenerateBookInfoProvider(type);
         RelationUIManager.Instance.StartPaper(provider);
@@ -126,21 +182,18 @@ public class RelationHandler : MonoBehaviour
         RelationUIManager.Instance.DisplayBook();
     }
 
-
     public BookInfoProvider GenerateBookInfoProvider(BiomeType type) 
     {
-        List<EnviroProblem> allFilteredProblems = GetFilteredProblems();
-        List<EnviroProblem> biomeFilteredProblems = new();
-        foreach (EnviroProblem problem in allFilteredProblems)
+        List<EnviroAlteration> allAvailableAlterations = GetFilteredAlterations();
+        EnviroAlteration generatedAlteration = null;
+        foreach (EnviroAlteration alteration in allAvailableAlterations)
         {
-            if (problem.PossibleBiomes.Contains(type))
+            if (alteration.Biome == (type))
             {
-                biomeFilteredProblems.Add(problem);
+                generatedAlteration = alteration;
+                if (alteration.EnviroProblems.Count > 3) Debug.LogError("ERROR: TOO MANY PROBLEMS PER ALTERATION");
             }
         }
-
-        if (biomeFilteredProblems.Count > 3) Debug.LogError("ERROR: TOO MANY PROBLEMS PER BIOME");
-
-        return new BookInfoProvider(type, biomeFilteredProblems);
+        return new BookInfoProvider(type, generatedAlteration);
     }
 }

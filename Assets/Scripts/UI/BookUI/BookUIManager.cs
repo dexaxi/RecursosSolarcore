@@ -131,16 +131,16 @@ public class BookUiElements : IMappedObject
         if (scrollbarVal >= 2.5) scrollbarVal -= 1;
 
         _diagnosticsTitleUI.Text.text = problems[scrollbarVal].Title;
-        for (int i = 0; i < problems[scrollbarVal].Descriptions.Count; i++)
+        for (int i = 0; i < problems[scrollbarVal].AlterationDescriptionList.Count; i++)
         {
-            _diagnosticsInfoUI.Texts[i].text = problems[scrollbarVal].Descriptions[i];
-            _diagnosticsInfoUI.Sprites[i].sprite = problems[scrollbarVal].Sprites[i];
+            _diagnosticsInfoUI.Texts[i].text = problems[scrollbarVal].AlterationDescriptionList[i];
+            _diagnosticsInfoUI.Sprites[i].sprite = problems[scrollbarVal].AlterationSpritesDescriptions[i];
         }
 
         for (int i = _problemCount; i < _diagnosticsInfoUI.Texts.Count; i++)
         {
-            _diagnosticsInfoUI.Texts[i].text = problems[scrollbarVal].Descriptions[i];
-            _diagnosticsInfoUI.Sprites[i].sprite = problems[scrollbarVal].Sprites[i];
+            _diagnosticsInfoUI.Texts[i].text = problems[scrollbarVal].AlterationDescriptionList[i];
+            _diagnosticsInfoUI.Sprites[i].sprite = problems[scrollbarVal].AlterationSpritesDescriptions[i];
         }
     }
 
@@ -159,7 +159,7 @@ public class BookUiElements : IMappedObject
         {
             _dataUI[i].Section.text = _provider.GetEnviroProblemSectionString(problems[i].Section);
             _dataUI[i].Text.text = problems[i].Title;
-            _dataUI[i].Icon.sprite = problems[i].Icon;
+            _dataUI[i].Icon.sprite = problems[i].ProblemIcon;
         }
 
         for (int i = _problemCount; i < _dataUI.Count; i++)

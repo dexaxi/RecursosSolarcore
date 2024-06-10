@@ -20,4 +20,6 @@ MonoBehaviour:
   tilePrefab: {fileID: 1810241591079234738, guid: b6e990fa36720ba419cbd35af466d5d5, type: 3}
   biomeWeight: 4
   biomeTiles: []
-  spawnCount: 24
+  spawnCount: 0
+  Sprite: {fileID: 0}
+  EnviroAlterations: 0200000003000000

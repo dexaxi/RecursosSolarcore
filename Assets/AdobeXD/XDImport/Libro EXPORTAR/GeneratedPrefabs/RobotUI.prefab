@@ -62,7 +62,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!114 &6976923974481850971
 MonoBehaviour:
@@ -229,6 +229,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7145e4cfdab60c54dadbc2c226d40a1d, type: 2}
     - target: {fileID: 467125163724767271, guid: cb65507599307494a94795b417d7580d, type: 3}
+      propertyPath: _maxLineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 467125163724767271, guid: cb65507599307494a94795b417d7580d, type: 3}
       propertyPath: _speakerImage
       value: 
       objectReference: {fileID: 3339540119703166050}
@@ -247,7 +251,7 @@ PrefabInstance:
     - target: {fileID: 467125163724767271, guid: cb65507599307494a94795b417d7580d, type: 3}
       propertyPath: _dialogueContainerSO
       value: 
-      objectReference: {fileID: 11400000, guid: 9eb78515910959d41a37a9cdd65f829e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 467125163724767271, guid: cb65507599307494a94795b417d7580d, type: 3}
       propertyPath: _choiceButtons.Array.size
       value: 0
@@ -271,6 +275,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6976923974481850965}
     m_Modifications:
+    - target: {fileID: 1607847231242878361, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2918177151501190373, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -358,6 +366,42 @@ PrefabInstance:
     - target: {fileID: 2918177151501190374, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: m_Name
       value: RoboDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6432207705370803126, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -88.99994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.Dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: de2e83ef9a1b1dd48b3df05d8fe457f1, type: 2}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[1].Value.Dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 9eb78515910959d41a37a9cdd65f829e, type: 2}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetBubblePhase
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ResourceGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}

@@ -61,5 +61,29 @@ namespace DUJAL.Systems.Dialogue
             }
             return returnableNames;
         }
+
+        public DialogueScriptableObject GetFirstStartingDialogue(bool groupFilter) 
+        {
+            if (!groupFilter)
+            {
+                foreach (DialogueScriptableObject dialogueSO in UngroupedDialogues)
+                {
+                    if (dialogueSO.IsStartingDialogue) return dialogueSO;
+                }
+            }
+            else 
+            {
+                foreach (List<DialogueScriptableObject> groupedDialogueSOs in DialogueGroups.Values) 
+                {
+                    foreach (DialogueScriptableObject dialogueSO in groupedDialogueSOs) 
+                    {
+                        if (dialogueSO.IsStartingDialogue) return dialogueSO;
+                    }
+                }
+            }
+
+            Debug.LogWarning("Did not find Starting dialogue");
+            return null;
+        }
     }
 }

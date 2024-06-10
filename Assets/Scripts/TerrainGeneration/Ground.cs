@@ -64,9 +64,11 @@ public class Ground : MonoBehaviour
         _totalTiles = MaxX * MaxY;
         HasLoaded = false;
     }
+
     private void Start()
     {
-        ResourceGame.Instance.ProcessActiveScene();
+        ResourceGame.Instance.ProcessActiveScene(LevelSceneFlow.PreLevel);
+        IsUsingUI.IsInPrephase = true;
     }
 
     public void StartMapGeneration()

@@ -42,6 +42,7 @@ namespace DUJAL.Systems.Dialogue
 
         [SerializeField] public UnityEvent Enter = new UnityEvent();
         [SerializeField] public UnityEvent Exit = new UnityEvent();
+        [SerializeField] public UnityEvent TextBoxEnd = new UnityEvent();
         [SerializeField] public UnityEvent LetterRevealed = new UnityEvent();
         [SerializeField] public UnityEvent OnTextboxFull = new UnityEvent();
         [SerializeField] public UnityEvent OnTextBoxPassed = new UnityEvent();
@@ -59,6 +60,12 @@ namespace DUJAL.Systems.Dialogue
         private int _auxTMProCharIndex;
         private int _parsedTextIndexDelta;
 
+        public void SetDialogue(DialogueContainerScriptableObject dialogueContainerSO) 
+        {
+            _dialogueContainerSO = dialogueContainerSO;
+            _dialogueSO = _dialogueContainerSO.GetFirstStartingDialogue(false);
+        }
+
         private void Awake()
         {
             if (Instance != null) 
@@ -68,19 +75,21 @@ namespace DUJAL.Systems.Dialogue
             }
             Instance = this;
 
-            if(_isStartingDialogue) _currentPlayedDialogue = DialogueScriptableObject.CopyInto(_dialogueSO, _currentPlayedDialogue);
+        }
+
+        public void HandleDialogueStart() 
+        {
+            if (_isStartingDialogue) _currentPlayedDialogue = DialogueScriptableObject.CopyInto(_dialogueSO, _currentPlayedDialogue);
             ToggleIndividualChoiceButtonVisibility(false);
 
             Enter.AddListener(HandleMultipleChoiceButtons);
-            Exit.AddListener(HandleTextboxEnd);
+            TextBoxEnd.AddListener(HandleTextboxEnd);
 
             AssignAudioType();
 
             _currentChoiceIndex = 0;
             HandleInput();
             OpenDialogueObject();
-
-            PlayText();
         }
 
         public void NextDialogue() 
@@ -213,7 +222,7 @@ namespace DUJAL.Systems.Dialogue
                 OnTextBoxPassed.Invoke();
             }
             Destroy(_auxTMPro.gameObject);
-            Exit.Invoke();
+            TextBoxEnd.Invoke();
         }
 
         private bool CheckOverflow(int currentTextboxIndex)
@@ -383,20 +392,21 @@ namespace DUJAL.Systems.Dialogue
         public void CloseDialogueObject()
         {
             DisableChoiceInputs();
+            Exit.Invoke();
             _dialogueInputActions.TextBoxActionMap.NextDialogue.Disable();
             ToggleIndividualChoiceButtonVisibility(false);
             _currentChoiceIndex = 0;
-            _dialogueCanvasGroup.alpha = 0;
-            _dialogueCanvasGroup.interactable = false;
-            _dialogueCanvasGroup.blocksRaycasts = false;
+            //_dialogueCanvasGroup.alpha = 0;
+            //_dialogueCanvasGroup.interactable = false;
+            //_dialogueCanvasGroup.blocksRaycasts = false;
         }
 
         public void OpenDialogueObject()
         {
             _currentChoiceIndex = 0;
-            _dialogueCanvasGroup.alpha = 1;
-            _dialogueCanvasGroup.interactable = true;
-            _dialogueCanvasGroup.blocksRaycasts = true;
+            //_dialogueCanvasGroup.alpha = 1;
+            //_dialogueCanvasGroup.interactable = true;
+            //_dialogueCanvasGroup.blocksRaycasts = true;
         }
 
         public void UpdateAutoText(bool newValue) 

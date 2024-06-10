@@ -28,6 +28,8 @@ public class Biome : ScriptableObject
     [HideInInspector]
     public Sprite Sprite;
 
+    public List<EnviroAlterationType> EnviroAlterations;
+
     public void StartBiome() 
     {
         spawnCount = 0;

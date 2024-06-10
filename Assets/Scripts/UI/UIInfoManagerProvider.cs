@@ -21,12 +21,7 @@ public class UIInfoManagerProvider : MonoBehaviour
         }
     }
 
-    public Button BookButton;
-
     private void Awake()
     {
-        BookButton.onClick.AddListener(OpenBook);
     }
-
-    private void OpenBook(){ RelationUIManager.Instance.DisplayBook(); }
 }

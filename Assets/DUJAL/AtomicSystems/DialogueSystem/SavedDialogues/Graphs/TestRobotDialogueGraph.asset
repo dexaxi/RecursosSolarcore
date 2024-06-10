@@ -44,10 +44,25 @@ MonoBehaviour:
     <Text>k__BackingField: Anyways, play this bullshit minigame dude
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 
+      <NodeID>k__BackingField: b2c5f6a8-6d16-4e1e-9e74-70224396f129
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
     <Position>k__BackingField: {x: 1127, y: 194}
+    <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
+    <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+  - <ID>k__BackingField: b2c5f6a8-6d16-4e1e-9e74-70224396f129
+    <Name>k__BackingField: Dialogue4
+    <Text>k__BackingField: "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
+      Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit
+      amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor
+      sit amet \n"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1590, y: 211}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
     <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
@@ -56,5 +71,6 @@ MonoBehaviour:
   - StartingDialogue
   - Dialogue2
   - Dialogue3
+  - Dialogue4
   <GroupedNodesPreviousNames>k__BackingField:
     list: []
