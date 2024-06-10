@@ -15,19 +15,11 @@ MonoBehaviour:
   name: TestLevel
   Description: Level1 Test
   LevelIndex: 1
-  EnviroProblems: 0000000001000000020000000300000004000000050000000600000007000000
-  SelectedSolutions:
-  - {fileID: 11400000, guid: 336fc28ca47ac1b4092925f244d647b6, type: 2}
-  - {fileID: 11400000, guid: 8c6666d15346b8840825ba7a314083a0, type: 2}
-  - {fileID: 11400000, guid: 807af3a26edaf9e4cb90e528da70a52a, type: 2}
-  - {fileID: 11400000, guid: 9312dccc4d2e75145868cf60124994bb, type: 2}
   SelectedBiomes: 00000000010000000200000003000000
   RuleType: 3
   WaterChannels: 
   ForceBiomePositions:
     list:
-    - Key: 0
-      Value: 4
     - Key: 1
       Value: 2
     - Key: 3
@@ -36,3 +28,4 @@ MonoBehaviour:
       Value: 3
     - Key: 4
       Value: 0
+  CurrentRelationBiome: 3
