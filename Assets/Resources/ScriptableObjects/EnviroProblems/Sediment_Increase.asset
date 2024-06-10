@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sediment_Increase
   m_EditorClassIdentifier: 
   name: Sediment_Increase
-  Title: Incremento de sedimentos (turbiez del agua)
-  Description: Incremento de sedimentos (turbiez del agua)
+  Title: Sediment Increase
+  Description: No se ve
   Type: 9
   Section: 0
   Icon: {fileID: 0}

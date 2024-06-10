@@ -28,7 +28,6 @@ public class RelationHandler : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void PopulateAlterations()
@@ -106,7 +105,12 @@ public class RelationHandler : MonoBehaviour
         var bubbles = FindObjectsOfType<BiomeBubble>();
         foreach (var bubble in bubbles) { Destroy(bubble.gameObject); }
     }
-    
+
+    public void SetBubblePhase()
+    {
+        ResourceGame.Instance.ProcessActiveScene(LevelSceneFlow.ShowBiomeBubbles);
+    }
+
     public bool AddAlterationFilter(EnviroAlterationType alteration)
     {
         if (_alterationFilters.Contains(alteration)) return false;

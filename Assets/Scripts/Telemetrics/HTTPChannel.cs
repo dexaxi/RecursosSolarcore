@@ -61,8 +61,8 @@ public class HTTPChannel : MonoBehaviour
 		UnityWebRequest request = UnityWebRequest.Post(urlGet, json);
 
 		// Configurar la solicitud (headers, etc.) si es necesario
-		request.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Este es el de Maria 
-		//request.SetRequestHeader("Content-Type", "application/json"); //Esto no se si está bien. En internet pone que se use application/json pero en cualquier caso no funca
+		//request.SetRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Este es el de Maria 
+		request.SetRequestHeader("Content-Type", "application/json"); //Esto no se si está bien. En internet pone que se use application/json pero en cualquier caso no funca
 
 		// Enviar la solicitud y esperar la respuesta
 		yield return request.SendWebRequest();

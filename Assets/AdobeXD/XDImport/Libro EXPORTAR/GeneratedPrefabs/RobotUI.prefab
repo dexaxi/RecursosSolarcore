@@ -397,7 +397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ResourceGame, Assembly-CSharp
+      value: RelationHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
