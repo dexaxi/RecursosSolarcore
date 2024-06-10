@@ -50,7 +50,7 @@ public class Level : ScriptableObject
 
     public string BudgetToString() 
     {
-        return _budget.ToString() + "€";
+        return _budget.ToString() + "ï¿½";
     }
 
     public List<Biome> HandleSortingRule() 
