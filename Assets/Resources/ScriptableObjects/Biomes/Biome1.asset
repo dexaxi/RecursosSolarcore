@@ -15,9 +15,10 @@ MonoBehaviour:
   name: Greenland
   Type: 0
   Description: Greenland Terrain
-  Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  Material: {fileID: 2100000, guid: bce32739db90b6843ac7f0179bcaa6b7, type: 2}
+  Mesh: {fileID: -3040160402251708652, guid: 7d3f8ba939ae02f4da8f0ccd52f8645b, type: 3}
+  Material: {fileID: 2100000, guid: 63a57ec8b48432148a938b0d7a56f654, type: 2}
   tilePrefab: {fileID: 1810241591079234738, guid: 72f932d52504e3c489d03a0fb6070a86, type: 3}
   biomeWeight: 2
   biomeTiles: []
-  spawnCount: 14
+  spawnCount: 21
+  Sprite: {fileID: 0}

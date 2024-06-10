@@ -15,9 +15,10 @@ MonoBehaviour:
   name: Rocky Terrain
   Type: 2
   Description: Rocky Terrain Description
-  Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  Material: {fileID: 2100000, guid: 9f74a13152dad544abedc7538eb3182c, type: 2}
+  Mesh: {fileID: -3040160402251708652, guid: 7d3f8ba939ae02f4da8f0ccd52f8645b, type: 3}
+  Material: {fileID: 2100000, guid: ea47ae5678d0f014b9db931f4864cc40, type: 2}
   tilePrefab: {fileID: 1810241591079234738, guid: 72f932d52504e3c489d03a0fb6070a86, type: 3}
   biomeWeight: 3
   biomeTiles: []
-  spawnCount: 58
+  spawnCount: 42
+  Sprite: {fileID: 0}
