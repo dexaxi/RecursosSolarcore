@@ -9,14 +9,15 @@ public class Machine : ScriptableObject
     public static float SELL_COST_MULTIPLIER = 0.8f;
     public new string name;
     public MachineType Type;
+    public string title;
     public string Description;
     public float Cost;
     public Mesh MeshFilter;
     public Material MeshRenderer;
     public Sprite ShopSprite;
     public Texture2D RangePattern;
+    public int OptimizationLevel;
     [HideInInspector] public List<BiomeType> CompatibleBiomes;
-
     private HighlightPattern _highlightPattern;
 
     public float CalculateSellCost()
