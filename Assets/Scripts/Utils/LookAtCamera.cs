@@ -8,7 +8,7 @@ public class LookAtCamera : MonoBehaviour
     void Start()
     {
         CameraManager.Instance.UpdateCameraCanvas();
-        transform.LookAt(CameraManager.Instance.MainCamera.transform, Vector3.up);
+        transform.forward = CameraManager.Instance.transform.forward;   
         transform.Rotate(_offset);
     }
 }

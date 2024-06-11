@@ -21,6 +21,7 @@ public class HighlightPattern
 
     private void PrecalcTexture() 
     {
+        if (_patternTexture == null) return;
         _textureMatrix = new int[_patternTexture.width, _patternTexture.height];
         Color[] pixels = _patternTexture.GetPixels();
         for (int i = 0; i < _patternTexture.width; i++) 

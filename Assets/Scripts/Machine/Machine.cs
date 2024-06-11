@@ -11,6 +11,7 @@ public enum PatternType
 
 public enum MachineRestrictionType 
 {
+    No_Restriction,
     LimitedPlacing,
     Gambling
 }
@@ -30,9 +31,10 @@ public class Machine : ScriptableObject
     public Sprite ShopSprite;
     public Texture2D RangePattern;
     public int OptimizationLevel;
+    public int CompletionRate;
     [HideInInspector] public List<BiomeType> CompatibleBiomes;
     [HideInInspector] public PatternType PatternType;
-    public MachineRestrictionType MachineRestrictionType;
+    public MachineRestrictionType RestrictionType;
     private HighlightPattern _highlightPattern;
 
     public float CalculateSellCost()
@@ -42,6 +44,26 @@ public class Machine : ScriptableObject
 
     public int[,] GetRangePattern() { return _highlightPattern.GetPattern(); }
 
+    public float GetOptimizationTierValue() 
+    {
+        float optimizationValue = 0.0f;
+        switch (RestrictionType) 
+        {
+            case MachineRestrictionType.LimitedPlacing:
+                optimizationValue = OptimizationLevel; //Veces que se puede poner
+                break;
+            case MachineRestrictionType.Gambling:
+                if (OptimizationLevel == 0) optimizationValue = 0.35f; // % de chance a que pete
+                else if (OptimizationLevel == 1) optimizationValue = 0.65f;
+                else if (OptimizationLevel == 2) optimizationValue = 0.90f; 
+                else if (OptimizationLevel > 2) optimizationValue = - 1.0f;
+                break;
+            default:
+                optimizationValue = - 1.0f;
+                break;
+        }
+        return optimizationValue;
+    }
 
     public Machine() 
     {
@@ -52,17 +74,10 @@ public class Machine : ScriptableObject
         MeshFilter = null;
         MeshRenderer = null;
         ShopSprite = null;
-        if (RangePattern != null)
-        {
-            _highlightPattern = new HighlightPattern(RangePattern);
-            PatternType = PatternType.Pattern;
-        }
-        else 
-        {
-            PatternType = PatternType.Biome;
-        }
+        if (RangePattern != null) { _highlightPattern = new HighlightPattern(RangePattern); }
         CompatibleBiomes = new List<BiomeType>();
         OptimizationLevel = -1;
+        CompletionRate = -1;
     }
 
     public void Copy(Machine machine) 
@@ -75,15 +90,23 @@ public class Machine : ScriptableObject
         MeshRenderer = machine.MeshRenderer;
         ShopSprite = machine.ShopSprite;
         RangePattern = machine.RangePattern;
-        _highlightPattern = new HighlightPattern(RangePattern);
+        if (RangePattern == null)
+        {
+            PatternType = PatternType.Biome;
+        }
+        else 
+        {
+            _highlightPattern = new HighlightPattern(RangePattern);
+            PatternType = PatternType.Pattern;
+        }
         CompatibleBiomes = new List<BiomeType>();
         foreach (BiomeType biomeType in machine.CompatibleBiomes) 
         {
             CompatibleBiomes.Add(biomeType);
         }
         OptimizationLevel = machine.OptimizationLevel;
-        PatternType = machine.PatternType;
-        MachineRestrictionType = machine.MachineRestrictionType;
+        CompletionRate = machine.CompletionRate;
+        RestrictionType = machine.RestrictionType;
     }
 
     public class MachineDTO

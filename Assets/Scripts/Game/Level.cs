@@ -111,6 +111,8 @@ public class Level : ScriptableObject
         PlayerCurrencyManager.Instance.AddCurrency(CalculateBudget());
         MachineShop.Instance.ShowShopButton();
         RelationUIManager.Instance.EnableBookButton();
+
+        BiomePhaseHandler.Instance.InitGameplay();
     }
 
     private void GenerateMachineFilters() 
