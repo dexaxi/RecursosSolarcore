@@ -13,4 +13,15 @@ public class EnviroConsequence : ScriptableObject
     public Sprite Sprite;
     public Color color;
     [HideInInspector] public readonly List<EnviroProblemType> RelatedProblems = new();
+
+	public class EnviroConsequenceDTO
+	{
+		public string name;
+		public string Title;
+		public string Description;
+		public EnviroConsequenceType Type;
+		public Sprite Sprite;
+		public Color color;
+		public List<EnviroProblemType> RelatedProblems;
+	}
 }

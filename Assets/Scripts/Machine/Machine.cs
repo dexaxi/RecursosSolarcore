@@ -85,4 +85,18 @@ public class Machine : ScriptableObject
         PatternType = machine.PatternType;
         MachineRestrictionType = machine.MachineRestrictionType;
     }
+
+    public class MachineDTO
+    {
+		public string name;
+		public MachineType Type;
+		public string Description;
+		public float Cost;
+		public Mesh MeshFilter;
+		public Material MeshRenderer;
+		public Sprite ShopSprite;
+		public Texture2D RangePattern;
+		public int OptimizationLevel;
+		public List<BiomeType> CompatibleBiomes;
+	}
 }
