@@ -17,4 +17,18 @@ public class EnviroProblem : ScriptableObject
     public List<MachineType> PossibleSolutions;
     public List<EnviroConsequenceType> RelatedConsecuences;
     public List<EnviroProblemType> RelatedProblems;
+
+    public class EnviroProblemDTO
+    {
+		public string name;
+		public string Title;
+		public string Description;
+		public EnviroProblemType Type;
+		public EnviroProblemSection Section;
+		public Sprite Icon;
+		public Color color;
+		public List<MachineType> PossibleSolutions;
+		public List<EnviroConsequenceType> RelatedConsecuences;
+		public List<EnviroProblemType> RelatedProblems;
+	}
 }

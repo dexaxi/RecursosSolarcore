@@ -267,7 +267,7 @@ public class PlaceableMachine : Draggable
         Vector2Int centerCoords = new(pattern.GetLength(0) / 2, pattern.GetLength(1) / 2);
 
         Queue<GroundTile> highlightedTiles = new Queue<GroundTile>();
-    int currX, currY;
+        int currX, currY;
         for (int i = 0; i < pattern.GetLength(0); i++)
         {
             currX = currentCoords.x - centerCoords.x + i;

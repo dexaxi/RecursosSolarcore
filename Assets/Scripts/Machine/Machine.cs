@@ -1,6 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
+public enum PatternType
+{
+    Pattern,
+    Biome
+}
+
+public enum MachineRestrictionType 
+{
+    LimitedPlacing,
+    Gambling
+}
 
 [CreateAssetMenu(fileName = "Machine", menuName = "RecursosSolarcore/Machine", order = 1)]
 [System.Serializable]
@@ -18,6 +31,8 @@ public class Machine : ScriptableObject
     public Texture2D RangePattern;
     public int OptimizationLevel;
     [HideInInspector] public List<BiomeType> CompatibleBiomes;
+    [HideInInspector] public PatternType PatternType;
+    public MachineRestrictionType MachineRestrictionType;
     private HighlightPattern _highlightPattern;
 
     public float CalculateSellCost()
@@ -26,6 +41,7 @@ public class Machine : ScriptableObject
     }
 
     public int[,] GetRangePattern() { return _highlightPattern.GetPattern(); }
+
 
     public Machine() 
     {
@@ -36,8 +52,17 @@ public class Machine : ScriptableObject
         MeshFilter = null;
         MeshRenderer = null;
         ShopSprite = null;
-        if(RangePattern != null) _highlightPattern = new HighlightPattern(RangePattern);
+        if (RangePattern != null)
+        {
+            _highlightPattern = new HighlightPattern(RangePattern);
+            PatternType = PatternType.Pattern;
+        }
+        else 
+        {
+            PatternType = PatternType.Biome;
+        }
         CompatibleBiomes = new List<BiomeType>();
+        OptimizationLevel = -1;
     }
 
     public void Copy(Machine machine) 
@@ -56,5 +81,22 @@ public class Machine : ScriptableObject
         {
             CompatibleBiomes.Add(biomeType);
         }
+        OptimizationLevel = machine.OptimizationLevel;
+        PatternType = machine.PatternType;
+        MachineRestrictionType = machine.MachineRestrictionType;
     }
+
+    public class MachineDTO
+    {
+		public string name;
+		public MachineType Type;
+		public string Description;
+		public float Cost;
+		public Mesh MeshFilter;
+		public Material MeshRenderer;
+		public Sprite ShopSprite;
+		public Texture2D RangePattern;
+		public int OptimizationLevel;
+		public List<BiomeType> CompatibleBiomes;
+	}
 }

@@ -34,4 +34,17 @@ public class Biome : ScriptableObject
     {
         spawnCount = 0;
     }
+
+    public class BiomeDTO
+    {
+		public string name;
+		public BiomeType Type;
+		public string Description;
+		public Mesh Mesh;
+		public Material Material;
+		public GameObject tilePrefab;
+		public int biomeWeight;
+		public Sprite Sprite;
+		public List<EnviroAlterationType> EnviroAlterations;
+	}
 }
