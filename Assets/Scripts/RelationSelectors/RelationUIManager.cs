@@ -1,13 +1,9 @@
 using AnKuchen.Map;
-using Cysharp.Threading.Tasks.Triggers;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class RelationUIManager : MonoBehaviour
@@ -17,7 +13,8 @@ public class RelationUIManager : MonoBehaviour
 
     [field: SerializeField] private UICache relationUICache = default;
 
-    [SerializeField] Button ShowBookButton;
+    [SerializeField] public Button ShowBookButton;
+    private BookmarkManager _bookmarkManager;
 
     private GraphicRaycaster _raycaster;
     private RelationBookUiElements _relationBooks;
@@ -38,6 +35,26 @@ public class RelationUIManager : MonoBehaviour
 
         _raycaster = GetComponent<GraphicRaycaster>();
         ShowBookButton.onClick.AddListener(DisplayBook);
+        ShowBookButton.onClick.AddListener(delegate { MachineShop.Instance.HideShopButton(); });
+        _bookmarkManager = FindObjectOfType<BookmarkManager>();
+        ShowBookButton.onClick.AddListener(delegate { _bookmarkManager.UpdateBookmarkVisibility(BiomeHandler.Instance.GetFilteredBiomes());});
+        DisableBookButton();
+    }
+
+    public void EnableBookButton() 
+    {
+        CanvasGroup canvas = ShowBookButton.GetComponent<CanvasGroup>();
+        canvas.alpha = 1.0f;
+        canvas.blocksRaycasts = true;
+        canvas.interactable = true;
+    }
+    
+    public void DisableBookButton() 
+    {
+        CanvasGroup canvas = ShowBookButton.GetComponent<CanvasGroup>();
+        canvas.alpha = 0.0f;
+        canvas.blocksRaycasts = false;
+        canvas.interactable = false;
     }
 
     public void UpdateNodeDictionary() 
@@ -228,6 +245,7 @@ public class RelationUIManager : MonoBehaviour
     public void DisplayBook() 
     {
         _relationBooks.EnableBookMenu();
+        
     }
     public void HideBook() 
     {
@@ -272,6 +290,7 @@ public class RelationBookUiElements : IMappedObject
         PaperScreenArrow2.onClick.AddListener(ShowBook);
         
         CloseButton.onClick.AddListener(DisableBookMenu);
+        CloseButton.onClick.AddListener(delegate { if(ResourceGame.Instance.GetLevelSceneFlow() >= LevelSceneFlow.Gameplay) MachineShop.Instance.ShowShopButton(); });
 
         HidePaper();
         HideBook();

@@ -38,7 +38,7 @@ public class FPSCounter : MonoBehaviour
             timeSpan = Time.realtimeSinceStartup - lastTime;
             frameCount = Time.frameCount - lastFrameCount;
             float fps = Mathf.RoundToInt(frameCount / timeSpan);
-            if (fps >= 60) _textMeshProUGUI.color = Color.green;
+            if (fps >= 60) _textMeshProUGUI.color = new Color(155, 0, 255);
             else if (fps >= 30) _textMeshProUGUI.color = Color.yellow;
             else _textMeshProUGUI.color = Color.red;
             _textMeshProUGUI.text = string.Format("FPS: {0}", fps);

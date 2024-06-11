@@ -31,6 +31,8 @@ public class MachineShop : MonoBehaviour
         _canvasGroup = GetComponent<CanvasGroup>();
         prevButton.onClick.AddListener(PrevShopTabPressed);
         nextButton.onClick.AddListener(NextShopTabPressed);
+        closeButton.onClick.AddListener(delegate { RelationUIManager.Instance.ShowBookButton.enabled = true; });
+
         _currentShopIndex = 0;
     }
 

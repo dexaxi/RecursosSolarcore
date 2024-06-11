@@ -110,6 +110,7 @@ public class Level : ScriptableObject
         MachineShop.Instance.PopulateShop();
         PlayerCurrencyManager.Instance.AddCurrency(CalculateBudget());
         MachineShop.Instance.ShowShopButton();
+        RelationUIManager.Instance.EnableBookButton();
     }
 
     private void GenerateMachineFilters() 

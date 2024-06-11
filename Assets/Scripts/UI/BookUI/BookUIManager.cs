@@ -33,11 +33,6 @@ public class BookUIManager : MonoBehaviour
             dataUICache, exIconUICache, diagnosticsTitleUICache, diagnosticsInfoUICache, provider);
         _bookUI.Root.SetActive(true);
     }
-
-    public void UpdateBook(BookInfoProvider provider) 
-    {
-        _bookUI.UpdateProvider(provider);
-    }
 }
 public class BookUiElements : IMappedObject
 {

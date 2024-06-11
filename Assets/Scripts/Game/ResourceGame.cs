@@ -113,10 +113,13 @@ public class ResourceGame : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W)) 
+        if (Debug.isDebugBuild) 
         {
-            RelationHandler.Instance.KillBiomeBubbles();
-            AnchorPoint.AllBiomesFinished.Invoke();
+            if (Input.GetKeyDown(KeyCode.W)) 
+            {
+                RelationHandler.Instance.KillBiomeBubbles();
+                AnchorPoint.AllBiomesFinished.Invoke();
+            }
         }
     }
 

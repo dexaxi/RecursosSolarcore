@@ -11,6 +11,7 @@ public class ShopButton : MonoBehaviour
         _button = GetComponent<Button>();
         _button.onClick.AddListener(MachineShop.Instance.EnableShop);
         _button.onClick.AddListener(DisableButton);
+        _button.onClick.AddListener(delegate { RelationUIManager.Instance.ShowBookButton.enabled = false; });
     }
 
     public void DisableButton() 
