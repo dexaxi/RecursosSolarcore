@@ -1,12 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+public enum DecorationType
+{
+    Grass
+}
+
+
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 public class GroundDecorationsCreator : MonoBehaviour
 {
+    [SerializeField] DecorationType decorationType;
     [SerializeField] int decorationsCount = 5;
     [SerializeField, Range(0f, 1f)] float decorationsProbability = 0.1f;
     [SerializeField, Range(0f, 50f)] float maxRotation = 50f; // Escala del ruido de Perlin
@@ -20,25 +28,33 @@ public class GroundDecorationsCreator : MonoBehaviour
     [SerializeField] MeshFilter decorationsFilterInstance;
 
     private Mesh grassTerrainMesh;
+    MaterialPropertyBlock block;
+
+    public DecorationType Type => decorationType;
 
     // Start is called before the first frame update
     void Start()
     {
         CreateGrassDistribution();
+        if(block == null) 
+        { 
+            block = new MaterialPropertyBlock();
+        }
     }
 
     void CreateGrassDistribution()
     {
-        if (Random.Range(0, 1f) < decorationsProbability) return;
+        if (UnityEngine.Random.Range(0, 1f) < decorationsProbability) return;
 
         CombineInstance[] combine = new CombineInstance[decorationsCount];
+        Vector2[] combinedUVs = new Vector2[decorationsFilterInstance.mesh.uv.Length * decorationsCount];
 
-        for(int i = 0; i < decorationsCount; i++)
+        for (int i = 0; i < decorationsCount; i++)
         {
             MeshFilter newDecoration = Instantiate(decorationsFilterInstance, renderer.transform);
-            newDecoration.transform.Rotate(Vector3.forward * Random.Range(-minRotation, -maxRotation));
-            newDecoration.transform.Scale(Random.Range(minScale, maxScale));
-            newDecoration.transform.localPosition = new Vector3(Random.Range(-xRandomPosition, xRandomPosition), newDecoration.transform.localPosition.y, Random.Range(-zRandomPosition, zRandomPosition));
+            newDecoration.transform.Rotate(Vector3.forward * UnityEngine.Random.Range(-minRotation, -maxRotation));
+            newDecoration.transform.Scale(UnityEngine.Random.Range(minScale, maxScale));
+            newDecoration.transform.localPosition = new Vector3(UnityEngine.Random.Range(-xRandomPosition, xRandomPosition), newDecoration.transform.localPosition.y, UnityEngine.Random.Range(-zRandomPosition, zRandomPosition));
             combine[i].mesh = newDecoration.mesh;
             Matrix4x4 adjustedMatrix = newDecoration.transform.localToWorldMatrix;
             adjustedMatrix.m00 /= transform.localScale.x;
@@ -60,13 +76,30 @@ public class GroundDecorationsCreator : MonoBehaviour
             adjustedMatrix.m23 -= position.z;
 
             combine[i].transform = adjustedMatrix;
+            Array.Copy(decorationsFilterInstance.mesh.uv, 0, combinedUVs, i * decorationsFilterInstance.mesh.uv.Length, decorationsFilterInstance.mesh.uv.Length);
             newDecoration.gameObject.SetActive(false);
         }
 
         grassTerrainMesh = new Mesh();
         grassTerrainMesh.CombineMeshes(combine);
+        grassTerrainMesh.uv = combinedUVs;
         filter.mesh = grassTerrainMesh;
         renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+    }
+
+    public void SetGrassColor(Color bottomGrassColor, Color topGrassColor)
+    {
+        if (block == null)
+        {
+            block = new MaterialPropertyBlock();
+        }
+        if (renderer != null)
+        {
+            renderer.GetPropertyBlock(block);
+            block.SetColor("_BottomColor", bottomGrassColor);
+            block.SetColor("_TopColor", topGrassColor);
+            renderer.SetPropertyBlock(block);
+        }
     }
 
 }
