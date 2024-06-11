@@ -17,11 +17,11 @@ public class BiomePhaseHandler : MonoBehaviour
     public Dictionary<BiomeType, List<EnviroProblemType>> ProblemsPerBiome = new();
     public Dictionary<EnviroProblemType, List<MachineType>> MachinesPerProblem = new();
 
-    public Dictionary<EnviroProblemType, CompletionRate> MaxCompletion;
-    public Dictionary<EnviroProblemType, int> CurrentCompletion;
-    public Dictionary<BiomeType, EnviroProblem> CurrentPhasePerBiome;
+    public Dictionary<EnviroProblemType, CompletionRate> MaxCompletion = new();
+    public Dictionary<EnviroProblemType, int> CurrentCompletion = new();
+    public Dictionary<BiomeType, EnviroProblem> CurrentPhasePerBiome = new();
     public List<BiomeType> CompletedBiomes = new();
-    public Dictionary<MachineType, int> MachinePlaceRestrictionCount;
+    public Dictionary<MachineType, int> MachinePlaceRestrictionCount = new();
 
     private List<Biome> _biomes;
     private List<EnviroProblem> _problems;
@@ -52,15 +52,25 @@ public class BiomePhaseHandler : MonoBehaviour
                 {
                     foreach (var problem in _problems)
                     {
-                        if (CurrentPhasePerBiome[biome.Type] == null) CurrentPhasePerBiome[biome.Type] = problem;
-                        else if (CurrentPhasePerBiome[biome.Type].Phase > problem.Phase) CurrentPhasePerBiome[biome.Type] = problem;
-                        MachinesPerProblem[problem.Type] = new();
-                        foreach (var machine in _machines)
+                        if (alteration.EnviroProblems.Contains(problem.Type)) 
                         {
-                            if (problem.PossibleSolutions.Contains(machine.Type))
+                            if (CurrentPhasePerBiome[biome.Type] == null)
                             {
-                                ProblemsPerBiome[biome.Type].Add(problem.Type);
-                                MachinesPerProblem[problem.Type].Add(machine.Type);
+                                CurrentPhasePerBiome[biome.Type] = problem;
+                            }
+                            else if (CurrentPhasePerBiome[biome.Type].Phase > problem.Phase) 
+                            {
+                                CurrentPhasePerBiome[biome.Type] = problem;
+                            }
+                            ProblemsPerBiome[biome.Type].Add(problem.Type);
+                            MachinesPerProblem[problem.Type] = new();
+                            foreach (var machine in _machines)
+                            {
+                                if (problem.PossibleSolutions.Contains(machine.Type))
+                                {
+                                    MachinesPerProblem[problem.Type].Add(machine.Type);
+                                    MachinePlaceRestrictionCount[machine.Type] = 0;
+                                }
                             }
                         }
                     }
@@ -94,7 +104,7 @@ public class BiomePhaseHandler : MonoBehaviour
         else if (machine.GetRelatedMachine().RestrictionType == MachineRestrictionType.LimitedPlacing)
         {
             MachinePlaceRestrictionCount[machine.GetMachineType()]++;
-            if (MachinePlaceRestrictionCount[machine.GetMachineType()] > machine.GetRelatedMachine().OptimizationLevel)
+            if (MachinePlaceRestrictionCount[machine.GetMachineType()] > machine.GetRelatedMachine().RestrictionTier)
             {
                 AttemptResetPhase(machine.GetMachineType(), phase);
                 return;
@@ -108,7 +118,7 @@ public class BiomePhaseHandler : MonoBehaviour
         int val = 0;
         if (machine.GetRelatedMachine().PatternType == PatternType.Biome)
         {
-            val = machine.GetRelatedMachine().CompletionRate;
+            val = machine.GetRelatedMachine().CompletionRateModifier;
         }
         else if (machine.GetRelatedMachine().PatternType == PatternType.Pattern)
         {
@@ -138,7 +148,7 @@ public class BiomePhaseHandler : MonoBehaviour
 
     public void CheckPhaseCompletion(EnviroProblemType phase)
     {
-        if (CurrentCompletion[phase] >= (int)MaxCompletion[phase])
+        if (CurrentCompletion[phase] >= (int) MaxCompletion[phase])
         {
             var biome = GetBiomeFromPhase(phase);
             NextPhase(biome);
@@ -147,7 +157,6 @@ public class BiomePhaseHandler : MonoBehaviour
 
     public void NextPhase(BiomeType biome)
     {
-        EnviroProblem curPhase = CurrentPhasePerBiome[biome];
         bool found = false;
         foreach (var problem in _problems)
         {
@@ -199,12 +208,15 @@ public class BiomePhaseHandler : MonoBehaviour
     }
     public void ResetPhase(MachineType type, EnviroProblemType phase)
     {
+        var biome = GetBiomeFromPhase(phase);
         var machines = FindObjectsOfType<PlaceableMachine>().Where((PlaceableMachine x) => x.GetMachineType() == type);
         foreach (var machine in machines) 
         {
             machine.Sell();
             CurrentCompletion[phase] = 0;
+            MachinePlaceRestrictionCount[type] = 0;
         }
+        
     }
 
     public bool Gamble(float gamble) 

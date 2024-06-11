@@ -30,13 +30,13 @@ public class Machine : ScriptableObject
     public Material MeshRenderer;
     public Sprite ShopSprite;
     public Texture2D RangePattern;
-    public int OptimizationLevel;
-    public int CompletionRate;
-    [HideInInspector] public List<BiomeType> CompatibleBiomes;
-    [HideInInspector] public PatternType PatternType;
     public MachineRestrictionType RestrictionType;
-    private HighlightPattern _highlightPattern;
+    public int RestrictionTier;
+    public int CompletionRateModifier;
 
+    private HighlightPattern _highlightPattern;
+    [HideInInspector] public PatternType PatternType;
+    [HideInInspector] public List<BiomeType> CompatibleBiomes;
     public float CalculateSellCost()
     {
         return Cost * SELL_COST_MULTIPLIER;
@@ -50,13 +50,13 @@ public class Machine : ScriptableObject
         switch (RestrictionType) 
         {
             case MachineRestrictionType.LimitedPlacing:
-                optimizationValue = OptimizationLevel; //Veces que se puede poner
+                optimizationValue = RestrictionTier; //Veces que se puede poner
                 break;
             case MachineRestrictionType.Gambling:
-                if (OptimizationLevel == 0) optimizationValue = 0.35f; // % de chance a que pete
-                else if (OptimizationLevel == 1) optimizationValue = 0.65f;
-                else if (OptimizationLevel == 2) optimizationValue = 0.90f; 
-                else if (OptimizationLevel > 2) optimizationValue = - 1.0f;
+                if (RestrictionTier == 0) optimizationValue = 0.35f; // % de chance a que pete
+                else if (RestrictionTier == 1) optimizationValue = 0.65f;
+                else if (RestrictionTier == 2) optimizationValue = 0.90f; 
+                else if (RestrictionTier > 2) optimizationValue = - 1.0f;
                 break;
             default:
                 optimizationValue = - 1.0f;
@@ -76,8 +76,8 @@ public class Machine : ScriptableObject
         ShopSprite = null;
         if (RangePattern != null) { _highlightPattern = new HighlightPattern(RangePattern); }
         CompatibleBiomes = new List<BiomeType>();
-        OptimizationLevel = -1;
-        CompletionRate = -1;
+        RestrictionTier = -1;
+        CompletionRateModifier = -1;
     }
 
     public void Copy(Machine machine) 
@@ -104,8 +104,8 @@ public class Machine : ScriptableObject
         {
             CompatibleBiomes.Add(biomeType);
         }
-        OptimizationLevel = machine.OptimizationLevel;
-        CompletionRate = machine.CompletionRate;
+        RestrictionTier = machine.RestrictionTier;
+        CompletionRateModifier = machine.CompletionRateModifier;
         RestrictionType = machine.RestrictionType;
     }
 

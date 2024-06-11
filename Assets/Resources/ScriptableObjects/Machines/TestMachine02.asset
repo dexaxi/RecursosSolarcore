@@ -21,7 +21,8 @@ MonoBehaviour:
   MeshRenderer: {fileID: 2100000, guid: 5e88a93148f69984e968ecc92408960f, type: 2}
   ShopSprite: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}
   RangePattern: {fileID: 0}
-  OptimizationLevel: 0
-  CompatibleBiomes: 010000000000000005000000
+  RestrictionType: 2
+  RestrictionTier: 2
+  CompletionRateModifier: 70
   PatternType: 1
-  MachineRestrictionType: 1
+  CompatibleBiomes: 01000000000000000500000000000000050000000000000005000000050000000000000005000000050000000000000005000000000000000500000000000000050000000000000005000000

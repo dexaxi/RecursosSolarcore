@@ -186,6 +186,7 @@ public class PlaceableMachine : Draggable
         IsPlaced = true;
         UpdateRangeDisplay();
         _highlightable.Unhighlight();
+        ApplyMachinePlacement().Forget();
         return isOnValidTerrain;
     }
 
