@@ -75,7 +75,9 @@ public class ImportMarronero : MonoBehaviour
 				newBiome.Description = biomeDTODict[type].Description;
 				newBiome.Mesh = biomeDTODict[type].Mesh;
 				newBiome.Material = biomeDTODict[type].Material;
-				newBiome.tilePrefab = biomeDTODict[type].tilePrefab;
+                newBiome.grassBottomColor = biomeDTODict[type].grassBottomColor;
+                newBiome.grassTopColor = biomeDTODict[type].grassTopColor;
+                newBiome.tilePrefab = biomeDTODict[type].tilePrefab;
 				newBiome.biomeWeight = biomeDTODict[type].biomeWeight;
 				newBiome.Sprite = biomeDTODict[type].Sprite;
 				newBiome.EnviroAlterations = biomeDTODict[type].EnviroAlterations;

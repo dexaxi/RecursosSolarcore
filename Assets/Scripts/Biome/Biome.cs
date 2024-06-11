@@ -14,6 +14,8 @@ public class Biome : ScriptableObject
     [Header("Rendering")]
     public Mesh Mesh;
     public Material Material;
+    public Color grassBottomColor;
+    public Color grassTopColor;
 
     [Header("Logic")]
     public GameObject tilePrefab;
@@ -42,7 +44,9 @@ public class Biome : ScriptableObject
 		public string Description;
 		public Mesh Mesh;
 		public Material Material;
-		public GameObject tilePrefab;
+        public Color grassBottomColor;
+        public Color grassTopColor;
+        public GameObject tilePrefab;
 		public int biomeWeight;
 		public Sprite Sprite;
 		public List<EnviroAlterationType> EnviroAlterations;
