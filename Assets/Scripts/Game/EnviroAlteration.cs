@@ -15,4 +15,18 @@ public class EnviroAlteration : ScriptableObject
     public Color color;
     [HideInInspector] public BiomeType Biome;
     public List<EnviroProblemType> EnviroProblems;
+
+    public class EnviroAlterationDTO
+    {
+        public string name;
+        public string Title;
+        public List<string> DescriptionList;
+        public EnviroAlterationType Type;
+        public List<Sprite> SpriteDescriptions;
+        public Sprite Icon;
+        public Color color;
+        public BiomeType Biome;
+        public List<EnviroProblemType> EnviroProblems;
+
+    }
 }
