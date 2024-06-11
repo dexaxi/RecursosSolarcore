@@ -41,7 +41,9 @@ public class ResourceGame : MonoBehaviour
 
         PopulatetAllLevels();
     }
-    
+
+    public LevelSceneFlow GetLevelSceneFlow() { return _currentSceneFlow; }
+
     public void ProcessActiveScene(LevelSceneFlow flow = LevelSceneFlow.Invalid)
     {
         switch (SceneLoader.GetActiveSceneIndex())
@@ -60,7 +62,7 @@ public class ResourceGame : MonoBehaviour
                         Level.InitRelationLevel();
                         break;
                     case LevelSceneFlow.Gameplay:
-                        Level.InitLevel();
+                        Level.InitGameplayLevel();
                         break;
                     default:
                         Debug.LogError("Trying to load in game level flow with invalid state.");
@@ -107,6 +109,15 @@ public class ResourceGame : MonoBehaviour
     public void UpdateLevelBubbleBiome(BiomeType biome) 
     {
         Level.CurrentRelationBiome = biome;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W)) 
+        {
+            RelationHandler.Instance.KillBiomeBubbles();
+            AnchorPoint.AllBiomesFinished.Invoke();
+        }
     }
 
 }

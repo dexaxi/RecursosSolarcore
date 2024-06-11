@@ -12,12 +12,21 @@ public class BiomeBubble : MonoBehaviour
     private void Awake()
     {
         _bubble = GetComponentInChildren<Button>();
-        _bubble.onClick.AddListener(StartBiomeRelation);    
+        _bubble.onClick.AddListener(StartBiomeRelation);
     }
 
-    public void SetBiomeType(BiomeType biomeType) 
+    public void HideThisBubble(bool playDialogue = true) 
+    {
+        if (playDialogue) RoboDialogueManager.Instance.StartRoboDialogue("BiomeRelationComplete");
+        RelationUIManager.Instance.HideBook();
+        Destroy(gameObject);
+    }
+
+    public void SetBiomeType(BiomeType biomeType)
     {
         BiomeType = biomeType;
+        if (!AnchorPoint.BiomeFinished.ContainsKey(BiomeType)) AnchorPoint.BiomeFinished[BiomeType] = new();
+        AnchorPoint.BiomeFinished[BiomeType].AddListener(delegate { HideThisBubble(); }) ;
     }
 
     private void StartBiomeRelation()

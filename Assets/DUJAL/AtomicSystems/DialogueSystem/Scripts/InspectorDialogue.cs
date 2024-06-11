@@ -60,10 +60,11 @@ namespace DUJAL.Systems.Dialogue
         private int _auxTMProCharIndex;
         private int _parsedTextIndexDelta;
 
-        public void SetDialogue(DialogueContainerScriptableObject dialogueContainerSO) 
+        public void SetDialogue(DialogueContainerScriptableObject dialogueContainerSO, float textSpeed) 
         {
             _dialogueContainerSO = dialogueContainerSO;
             _dialogueSO = _dialogueContainerSO.GetFirstStartingDialogue(false);
+            _textSpeed = textSpeed;
         }
 
         private void Awake()
@@ -75,6 +76,9 @@ namespace DUJAL.Systems.Dialogue
             }
             Instance = this;
 
+            Enter.AddListener(HandleMultipleChoiceButtons);
+            TextBoxEnd.AddListener(HandleTextboxEnd);
+            HandleInput();
         }
 
         public void HandleDialogueStart() 
@@ -82,13 +86,9 @@ namespace DUJAL.Systems.Dialogue
             if (_isStartingDialogue) _currentPlayedDialogue = DialogueScriptableObject.CopyInto(_dialogueSO, _currentPlayedDialogue);
             ToggleIndividualChoiceButtonVisibility(false);
 
-            Enter.AddListener(HandleMultipleChoiceButtons);
-            TextBoxEnd.AddListener(HandleTextboxEnd);
-
             AssignAudioType();
 
             _currentChoiceIndex = 0;
-            HandleInput();
             OpenDialogueObject();
         }
 
@@ -158,7 +158,7 @@ namespace DUJAL.Systems.Dialogue
             _parsedTextIndexDelta = 0;
             StartCoroutine(PlayTextC());
         }
-
+            
         private int _nextOpenTagIndex;
         private int _nextCloseTagIndex;
         private IEnumerator PlayTextC()

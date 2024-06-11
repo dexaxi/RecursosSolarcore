@@ -89,7 +89,9 @@ public class Level : ScriptableObject
         Ground.Instance.StartMapGeneration();
 
         MachineShop.Instance.HideShopButton();
+
         RoboDialogueManager.Instance.StartRoboDialogue("TestLevelIntroDialogueGraph");
+        AnchorPoint.AllBiomesFinished.AddListener(RelationHandler.Instance.EndRelationPhase);
     }
 
     public void InitBubblePhase()
@@ -103,10 +105,11 @@ public class Level : ScriptableObject
         RelationHandler.Instance.InitBookUI(CurrentRelationBiome);
     }
 
-    public void InitLevel() 
+    public void InitGameplayLevel() 
     {
         MachineShop.Instance.PopulateShop();
         PlayerCurrencyManager.Instance.AddCurrency(CalculateBudget());
+        MachineShop.Instance.ShowShopButton();
     }
 
     private void GenerateMachineFilters() 

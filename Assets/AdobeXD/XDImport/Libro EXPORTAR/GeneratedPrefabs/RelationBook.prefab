@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   relationUICache: {fileID: 898961891063585180}
+  ShowBookButton: {fileID: 0}
 --- !u!114 &898961891063585180
 MonoBehaviour:
   m_ObjectHideFlags: 0

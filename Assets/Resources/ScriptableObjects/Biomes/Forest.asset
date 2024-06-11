@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64f2aadf987821644a8327a532c2e644, type: 3}
-  m_Name: Biome4
+  m_Name: Forest
   m_EditorClassIdentifier: 
-  name: Forest
+  name: Warm Forest
   Type: 5
-  Description: Forest description
+  Description: Warm Forest
   Mesh: {fileID: -3040160402251708652, guid: 7d3f8ba939ae02f4da8f0ccd52f8645b, type: 3}
   Material: {fileID: 2100000, guid: ea47ae5678d0f014b9db931f4864cc40, type: 2}
   tilePrefab: {fileID: 1810241591079234738, guid: 72f932d52504e3c489d03a0fb6070a86, type: 3}

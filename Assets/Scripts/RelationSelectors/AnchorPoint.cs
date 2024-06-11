@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -19,11 +20,18 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     [field: SerializeField] public NodeType NodeType { get; private set; }
 
-    public static Dictionary<EnviroProblemType, List<EnviroConsequenceType>> ExistingProbConsRelationships = new();
-    public static Dictionary<EnviroConsequenceType, List<EnviroProblemType>> ExistingConsProbRelationships = new();
-    public static Dictionary<EnviroProblemType, List<EnviroProblemType>> ExistingProblemRelationships = new();
+    public static Dictionary<BiomeType, Dictionary<EnviroProblemType, List<EnviroConsequenceType>>> ExistingProbConsRelationships = new();
+    public static Dictionary<BiomeType, Dictionary<EnviroConsequenceType, List<EnviroProblemType>>> ExistingConsProbRelationships = new();
+    public static Dictionary<BiomeType, Dictionary<EnviroProblemType, List<EnviroProblemType>>> ExistingProblemRelationships = new();
 
-    public static int AllPossibleRelationsCount = 0;
+    public static Dictionary<BiomeType, List<Vector3[]>> LinePositions = new();
+    public static Dictionary<BiomeType, List<AnchorPoint>> AnchorPoints = new();
+
+    public static Dictionary<BiomeType, int> AllPossibleRelationsCount = new();
+    public static Dictionary<BiomeType, int> RelationCount = new();
+
+    public static Dictionary<BiomeType, UnityEvent> BiomeFinished = new();
+    public static UnityEvent AllBiomesFinished = new();
 
     private LineSpawner _spawner;
     private RelationUIManager _relationUIManager;
@@ -34,9 +42,12 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 
     public List<EnviroProblemType> RelatedProblems;
     public List<EnviroConsequenceType> RelatedConsequences;
-    
+
     private bool _performDraw;
     private Color _prevColor;
+
+    public BiomeType CurrentBiome;
+
     private void Awake()
     {
         _spawner = GetComponentInParent<LineSpawner>();
@@ -46,12 +57,34 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         ExistingConsProbRelationships.Clear();
         ExistingProbConsRelationships.Clear();
         ExistingProblemRelationships.Clear();
+        LinePositions.Clear();
+        AnchorPoints.Clear();
+        AllPossibleRelationsCount.Clear();
+        RelationCount.Clear();
+        BiomeFinished.Clear();
+
+        AllBiomesFinished.RemoveAllListeners();
     }
 
     public NodeType GetNodeType() { return NodeType; }
 
-    public void SetDataType(int dataType)
+    public void UpdateBiome(BiomeType biome) 
     {
+        CurrentBiome = biome;
+    }
+
+    public void SetDataType(int dataType, BiomeType biome)
+    {
+        CurrentBiome = biome;
+        if(!RelationCount.ContainsKey(biome)) RelationCount[biome] = 0;
+        if(!AllPossibleRelationsCount.ContainsKey(biome)) AllPossibleRelationsCount[biome] = 0;
+        if (!ExistingConsProbRelationships.ContainsKey(biome)) ExistingConsProbRelationships[biome] = new();
+        if (!ExistingProbConsRelationships.ContainsKey(biome)) ExistingProbConsRelationships[biome] = new();
+        if (!ExistingProblemRelationships.ContainsKey(biome)) ExistingProblemRelationships[biome] = new();
+        if (!LinePositions.ContainsKey(biome)) LinePositions[biome] = new();
+        if (!AnchorPoints.ContainsKey(biome)) AnchorPoints[biome] = new();
+        if (!BiomeFinished.ContainsKey(biome)) BiomeFinished[biome] = new();
+
         switch (GetNodeType()) 
         {
             case NodeType.EnviroConsequence_Problem:
@@ -122,6 +155,21 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         line.SetPosition(1, mousePos);
         DrawLoop(line).Forget();
     }
+    
+    public void RestoreLines()
+    {
+        foreach (var posArr in LinePositions[CurrentBiome])
+        {
+            LineRenderer line = _spawner.SpawnLine(transform.position, this);
+            line.positionCount = 2;
+            line.SetPosition(0, posArr[0]);
+            line.SetPosition(1, posArr[1]);
+        }
+        foreach (var anchor in AnchorPoints[CurrentBiome]) 
+        {
+            anchor.GetComponentInChildren<Image>().color = Color.green;
+        }
+    }
 
     private Vector3 GetAnchorWorldPos() 
     {
@@ -148,36 +196,39 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         if (!CheckRelationValid(destNode)) { HandleIncorrectNodeLink(line); return; }
         if (!UpdateExistingRelationships(destNode)) { HandleIncorrectNodeLink(line); return; }
 
-        if (GetUniqueRelationCount() == AllPossibleRelationsCount) Debug.Log("FINISHED");
+        RelationCount[CurrentBiome]++;
+        var currLinePos = new Vector3[]
+        {
+            line.GetPosition(0), line.GetPosition(1)
+        };
+
+        LinePositions[CurrentBiome].Add(currLinePos);
+        AnchorPoints[CurrentBiome].Add(this);
+        AnchorPoints[CurrentBiome].Add(destNode);
+
+        if (RelationCount[CurrentBiome] == AllPossibleRelationsCount[CurrentBiome])
+        {
+            Debug.Log("FINISHED");
+            if (CheckAllBiomesFinished())
+            {
+                AllBiomesFinished.Invoke();
+                Debug.Log("ALL BIOMES FINISHED");
+            }
+            else BiomeFinished[CurrentBiome].Invoke();
+        }
         destNode.GetComponentInChildren<Image>().color = Color.green;
     }
 
-    private int GetUniqueRelationCount() 
+    public bool CheckAllBiomesFinished() 
     {
-        int count = 0;
-        Dictionary<EnviroProblemType, EnviroConsequenceType> probCon = new();
-        Dictionary<EnviroProblemType, EnviroProblemType> probProb = new();
-
-        foreach (EnviroProblemType problem in ExistingProbConsRelationships.Keys) 
+        var biomes = BiomeHandler.Instance.GetFilteredBiomes();
+        foreach (var biome in biomes) 
         {
-            foreach (EnviroConsequenceType consequence in ExistingProbConsRelationships[problem]) 
-            {
-                probCon[problem] = consequence;
-            }
+            if (!RelationCount.ContainsKey(biome.Type) || RelationCount[biome.Type] != AllPossibleRelationsCount[biome.Type]) return false;
         }
-
-        foreach (EnviroProblemType problem in ExistingProblemRelationships.Keys) 
-        {
-            foreach (EnviroProblemType problem2 in ExistingProblemRelationships[problem]) 
-            {
-                if (probProb.TryGetValue(problem, out _) == false && probProb.TryGetValue(problem2, out _) == false)
-                    probProb[problem] = problem2;
-            }
-        }
-
-        count = probCon.Values.Count + probProb.Values.Count;
-        return count;
+        return true;
     }
+
 
 private bool UpdateExistingRelationships(AnchorPoint dest) 
     {
@@ -213,23 +264,23 @@ private bool UpdateExistingRelationships(AnchorPoint dest)
 
     private bool UpdateProbConsDictionaries(EnviroConsequenceType consequenceType, EnviroProblemType problemType) 
     {
-        if (ExistingConsProbRelationships.ContainsKey(consequenceType) && ExistingConsProbRelationships[consequenceType].Contains(problemType)) return false;
-        if (ExistingProbConsRelationships.ContainsKey(problemType) && ExistingProbConsRelationships[problemType].Contains(consequenceType)) return false;
-        if (!ExistingConsProbRelationships.ContainsKey(consequenceType)) ExistingConsProbRelationships[consequenceType] = new();
-        if (!ExistingProbConsRelationships.ContainsKey(problemType)) ExistingProbConsRelationships[problemType] = new();
-        ExistingConsProbRelationships[consequenceType].Add(problemType);
-        ExistingProbConsRelationships[problemType].Add(consequenceType);
+        if (ExistingConsProbRelationships[CurrentBiome].ContainsKey(consequenceType) && ExistingConsProbRelationships[CurrentBiome][consequenceType].Contains(problemType)) return false;
+        if (ExistingProbConsRelationships[CurrentBiome].ContainsKey(problemType) && ExistingProbConsRelationships[CurrentBiome][problemType].Contains(consequenceType)) return false;
+        if (!ExistingConsProbRelationships[CurrentBiome].ContainsKey(consequenceType)) ExistingConsProbRelationships[CurrentBiome][consequenceType] = new();
+        if (!ExistingProbConsRelationships[CurrentBiome].ContainsKey(problemType)) ExistingProbConsRelationships[CurrentBiome][problemType] = new();
+        ExistingConsProbRelationships[CurrentBiome][consequenceType].Add(problemType);
+        ExistingProbConsRelationships[CurrentBiome][problemType].Add(consequenceType);
         return true;   
     }
 
     private bool UpdateProbProbDictionary(EnviroProblemType problemType, EnviroProblemType problemType2) 
     {
-        if (ExistingProblemRelationships.ContainsKey(problemType) && ExistingProblemRelationships[problemType].Contains(problemType2)) return false;
-        if (ExistingProblemRelationships.ContainsKey(problemType2) && ExistingProblemRelationships[problemType2].Contains(problemType)) return false;
-        if (!ExistingProblemRelationships.ContainsKey(problemType)) ExistingProblemRelationships[problemType] = new();
-        if (!ExistingProblemRelationships.ContainsKey(problemType2)) ExistingProblemRelationships[problemType2] = new();
-        ExistingProblemRelationships[problemType].Add(problemType2);
-        ExistingProblemRelationships[problemType2].Add(problemType);
+        if (ExistingProblemRelationships[CurrentBiome].ContainsKey(problemType) && ExistingProblemRelationships[CurrentBiome][problemType].Contains(problemType2)) return false;
+        if (ExistingProblemRelationships[CurrentBiome].ContainsKey(problemType2) && ExistingProblemRelationships[CurrentBiome][problemType2].Contains(problemType)) return false;
+        if (!ExistingProblemRelationships[CurrentBiome].ContainsKey(problemType)) ExistingProblemRelationships[CurrentBiome][problemType] = new();
+        if (!ExistingProblemRelationships[CurrentBiome].ContainsKey(problemType2)) ExistingProblemRelationships[CurrentBiome][problemType2] = new();
+        ExistingProblemRelationships[CurrentBiome][problemType].Add(problemType2);
+        ExistingProblemRelationships[CurrentBiome][problemType2].Add(problemType);
         return true;   
     }
 
@@ -291,7 +342,7 @@ private bool UpdateExistingRelationships(AnchorPoint dest)
         bool res = false;
         if (GetNodeType() == NodeType.EnviroProblem_Problem)
         {
-            res = RelatedProblems.Contains((EnviroProblemType)dest.GetDataType());
+            res = RelatedProblems.Contains((EnviroProblemType)dest.GetDataType()) || dest.RelatedProblems.Contains(_problemType);
         }
         else if (GetNodeType() == NodeType.EnviroProblem_Consequence)
         {

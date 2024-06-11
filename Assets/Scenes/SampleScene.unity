@@ -492,10 +492,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2788777000872819989, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
+      propertyPath: _dialogueSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 835585005dcf7394dba19830697cc0b7, type: 2}
+    - target: {fileID: 2788777000872819989, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
+      propertyPath: _dialogueContainerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 948b093413ef17e498bf482c29d7f587, type: 2}
+    - target: {fileID: 4334206633677879512, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334206633677879512, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4334206633677879512, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
       propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 719487732}
+    - target: {fileID: 4334206633677879512, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1539267089}
+    - target: {fileID: 4334206633677879512, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334206633677879512, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: RelationHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6976923974481850964, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1355,10 +1383,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RelationBook
       objectReference: {fileID: 0}
-    - target: {fileID: 898961891063585159, guid: 18893eb255f8b3640876c7773061bcf2, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 898961891063585178, guid: 18893eb255f8b3640876c7773061bcf2, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1447,6 +1471,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 358759497867132076}
+    - target: {fileID: 898961891063585181, guid: 18893eb255f8b3640876c7773061bcf2, type: 3}
+      propertyPath: ShowBookButton
+      value: 
+      objectReference: {fileID: 1112071884}
     - target: {fileID: 3694310894567999337, guid: 18893eb255f8b3640876c7773061bcf2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1497,6 +1525,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18893eb255f8b3640876c7773061bcf2, type: 3}
+--- !u!114 &1539267089 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4334206633677879512, guid: 9bfd880551052ff4c92d44be2836bf5d, type: 3}
+  m_PrefabInstance: {fileID: 141023303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5778635de87c36e42a017d00d4877305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1634393568
 MonoBehaviour:
   m_ObjectHideFlags: 0

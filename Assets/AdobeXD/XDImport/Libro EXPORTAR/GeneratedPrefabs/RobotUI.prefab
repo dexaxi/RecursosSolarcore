@@ -372,6 +372,14 @@ PrefabInstance:
       value: -88.99994
       objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[2].Key
+      value: BiomeRelationComplete
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: DialogueTrees.list.Array.data[0].Value.Dialogue
       value: 
       objectReference: {fileID: 11400000, guid: de2e83ef9a1b1dd48b3df05d8fe457f1, type: 2}
@@ -379,6 +387,10 @@ PrefabInstance:
       propertyPath: DialogueTrees.list.Array.data[1].Value.Dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 9eb78515910959d41a37a9cdd65f829e, type: 2}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[2].Value.Dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 948b093413ef17e498bf482c29d7f587, type: 2}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1

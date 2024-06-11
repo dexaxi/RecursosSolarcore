@@ -64,7 +64,7 @@ public class RoboDialogueManager : MonoBehaviour
         if (dialogue.Dialogue == null) Debug.LogError($"Could not find dialogue: {dialogueName}");
         InspectorDialogue.Instance.Exit.AddListener(dialogue.DialogueEndEvent.Invoke);
         InspectorDialogue.Instance.Exit.AddListener(delegate { InspectorDialogue.Instance.Exit.RemoveListener(dialogue.DialogueEndEvent.Invoke); });
-        InspectorDialogue.Instance.SetDialogue(dialogue.Dialogue);
+        InspectorDialogue.Instance.SetDialogue(dialogue.Dialogue, 0.1f);
         InspectorDialogue.Instance.HandleDialogueStart();
         InspectorDialogue.Instance.PlayText();
     }

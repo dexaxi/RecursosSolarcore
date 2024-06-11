@@ -16,6 +16,9 @@ public class RelationUIManager : MonoBehaviour
     public readonly Dictionary<LineSpawner, List<AnchorPoint>> NodeDictionary = new();
 
     [field: SerializeField] private UICache relationUICache = default;
+
+    [SerializeField] Button ShowBookButton;
+
     private GraphicRaycaster _raycaster;
     private RelationBookUiElements _relationBooks;
     private readonly List<TextMeshProUGUI> _consecuenceTexts = new();
@@ -34,10 +37,14 @@ public class RelationUIManager : MonoBehaviour
         _relationBooks.Root.SetActive(true);
 
         _raycaster = GetComponent<GraphicRaycaster>();
+        ShowBookButton.onClick.AddListener(DisplayBook);
     }
 
     public void UpdateNodeDictionary() 
     {
+        NodeDictionary.Clear();
+        _problemTexts.Clear();
+        _consecuenceTexts.Clear();
         List<LineSpawner> spawners = GetComponentsInChildren<LineSpawner>().ToList();
         foreach (LineSpawner spawner in spawners)
         {
@@ -84,7 +91,7 @@ public class RelationUIManager : MonoBehaviour
         if (allConsequences.Count > 4) Debug.LogError("ERROR: TOO MANY CONSEQUENCES PER BIOME");
 
 
-        UpdatePaper(allConsequences, provider.EnviroProblems);
+        UpdatePaper(allConsequences, provider.EnviroProblems, provider.BiomeType);
     }
 
 
@@ -92,13 +99,14 @@ public class RelationUIManager : MonoBehaviour
     {
         Dictionary<EnviroProblemType, List<EnviroConsequenceType>> probCon = new();
         Dictionary<EnviroProblemType, List<EnviroProblemType>> probProb = new();
+        var allPossibleProblemTypes = GetAllPossibleTypes(NodeDictionary);
         foreach (LineSpawner spawner in NodeDictionary.Keys) 
         {
             if (spawner.GetComponent<CanvasGroup>().interactable == false) continue;
             List<AnchorPoint> nodes = NodeDictionary[spawner];
             foreach (AnchorPoint node in nodes) 
             {
-                switch(node.NodeType) 
+                switch (node.NodeType) 
                 {
                     case NodeType.EnviroProblem_Problem:
                         var nodeDataType = (EnviroProblemType) node.GetDataType();
@@ -106,16 +114,8 @@ public class RelationUIManager : MonoBehaviour
                         {
                             if (!probProb.ContainsKey(problem)) probProb[problem] = new();
                             if (!probProb.ContainsKey(nodeDataType)) probProb[nodeDataType] = new();
-                            bool contained = false;
-                            foreach (AnchorPoint anchorNode in nodes) 
-                            {
-                                if ((EnviroProblemType)anchorNode.GetDataType() == problem) 
-                                {
-                                    contained = true;
-                                    continue;
-                                }
-                            }
-                            if (problem != nodeDataType && contained && nodes.Contains(node) && !probProb[problem].Contains(nodeDataType) && !probProb[nodeDataType].Contains(problem)) probProb[problem].Add(nodeDataType); 
+                            var isContained = allPossibleProblemTypes.Contains(problem);
+                            if (problem != nodeDataType && isContained && nodes.Contains(node) && !probProb[problem].Contains(nodeDataType) && !probProb[nodeDataType].Contains(problem)) probProb[problem].Add(nodeDataType); 
                         }
                         break;
                     case NodeType.EnviroProblem_Consequence:
@@ -142,9 +142,31 @@ public class RelationUIManager : MonoBehaviour
         return count;
     }
 
-    public void UpdatePaper(List<EnviroConsequence> consequences, List<EnviroProblemProvider> problems) 
+    public List<EnviroProblemType> GetAllPossibleTypes(Dictionary<LineSpawner, List<AnchorPoint>> dictionary) 
+    {
+        var returnList = new List<EnviroProblemType>();
+        foreach (var nodes in dictionary.Values) 
+        {
+            foreach (var node in nodes) 
+            {
+                if (node.GetNodeType() == NodeType.EnviroConsequence_Problem) continue;
+                if (!returnList.Contains((EnviroProblemType) node.GetDataType())) returnList.Add((EnviroProblemType) node.GetDataType());
+            }
+        }
+        return returnList;
+    }
+
+    public void UpdatePaper(List<EnviroConsequence> consequences, List<EnviroProblemProvider> problems, BiomeType biome) 
     {
         UpdateNodeDictionary();
+
+        foreach (var nodes in NodeDictionary.Values) 
+        {
+            foreach (var node in nodes) 
+            {
+                node.UpdateBiome(biome);
+            }
+        }
 
         for (int i = 0; i < consequences.Count; i++) 
         {
@@ -155,7 +177,7 @@ public class RelationUIManager : MonoBehaviour
                 if (node.GetNodeType() == NodeType.EnviroConsequence_Problem) 
                 {
                     node.RelatedProblems = consequences[i].RelatedProblems;
-                    node.SetDataType((int) consequences[i].Type);
+                    node.SetDataType((int) consequences[i].Type, biome);
                 }
             }
             _consecuenceTexts[i].text = consequences[i].Title;
@@ -174,7 +196,7 @@ public class RelationUIManager : MonoBehaviour
                 {
                     node.RelatedConsequences = problems[i].Consequences;
                     node.RelatedProblems = problems[i].Problems;
-                    node.SetDataType((int)problems[i].Type);
+                    node.SetDataType((int)problems[i].Type, biome);
                 }
             }
             _problemTexts[i].text = problems[i].Title;
@@ -201,6 +223,10 @@ public class RelationUIManager : MonoBehaviour
     public void DisplayBook() 
     {
         _relationBooks.EnableBookMenu();
+    }
+    public void HideBook() 
+    {
+        _relationBooks.DisableBookMenu();
     }
 
 }
@@ -309,22 +335,20 @@ public class RelationBookUiElements : IMappedObject
         {
             foreach (AnchorPoint node in nodes) 
             {
+                node.GetComponentInChildren<Image>().color = Color.white;
                 var lines = node.GetComponentsInChildren<LineRenderer>();
-                foreach (LineRenderer line in lines) line.enabled = false;
+                foreach (LineRenderer line in lines) 
+                {
+                    Object.Destroy(line.gameObject);
+                }
+                
             }
         }
     }
     
     private void ShowLineRenderers() 
     {
-        foreach (List<AnchorPoint> nodes in Manager.NodeDictionary.Values) 
-        {
-            foreach (AnchorPoint node in nodes) 
-            {
-                var lines = node.GetComponentsInChildren<LineRenderer>();
-                foreach (LineRenderer line in lines) line.enabled = true;
-            }
-        }
+        Object.FindObjectOfType<LineSpawner>().GetComponentInChildren<AnchorPoint>().RestoreLines();
     }
 
     private void DisableCloseButton()

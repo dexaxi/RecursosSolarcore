@@ -30,6 +30,13 @@ public class RelationHandler : MonoBehaviour
         Instance = this;
     }
 
+    public void EndRelationPhase() 
+    {
+        FindObjectOfType<BiomeBubble>().HideThisBubble(false);
+        ResourceGame.Instance.ProcessActiveScene(LevelSceneFlow.Gameplay);
+        IsUsingUI.IsInBubblePhase = false;
+    }
+
     public void PopulateAlterations()
     {
         _alterations.Clear();
@@ -108,6 +115,7 @@ public class RelationHandler : MonoBehaviour
 
     public void SetBubblePhase()
     {
+        IsUsingUI.IsInPrephase = false;
         ResourceGame.Instance.ProcessActiveScene(LevelSceneFlow.ShowBiomeBubbles);
     }
 
@@ -184,10 +192,10 @@ public class RelationHandler : MonoBehaviour
     public void InitBookUI(BiomeType type)
     {
         BookInfoProvider provider = GenerateBookInfoProvider(type);
-        RelationUIManager.Instance.StartPaper(provider);
         BookUIManager.Instance.StartBook(provider);
+        RelationUIManager.Instance.StartPaper(provider);
         RelationUIManager.Instance.DisplayBook();
-        AnchorPoint.AllPossibleRelationsCount = RelationUIManager.Instance.CalculateAllPossibleRelations();
+        AnchorPoint.AllPossibleRelationsCount[type] = RelationUIManager.Instance.CalculateAllPossibleRelations();
     }
 
     public BookInfoProvider GenerateBookInfoProvider(BiomeType type) 

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ocean
   Type: 4
-  Description: Ocean  terrain
+  Description: Ocean biome
   Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   Material: {fileID: 2100000, guid: ad86b8786df563849a6a7d74cc73d9ce, type: 2}
   tilePrefab: {fileID: 1810241591079234738, guid: b6e990fa36720ba419cbd35af466d5d5, type: 3}
   biomeWeight: 4
   biomeTiles: []
-  spawnCount: 19
+  spawnCount: 15
   Sprite: {fileID: 0}
   EnviroAlterations: 0200000003000000
