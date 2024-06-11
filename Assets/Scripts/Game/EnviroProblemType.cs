@@ -1,5 +1,6 @@
 public enum EnviroProblemType
 {
+    // AÑADIR SIEMPRE POR ABAJO PARA NO JODER LAS RELACIONES QUE YA HAY
     Organic_Material_Loss,
     Native_Species_Loss,
     Species_Diversity_Loss,
@@ -27,5 +28,8 @@ public enum EnviroProblemType
     River_Erosion,
     Aquatic_Habitat_Fragmentation,
     Water_Temperature_Rise,
-    Water_Species_Behaviour_Changes
+    Water_Species_Behaviour_Changes,
+    Water_Species_Decrease,
+    Vegetation_Cover_Reduction,
+
 }

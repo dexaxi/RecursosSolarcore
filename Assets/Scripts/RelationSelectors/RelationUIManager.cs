@@ -88,7 +88,12 @@ public class RelationUIManager : MonoBehaviour
                 if (!allConsequences.Contains(consequence)) allConsequences.Add(consequence);
             }
         }
-        if (allConsequences.Count > 4) Debug.LogError("ERROR: TOO MANY CONSEQUENCES PER BIOME");
+        if (allConsequences.Count > 4) 
+        {
+            var consequencesError = "";
+            foreach(var consequence in allConsequences) { consequencesError += consequence.Title.ToString() + ", "; }
+            Debug.LogError($"ERROR: TOO MANY CONSEQUENCES FOR {provider.BiomeName}; {consequencesError}");
+        }
 
 
         UpdatePaper(allConsequences, provider.EnviroProblems, provider.BiomeType);

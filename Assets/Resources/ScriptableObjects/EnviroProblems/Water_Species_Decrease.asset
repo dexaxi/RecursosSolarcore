@@ -15,8 +15,9 @@ MonoBehaviour:
   name: Water_Species_Decrease
   Title: Water Species Decrease
   Description: Menos especies marinas
-  Type: 2
+  Type: 24
   Section: 1
+  Phase: 0
   Icon: {fileID: 0}
   color: {r: 0, g: 0.9341817, b: 1, a: 0}
   PossibleSolutions: 

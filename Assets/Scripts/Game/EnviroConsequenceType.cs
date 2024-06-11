@@ -1,6 +1,6 @@
 public enum EnviroConsequenceType
 {
-    //Land
+    // AÑADIR SIEMPRE POR ABAJO PARA NO JODER LAS RELACIONES QUE YA HAY
     Biodiversity_Loss = 0,
     Soil_Degradation,
     Desertification,
@@ -11,11 +11,12 @@ public enum EnviroConsequenceType
     Ecological_Conectivity_Loss,
     Wildlife_Habitat_Degradation,
 
-    //Water
     Water_Retention_Rates,
     Water_Biodiversity_Loss,
     Water_Trophic_Chain_Alterations,
     Coral_Habitat_Degradation,
     Aquatic_Disease_Increase,
     Water_Quality_Decrease,
+
+
 }

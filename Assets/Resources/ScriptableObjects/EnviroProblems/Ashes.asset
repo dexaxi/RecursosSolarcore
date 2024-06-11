@@ -17,8 +17,9 @@ MonoBehaviour:
   Description: Presencia de cenizas
   Type: 4
   Section: 0
+  Phase: 0
   Icon: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   PossibleSolutions: 
-  RelatedConsecuences: 05000000010000000000000004000000
+  RelatedConsecuences: 00000000010000000500000004000000
   RelatedProblems: 

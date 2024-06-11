@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum EnviroAlterationType
 {
+    // AÑADIR SIEMPRE POR ABAJO PARA NO JODER LAS RELACIONES QUE YA HAY
     // Jungle
     Deforestation = 0,
     Farming_Caused_Soil_Degradation,

@@ -7,8 +7,6 @@ public class UIInfoManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] TextMeshProUGUI _currentMoney;
-    [SerializeField] Image _infoCurrentSprite;
-    [SerializeField] Image _infoCurrentBackground;
 
     public TextMeshProUGUI CurrentMoney
     {
