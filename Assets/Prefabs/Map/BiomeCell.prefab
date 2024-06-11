@@ -55,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CellCoord>k__BackingField: {x: 0, y: 0}
   Biome: {fileID: 0}
-  _cordsOffset: {x: 0, y: 0}
+  _cordsOffset: {x: 0.5, y: 0.5}
   _introDepth: -3
   _introSpeed: 20
   neighbours: []
@@ -286,8 +286,8 @@ MonoBehaviour:
   decorationsProbability: 0.1
   maxRotation: 50
   minRotation: 30
-  minScale: 0.607
-  maxScale: 1.788
+  minScale: 0.733
+  maxScale: 1.838
   xRandomPosition: 0.182
   zRandomPosition: 0.209
   filter: {fileID: 8304585262316221814}
