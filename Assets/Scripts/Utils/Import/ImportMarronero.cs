@@ -74,9 +74,7 @@ public class ImportMarronero : MonoBehaviour
 				newBiome.Description = biomeDTODict[type].Description;
 				newBiome.Mesh = biomeDTODict[type].Mesh;
 				newBiome.Material = biomeDTODict[type].Material;
-                newBiome.grassBottomColor = biomeDTODict[type].grassBottomColor;
-                newBiome.grassTopColor = biomeDTODict[type].grassTopColor;
-                newBiome.tilePrefab = biomeDTODict[type].tilePrefab;
+				newBiome.tilePrefab = biomeDTODict[type].tilePrefab;
 				newBiome.biomeWeight = biomeDTODict[type].biomeWeight;
 				newBiome.Sprite = biomeDTODict[type].Sprite;
 				newBiome.EnviroAlterations = biomeDTODict[type].EnviroAlterations;
@@ -542,7 +540,7 @@ public class ImportMarronero : MonoBehaviour
 		consequences += "name | Title | Description | EnviroConsequenceType | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
 		consequences += "name | Title | Description | EnviroConsequenceType2 | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
 
-		return consequences;
+		return consequences.Replace("\r\n", "\n"); ;
 	}
 
 	string BiomeString()
@@ -552,7 +550,7 @@ public class ImportMarronero : MonoBehaviour
 		biomes += "name | BiomeType | Description | Mesh | Material | tilePrefab | 1 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
 		biomes += "name | BiomeType2 | Description | Mesh | Material | tilePrefab | 2 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
 
-		return biomes;
+		return biomes.Replace("\r\n", "\n");
 	}
 
 	string MachineString()
@@ -565,7 +563,7 @@ public class ImportMarronero : MonoBehaviour
 		machines += "name  | MachineTypeD | 4 | Mesh | Material | Sprite | RangePattern | 4 | BiomeType       |Description\n";
 
 
-		return machines;
+		return machines.Replace("\r\n", "\n"); ;
 	}
 
 	string ProblemString()
@@ -576,7 +574,7 @@ public class ImportMarronero : MonoBehaviour
 		problems += "name | Title | Description | EnviroProblemType | Wildlife| Sprite | color | MachineTypeA, MachineTypeD| EnviroConsequenceType2,EnviroConsequenceType,|EnviroProblemType1\n";
 		problems += "name | Title | Description | EnviroProblemType1 | Floor  | Sprite | color | MachineTypeB       |EnviroConsequenceType | EnviroProblemType, EnviroProblemType \n";
 
-		return problems;
+		return problems.Replace("\r\n", "\n"); ;
 	}
 
 	string AlterationString()
@@ -586,7 +584,7 @@ public class ImportMarronero : MonoBehaviour
 		alterations += "name2 | Title2 | Description; Description2; Description3 | EnviroAlterationType2 | Sprite,Sprite2 | Icon | color | BiomeType2 | EnviroProblemType1 \n";
 		
 
-		return alterations;
+		return alterations.Replace("\r\n", "\n"); ;
 	}
 
 	string GetTypeTagName(string name)
