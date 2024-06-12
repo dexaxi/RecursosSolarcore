@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour
 {
-    [SerializeField] private Vector3 _offset;
+    [SerializeField] private Vector3 _posOffset;
+    [SerializeField] private Vector3 _rotOffset;
+    
     void Start()
     {
         CameraManager.Instance.UpdateCameraCanvas();
-        transform.forward = CameraManager.Instance.transform.forward;   
-        transform.Rotate(_offset);
+    }
+
+    private void Update()
+    {
+        var camera = CameraManager.Instance.MainCamera;
+        transform.LookAt(transform.position + camera.transform.rotation * -Vector3.back, camera.transform.rotation * Vector3.up);
+        transform.position = transform.position + _posOffset;
+        transform.Rotate(_rotOffset);
     }
 }

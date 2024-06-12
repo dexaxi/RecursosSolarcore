@@ -179,7 +179,7 @@ public class GroundTile : MonoBehaviour
     [ContextMenu("PrintBiomeData")]
     public void PrintBiomeData() 
     {
-        string data = "";
+        /*string data = "";
         data += "Biome Data\n";
         data += "Name: " + Biome.name + "\n";
         data += "Description: " + Biome.Description + "\n";
@@ -187,6 +187,8 @@ public class GroundTile : MonoBehaviour
         data += "spawnCount: " + Biome.spawnCount + "\n";
         data += "biomeWeight: " + Biome.biomeWeight + "\n";
         data += "tilePrefab.name: " + Biome.tilePrefab.name + "\n";
-        Debug.Log(data);
+        Debug.Log(data);*/
+
+        MachineShop.Instance.PopulateShop(Biome.Type);
     }
 }

@@ -11,6 +11,6 @@ public class IsUsingUI
     public static bool IsInPrephase = false;
     public static bool IsUIEnabled() 
     {
-        return IsUsingShop || IsUsingPopUp || IsUsingDialogue || IsInBubblePhase || IsInPrephase;
+        return IsUsingPopUp || IsUsingDialogue || IsInBubblePhase || IsInPrephase;
     }
 }
