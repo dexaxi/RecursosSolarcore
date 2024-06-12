@@ -25,6 +25,7 @@ public class EnviroProblem : ScriptableObject
 		public string Description;
 		public EnviroProblemType Type;
 		public EnviroProblemSection Section;
+		public int Phase;
 		public Sprite Icon;
 		public Color color;
 		public List<MachineType> PossibleSolutions;

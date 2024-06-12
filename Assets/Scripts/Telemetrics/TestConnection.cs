@@ -66,7 +66,7 @@ public class TestConnection : MonoBehaviour
 
 				var action = new Action<UnityWebRequest>((request) =>
 				{
-					if (request.isNetworkError || request.isHttpError)
+					if (request.result == UnityWebRequest.Result.ProtocolError || request.result == UnityWebRequest.Result.ConnectionError)
 					{
 						Debug.LogError(request.error);
 					}

@@ -1,0 +1,24 @@
+Name|Title|Description|Section|Phase|Icon|Color|PossibleSolutions|RelatedConsecuences|RelatedProblems
+Acidification|Acidification|Acidification|Floor|0|Acidification_sprite|#FFFFFF|Type_01,Type_03,Type_10,Type_20,|Desertification,Agriculture_Production_Worsening,|Invertebrate_Species_Loss,
+Aquatic_Habitat_Fragmentation|Aquatic Habitat Fragmentation|Aquatic_Habitat_Fragmentation|Wildlife|-1|Aquatic_Habitat_Fragmentation_sprite|#FFFFFF|Type_02,Type_04,Type_11,Type_21,||
+Ashes|Ashes|Ashes|Floor|0|Ashes_sprite|#FFFFFF|Type_13,Type_34,Type_25,Type_21,|Biodiversity_Loss,Soil_Degradation,Fire_Rate_Increase,Erosion_Increase,|
+Coral_Death|Coral Death|Coral_Death|Wildlife|1|Coral_Death_sprite|#FFFFFF|Type_02,Type_04,Type_11,Type_21,|Biodiversity_Loss,Coral_Habitat_Degradation|Species_Diversity_Loss,
+Coral_Structure_Damage|Coral Structure Damage|Coral_Structure_Damage|Wildlife|0|Coral_Structure_Damage_sprite|#FFFFFF|Type_02,Type_04,Type_11,Type_21,||
+Herbivore_Increase|Herbivore Increase|Herbivore_Increase|Wildlife|0|Herbivore_Increase_sprite|#FFFFFF|Type_34,Type_05,Type_39,| Biodiversity_Loss,Ecosystem_Structure_Alterations,|Predators_Decrease,Vegetation_Loss,
+Invertebrate_Species_Loss|Invertebrate Species Loss|Invertebrate_Species_Loss|Wildlife|1|Invertebrate_Species_Loss_sprite|#FFFFFF|Type_01,Type_03,Type_10,Type_20,|Biodiversity_Loss,|Acidification,Soil_Compactation
+Native_Species_Loss|Native Species Loss|Native_Species_Loss|Wildlife|2|Native_Species_Loss_sprite|#FFFFFF|Type_34,Type_05,Type_39,|Biodiversity_Loss,|Vegetation_Loss,
+Organic_Material_Loss|Organic Material Loss|Organic_Material_Loss|Wildlife|0|Organic_Material_Loss_sprite|#FFFFFF|Type_03,Type_27,Type_28,|Soil_Degradation,Desertification,|Vegetation_Loss,
+Pesticides|Pesticides|Pesticides|Floor|-1|Pesticides_sprite|#FFFFFF|Type_02,Type_04,Type_11,Type_21,||
+Predators_Decrease|Predators Decrease|Predators_Decrease|Wildlife|1|Predators_Decrease_sprite|#FFFFFF|Type_03,Type_27,Type_28,| Biodiversity_Loss,Ecosystem_Structure_Alterations,|Herbivore_Increase,
+Salinization_Increase|Salinization Increase|Salinization_Increase|Floor|-1|Salinization_Increase_sprite|#FFFFFF|Type_13,Type_34,Type_25,Type_21,||
+Sediment_Increase|Sediment Increase|Sediment_Increase|Floor|1|Sediment_Increase_sprite|#FFFFFF|Type_34,Type_05,Type_39,|Coral_Habitat_Degradation,Water_Quality_Decrease,|
+Soil_Compactation|Soil Compactation|Soil_Compactation|Floor|-1|Soil_Compactation_sprite|#FFFFFF|Type_34,Type_05,Type_39,||
+Soil_Roots_Disminution|Soil Roots Disminution|Soil_Roots_Disminution|Floor|-1|Soil_Roots_Disminution_sprite|#FFFFFF|Type_02,Type_04,Type_11,Type_21,||
+Species_Diversity_Loss|Species Diversity Loss|Species_Diversity_Loss|Wildlife|1|Species_Diversity_Loss_sprite|#FFFFFF|Type_01,Type_03,Type_10,Type_20,|Biodiversity_Loss,|Organic_Material_Loss,Native_Species_Loss,
+Toxic_Acumulation|Toxic Acumulation|Toxic_Acumulation|Floor|-1|Toxic_Acumulation_sprite|#FFFFFF|Type_03,Type_27,Type_28||
+Vegetation_Cover_Reduction|Vegetation Cover Reduction|Vegetation_Cover_Reduction|Plantlife|2|Vegetation_Cover_Reduction_sprite|#FFFFFF|Type_13,Type_34,Type_25,Type_21|Biodiversity_Loss,|Organic_Material_Loss,Soil_Roots_Disminution,Native_Species_Loss,
+Vegetation_Dependant_Species_Loss|Vegetation Dependant Species Loss|Vegetation_Dependant_Species_Loss|Plantlife|2|Vegetation_Dependant_Species_Loss_sprite|#FFFFFF|Type_03,Type_27,Type_28,|Organic_Material_Loss,Soil_Roots_Disminution,Native_Species_Lost|Organic_Material_Loss,Soil_Roots_Disminution,Native_Species_Loss,Species_Diversity_Loss,
+Vegetation_Loss|Vegetation Loss|Vegetation_Loss|Plantlife|1|Vegetation_Loss_sprite|#FFFFFF|Type_13,Type_34,Type_25,Type_21,|Biodiversity_Loss,|
+Water_Species_Behaviour_Changes|Water Species Behaviour Changes|Water_Species_Behaviour_Changes|Wildlife|2|Water_Species_Behaviour_Changes_sprite|#FFFFFF|Type_03,Type_27,Type_28,|Biodiversity_Loss,|
+Water_Species_Decrease|Water Species Decrease|Water_Species_Decrease|Wildlife|-1|Water_Species_Decrease_sprite|#FFFFFF|Type_01,Type_03,Type_10,Type_20,||
+Water_Temp_Rise|Water Temp Rise|Water_Temp_Rise|Floor|0|Water_Temp_Rise_sprite|#FFFFFF|Type_03,Type_27,Type_28,|Biodiversity_Loss,Aquatic_Disease_Increase,|Water_Species_Behaviour_Changes,Coral_Death

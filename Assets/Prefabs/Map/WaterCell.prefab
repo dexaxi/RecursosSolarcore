@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 1810241591079234764}
   - component: {fileID: 4045237302319973027}
   m_Layer: 0
-  m_Name: Water Cell
+  m_Name: WaterCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

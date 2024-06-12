@@ -25,7 +25,6 @@ public class EnviroAlteration : ScriptableObject
         public List<Sprite> SpriteDescriptions;
         public Sprite Icon;
         public Color color;
-        public BiomeType Biome;
         public List<EnviroProblemType> EnviroProblems;
 
     }

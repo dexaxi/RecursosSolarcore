@@ -21,7 +21,7 @@ public class GroundDecorationsCreator : MonoBehaviour
     [SerializeField, Range(0f, 0.3f)] float xRandomPosition = 0.25f; // Escala del ruido de Perlin
     [SerializeField, Range(0f, 0.3f)] float zRandomPosition = 0.25f; // Escala del ruido de Perlin
     [SerializeField] MeshFilter filter;
-    [SerializeField] MeshRenderer renderer;
+    [SerializeField] MeshRenderer decorationRenderer;
     [SerializeField] MeshFilter decorationsFilterInstance;
 
     private Mesh grassTerrainMesh;
@@ -48,7 +48,7 @@ public class GroundDecorationsCreator : MonoBehaviour
 
         for (int i = 0; i < decorationsCount; i++)
         {
-            MeshFilter newDecoration = Instantiate(decorationsFilterInstance, renderer.transform);
+            MeshFilter newDecoration = Instantiate(decorationsFilterInstance, decorationRenderer.transform);
             newDecoration.transform.Rotate(Vector3.forward * UnityEngine.Random.Range(-minRotation, -maxRotation));
             newDecoration.transform.Scale(UnityEngine.Random.Range(minScale, maxScale));
             newDecoration.transform.localPosition = new Vector3(UnityEngine.Random.Range(-xRandomPosition, xRandomPosition), newDecoration.transform.localPosition.y, UnityEngine.Random.Range(-zRandomPosition, zRandomPosition));
@@ -67,7 +67,7 @@ public class GroundDecorationsCreator : MonoBehaviour
             adjustedMatrix.m22 /= transform.localScale.z;
 
             // Restar la posición
-            Vector3 position = renderer.transform.parent.position;
+            Vector3 position = decorationRenderer.transform.parent.position;
             adjustedMatrix.m03 -= position.x;
             adjustedMatrix.m13 -= position.y;
             adjustedMatrix.m23 -= position.z;
@@ -81,7 +81,7 @@ public class GroundDecorationsCreator : MonoBehaviour
         grassTerrainMesh.CombineMeshes(combine);
         grassTerrainMesh.uv = combinedUVs;
         filter.mesh = grassTerrainMesh;
-        renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        decorationRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 
     public void SetGrassColor(Color bottomGrassColor, Color topGrassColor)
@@ -90,12 +90,12 @@ public class GroundDecorationsCreator : MonoBehaviour
         {
             block = new MaterialPropertyBlock();
         }
-        if (renderer != null)
+        if (decorationRenderer != null)
         {
-            renderer.GetPropertyBlock(block);
+            decorationRenderer.GetPropertyBlock(block);
             block.SetColor("_BottomColor", bottomGrassColor);
             block.SetColor("_TopColor", topGrassColor);
-            renderer.SetPropertyBlock(block);
+            decorationRenderer.SetPropertyBlock(block);
         }
     }
 

@@ -1,41 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
-public class ImportMarronero : MonoBehaviour
+public class ImportMarronero : EditorWindow
 {
-	const string Path = "Assets/ImporteMarronero/";
-	public void ImportarMarroneramente()
-	{
-		Debug.Log("Importando Marroneramente");
-
-		var consequencesLines = ConsequenceString();
-		var biomesLines = BiomeString();
-		var machinesLines = MachineString();
-
-		var rawConsequences = RawConsequencesEnum(consequencesLines);
-
-		// Create the file from raw consequences
-		File.WriteAllText(Path + "EnviroConsequenceType.cs", rawConsequences);
-	}
-
+	static string ImportMarroneroPath = "Assets/ImporteMarronero/";
+	static string DataPath = "Assets/_Data/";
+	static string fullDataPath = "";
+	 
 	[ContextMenu("Crear Enums")]
-	void CreateEnums()
+    [MenuItem("EcoRescue/GenerateEnums")]
+    static void CreateEnums()
 	{
-
-		// Create the file from raw consequences
-		File.WriteAllText(Path + "EnviroConsequenceType.cs", RawConsequencesEnum(ConsequenceString()));
-		File.WriteAllText(Path + "EnviroBiomeType.cs", RawBiomesEnum(BiomeString()));
-		File.WriteAllText(Path + "EnviroMachineType.cs", RawMachineEnum(MachineString()));
-		File.WriteAllText(Path + "EnviroProblemType.cs", RawProblemsEnum(ProblemString()));
-		File.WriteAllText(Path + "EnviroAlterationType.cs", RawAlterationsEnum(AlterationString()));
+        fullDataPath = Path.Combine(Path.GetDirectoryName(Application.dataPath), DataPath); ;
+        // Create the file from raw consequences
+        File.WriteAllText(ImportMarroneroPath + "EnviroConsequenceType.cs", RawConsequencesEnum(ConsequenceString()));
+		File.WriteAllText(ImportMarroneroPath + "EnviroBiomeType.cs", RawBiomesEnum(BiomeString()));
+		File.WriteAllText(ImportMarroneroPath + "EnviroMachineType.cs", RawMachineEnum(MachineString()));
+		File.WriteAllText(ImportMarroneroPath + "EnviroProblemType.cs", RawProblemsEnum(ProblemString()));
+		File.WriteAllText(ImportMarroneroPath + "EnviroAlterationType.cs", RawAlterationsEnum(AlterationString()));
 	}
 
 	[ContextMenu("Crear ScriptableObjects")]
-	void CreateScriptableObjects()
+    [MenuItem("EcoRescue/GenerateScriptableObjects")]
+    static void CreateScriptableObjects()
 	{
 		var consequences = CreateConsequences();
 		var machines = CreateMachines();
@@ -44,7 +37,7 @@ public class ImportMarronero : MonoBehaviour
 		var biomes = CreateBiomes(alterations);
 	}
 
-	Dictionary<BiomeType, Biome> CreateBiomes(Dictionary<EnviroAlterationType, EnviroAlteration> alterations)
+	static Dictionary<BiomeType, Biome> CreateBiomes(Dictionary<EnviroAlterationType, EnviroAlteration> alterations)
 	{
 		var biomeArray = Resources.LoadAll("ScriptableObjects/Biomes", typeof(Biome));
 		var dict = new Dictionary<BiomeType, Biome>();
@@ -62,7 +55,7 @@ public class ImportMarronero : MonoBehaviour
 			{
 				var newBiome = ScriptableObject.CreateInstance<Biome>();
 
-				string assetPath = Path + "/ScriptableObjects/" + type.ToString() + ".asset";
+				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
 				AssetDatabase.CreateAsset(newBiome, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
@@ -85,7 +78,7 @@ public class ImportMarronero : MonoBehaviour
 
 	}
 
-	Dictionary<BiomeType, Biome.BiomeDTO> ParseBiomeDict()
+	static Dictionary<BiomeType, Biome.BiomeDTO> ParseBiomeDict()
 	{
 		var dict = new Dictionary<BiomeType, Biome.BiomeDTO>();
 
@@ -100,18 +93,20 @@ public class ImportMarronero : MonoBehaviour
 
 			var dto = new Biome.BiomeDTO();
 			dto.name = tags[0].Trim();
-			dto.Type = (BiomeType)System.Enum.Parse(typeof(BiomeType), tags[1].Trim());
+			dto.Type = (BiomeType) Enum.Parse(typeof(BiomeType), tags[1].Trim());
 			dto.Description = tags[2].Trim();
 			dto.Mesh = FindMesh(tags[3].Trim());
 			dto.Material = FindMaterial(tags[4].Trim());
-			dto.tilePrefab = FindPrefab(tags[5].Trim());
-			dto.biomeWeight = int.Parse(tags[6].Trim());
-			dto.Sprite = FindSprite(tags[7].Trim());
+			dto.grassBottomColor = GetColor(tags[5].Trim());
+			dto.grassTopColor = GetColor(tags[6].Trim());
+			dto.tilePrefab = FindMapPrefab(tags[7].Trim());
+			dto.biomeWeight = int.Parse(tags[8].Trim());
+			dto.Sprite = FindSprite(tags[9].Trim());
 
-			var alterations = tags[8].Trim().Split(',');
+			var alterations = tags[10].Trim().Split(',');
 			foreach (var alteration in alterations)
 			{
-				dto.EnviroAlterations.Add((EnviroAlterationType)System.Enum.Parse(typeof(EnviroAlterationType), alteration));
+				dto.EnviroAlterations.Add((EnviroAlterationType) Enum.Parse(typeof(EnviroAlterationType), alteration));
 			}
 
 			dict[dto.Type] = dto;
@@ -121,7 +116,7 @@ public class ImportMarronero : MonoBehaviour
 
 	}
 
-	Dictionary<EnviroConsequenceType, EnviroConsequence.EnviroConsequenceDTO> ParseConsequenceDict()
+    static Dictionary<EnviroConsequenceType, EnviroConsequence.EnviroConsequenceDTO> ParseConsequenceDict()
 	{
 		var dict = new Dictionary<EnviroConsequenceType, EnviroConsequence.EnviroConsequenceDTO>();
 
@@ -138,27 +133,16 @@ public class ImportMarronero : MonoBehaviour
 			dto.name = tags[0].Trim();
 			dto.Title = tags[1].Trim();
 			dto.Description = tags[2].Trim();
-			dto.Type = (EnviroConsequenceType)System.Enum.Parse(typeof(EnviroConsequenceType), tags[3].Trim());
+			dto.Type = (EnviroConsequenceType) Enum.Parse(typeof(EnviroConsequenceType), tags[3].Trim());
 			dto.Sprite = FindSprite(tags[4].Trim());
 			dto.color = GetColor(tags[5].Trim());
-
-			var problems = tags[6].Trim().Split(',');
-			foreach (var problem in problems)
-			{
-				if (string.IsNullOrEmpty(problem) == false)
-				{
-					var problemType = (EnviroProblemType)System.Enum.Parse(typeof(EnviroProblemType), problem);
-					dto.RelatedProblems.Add(problemType);
-				}
-			}
-
 			dict[dto.Type] = dto;
 		}
 
 		return dict;
 	}
 
-	Dictionary<EnviroConsequenceType, EnviroConsequence> CreateConsequences()
+    static Dictionary<EnviroConsequenceType, EnviroConsequence> CreateConsequences()
 	{
 		var consequences = new Dictionary<EnviroConsequenceType, EnviroConsequence>();
 
@@ -176,7 +160,7 @@ public class ImportMarronero : MonoBehaviour
 			{
 				var newConsequence = ScriptableObject.CreateInstance<EnviroConsequence>();
 
-				string assetPath = Path + "/ScriptableObjects/" + type.ToString() + ".asset";
+				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
 				AssetDatabase.CreateAsset(newConsequence, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
@@ -189,7 +173,6 @@ public class ImportMarronero : MonoBehaviour
 				newConsequence.Type = consequenceDTODict[type].Type;
 				newConsequence.Sprite = consequenceDTODict[type].Sprite;
 				newConsequence.color = consequenceDTODict[type].color;
-				//newConsequence.RelatedProblems = consequenceDTODict[type].RelatedProblems;
 
 				consequences[type] = newConsequence;
 			}
@@ -197,7 +180,7 @@ public class ImportMarronero : MonoBehaviour
 		return consequences;
 	}
 
-	Dictionary<MachineType, Machine> CreateMachines()
+    static Dictionary<MachineType, Machine> CreateMachines()
 	{
 		var machines = new Dictionary<MachineType, Machine>();
 
@@ -215,7 +198,7 @@ public class ImportMarronero : MonoBehaviour
 			{
 				var newMachine = ScriptableObject.CreateInstance<Machine>();
 
-				string assetPath = Path + "/ScriptableObjects/" + type.ToString() + ".asset";
+				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
 				AssetDatabase.CreateAsset(newMachine, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
@@ -225,20 +208,21 @@ public class ImportMarronero : MonoBehaviour
 				newMachine.name = machineDTODict[type].name;
 				newMachine.Type = machineDTODict[type].Type;
 				newMachine.Description = machineDTODict[type].Description;
+				newMachine.title = machineDTODict[type].Title;
 				newMachine.Cost = machineDTODict[type].Cost;
 				newMachine.MeshFilter = machineDTODict[type].MeshFilter;
 				newMachine.MeshRenderer = machineDTODict[type].MeshRenderer;
 				newMachine.ShopSprite = machineDTODict[type].ShopSprite;
 				newMachine.RangePattern = machineDTODict[type].RangePattern;
-				newMachine.CompatibleBiomes = machineDTODict[type].CompatibleBiomes;
-
-				machines[type] = newMachine;
+				newMachine.RestrictionType = machineDTODict[type].RestrictionType;
+				newMachine.RestrictionTier = machineDTODict[type].RestrictionTier;
+				newMachine.CompletionRateModifier = machineDTODict[type].CompletionRateModifier;
 			}
 		}
 		return machines;
 	}
 
-	Dictionary<MachineType, Machine.MachineDTO> ParseMachineDict()
+    static Dictionary<MachineType, Machine.MachineDTO> ParseMachineDict()
 	{
 		var dict = new Dictionary<MachineType, Machine.MachineDTO>();
 
@@ -253,20 +237,17 @@ public class ImportMarronero : MonoBehaviour
 
 			var dto = new Machine.MachineDTO();
 			dto.name = tags[0].Trim();
-			dto.Type = (MachineType)System.Enum.Parse(typeof(MachineType), tags[1].Trim());
-			dto.Cost = float.Parse(tags[2].Trim());
-			dto.MeshFilter = FindMesh(tags[3].Trim());
-			dto.MeshRenderer = FindMaterial(tags[4].Trim());
-			dto.ShopSprite = FindSprite(tags[5].Trim());
-			dto.RangePattern = FindTexture(tags[6].Trim());
-			dto.OptimizationLevel = int.Parse(tags[7].Trim());
-			dto.Description = tags[9].Trim();
-
-			var biomes = tags[8].Trim().Split(',');
-			foreach (var biome in biomes)
-			{
-				dto.CompatibleBiomes.Add((BiomeType)System.Enum.Parse(typeof(BiomeType), biome));
-			}
+			dto.Type = (MachineType) Enum.Parse(typeof(MachineType), tags[1].Trim());
+			dto.Title = tags[2].Trim();
+			dto.Description = tags[3].Trim();
+			dto.Cost = float.Parse(tags[4].Trim());
+			dto.MeshFilter = FindMesh(tags[5].Trim());
+			dto.MeshRenderer = FindMaterial(tags[6].Trim());
+			dto.ShopSprite = FindSprite(tags[7].Trim());
+			dto.RangePattern = FindPattern(tags[8].Trim());
+			dto.RestrictionType = (MachineRestrictionType) Enum.Parse(typeof(MachineRestrictionType), tags[9].Trim());
+			dto.RestrictionTier = int.Parse(tags[10].Trim());
+			dto.CompletionRateModifier = int.Parse(tags[11].Trim());
 
 			dict[dto.Type] = dto;
 		}
@@ -274,7 +255,7 @@ public class ImportMarronero : MonoBehaviour
 		return dict;
 	}
 
-	Dictionary<EnviroProblemType, EnviroProblem> CreateProblems(Dictionary<EnviroConsequenceType, EnviroConsequence> consequences, Dictionary<MachineType, Machine> machines)
+    static Dictionary<EnviroProblemType, EnviroProblem> CreateProblems(Dictionary<EnviroConsequenceType, EnviroConsequence> consequences, Dictionary<MachineType, Machine> machines)
 	{
 		var problems = new Dictionary<EnviroProblemType, EnviroProblem>();
 
@@ -292,7 +273,7 @@ public class ImportMarronero : MonoBehaviour
 			{
 				var newProblem = ScriptableObject.CreateInstance<EnviroProblem>();
 
-				string assetPath = Path + "/ScriptableObjects/" + type.ToString() + ".asset";
+				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
 				AssetDatabase.CreateAsset(newProblem, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
@@ -304,13 +285,14 @@ public class ImportMarronero : MonoBehaviour
 				newProblem.Description = problemDTODict[type].Description;
 				newProblem.Type = problemDTODict[type].Type;
 				newProblem.Section = problemDTODict[type].Section;
+				newProblem.Phase = problemDTODict[type].Phase;
 				newProblem.Icon = problemDTODict[type].Icon;
 				newProblem.color = problemDTODict[type].color;
 
 
+				newProblem.PossibleSolutions = problemDTODict[type].PossibleSolutions;
 				newProblem.RelatedConsecuences = problemDTODict[type].RelatedConsecuences;
 				newProblem.RelatedProblems = problemDTODict[type].RelatedProblems;
-				newProblem.PossibleSolutions = problemDTODict[type].PossibleSolutions;
 
 				problems[type] = newProblem;
 			}
@@ -320,7 +302,7 @@ public class ImportMarronero : MonoBehaviour
 		return problems;
 	}
 
-	Dictionary<EnviroProblemType, EnviroProblem.EnviroProblemDTO> ParseProblemDict()
+    static Dictionary<EnviroProblemType, EnviroProblem.EnviroProblemDTO> ParseProblemDict()
 	{
 		var dict = new Dictionary<EnviroProblemType, EnviroProblem.EnviroProblemDTO>();
 
@@ -337,14 +319,23 @@ public class ImportMarronero : MonoBehaviour
 			dto.name = tags[0].Trim();
 			dto.Title = tags[1].Trim();
 			dto.Description = tags[2].Trim();
-			dto.Type = (EnviroProblemType)System.Enum.Parse(typeof(EnviroProblemType), tags[3].Trim());
-			dto.Section = (EnviroProblemSection)System.Enum.Parse(typeof(EnviroProblemSection), tags[4].Trim());
-			dto.Icon = FindSprite(tags[5].Trim());
-			dto.color = GetColor(tags[6].Trim());
-			dto.PossibleSolutions = tags[7].Trim().Split(',').Where(x => string.IsNullOrEmpty(x) == false).Select(x => (MachineType)System.Enum.Parse(typeof(MachineType), x)).ToList();
+			dto.Type = (EnviroProblemType) Enum.Parse(typeof(EnviroProblemType), tags[3].Trim());
+			dto.Section = (EnviroProblemSection) Enum.Parse(typeof(EnviroProblemSection), tags[4].Trim());
+			dto.Phase = int.Parse(tags[5].Trim());
+			dto.Icon = FindSprite(tags[6].Trim());
+			dto.color = GetColor(tags[7].Trim());
 
-			dto.RelatedConsecuences = tags[8].Trim().Split(',').Where(x => string.IsNullOrEmpty(x) == false).Select(x => (EnviroConsequenceType)System.Enum.Parse(typeof(EnviroConsequenceType), x)).ToList();
-			dto.RelatedProblems = tags[9].Trim().Split(',').Where(x => string.IsNullOrEmpty(x) == false).Select(x => (EnviroProblemType)System.Enum.Parse(typeof(EnviroProblemType), x)).ToList();
+			dto.PossibleSolutions = tags[8].Trim().Split(',')
+				.Where(x => string.IsNullOrEmpty(x) == false)
+				.Select(x => (MachineType) Enum.Parse(typeof(MachineType), x)).ToList();
+
+			dto.RelatedConsecuences = tags[9].Trim().Split(',')
+				.Where(x => string.IsNullOrEmpty(x) == false)
+				.Select(x => (EnviroConsequenceType) Enum.Parse(typeof(EnviroConsequenceType), x)).ToList();
+			
+			dto.RelatedProblems = tags[10].Trim().Split(',')
+				.Where(x => string.IsNullOrEmpty(x) == false)
+				.Select(x => (EnviroProblemType) Enum.Parse(typeof(EnviroProblemType), x)).ToList();
 
 			dict[dto.Type] = dto;
 		}
@@ -352,7 +343,7 @@ public class ImportMarronero : MonoBehaviour
 		return dict;
 	}
 
-	Dictionary<EnviroAlterationType, EnviroAlteration> CreateAlterations(Dictionary<EnviroProblemType, EnviroProblem> problems)
+    static Dictionary<EnviroAlterationType, EnviroAlteration> CreateAlterations(Dictionary<EnviroProblemType, EnviroProblem> problems)
 	{
 		var alterations = new Dictionary<EnviroAlterationType, EnviroAlteration>();
 
@@ -364,13 +355,13 @@ public class ImportMarronero : MonoBehaviour
 
 		var alterationDTODict = ParseAlterationDict();
 
-		foreach (var type in (EnviroAlterationType[])System.Enum.GetValues(typeof(EnviroAlterationType)))
+		foreach (var type in (EnviroAlterationType[]) Enum.GetValues(typeof(EnviroAlterationType)))
 		{
 			if (!alterations.ContainsKey(type))
 			{
 				var newAlteration = ScriptableObject.CreateInstance<EnviroAlteration>();
 
-				string assetPath = Path + "/ScriptableObjects/" + type.ToString() + ".asset";
+				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
 				AssetDatabase.CreateAsset(newAlteration, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
@@ -384,7 +375,6 @@ public class ImportMarronero : MonoBehaviour
 				newAlteration.SpriteDescriptions = alterationDTODict[type].SpriteDescriptions;
 				newAlteration.Icon = alterationDTODict[type].Icon;
 				newAlteration.color = alterationDTODict[type].color;
-				newAlteration.Biome = alterationDTODict[type].Biome;
 				newAlteration.EnviroProblems = alterationDTODict[type].EnviroProblems;
 
 				alterations[type] = newAlteration;
@@ -394,7 +384,7 @@ public class ImportMarronero : MonoBehaviour
 		return alterations;
 	}
 
-	Dictionary<EnviroAlterationType, EnviroAlteration.EnviroAlterationDTO> ParseAlterationDict()
+    static Dictionary<EnviroAlterationType, EnviroAlteration.EnviroAlterationDTO> ParseAlterationDict()
 	{
 		var dict = new Dictionary<EnviroAlterationType, EnviroAlteration.EnviroAlterationDTO>();
 
@@ -410,16 +400,21 @@ public class ImportMarronero : MonoBehaviour
 			var dto = new EnviroAlteration.EnviroAlterationDTO();
 			dto.name = tags[0].Trim();
 			dto.Title = tags[1].Trim();
-			dto.DescriptionList = new List<string>(tags[2].Trim().Split(';').Where(x => string.IsNullOrEmpty(x) == false));
-			dto.Type = (EnviroAlterationType)System.Enum.Parse(typeof(EnviroAlterationType), tags[3].Trim());
-			dto.SpriteDescriptions = tags[4].Trim().Split(',').Where(x => string.IsNullOrEmpty(x) == false).Select(x => FindSprite(x)).ToList();
+			
+			dto.DescriptionList = new List<string>(tags[2].Trim().Split(';')
+				.Where(x => string.IsNullOrEmpty(x) == false));
+			
+			dto.Type = (EnviroAlterationType) Enum.Parse(typeof(EnviroAlterationType), tags[3].Trim());
+			
+			dto.SpriteDescriptions = tags[4].Trim().Split(',')
+				.Where(x => string.IsNullOrEmpty(x) == false).Select(x => FindSprite(x)).ToList();
+			
 			dto.Icon = FindSprite(tags[5].Trim());
 			dto.color = GetColor(tags[6].Trim());
-			dto.Biome = (BiomeType)System.Enum.Parse(typeof(BiomeType), tags[7].Trim());
-			dto.EnviroProblems = tags[8].Trim().Split(',').Where(x => string.IsNullOrEmpty(x) == false).Select(x => (EnviroProblemType)System.Enum.Parse(typeof(EnviroProblemType), x)).ToList();
 
-			//dto.Sprite = Resources.Load<Sprite>(tags[4].Trim());
-			//dto.color = Resources.Load<Color>(tags[5].Trim());
+			dto.EnviroProblems = tags[7].Trim().Split(',')
+				.Where(x => string.IsNullOrEmpty(x) == false)
+				.Select(x => (EnviroProblemType) Enum.Parse(typeof(EnviroProblemType), x)).ToList();
 
 			dict[dto.Type] = dto;
 		}
@@ -428,7 +423,7 @@ public class ImportMarronero : MonoBehaviour
 	}
 
 
-	string RawConsequencesEnum(string line)
+    static string RawConsequencesEnum(string line)
 	{
 		var output = "public enum EnviroConsequenceType{";
 
@@ -450,7 +445,7 @@ public class ImportMarronero : MonoBehaviour
 		return output;
 	}
 
-	string RawBiomesEnum(string line)
+	static string RawBiomesEnum(string line)
 	{
 		var output = "public enum BiomeType{";
 
@@ -471,7 +466,7 @@ public class ImportMarronero : MonoBehaviour
 		return output;
 	}
 
-	string RawProblemsEnum(string line)
+	static string RawProblemsEnum(string line)
 	{
 		var output = "public enum EnviroProblemType{";
 
@@ -492,7 +487,7 @@ public class ImportMarronero : MonoBehaviour
 		return output;
 	}
 
-	string RawAlterationsEnum(string line)
+	static string RawAlterationsEnum(string line)
 	{
 		var output = "public enum EnviroAlterationType{";
 
@@ -513,7 +508,7 @@ public class ImportMarronero : MonoBehaviour
 		return output;
 	}
 
-	string RawMachineEnum(string line)
+	static string RawMachineEnum(string line)
 	{
 		var output = "public enum MachineType{";
 
@@ -534,60 +529,74 @@ public class ImportMarronero : MonoBehaviour
 		return output;
 	}
 
-	string ConsequenceString()
+    static string ConsequenceString()
 	{
-		string consequences = "";
-		consequences += "name | Title | Description | EnviroConsequenceType | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
-		consequences += "name | Title | Description | EnviroConsequenceType2 | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
+		var csvName = "EnviroConsequence.csv";
+		
+        string consequences = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+		//consequences += "name | Title | Description | EnviroConsequenceType | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
+		//consequences += "name | Title | Description | EnviroConsequenceType2 | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
+		consequences = consequences[1..];
 
-		return consequences.Replace("\r\n", "\n"); ;
+        return consequences.Replace("\r\n", "\n"); ;
 	}
 
-	string BiomeString()
+	static string BiomeString()
 	{
-		string biomes = "";
-		//biomes += "name | Type | Description | Mesh | Material | tilePrefab | biomeWeight | Sprite | EnviroAlterations \n";
-		biomes += "name | BiomeType | Description | Mesh | Material | tilePrefab | 1 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
-		biomes += "name | BiomeType2 | Description | Mesh | Material | tilePrefab | 2 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
+        var csvName = "Biome.csv";
 
-		return biomes.Replace("\r\n", "\n");
+        string biomes = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+        //biomes += "name | Type | Description | Mesh | Material | tilePrefab | biomeWeight | Sprite | EnviroAlterations \n";
+        //biomes += "name | BiomeType | Description | Mesh | Material | tilePrefab | 1 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
+        //biomes += "name | BiomeType2 | Description | Mesh | Material | tilePrefab | 2 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
+        biomes = biomes[1..];
+
+        return biomes.Replace("\r\n", "\n");
 	}
 
-	string MachineString()
+    static  string MachineString()
 	{
-		string machines = "";
-		//machines += "name  | TypeA | Cost | Mesh | Material | Sprite | RangePattern | OptimizationLevel | Description\n";
-		machines += "name  | MachineTypeA | 1 | Mesh | Material | Sprite | RangePattern | 1 | BiomeType, BiomeType2| Description\n";
+        var csvName = "Machine.csv";
+
+        string machines = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+        //machines += "name  | TypeA | Cost | Mesh | Material | Sprite | RangePattern | OptimizationLevel | Description\n";
+        /*machines += "name  | MachineTypeA | 1 | Mesh | Material | Sprite | RangePattern | 1 | BiomeType, BiomeType2| Description\n";
 		machines += "name  | MachineTypeB | 2 | Mesh | Material | Sprite | RangePattern | 2 | BiomeType       | Description\n";
 		machines += "name  | MachineTypeC | 3 | Mesh | Material | Sprite | RangePattern | 3 | BiomeType2      |  Description\n";
 		machines += "name  | MachineTypeD | 4 | Mesh | Material | Sprite | RangePattern | 4 | BiomeType       |Description\n";
+		*/
+        machines = machines[1..];
 
-
-		return machines.Replace("\r\n", "\n"); ;
+        return machines.Replace("\r\n", "\n"); ;
 	}
 
-	string ProblemString()
+    static  string ProblemString()
 	{
+        var csvName = "EnviroProblem.csv";
 
-		string problems = "";
-		//problems += "name | Title | Description | EnviroProblemType | Wildlife| Sprite | color | TypeA, TypeD| EnviroConsequenceType,EnviroConsequenceType,|EnviroProblemType1\n";
+        string problems = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+        /*//problems += "name | Title | Description | EnviroProblemType | Wildlife| Sprite | color | TypeA, TypeD| EnviroConsequenceType,EnviroConsequenceType,|EnviroProblemType1\n";
 		problems += "name | Title | Description | EnviroProblemType | Wildlife| Sprite | color | MachineTypeA, MachineTypeD| EnviroConsequenceType2,EnviroConsequenceType,|EnviroProblemType1\n";
 		problems += "name | Title | Description | EnviroProblemType1 | Floor  | Sprite | color | MachineTypeB       |EnviroConsequenceType | EnviroProblemType, EnviroProblemType \n";
-
-		return problems.Replace("\r\n", "\n"); ;
+		*/
+        problems = problems[1..];
+        return problems.Replace("\r\n", "\n"); ;
 	}
 
-	string AlterationString()
+    static string AlterationString()
 	{
-		string alterations = "";
-		alterations += "name | Title | Description; Description2; Description3 | EnviroAlterationType | Sprite,Sprite2 | Icon | color | BiomeType | EnviroProblemType1 \n";
-		alterations += "name2 | Title2 | Description; Description2; Description3 | EnviroAlterationType2 | Sprite,Sprite2 | Icon | color | BiomeType2 | EnviroProblemType1 \n";
-		
+        var csvName = "EnviroAlteration.csv";
 
-		return alterations.Replace("\r\n", "\n"); ;
+        string alterations = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+        /*alterations += "name | Title | Description; Description2; Description3 | EnviroAlterationType | Sprite,Sprite2 | Icon | color | BiomeType | EnviroProblemType1 \n";
+		alterations += "name2 | Title2 | Description; Description2; Description3 | EnviroAlterationType2 | Sprite,Sprite2 | Icon | color | BiomeType2 | EnviroProblemType1 \n";
+		*/
+        alterations = alterations[1..];
+
+        return alterations.Replace("\r\n", "\n"); ;
 	}
 
-	string GetTypeTagName(string name)
+    static string GetTypeTagName(string name)
 	{
 		name = name.Replace(" ", "_");
 
@@ -598,34 +607,40 @@ public class ImportMarronero : MonoBehaviour
 		return name;
 	}
 
-	Sprite FindSprite(string text)
+    static string SpritePath = "Assets/2DAssets/Sprites/";
+    static Sprite FindSprite(string text)
 	{
-		return null;
-	}
-	Color GetColor(string text)
-	{
-		return Color.white;
-	}
+        return AssetDatabase.LoadAssetAtPath<Sprite>(SpritePath + text + ".png");
+    }
 
-
-	Mesh FindMesh(string text)
+    static Color GetColor(string text)
 	{
-		return null;
+        if (ColorUtility.TryParseHtmlString(text, out Color returnCol)) return returnCol;
+        return Color.white;
 	}
 
-	Material FindMaterial(string text)
+    static string ModelPath = "Assets/3DAssets/Models/";
+    static Mesh FindMesh(string text)
 	{
-		return null;
+        return AssetDatabase.LoadAssetAtPath<Mesh>(ModelPath + text + ".fbx");
+    }
+
+    static string MaterialPath = "Assets/Materials/Map/";
+    static Material FindMaterial(string text)
+	{
+        return AssetDatabase.LoadAssetAtPath<Material>(MaterialPath + text + ".mat");
+    }
+
+    static string PrefabPath = "Assets/Prefabs/Map/";
+    static GameObject FindMapPrefab(string text)
+	{
+		return AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath + text + "Cell.prefab"); ;
 	}
 
-	GameObject FindPrefab(string text)
+    static string PatternPath = "Assets/2DAssets/MachinePatterns/";
+    static Texture2D FindPattern(string text)
 	{
-		return null;
-	}
-
-	Texture2D FindTexture(string text)
-	{
-
-		return null;
+		var asset = AssetDatabase.LoadAssetAtPath<Texture2D>(PatternPath + text + ".png");
+        return asset;
 	}
 }

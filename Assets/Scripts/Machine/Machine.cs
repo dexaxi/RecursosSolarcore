@@ -115,13 +115,15 @@ public class Machine : ScriptableObject
     {
 		public string name;
 		public MachineType Type;
+		public string Title;
 		public string Description;
 		public float Cost;
 		public Mesh MeshFilter;
 		public Material MeshRenderer;
 		public Sprite ShopSprite;
 		public Texture2D RangePattern;
-		public int OptimizationLevel;
-		public List<BiomeType> CompatibleBiomes = new();
+		public MachineRestrictionType RestrictionType;
+		public int RestrictionTier;
+		public int CompletionRateModifier;
 	}
 }
