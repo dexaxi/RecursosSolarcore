@@ -275,10 +275,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6976923974481850965}
     m_Modifications:
-    - target: {fileID: 1607847231242878361, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2918177151501190373, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -367,52 +363,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoboDialogue
       objectReference: {fileID: 0}
-    - target: {fileID: 6432207705370803126, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -88.99994
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[3].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.data[2].Key
-      value: BiomeRelationComplete
-      objectReference: {fileID: 0}
-    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.data[0].Value.Dialogue
+      propertyPath: DialogueTrees.list.Array.data[3].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: de2e83ef9a1b1dd48b3df05d8fe457f1, type: 2}
-    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.data[1].Value.Dialogue
-      value: 
-      objectReference: {fileID: 11400000, guid: 9eb78515910959d41a37a9cdd65f829e, type: 2}
-    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.data[2].Value.Dialogue
-      value: 
-      objectReference: {fileID: 11400000, guid: 948b093413ef17e498bf482c29d7f587, type: 2}
-    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4334206633677879512}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetBubblePhase
       objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RelationHandler, Assembly-CSharp
+      propertyPath: DialogueTrees.list.Array.data[3].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchToGameplayDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
-      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: DialogueTrees.list.Array.data[3].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RoboDialogueManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[3].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -436,6 +408,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4334206633677879512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+  m_PrefabInstance: {fileID: 6976923975703442571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5236685585671155821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5778635de87c36e42a017d00d4877305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4369613892216430727 stripped

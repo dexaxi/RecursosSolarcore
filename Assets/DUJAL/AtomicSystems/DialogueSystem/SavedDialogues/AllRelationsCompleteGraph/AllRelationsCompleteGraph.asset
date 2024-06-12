@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2474724dc3b9c2a4c8af98a07322689d, type: 3}
+  m_Name: AllRelationsCompleteGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: AllRelationsCompleteGraph
+  <DialogueGroups>k__BackingField:
+    list: []
+  <UngroupedDialogues>k__BackingField:
+  - {fileID: 11400000, guid: 49db8c9e01f560e43b53ca60d98c92ac, type: 2}
+  - {fileID: 11400000, guid: eed314c8a1814be48af337e13aa2b69e, type: 2}

@@ -10,13 +10,13 @@ public class LookAtCamera : MonoBehaviour
     void Start()
     {
         CameraManager.Instance.UpdateCameraCanvas();
+        transform.position = transform.position + _posOffset;
     }
 
     private void Update()
     {
         var camera = CameraManager.Instance.MainCamera;
-        transform.LookAt(transform.position + camera.transform.rotation * -Vector3.back, camera.transform.rotation * Vector3.up);
-        transform.position = transform.position + _posOffset;
+        transform.LookAt(transform.position + camera.transform.rotation * Vector3.forward, camera.transform.rotation * Vector3.up);
         transform.Rotate(_rotOffset);
     }
 }

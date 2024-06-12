@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class PlaceableMachine : Draggable
@@ -13,6 +14,7 @@ public class PlaceableMachine : Draggable
     [SerializeField][Range(0, 1000000)] private float _machineReturnSpeed;
 
     [HideInInspector] public bool IsPlaced;
+    [SerializeField] public GameObject TimerGameObject;
     public bool HasBeenFirstPlaced { get; private set; }
     public GroundTile GroundTile { get; private set; }
 
@@ -20,6 +22,8 @@ public class PlaceableMachine : Draggable
 
     private Vector2Int _previousRangeCenterCoords;
     private List<GroundTile> _highlightedTiles;
+    
+    public float MachineProgress {  get; private set; }
 
     public override void OnMouseOver()
     {
@@ -82,6 +86,7 @@ public class PlaceableMachine : Draggable
         base.Awake();
         _machine = ScriptableObject.CreateInstance<Machine>();
         _highlightedTiles = new List<GroundTile>();
+        MachineProgress = 0;
     }
 
     public void Initialize()
@@ -186,7 +191,7 @@ public class PlaceableMachine : Draggable
         IsPlaced = true;
         UpdateRangeDisplay();
         _highlightable.Unhighlight();
-        ApplyMachinePlacement().Forget();
+        ApplyMachinePlacement();
         return isOnValidTerrain;
     }
 
@@ -381,10 +386,18 @@ public class PlaceableMachine : Draggable
         return -1;
     }
 
-    public async UniTask ApplyMachinePlacement() 
+    public void ApplyMachinePlacement() 
     {
-        await UniTask.Delay(GetMachineWaiting());
-        BiomePhaseHandler.Instance.ProcessMachineImpact(this);
+        var progress = Instantiate(TimerGameObject).GetComponent<MachineProgressDisplay>();
+        progress.MachineRef = this;
+        MachinePlacementTimer().Forget();
+    }
+
+    public async UniTask MachinePlacementTimer() 
+    {
+        await UniTask.Delay(GetMachineWaiting() / 100);
+        MachineProgress += 0.01f;
+        MachinePlacementTimer().Forget();
     }
 
     /// <summary>

@@ -120,6 +120,7 @@ MonoBehaviour:
   _machine: {fileID: 0}
   _machineReturnSpeed: 200
   IsPlaced: 0
+  TimerGameObject: {fileID: 7337991079551666, guid: 1fe42ea559d628049ac135c196601e9f, type: 3}
 --- !u!114 &5070200472257248136
 MonoBehaviour:
   m_ObjectHideFlags: 0
