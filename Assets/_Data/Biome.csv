@@ -1,4 +1,4 @@
 Name|Type|Description|Mesh|Material|Grass Bottom Color|Grass Top Color|Prefab|Biome Weight|Sprite|Enviro Alterations
-Jungle|Jungle|Jungle Biome|GroundPieceBase|MAT_Biome1Ground|#87C038|#7CB335|Biome|2|Jungle_sprite|Deforestation,Farming_Caused_Soil_Degradation,
-Forest|Forest|Forest Biome|GroundPieceBase|MAT_Biome2Ground|#DEE237|#CED933|Biome|3|Forest_sprite|Forest_Fires,Predator_Lack,
-Ocean|Ocean|Ocean Biome|GroundPieceBase|MAT_Water|#000000|#000000|Water|4|Ocean_sprite|Over_Fishing,Water_Temp_Rise,
+Jungle|Jungle|Jungle Biome|GroundPieceBase|MAT_Biome1Ground|#87C038|#7CB335|Biome|2|Jungle_sprite|Deforestation,Farming_Caused_Soil_Degradation
+Forest|Forest|Forest Biome|GroundPieceBase|MAT_Biome2Ground|#DEE237|#CED933|Biome|3|Forest_sprite|Forest_Fires,Predators_Lack
+Ocean|Ocean|Ocean Biome|GroundPieceBase|MAT_Water|#000000|#000000|Water|4|Ocean_sprite|Over_Fishing,Water_Temp_Rise

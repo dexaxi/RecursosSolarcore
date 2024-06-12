@@ -1,0 +1,1 @@
+public enum BiomeType{Jungle, Forest, Ocean, }

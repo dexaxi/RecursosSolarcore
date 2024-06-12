@@ -114,7 +114,7 @@ public class BiomeSortingRule
 
     public bool IsWaterBiome(BiomeType biomeType) 
     {
-        return biomeType == BiomeType.Water || biomeType == BiomeType.Ocean;
+        return biomeType == BiomeType.Ocean;
     }
 
     public List<Biome> DoWaterRandomSort(List<Biome> biomes) 

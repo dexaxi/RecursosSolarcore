@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2aadf987821644a8327a532c2e644, type: 3}
+  m_Name: Jungle
+  m_EditorClassIdentifier: 
+  name: 
+  Type: 0
+  Description: 
+  Mesh: {fileID: 0}
+  Material: {fileID: 0}
+  grassBottomColor: {r: 0, g: 0, b: 0, a: 0}
+  grassTopColor: {r: 0, g: 0, b: 0, a: 0}
+  tilePrefab: {fileID: 0}
+  biomeWeight: 0
+  biomeTiles: []
+  spawnCount: 0
+  Sprite: {fileID: 0}
+  EnviroAlterations: 

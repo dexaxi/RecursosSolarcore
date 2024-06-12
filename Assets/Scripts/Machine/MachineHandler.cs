@@ -34,10 +34,10 @@ public class MachineHandler : MonoBehaviour
                     if (alteration.EnviroProblems.Contains(problem.Type) && problem.PossibleSolutions.Contains(machine.Type))
                     {
                         machine.CompatibleBiomes.Add(alteration.Biome);
+                        _machines[machine.Type] = machine;
                     }
                 }
             }
-            _machines[machine.Type] = machine;
         }
     }
 

@@ -40,7 +40,7 @@ public class RelationHandler : MonoBehaviour
     public void PopulateAlterations()
     {
         _alterations.Clear();
-        var problemArray = Resources.LoadAll("ScriptableObjects/EnviroAlterations", typeof(EnviroAlteration));
+        var problemArray = Resources.LoadAll("ScriptableObjects/Alterations", typeof(EnviroAlteration));
         var biomes = BiomeHandler.Instance.GetFilteredBiomes();
         foreach (EnviroAlteration alteration in problemArray.Cast<EnviroAlteration>())
         {
@@ -59,7 +59,7 @@ public class RelationHandler : MonoBehaviour
     public void PopulateProblems()
     {
         _problems.Clear();
-        var problemArray = Resources.LoadAll("ScriptableObjects/EnviroProblems", typeof(EnviroProblem));
+        var problemArray = Resources.LoadAll("ScriptableObjects/Problems", typeof(EnviroProblem));
         foreach (EnviroProblem problem in problemArray.Cast<EnviroProblem>())
         {
             _problems[problem.Type] = problem;
@@ -69,7 +69,7 @@ public class RelationHandler : MonoBehaviour
     public void PopulateConsequences()
     {
         _consequences.Clear();
-        var consequenceArray = Resources.LoadAll("ScriptableObjects/EnviroConsequences", typeof(EnviroConsequence));
+        var consequenceArray = Resources.LoadAll("ScriptableObjects/Consequences", typeof(EnviroConsequence));
         foreach (EnviroConsequence consequence in consequenceArray.Cast<EnviroConsequence>())
         {
             consequence.RelatedProblems.Clear();

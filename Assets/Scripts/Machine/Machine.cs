@@ -12,7 +12,7 @@ public enum PatternType
 public enum MachineRestrictionType 
 {
     No_Restriction,
-    LimitedPlacing,
+    Limited_Placing,
     Gambling
 }
 
@@ -49,7 +49,7 @@ public class Machine : ScriptableObject
         float optimizationValue = 0.0f;
         switch (RestrictionType) 
         {
-            case MachineRestrictionType.LimitedPlacing:
+            case MachineRestrictionType.Limited_Placing:
                 optimizationValue = RestrictionTier; //Veces que se puede poner
                 break;
             case MachineRestrictionType.Gambling:

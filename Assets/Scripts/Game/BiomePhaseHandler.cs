@@ -101,7 +101,7 @@ public class BiomePhaseHandler : MonoBehaviour
                 return;
             }
         }
-        else if (machine.GetRelatedMachine().RestrictionType == MachineRestrictionType.LimitedPlacing)
+        else if (machine.GetRelatedMachine().RestrictionType == MachineRestrictionType.Limited_Placing)
         {
             MachinePlaceRestrictionCount[machine.GetMachineType()]++;
             if (MachinePlaceRestrictionCount[machine.GetMachineType()] > machine.GetRelatedMachine().RestrictionTier)

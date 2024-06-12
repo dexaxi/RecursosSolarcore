@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class ImportMarronero : EditorWindow
 {
-	static string ImportMarroneroPath = "Assets/ImporteMarronero/";
+	static string ImportMarroneroPath = "Assets/Resources/";
 	static string DataPath = "Assets/_Data/";
 	static string fullDataPath = "";
 	 
@@ -17,7 +17,7 @@ public class ImportMarronero : EditorWindow
     [MenuItem("EcoRescue/GenerateEnums")]
     static void CreateEnums()
 	{
-        fullDataPath = Path.Combine(Path.GetDirectoryName(Application.dataPath), DataPath); ;
+        fullDataPath = Path.Combine(Path.GetDirectoryName(Application.dataPath), DataPath);
         // Create the file from raw consequences
         File.WriteAllText(ImportMarroneroPath + "EnviroConsequenceType.cs", RawConsequencesEnum(ConsequenceString()));
 		File.WriteAllText(ImportMarroneroPath + "EnviroBiomeType.cs", RawBiomesEnum(BiomeString()));
@@ -30,11 +30,13 @@ public class ImportMarronero : EditorWindow
     [MenuItem("EcoRescue/GenerateScriptableObjects")]
     static void CreateScriptableObjects()
 	{
-		var consequences = CreateConsequences();
+		fullDataPath = Path.Combine(Path.GetDirectoryName(Application.dataPath), DataPath);
+        var consequences = CreateConsequences();
 		var machines = CreateMachines();
 		var problems = CreateProblems(consequences, machines);
 		var alterations = CreateAlterations(problems);
 		var biomes = CreateBiomes(alterations);
+		AssetDatabase.SaveAssets();
 	}
 
 	static Dictionary<BiomeType, Biome> CreateBiomes(Dictionary<EnviroAlterationType, EnviroAlteration> alterations)
@@ -55,8 +57,8 @@ public class ImportMarronero : EditorWindow
 			{
 				var newBiome = ScriptableObject.CreateInstance<Biome>();
 
-				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
-				AssetDatabase.CreateAsset(newBiome, assetPath);
+				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Biomes" + "/" + type.ToString() + ".asset";
+                AssetDatabase.CreateAsset(newBiome, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 				EditorUtility.FocusProjectWindow();
@@ -160,8 +162,8 @@ public class ImportMarronero : EditorWindow
 			{
 				var newConsequence = ScriptableObject.CreateInstance<EnviroConsequence>();
 
-				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
-				AssetDatabase.CreateAsset(newConsequence, assetPath);
+				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Consequences" + "/" + type.ToString() + ".asset";
+                AssetDatabase.CreateAsset(newConsequence, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 				EditorUtility.FocusProjectWindow();
@@ -198,8 +200,8 @@ public class ImportMarronero : EditorWindow
 			{
 				var newMachine = ScriptableObject.CreateInstance<Machine>();
 
-				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
-				AssetDatabase.CreateAsset(newMachine, assetPath);
+				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Machines" + "/" + type.ToString() + ".asset";
+                AssetDatabase.CreateAsset(newMachine, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 				EditorUtility.FocusProjectWindow();
@@ -273,7 +275,7 @@ public class ImportMarronero : EditorWindow
 			{
 				var newProblem = ScriptableObject.CreateInstance<EnviroProblem>();
 
-				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
+				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Problems" + "/" + type.ToString() + ".asset";
 				AssetDatabase.CreateAsset(newProblem, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
@@ -360,8 +362,8 @@ public class ImportMarronero : EditorWindow
 			{
 				var newAlteration = ScriptableObject.CreateInstance<EnviroAlteration>();
 
-				string assetPath = ImportMarroneroPath + "/ScriptableObjects/" + type.ToString() + ".asset";
-				AssetDatabase.CreateAsset(newAlteration, assetPath);
+				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Alterations" + "/" + type.ToString() + ".asset";
+                AssetDatabase.CreateAsset(newAlteration, assetPath);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 				EditorUtility.FocusProjectWindow();

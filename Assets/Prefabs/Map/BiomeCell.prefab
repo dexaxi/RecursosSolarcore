@@ -291,7 +291,7 @@ MonoBehaviour:
   xRandomPosition: 0.182
   zRandomPosition: 0.209
   filter: {fileID: 8304585262316221814}
-  renderer: {fileID: 5868300915821449689}
+  decorationRenderer: {fileID: 5868300915821449689}
   decorationsFilterInstance: {fileID: 9151390510845927520}
 --- !u!1 &7142222806754540796
 GameObject:
@@ -400,7 +400,7 @@ MonoBehaviour:
   xRandomPosition: 0.211
   zRandomPosition: 0.246
   filter: {fileID: 1684274604503386911}
-  renderer: {fileID: 5202463265675857728}
+  decorationRenderer: {fileID: 5202463265675857728}
   decorationsFilterInstance: {fileID: 1746666841048441608}
 --- !u!1001 &2889071070383901510
 PrefabInstance:

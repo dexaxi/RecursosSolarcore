@@ -176,7 +176,6 @@ public class Ground : MonoBehaviour
         {
             default:
                 return 0;
-            case BiomeType.Water:
             case BiomeType.Ocean:
                 return -0.3f;
         }
