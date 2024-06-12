@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_18
   m_EditorClassIdentifier: 
-  name: "InstaladorHabitatsSubterr\xE1neos"
+  name: InstaladorHabitatsSubterraneos
   Type: 17
-  title: "Instalador de H\xE1bitats Subterr\xE1neos"
-  Description: "Instalador de H\xE1bitats Subterr\xE1neos"
+  title: "Instalador de Habitats Subterr\xE1neos"
+  Description: "Instalador de Habitats Subterr\xE1neos"
   Cost: 500
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}

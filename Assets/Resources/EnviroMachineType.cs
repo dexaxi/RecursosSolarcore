@@ -1,1 +1,1 @@
-public enum MachineType{Type_01, Type_02, Type_03, Type_04, Type_05, Type_06, Type_07, Type_08, Type_09, Type_10, Type_11, Type_12, Type_13, Type_14, Type_15, Type_16, Type_17, Type_18, }
+public enum MachineType{Type_01, Type_02, Type_03, Type_04, Type_05, Type_06, Type_07, Type_08, Type_09, Type_10, Type_11, Type_12, Type_13, Type_14, Type_15, Type_16, Type_17, Type_18,}

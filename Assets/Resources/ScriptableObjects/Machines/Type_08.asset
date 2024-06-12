@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_08
   m_EditorClassIdentifier: 
-  name: "LiberadorEspeciesGen\xE9ricas"
+  name: LiberadorEspeciesGenericas
   Type: 7
   title: "Liberador de Especies Gen\xE9ricas"
   Description: "Liberador de Especies Gen\xE9ricas"
