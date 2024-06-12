@@ -184,6 +184,8 @@ public class BookUiElements : IMappedObject
 
         _photoUI.Photo.sprite = _provider.BiomeSprite;
         _titleUI.Title.text = _provider.BiomeName;
+        _titleUI.Info.onClick.RemoveAllListeners();
+        _titleUI.Info.onClick.AddListener(delegate { RoboDialogueManager.Instance.StartRoboDialogue(provider.BiomeName + "Info"); });
 
         UpdateScrollBar();
 
@@ -232,6 +234,7 @@ public class TitleUiElements : IMappedObject
     public IMapper Mapper { get; private set; }
     public GameObject Root { get; private set; }
     public TextMeshProUGUI Title { get; private set; }
+    public Button Info { get; private set; }
     public TitleUiElements() { }
     public TitleUiElements(IMapper mapper) { Initialize(mapper); }
 
@@ -240,6 +243,7 @@ public class TitleUiElements : IMappedObject
         Mapper = mapper;
         Root = mapper.Get();
         Title = mapper.Get<TextMeshProUGUI>("TitleText");
+        Info = mapper.Get<Button>("Info_Button");
     }
 }
 

@@ -364,6 +364,34 @@ PrefabInstance:
       value: RoboDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[4].Key
+      value: JungleInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[5].Key
+      value: ForestInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[6].Key
+      value: OceanInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[4].Value.Dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: ce3b6877356a6294aa83027ebf888a63, type: 2}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[5].Value.Dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 4272040e6c6971741a539f5b1e7f1009, type: 2}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[6].Value.Dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a4f47990a65b3c4faeeab5092864b7a, type: 2}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: DialogueTrees.list.Array.data[3].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
