@@ -18,7 +18,7 @@ MonoBehaviour:
   Description: "Reconstructor de suelo org\uFFFDnico"
   Cost: 500
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
-  MeshRenderer: {fileID: 0}
+  MeshRenderer: {fileID: 2100000, guid: b3f1733913592504da3265fd1434a7dc, type: 2}
   ShopSprite: {fileID: 0}
   RangePattern: {fileID: 0}
   RestrictionType: 0

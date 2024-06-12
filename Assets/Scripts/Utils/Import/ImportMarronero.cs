@@ -637,7 +637,7 @@ public class ImportMarronero : EditorWindow
         return AssetDatabase.LoadAssetAtPath<Mesh>(ModelPath + text + ".fbx");
     }
 
-    static string MaterialPath = "Assets/Materials/Map/";
+    static string MaterialPath = "Assets/Materials/";
     static Material FindMaterial(string text)
 	{
         return AssetDatabase.LoadAssetAtPath<Material>(MaterialPath + text + ".mat");

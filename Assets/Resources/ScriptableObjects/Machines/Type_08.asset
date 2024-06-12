@@ -17,8 +17,8 @@ MonoBehaviour:
   title: "Liberador de Especies Gen\uFFFDricas"
   Description: "Liberador de Especies Gen\uFFFDricas"
   Cost: 200
-  MeshFilter: {fileID: 0}
-  MeshRenderer: {fileID: 0}
+  MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
+  MeshRenderer: {fileID: 2100000, guid: 26ba4636fc5b2604e9b623d38f941e10, type: 2}
   ShopSprite: {fileID: 0}
   RangePattern: {fileID: 0}
   RestrictionType: 2
