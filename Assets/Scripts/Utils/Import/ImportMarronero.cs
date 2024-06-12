@@ -82,7 +82,7 @@ public class ImportMarronero : EditorWindow
 	{
 		var dict = new Dictionary<BiomeType, Biome.BiomeDTO>();
 
-		var lines = BiomeString().Split('\n');
+		var lines = BiomeString();
 
 		foreach (var line in lines)
 		{
@@ -120,7 +120,7 @@ public class ImportMarronero : EditorWindow
 	{
 		var dict = new Dictionary<EnviroConsequenceType, EnviroConsequence.EnviroConsequenceDTO>();
 
-		var lines = ConsequenceString().Split('\n');
+		var lines = ConsequenceString();
 
 		foreach (var line in lines)
 		{
@@ -226,7 +226,7 @@ public class ImportMarronero : EditorWindow
 	{
 		var dict = new Dictionary<MachineType, Machine.MachineDTO>();
 
-		var lines = MachineString().Split('\n');
+		var lines = MachineString();
 
 		foreach (var line in lines)
 		{
@@ -298,7 +298,6 @@ public class ImportMarronero : EditorWindow
 			}
 		}
 
-
 		return problems;
 	}
 
@@ -306,7 +305,7 @@ public class ImportMarronero : EditorWindow
 	{
 		var dict = new Dictionary<EnviroProblemType, EnviroProblem.EnviroProblemDTO>();
 
-		var lines = ProblemString().Split('\n');
+		var lines = ProblemString();
 
 		foreach (var line in lines)
 		{
@@ -388,7 +387,7 @@ public class ImportMarronero : EditorWindow
 	{
 		var dict = new Dictionary<EnviroAlterationType, EnviroAlteration.EnviroAlterationDTO>();
 
-		var lines = AlterationString().Split('\n');
+		var lines = AlterationString();
 
 		foreach (var line in lines)
 		{
@@ -423,11 +422,10 @@ public class ImportMarronero : EditorWindow
 	}
 
 
-    static string RawConsequencesEnum(string line)
+    static string RawConsequencesEnum(string[] lines)
 	{
 		var output = "public enum EnviroConsequenceType{";
 
-		var lines = line.Split('\n');
 		foreach (var consequence in lines)
 		{
 			if (string.IsNullOrEmpty(consequence))
@@ -445,11 +443,10 @@ public class ImportMarronero : EditorWindow
 		return output;
 	}
 
-	static string RawBiomesEnum(string line)
+	static string RawBiomesEnum(string[] lines)
 	{
 		var output = "public enum BiomeType{";
 
-		var lines = line.Split('\n');
 		foreach (var consequence in lines)
 		{
 			if (string.IsNullOrEmpty(consequence))
@@ -466,11 +463,10 @@ public class ImportMarronero : EditorWindow
 		return output;
 	}
 
-	static string RawProblemsEnum(string line)
+	static string RawProblemsEnum(string[] lines)
 	{
 		var output = "public enum EnviroProblemType{";
 
-		var lines = line.Split('\n');
 		foreach (var consequence in lines)
 		{
 			if (string.IsNullOrEmpty(consequence))
@@ -487,11 +483,10 @@ public class ImportMarronero : EditorWindow
 		return output;
 	}
 
-	static string RawAlterationsEnum(string line)
+	static string RawAlterationsEnum(string[] lines)
 	{
 		var output = "public enum EnviroAlterationType{";
 
-		var lines = line.Split('\n');
 		foreach (var consequence in lines)
 		{
 			if (string.IsNullOrEmpty(consequence))
@@ -508,11 +503,10 @@ public class ImportMarronero : EditorWindow
 		return output;
 	}
 
-	static string RawMachineEnum(string line)
+	static string RawMachineEnum(string[] lines)
 	{
 		var output = "public enum MachineType{";
 
-		var lines = line.Split('\n');
 		foreach (var consequence in lines)
 		{
 			if (string.IsNullOrEmpty(consequence))
@@ -529,36 +523,36 @@ public class ImportMarronero : EditorWindow
 		return output;
 	}
 
-    static string ConsequenceString()
+    static string[] ConsequenceString()
 	{
 		var csvName = "EnviroConsequence.csv";
 		
-        string consequences = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+        var consequences = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
 		//consequences += "name | Title | Description | EnviroConsequenceType | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
 		//consequences += "name | Title | Description | EnviroConsequenceType2 | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
 		consequences = consequences[1..];
 
-        return consequences.Replace("\r\n", "\n"); ;
+        return consequences;
 	}
 
-	static string BiomeString()
+	static string[] BiomeString()
 	{
         var csvName = "Biome.csv";
 
-        string biomes = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+        var biomes = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
         //biomes += "name | Type | Description | Mesh | Material | tilePrefab | biomeWeight | Sprite | EnviroAlterations \n";
         //biomes += "name | BiomeType | Description | Mesh | Material | tilePrefab | 1 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
         //biomes += "name | BiomeType2 | Description | Mesh | Material | tilePrefab | 2 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
         biomes = biomes[1..];
 
-        return biomes.Replace("\r\n", "\n");
+        return biomes;
 	}
 
-    static  string MachineString()
+    static string[] MachineString()
 	{
         var csvName = "Machine.csv";
 
-        string machines = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+        var machines = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
         //machines += "name  | TypeA | Cost | Mesh | Material | Sprite | RangePattern | OptimizationLevel | Description\n";
         /*machines += "name  | MachineTypeA | 1 | Mesh | Material | Sprite | RangePattern | 1 | BiomeType, BiomeType2| Description\n";
 		machines += "name  | MachineTypeB | 2 | Mesh | Material | Sprite | RangePattern | 2 | BiomeType       | Description\n";
@@ -567,33 +561,33 @@ public class ImportMarronero : EditorWindow
 		*/
         machines = machines[1..];
 
-        return machines.Replace("\r\n", "\n"); ;
+        return machines;
 	}
 
-    static  string ProblemString()
+    static string[] ProblemString()
 	{
         var csvName = "EnviroProblem.csv";
 
-        string problems = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+        var problems = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
         /*//problems += "name | Title | Description | EnviroProblemType | Wildlife| Sprite | color | TypeA, TypeD| EnviroConsequenceType,EnviroConsequenceType,|EnviroProblemType1\n";
 		problems += "name | Title | Description | EnviroProblemType | Wildlife| Sprite | color | MachineTypeA, MachineTypeD| EnviroConsequenceType2,EnviroConsequenceType,|EnviroProblemType1\n";
 		problems += "name | Title | Description | EnviroProblemType1 | Floor  | Sprite | color | MachineTypeB       |EnviroConsequenceType | EnviroProblemType, EnviroProblemType \n";
 		*/
         problems = problems[1..];
-        return problems.Replace("\r\n", "\n"); ;
+        return problems;
 	}
 
-    static string AlterationString()
+    static string[] AlterationString()
 	{
         var csvName = "EnviroAlteration.csv";
 
-        string alterations = File.ReadAllText(Path.Combine(fullDataPath, csvName));
+        var alterations = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
         /*alterations += "name | Title | Description; Description2; Description3 | EnviroAlterationType | Sprite,Sprite2 | Icon | color | BiomeType | EnviroProblemType1 \n";
 		alterations += "name2 | Title2 | Description; Description2; Description3 | EnviroAlterationType2 | Sprite,Sprite2 | Icon | color | BiomeType2 | EnviroProblemType1 \n";
 		*/
         alterations = alterations[1..];
 
-        return alterations.Replace("\r\n", "\n"); ;
+        return alterations;
 	}
 
     static string GetTypeTagName(string name)
