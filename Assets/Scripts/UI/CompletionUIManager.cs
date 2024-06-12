@@ -11,6 +11,7 @@ public class CompletionUIManager : MonoBehaviour
     [field: SerializeField] public List<Image> ProgressImages { get; private set; } = new();
     [field: SerializeField] public List<Scrollbar> ProgressScrolls { get; private set; } = new();
     [field: SerializeField] public List<TextMeshProUGUI> ProgressText { get; private set; } = new();
+    [field: SerializeField] public List<Image> CheckIcons { get; private set; }
     [field: SerializeField] public Image Icon { get; private set; }
     [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
 
@@ -44,11 +45,14 @@ public class CompletionUIManager : MonoBehaviour
             PhaseUI[i].alpha = 1.0f;
             PhaseUI[i].interactable = true;
             PhaseUI[i].blocksRaycasts = true;
-            var completion = BiomePhaseHandler.Instance.CurrentCompletion[problems[i]];
-            ProgressImages[i].fillAmount = completion;
-            ProgressScrolls[i].value =(completion == 0 ? 0 : 1 / completion);
+            var currentCompletion = BiomePhaseHandler.Instance.CurrentCompletion[problems[i]];
+            ProgressImages[i].fillAmount = (currentCompletion == 0 ? 0.0f : 1.0f / currentCompletion); ;
+            int maxCompletion = (int) BiomePhaseHandler.Instance.MaxCompletion[problems[i]];
+            ProgressScrolls[i].value = (float) maxCompletion / 100;
+            if (currentCompletion >= maxCompletion) CheckIcons[i].enabled = true;
+            else CheckIcons[i].enabled = false;
             ProgressScrolls[i].interactable = false;
-            ProgressText[i].text = completion + "%";
+            ProgressText[i].text = maxCompletion + "%";
         }
 
         for (int i = problems.Count; i < PhaseUI.Count; i++)
