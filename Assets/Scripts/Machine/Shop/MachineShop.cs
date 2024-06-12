@@ -40,35 +40,22 @@ public class MachineShop : MonoBehaviour
     public void PopulateShop(BiomeType biome)
     {
         _currentBiome = biome;
-        MachineHandler machineHandler = MachineHandler.Instance;
-        _allFilteredMachines = machineHandler.GetFilteredMachines();
-        var alterations = RelationHandler.Instance.GetFilteredAlterations();
-        var problems = RelationHandler.Instance.GetFilteredProblems();
-        foreach (var alteration in alterations) 
+        var machinesPerProblem = BiomePhaseHandler.Instance.MachinesPerProblem;
+        var curPhase = BiomePhaseHandler.Instance.CurrentPhasePerBiome[biome];
+        var possibleMachines = MachineHandler.Instance.GetFilteredMachines().Where( (Machine x) => (machinesPerProblem[curPhase.Type].Contains(x.Type))).ToList();
+        
+        for (int i = 0; i < _itemHolders.Length; i++)
         {
-            if (alteration.Biome == biome) 
+            if (i + _currentShopIndex < possibleMachines.Count)
             {
-                foreach (var problem in problems) 
-                {
-                    if (alteration.EnviroProblems.Contains(problem.Type)) 
-                    {
-                        var filteredMachines = _allFilteredMachines.Where((Machine x) => problem.PossibleSolutions.Contains(x.Type)).ToList();
-                        for (int i = 0; i < _itemHolders.Length; i++)
-                        {
-                            if (i + _currentShopIndex < filteredMachines.Count)
-                            {
-                                _itemHolders[i].EnableHolder();
-                                Machine machine = filteredMachines[i + _currentShopIndex];
-                                Debug.Log(machine.name);
-                                _itemHolders[i].SetMachine(machine);
-                            }
-                            else
-                            {
-                                _itemHolders[i].DisableHolder();
-                            }
-                        }
-                    }
-                }
+                _itemHolders[i].EnableHolder();
+                Machine machine = possibleMachines[i + _currentShopIndex];
+                Debug.Log(machine.name);
+                _itemHolders[i].SetMachine(machine);
+            }
+            else
+            {
+                _itemHolders[i].DisableHolder();
             }
         }
 

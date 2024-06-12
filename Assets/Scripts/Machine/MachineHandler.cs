@@ -10,6 +10,7 @@ public class MachineHandler : MonoBehaviour
     private readonly Dictionary<MachineType, Machine> _machines = new();
 
     public Dictionary<Vector2Int, PlaceableMachine> PlacedMachines = new();
+    public Dictionary<BiomeType, MachineType> MachinesPerBiome = new();
 
     [SerializeField] private List<MachineType> _machineFilters = new();
 
@@ -35,6 +36,7 @@ public class MachineHandler : MonoBehaviour
                     {
                         machine.CompatibleBiomes.Add(alteration.Biome);
                         _machines[machine.Type] = machine;
+                        MachinesPerBiome[alteration.Biome] = machine.Type;
                     }
                 }
             }

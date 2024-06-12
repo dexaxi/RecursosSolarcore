@@ -16,11 +16,11 @@ public class CompletionUIManager : MonoBehaviour
 
     public void Start()
     {
-        HidePopUp();
+        HideCompletionBar();
         CanvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void ShowPopUp(Biome biome)
+    public void ShowCompletionBar(Biome biome)
     {
         CanvasGroup.alpha = 1.0f;
         CanvasGroup.interactable = true;
@@ -28,7 +28,7 @@ public class CompletionUIManager : MonoBehaviour
         UpdateUI(biome);
     }
 
-    public void HidePopUp()
+    public void HideCompletionBar()
     {
         CanvasGroup.alpha = 0.0f;
         CanvasGroup.interactable = false;

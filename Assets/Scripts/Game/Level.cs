@@ -105,13 +105,15 @@ public class Level : ScriptableObject
 
     public void InitGameplayLevel() 
     {
+        BiomePhaseHandler.Instance.InitGameplay();
+
         MachineShop.Instance.PopulateShop(BiomeHandler.Instance.GetFilteredBiomes()[0].Type);
         MachineShop.Instance.EnableShop();
 
         PlayerCurrencyManager.Instance.AddCurrency(CalculateBudget());
         RelationUIManager.Instance.EnableBookButton();
 
-        BiomePhaseHandler.Instance.InitGameplay();
+        CompletionUIManager.Instance.ShowCompletionBar(BiomeHandler.Instance.GetFilteredBiomes()[0]);
     }
 
     private void GenerateMachineFilters() 

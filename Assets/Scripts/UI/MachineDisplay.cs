@@ -117,7 +117,7 @@ public class MachineDisplay : MonoBehaviour
         await UniTask.Delay(1);
         if (_machine != null) 
         {
-            transform.position = _machine.transform.position + new Vector3(0, 9, 0);
+            transform.position = _machine.transform.position + new Vector3(0, 8, 0);
             var camera = CameraManager.Instance.MainCamera;
             transform.LookAt(transform.position + camera.transform.rotation * -Vector3.back, camera.transform.rotation * Vector3.up);
         };
