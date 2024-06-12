@@ -7,6 +7,7 @@ public class Bookmark : MonoBehaviour
 {
     [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
     [field: SerializeField] public Image Image { get; private set; }
+    [field: SerializeField] public Image Icon { get; private set; }
     [field: SerializeField] public Button OpenBookButton { get; private set; }
 
     public BiomeType BiomeType { get; private set; }

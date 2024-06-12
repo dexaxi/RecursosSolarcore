@@ -1,6 +1,7 @@
 using AnKuchen.Map;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -18,6 +19,9 @@ public class BookUIManager : MonoBehaviour
     [field: SerializeField] private UICache exIconUICache = default;
     [field: SerializeField] private UICache diagnosticsTitleUICache = default;
     [field: SerializeField] private UICache diagnosticsInfoUICache= default;
+
+    [SerializeField] public Sprite IncompleteSprite;
+    [SerializeField] public Sprite CompleteSprite;
 
     private BookUiElements _bookUI;
 
@@ -124,7 +128,8 @@ public class BookUiElements : IMappedObject
     {
         List<EnviroProblemProvider> problems = _provider.EnviroProblems;
         var tmproCount = _diagnosticsInfoUI.Texts.Count;
-        var descriptionCount = _provider.EnviroProblems[0].AlterationDescriptionList.Count;
+        var descriptionCount = problems[0].AlterationDescriptionList.Count;
+
 
         if ((float) descriptionCount / tmproCount <= 1.0f)
         {
@@ -144,6 +149,13 @@ public class BookUiElements : IMappedObject
         _diagnosticsInfoUI.Scrollbar.size = 1.0f / _diagnosticsInfoUI.Scrollbar.numberOfSteps;
 
         int scrollbarVal = Mathf.RoundToInt(_diagnosticsInfoUI.Scrollbar.value + 0.01f * tmproCount);
+        
+        var problemTypes = new List<EnviroProblemType>();
+        foreach(var problem in problems) 
+        {
+            problemTypes.Add(problem.Type);
+        }
+        _exIconUI.UpdateExIcons(problemTypes);
 
         _diagnosticsTitleUI.Text.text = problems[0].AlterationTitle;
         for (int i = 0; i < tmproCount; i++)
@@ -151,6 +163,7 @@ public class BookUiElements : IMappedObject
             if (i + (scrollbarVal * tmproCount) >= descriptionCount) continue; 
             _diagnosticsInfoUI.Texts[i].text = problems[0].AlterationDescriptionList[i + (scrollbarVal * tmproCount)];
             _diagnosticsInfoUI.Sprites[i].sprite = problems[0].AlterationSpritesDescriptions[i + (scrollbarVal * tmproCount)];
+            _diagnosticsInfoUI.Sprites[i].enabled = true;
         }
 
         for (int i = 0; i < _diagnosticsInfoUI.Texts.Count; i++)
@@ -176,6 +189,9 @@ public class BookUiElements : IMappedObject
 
         for (int i = 0; i < _problemCount; i++)
         {
+            _dataUI[i].Section.enabled = true;
+            _dataUI[i].Text.enabled = true;
+            _dataUI[i].Icon.enabled = true;
             _dataUI[i].Section.text = _provider.GetEnviroProblemSectionString(problems[i].Section);
             _dataUI[i].Text.text = problems[i].Title;
             _dataUI[i].Icon.sprite = problems[i].ProblemIcon;
@@ -280,6 +296,31 @@ public class ExIconsUiElements : IMappedObject
         ExIcons.Add(mapper.Get<Image>("Ex_Icon1"));
         ExIcons.Add(mapper.Get<Image>("Ex_Icon2"));
         ExIcons.Add(mapper.Get<Image>("Ex_Icon3"));
+    }
+
+    public void UpdateExIcons(List<EnviroProblemType> problems) 
+    {
+        int i = 0;
+        foreach (var problem in problems) 
+        {
+            int curCompletion = 0;
+            ExIcons[i].enabled = true;
+            bool hasVal = BiomePhaseHandler.Instance.CurrentCompletion.TryGetValue(problem, out curCompletion);
+            if (hasVal && curCompletion >= 100)
+            {
+                ExIcons[i].sprite = BookUIManager.Instance.CompleteSprite;
+            }
+            else 
+            {
+                ExIcons[i].sprite = BookUIManager.Instance.IncompleteSprite;
+            }
+            i++;
+        }
+
+        for (int j = problems.Count; j < ExIcons.Count; j++) 
+        {
+            ExIcons[j].enabled = false;
+        }
     }
 }
 

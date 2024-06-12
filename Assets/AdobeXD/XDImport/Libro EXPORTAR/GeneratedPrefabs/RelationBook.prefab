@@ -621,6 +621,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6389640768213522379, guid: a727dd500d2391740934e7e9201a1447, type: 3}
+      propertyPath: CompleteSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3494dc956dfd7174abc07060940a2848, type: 3}
+    - target: {fileID: 6389640768213522379, guid: a727dd500d2391740934e7e9201a1447, type: 3}
+      propertyPath: IncompleteSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eb4800f384fb42145ba4df15ff692cd0, type: 3}
     - target: {fileID: 7256889894987047752, guid: a727dd500d2391740934e7e9201a1447, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -907,6 +915,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 898961891063585178}
     m_Modifications:
+    - target: {fileID: 411602949, guid: 0f425e887ba9a5946a62cd6c568041c1, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 182850460488868476, guid: 0f425e887ba9a5946a62cd6c568041c1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

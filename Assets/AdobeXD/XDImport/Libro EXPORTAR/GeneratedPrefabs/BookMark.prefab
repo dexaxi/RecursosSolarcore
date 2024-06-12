@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CanvasGroup>k__BackingField: {fileID: 6018461656495537936}
   <Image>k__BackingField: {fileID: 1134377759644467948}
+  <Icon>k__BackingField: {fileID: 5600507220873817234}
   <OpenBookButton>k__BackingField: {fileID: 7029390055654754060}
 --- !u!1 &4249612127663733086
 GameObject:

@@ -19,6 +19,7 @@ public class BookmarkManager : MonoBehaviour
             bookmarks[i].CanvasGroup.interactable = true;
             bookmarks[i].CanvasGroup.blocksRaycasts = true;
             bookmarks[i].Image.sprite = EnabledBookmark;
+            bookmarks[i].Icon.sprite = biomes[i].Sprite;
         }
 
         for (int i = biomes.Count; i < bookmarks.Count; i++) 
