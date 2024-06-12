@@ -17,8 +17,8 @@ MonoBehaviour:
   title: "Enriquecedor Qu\xEDmico y Mec\xE1nico"
   Description: "Enriquecedor Qu\xEDmico y Mec\xE1nico"
   Cost: 500
-  MeshFilter: {fileID: 0}
-  MeshRenderer: {fileID: 0}
+  MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
+  MeshRenderer: {fileID: 2100000, guid: 7a4f6cd6256bf284f98c5f34ca69b77e, type: 2}
   ShopSprite: {fileID: 0}
   RangePattern: {fileID: 0}
   RestrictionType: 2

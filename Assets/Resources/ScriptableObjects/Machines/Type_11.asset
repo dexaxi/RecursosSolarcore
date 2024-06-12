@@ -17,8 +17,8 @@ MonoBehaviour:
   title: Corrector de pH y Arado
   Description: Corrector de pH y Arado
   Cost: 450
-  MeshFilter: {fileID: 0}
-  MeshRenderer: {fileID: 0}
+  MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
+  MeshRenderer: {fileID: 2100000, guid: 91c7324234b4bec44a633f9974f6ed07, type: 2}
   ShopSprite: {fileID: 0}
   RangePattern: {fileID: 0}
   RestrictionType: 0

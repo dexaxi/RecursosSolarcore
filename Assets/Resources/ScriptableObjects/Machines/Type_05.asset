@@ -17,8 +17,8 @@ MonoBehaviour:
   title: "Dispersador de Semillas Gen\xE9ricas"
   Description: "Dispersador de Semillas Gen\xE9ricas"
   Cost: 450
-  MeshFilter: {fileID: 0}
-  MeshRenderer: {fileID: 0}
+  MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
+  MeshRenderer: {fileID: 2100000, guid: cdeaccc942f4ad94c93b5913c4d75ac8, type: 2}
   ShopSprite: {fileID: 0}
   RangePattern: {fileID: 2800000, guid: 5400f279c81d5e94ab0f3a42304a9e30, type: 3}
   RestrictionType: 1
