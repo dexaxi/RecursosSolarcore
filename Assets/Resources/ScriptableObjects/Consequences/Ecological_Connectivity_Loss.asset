@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ecological_Connectivity_Loss
   m_EditorClassIdentifier: 
   name: Ecological_Connectivity_Loss
-  Title: Ecological Connectivity Loss
-  Description: Ecological Connectivity Loss
+  Title: "P\xE9rdida de la conectividad ecol\xF3gica"
+  Description: "P\xE9rdida de la conectividad ecol\xF3gica"
   Type: 5
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

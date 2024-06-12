@@ -1,19 +1,19 @@
 Name|Type|Title|Description|Cost|Mesh|Material|ShopSprite|Pattern|Restriction|Restriction Tier|Completion Modifier
-ReconstructorSueloOrganico|Type_01|Reconstructor de suelo orgánico|Reconstructor de suelo orgánico|500|Machines/ReconstructorSueloOrganico_mesh|Machines/ReconstructorSueloOrganico_material|ReconstructorSueloOrganico_sprite||No_Restriction|1|100
-AplicadorEnmiendasQuimicas|Type_02|Aplicador de Enmiendas Químicas|Aplicador de Enmiendas Químicas|200|Type_02_mesh|Type_02_material|Type_02_sprite||No_Restriction|1|50
+ReconstructorSueloOrganico|Type_01|Reconstructor de suelo orgÃ¡nico|Reconstructor de suelo orgÃ¡nico|500|Machines/ReconstructorSueloOrganico_mesh|Machines/ReconstructorSueloOrganico_material|ReconstructorSueloOrganico_sprite||No_Restriction|1|100
+AplicadorEnmiendasQuimicas|Type_02|Aplicador de Enmiendas QuÃ­micas|Aplicador de Enmiendas QuÃ­micas|200|Type_02_mesh|Type_02_material|Type_02_sprite||No_Restriction|1|50
 RecicladorResiduosVegetales|Type_03|Reciclador de Residuos Vegetales|Reciclador de Residuos Vegetales|300|Type_03_mesh|Type_03_material|Type_03_sprite|3x3_MachinePattern|Limited_Placing|2|60
 PlantadorEspeciesNativas|Type_04|Plantador de Especies Nativas|Plantador de Especies Nativas|400|Type_04_mesh|Type_04_material|Type_04_sprite||Gambling|0|70
-DispersadorSemillasGenericas|Type_05|Dispersador de Semillas Genéricas|Dispersador de Semillas Genéricas|450|Type_05_mesh|Type_05_material|Type_05_sprite|3x3_MachinePattern|Limited_Placing|2|80
-HidrosiembraAutomatica|Type_06|Hidrosiembra Automática|Hidrosiembra Automática|500|Type_06_mesh|Type_06_material|Type_06_sprite||Gambling|1|90
-ReintroduccionFaunaAsistida|Type_07|Reintroducción de Fauna Asistida|Reintroducción de Fauna Asistida|150|Type_07_mesh|Type_07_material|Type_07_sprite||No_Restriction|1|40
-LiberadorEspeciesGenéricas|Type_08|Liberador de Especies Genéricas|Liberador de Especies Genéricas|200|Type_08_mesh|Type_08_material|Type_08_sprite||Gambling|0|50
-InstaladorCorredoresEcologicos|Type_09|Instalador de Corredores Ecológicos|Instalador de Corredores Ecológicos|300|Type_09_mesh|Type_09_material|Type_09_sprite|BigCross_MachinePattern|Limited_Placing|1|60
-DescompactadorBiologico|Type_10|Descompactador Biológico|Descompactador Biológico|400|Type_10_mesh|Type_10_material|Type_10_sprite||Gambling|1|40
+DispersadorSemillasGenericas|Type_05|Dispersador de Semillas GenÃ©ricas|Dispersador de Semillas GenÃ©ricas|450|Type_05_mesh|Type_05_material|Type_05_sprite|3x3_MachinePattern|Limited_Placing|2|80
+HidrosiembraAutomatica|Type_06|Hidrosiembra AutomÃ¡tica|Hidrosiembra AutomÃ¡tica|500|Type_06_mesh|Type_06_material|Type_06_sprite||Gambling|1|90
+ReintroduccionFaunaAsistida|Type_07|ReintroducciÃ³n de Fauna Asistida|ReintroducciÃ³n de Fauna Asistida|150|Type_07_mesh|Type_07_material|Type_07_sprite||No_Restriction|1|40
+LiberadorEspeciesGenÃ©ricas|Type_08|Liberador de Especies GenÃ©ricas|Liberador de Especies GenÃ©ricas|200|Type_08_mesh|Type_08_material|Type_08_sprite||Gambling|0|50
+InstaladorCorredoresEcologicos|Type_09|Instalador de Corredores EcolÃ³gicos|Instalador de Corredores EcolÃ³gicos|300|Type_09_mesh|Type_09_material|Type_09_sprite|BigCross_MachinePattern|Limited_Placing|1|60
+DescompactadorBiologico|Type_10|Descompactador BiolÃ³gico|Descompactador BiolÃ³gico|400|Type_10_mesh|Type_10_material|Type_10_sprite||Gambling|1|40
 CorrectorpHArado|Type_11|Corrector de pH y Arado|Corrector de pH y Arado|450|Type_11_mesh|Type_11_material|Type_11_sprite||No_Restriction|1|50
-EnriquecedorQuimicoMecanico|Type_12|Enriquecedor Químico y Mecánico|Enriquecedor Químico y Mecánico|500|Type_12_mesh|Type_12_material|Type_12_sprite||Gambling|0|60
+EnriquecedorQuimicoMecanico|Type_12|Enriquecedor QuÃ­mico y MecÃ¡nico|Enriquecedor QuÃ­mico y MecÃ¡nico|500|Type_12_mesh|Type_12_material|Type_12_sprite||Gambling|0|60
 PlantadorEspeciesNativas|Type_13|Plantador de Especies Nativas|Plantador de Especies Nativas|150|Type_13_mesh|Type_13_material|Type_13_sprite||Gambling|1|70
 DispersadorSemillasMixtas|Type_14|Dispersador de Semillas Mixtas|Dispersador de Semillas Mixtas|200|Type_14_mesh|Type_14_material|Type_14_sprite|Cross_MachinePattern|Limited_Placing|5|80
-HidrosiembraAutomatica|Type_15|Hidrosiembra Automática|Hidrosiembra Automática|300|Type_15_mesh|Type_15_material|Type_15_sprite||Gambling|1|90
-ReintroduccionInvertebrados|Type_16|Reintroducción de Invertebrados|Reintroducción de Invertebrados|400|Type_16_mesh|Type_16_material|Type_16_sprite||Gambling|1|60
+HidrosiembraAutomatica|Type_15|Hidrosiembra AutomÃ¡tica|Hidrosiembra AutomÃ¡tica|300|Type_15_mesh|Type_15_material|Type_15_sprite||Gambling|1|90
+ReintroduccionInvertebrados|Type_16|ReintroducciÃ³n de Invertebrados|ReintroducciÃ³n de Invertebrados|400|Type_16_mesh|Type_16_material|Type_16_sprite||Gambling|1|60
 EnriquecedorHumus|Type_17|Enriquecedor de Humus|Enriquecedor de Humus|450|Type_17_mesh|Type_17_material|Type_17_sprite|BigCross_MachinePattern|Limited_Placing|1|70
-InstaladorHabitatsSubterráneos|Type_18|Instalador de Hábitats Subterráneos|Instalador de Hábitats Subterráneos|500|Type_18_mesh|Type_18_material|Type_18_sprite||Gambling|1|80
+InstaladorHabitatsSubterrÃ¡neos|Type_18|Instalador de HÃ¡bitats SubterrÃ¡neos|Instalador de HÃ¡bitats SubterrÃ¡neos|500|Type_18_mesh|Type_18_material|Type_18_sprite||Gambling|1|80

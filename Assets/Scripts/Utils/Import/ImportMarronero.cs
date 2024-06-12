@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using UnityEditor;
 using UnityEditor.VersionControl;
 using UnityEngine;
@@ -543,7 +544,7 @@ public class ImportMarronero : EditorWindow
 	{
 		var csvName = "EnviroConsequence.csv";
 		
-        var consequences = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
+        var consequences = File.ReadAllLines(Path.Combine(fullDataPath, csvName), Encoding.UTF8);
 		//consequences += "name | Title | Description | EnviroConsequenceType | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
 		//consequences += "name | Title | Description | EnviroConsequenceType2 | Sprite | color | EnviroProblemType,EnviroProblemType1,\n";
 		consequences = consequences[1..];
@@ -555,7 +556,7 @@ public class ImportMarronero : EditorWindow
 	{
         var csvName = "Biome.csv";
 
-        var biomes = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
+        var biomes = File.ReadAllLines(Path.Combine(fullDataPath, csvName), Encoding.UTF8);
         //biomes += "name | Type | Description | Mesh | Material | tilePrefab | biomeWeight | Sprite | EnviroAlterations \n";
         //biomes += "name | BiomeType | Description | Mesh | Material | tilePrefab | 1 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
         //biomes += "name | BiomeType2 | Description | Mesh | Material | tilePrefab | 2 | Sprite | EnviroAlterationType, EnviroAlterationType2 \n";
@@ -568,7 +569,7 @@ public class ImportMarronero : EditorWindow
 	{
         var csvName = "Machine.csv";
 
-        var machines = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
+        var machines = File.ReadAllLines(Path.Combine(fullDataPath, csvName), Encoding.UTF8);
         //machines += "name  | TypeA | Cost | Mesh | Material | Sprite | RangePattern | OptimizationLevel | Description\n";
         /*machines += "name  | MachineTypeA | 1 | Mesh | Material | Sprite | RangePattern | 1 | BiomeType, BiomeType2| Description\n";
 		machines += "name  | MachineTypeB | 2 | Mesh | Material | Sprite | RangePattern | 2 | BiomeType       | Description\n";
@@ -584,7 +585,7 @@ public class ImportMarronero : EditorWindow
 	{
         var csvName = "EnviroProblem.csv";
 
-        var problems = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
+        var problems = File.ReadAllLines(Path.Combine(fullDataPath, csvName), Encoding.UTF8);
         /*//problems += "name | Title | Description | EnviroProblemType | Wildlife| Sprite | color | TypeA, TypeD| EnviroConsequenceType,EnviroConsequenceType,|EnviroProblemType1\n";
 		problems += "name | Title | Description | EnviroProblemType | Wildlife| Sprite | color | MachineTypeA, MachineTypeD| EnviroConsequenceType2,EnviroConsequenceType,|EnviroProblemType1\n";
 		problems += "name | Title | Description | EnviroProblemType1 | Floor  | Sprite | color | MachineTypeB       |EnviroConsequenceType | EnviroProblemType, EnviroProblemType \n";
@@ -597,7 +598,7 @@ public class ImportMarronero : EditorWindow
 	{
         var csvName = "EnviroAlteration.csv";
 
-        var alterations = File.ReadAllLines(Path.Combine(fullDataPath, csvName));
+        var alterations = File.ReadAllLines(Path.Combine(fullDataPath, csvName), Encoding.UTF8);
         /*alterations += "name | Title | Description; Description2; Description3 | EnviroAlterationType | Sprite,Sprite2 | Icon | color | BiomeType | EnviroProblemType1 \n";
 		alterations += "name2 | Title2 | Description; Description2; Description3 | EnviroAlterationType2 | Sprite,Sprite2 | Icon | color | BiomeType2 | EnviroProblemType1 \n";
 		*/

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Invertebrate_Species_Loss
   m_EditorClassIdentifier: 
   name: Invertebrate_Species_Loss
-  Title: "Reducci\uFFFDn de cantidad de invertebrados del suelo"
-  Description: "Reducci\uFFFDn de cantidad de invertebrados del suelo"
+  Title: "Reducci\xF3n de cantidad de invertebrados del suelo"
+  Description: "Reducci\xF3n de cantidad de invertebrados del suelo"
   Type: 6
   Section: 1
   Phase: 1

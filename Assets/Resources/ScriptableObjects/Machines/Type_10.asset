@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: DescompactadorBiologico
   Type: 9
-  title: "Descompactador Biol\uFFFDgico"
-  Description: "Descompactador Biol\uFFFDgico"
+  title: "Descompactador Biol\xF3gico"
+  Description: "Descompactador Biol\xF3gico"
   Cost: 400
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

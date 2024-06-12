@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ashes
   m_EditorClassIdentifier: 
   name: Ashes
-  Title: "Reducci\uFFFDn de materia org\uFFFDnica y presencia de cenizas"
-  Description: "Reducci\uFFFDn de materia org\uFFFDnica y presencia de cenizas"
+  Title: "Reducci\xF3n de materia org\xE1nica y presencia de cenizas"
+  Description: "Reducci\xF3n de materia org\xE1nica y presencia de cenizas"
   Type: 2
   Section: 0
   Phase: 0

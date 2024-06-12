@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Water_Species_Decrease
   m_EditorClassIdentifier: 
   name: Water_Species_Decrease
-  Title: "Disminuci\uFFFDn en la poblaci\uFFFDn de especies acuaticas"
-  Description: "Disminuci\uFFFDn en la poblaci\uFFFDn de especies acuaticas"
+  Title: "Disminuci\xF3n en la poblaci\xF3n de especies acuaticas"
+  Description: "Disminuci\xF3n en la poblaci\xF3n de especies acuaticas"
   Type: 21
   Section: 1
   Phase: -1

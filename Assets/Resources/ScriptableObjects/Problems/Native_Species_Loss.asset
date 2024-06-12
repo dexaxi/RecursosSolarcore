@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Native_Species_Loss
   m_EditorClassIdentifier: 
   name: Native_Species_Loss
-  Title: "Disminuci\uFFFDn de especies de animales"
-  Description: "Disminuci\uFFFDn de especies de animales"
+  Title: "Disminuci\xF3n de especies de animales"
+  Description: "Disminuci\xF3n de especies de animales"
   Type: 7
   Section: 1
   Phase: 2

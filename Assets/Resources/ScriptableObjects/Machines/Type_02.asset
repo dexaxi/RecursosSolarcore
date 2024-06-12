@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: AplicadorEnmiendasQuimicas
   Type: 1
-  title: "Aplicador de Enmiendas Qu\uFFFDmicas"
-  Description: "Aplicador de Enmiendas Qu\uFFFDmicas"
+  title: "Aplicador de Enmiendas Qu\xEDmicas"
+  Description: "Aplicador de Enmiendas Qu\xEDmicas"
   Cost: 200
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

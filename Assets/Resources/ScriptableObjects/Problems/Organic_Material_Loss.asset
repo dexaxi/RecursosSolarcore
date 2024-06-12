@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Organic_Material_Loss
   m_EditorClassIdentifier: 
   name: Organic_Material_Loss
-  Title: "Disminuci\uFFFDn de ra\uFFFDces y materia org\uFFFDnica"
-  Description: "Disminuci\uFFFDn de ra\uFFFDces y materia org\uFFFDnica"
+  Title: "Disminuci\xF3n de ra\xEDces y materia org\xE1nica"
+  Description: "Disminuci\xF3n de ra\xEDces y materia org\xE1nica"
   Type: 8
   Section: 0
   Phase: 0

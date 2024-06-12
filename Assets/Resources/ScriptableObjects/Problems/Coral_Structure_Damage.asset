@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Coral_Structure_Damage
   m_EditorClassIdentifier: 
   name: Coral_Structure_Damage
-  Title: "Da\uFFFDo a las estructuras de los corales"
-  Description: "Da\uFFFDo a las estructuras de los corales"
+  Title: "Da\xF1o a las estructuras de los corales"
+  Description: "Da\xF1o a las estructuras de los corales"
   Type: 4
   Section: 1
   Phase: 0

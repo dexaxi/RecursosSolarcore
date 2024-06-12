@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Vegetation_Loss_Herbivores
   m_EditorClassIdentifier: 
   name: Vegetation_Loss_Herbivores
-  Title: "Degradaci\uFFFDn de la vegetaci\uFFFDn (por exceso de herb\uFFFDvoros)"
-  Description: "Degradaci\uFFFDn de la vegetaci\uFFFDn (por exceso de herb\uFFFDvoros)"
+  Title: "Degradaci\xF3n de la vegetaci\xF3n (por exceso de herb\xEDvoros)"
+  Description: "Degradaci\xF3n de la vegetaci\xF3n (por exceso de herb\xEDvoros)"
   Type: 23
   Section: 2
   Phase: 1

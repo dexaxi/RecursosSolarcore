@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: EnriquecedorQuimicoMecanico
   Type: 11
-  title: "Enriquecedor Qu\uFFFDmico y Mec\uFFFDnico"
-  Description: "Enriquecedor Qu\uFFFDmico y Mec\uFFFDnico"
+  title: "Enriquecedor Qu\xEDmico y Mec\xE1nico"
+  Description: "Enriquecedor Qu\xEDmico y Mec\xE1nico"
   Cost: 500
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

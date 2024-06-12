@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: InstaladorCorredoresEcologicos
   Type: 8
-  title: "Instalador de Corredores Ecol\uFFFDgicos"
-  Description: "Instalador de Corredores Ecol\uFFFDgicos"
+  title: "Instalador de Corredores Ecol\xF3gicos"
+  Description: "Instalador de Corredores Ecol\xF3gicos"
   Cost: 300
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

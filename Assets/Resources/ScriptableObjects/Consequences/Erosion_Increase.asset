@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Erosion_Increase
   m_EditorClassIdentifier: 
   name: Erosion_Increase
-  Title: "Aumento de la erosi\uFFFDn"
-  Description: "Aumento de la erosi\uFFFDn"
+  Title: "Aumento de la erosi\xF3n"
+  Description: "Aumento de la erosi\xF3n"
   Type: 7
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

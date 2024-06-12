@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: ReintroduccionFaunaAsistida
   Type: 6
-  title: "Reintroducci\uFFFDn de Fauna Asistida"
-  Description: "Reintroducci\uFFFDn de Fauna Asistida"
+  title: "Reintroducci\xF3n de Fauna Asistida"
+  Description: "Reintroducci\xF3n de Fauna Asistida"
   Cost: 150
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

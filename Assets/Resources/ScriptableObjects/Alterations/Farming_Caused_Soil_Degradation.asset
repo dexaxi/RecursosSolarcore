@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Farming_Caused_Soil_Degradation
   m_EditorClassIdentifier: 
   name: Farming_Caused_Soil_Degradation
-  Title: "Degradaci\uFFFDn del suelo (por agricultura intensiva)"
+  Title: "Degradaci\xF3n del suelo (por agricultura intensiva)"
   DescriptionList:
   - Farming_Caused_Soil_Degradation1
   - Farming_Caused_Soil_Degradation2

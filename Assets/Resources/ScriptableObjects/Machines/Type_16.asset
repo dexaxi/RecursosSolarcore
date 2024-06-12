@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: ReintroduccionInvertebrados
   Type: 15
-  title: "Reintroducci\uFFFDn de Invertebrados"
-  Description: "Reintroducci\uFFFDn de Invertebrados"
+  title: "Reintroducci\xF3n de Invertebrados"
+  Description: "Reintroducci\xF3n de Invertebrados"
   Cost: 400
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}
