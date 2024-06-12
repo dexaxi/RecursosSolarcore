@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Agriculture_Production_Worsening
   m_EditorClassIdentifier: 
   name: Agriculture_Production_Worsening
-  Title: Agriculture Production Worsening
-  Description: Agriculture_Production_Worsening
+  Title: Perdida de la fertilidad del suelo
+  Description: Perdida de la fertilidad del suelo
   Type: 0
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

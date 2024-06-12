@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Water_Species_Behaviour_Change
   m_EditorClassIdentifier: 
   name: Water_Species_Behaviour_Change
-  Title: Water Species Behaviour Change
-  Description: Water_Species_Behaviour_Change
+  Title: Cambio en el comportamiento de las especies marinas
+  Description: Cambio en el comportamiento de las especies marinas
   Type: 18
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

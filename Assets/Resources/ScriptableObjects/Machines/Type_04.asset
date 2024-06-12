@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_04
   m_EditorClassIdentifier: 
-  name: Type_04
+  name: PlantadorEspeciesNativas
   Type: 3
-  title: Type 04
-  Description: Type04
+  title: Plantador de Especies Nativas
+  Description: Plantador de Especies Nativas
   Cost: 400
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

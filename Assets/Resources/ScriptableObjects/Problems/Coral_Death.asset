@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Coral_Death
   m_EditorClassIdentifier: 
   name: Coral_Death
-  Title: Coral Death
-  Description: Coral_Death
+  Title: Blanqueo y mortalidad de los corales
+  Description: Blanqueo y mortalidad de los corales
   Type: 3
   Section: 1
   Phase: 1
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 01000000030000000a00000014000000
+  PossibleSolutions: 
   RelatedConsecuences: 0200000003000000
-  RelatedProblems: 0f000000
+  RelatedProblems: 

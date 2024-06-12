@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ecosystem_Structure_Alterations
   m_EditorClassIdentifier: 
   name: Ecosystem_Structure_Alterations
-  Title: Ecosystem Structure Alterations
-  Description: Ecosystem_Structure_Alterations
+  Title: Cambio en la estructura del ecosistema
+  Description: Cambio en la estructura del ecosistema
   Type: 6
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

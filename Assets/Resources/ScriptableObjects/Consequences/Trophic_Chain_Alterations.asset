@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Trophic_Chain_Alterations
   m_EditorClassIdentifier: 
   name: Trophic_Chain_Alterations
-  Title: Trophic Chain Alterations
-  Description: Trophic_Chain_Alterations
+  Title: "Alteraci\uFFFDn de la cadena tr\uFFFDfica"
+  Description: "Alteraci\uFFFDn de la cadena tr\uFFFDfica"
   Type: 10
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

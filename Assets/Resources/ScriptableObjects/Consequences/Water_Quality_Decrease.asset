@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Water_Quality_Decrease
   m_EditorClassIdentifier: 
   name: Water_Quality_Decrease
-  Title: Water Quality Decrease
-  Description: Water_Quality_Decrease
+  Title: "Disminuci\uFFFDn en la calidad del agua"
+  Description: "Disminuci\uFFFDn en la calidad del agua"
   Type: 12
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

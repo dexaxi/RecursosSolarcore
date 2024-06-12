@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Organic_Material_Loss
   m_EditorClassIdentifier: 
   name: Organic_Material_Loss
-  Title: Organic Material Loss
-  Description: Organic_Material_Loss
+  Title: "Perdida de materia org\uFFFDnica"
+  Description: "Perdida de materia org\uFFFDnica"
   Type: 15
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

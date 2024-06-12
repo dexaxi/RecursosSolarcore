@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_01
   m_EditorClassIdentifier: 
-  name: Type_01
+  name: ReconstructorSueloOrganico
   Type: 0
-  title: Type 01
-  Description: Type01
-  Cost: 150
-  MeshFilter: {fileID: 0}
+  title: "Reconstructor de suelo org\uFFFDnico"
+  Description: "Reconstructor de suelo org\uFFFDnico"
+  Cost: 500
+  MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 0}
   ShopSprite: {fileID: 0}
-  RangePattern: {fileID: 2800000, guid: 5400f279c81d5e94ab0f3a42304a9e30, type: 3}
-  RestrictionType: 1
-  RestrictionTier: 2
-  CompletionRateModifier: 40
+  RangePattern: {fileID: 0}
+  RestrictionType: 0
+  RestrictionTier: 1
+  CompletionRateModifier: 100
   PatternType: 0
   CompatibleBiomes: 

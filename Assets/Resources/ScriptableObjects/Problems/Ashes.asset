@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Ashes
   m_EditorClassIdentifier: 
   name: Ashes
-  Title: Ashes
-  Description: Ashes
+  Title: "Reducci\uFFFDn de materia org\uFFFDnica y presencia de cenizas"
+  Description: "Reducci\uFFFDn de materia org\uFFFDnica y presencia de cenizas"
   Type: 2
   Section: 0
   Phase: 0
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 0c000000210000001800000014000000
+  PossibleSolutions: 
   RelatedConsecuences: 02000000090000000800000007000000
   RelatedProblems: 

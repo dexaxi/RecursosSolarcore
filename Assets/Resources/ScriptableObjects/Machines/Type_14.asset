@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_14
   m_EditorClassIdentifier: 
-  name: Type_14
+  name: DispersadorSemillasMixtas
   Type: 13
-  title: Type 14
-  Description: Type14
+  title: Dispersador de Semillas Mixtas
+  Description: Dispersador de Semillas Mixtas
   Cost: 200
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Vegetation_Loss
   m_EditorClassIdentifier: 
   name: Vegetation_Loss
-  Title: Vegetation Loss
-  Description: Vegetation_Loss
+  Title: "Reducci\uFFFDn de especies nativas de plantas"
+  Description: "Reducci\uFFFDn de especies nativas de plantas"
   Type: 19
   Section: 2
   Phase: 1
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 0c000000210000001800000014000000
+  PossibleSolutions: 030000000400000005000000
   RelatedConsecuences: 02000000
-  RelatedProblems: 
+  RelatedProblems: 0800000007000000

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Native_Species_Loss
   m_EditorClassIdentifier: 
   name: Native_Species_Loss
-  Title: Native Species Loss
-  Description: Native_Species_Loss
+  Title: "Disminuci\uFFFDn de especies animales"
+  Description: "Disminuci\uFFFDn de especies animales"
   Type: 17
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

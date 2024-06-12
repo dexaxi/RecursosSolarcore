@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Biodiversity_Loss
   m_EditorClassIdentifier: 
   name: Biodiversity_Loss
-  Title: Biodiversity Loss
-  Description: Biodiversity_Loss
+  Title: Perdida de biodiversidad
+  Description: Perdida de biodiversidad
   Type: 2
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

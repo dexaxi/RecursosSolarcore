@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_10
   m_EditorClassIdentifier: 
-  name: Type_10
+  name: DescompactadorBiologico
   Type: 9
-  title: Type 10
-  Description: Type10
+  title: "Descompactador Biol\uFFFDgico"
+  Description: "Descompactador Biol\uFFFDgico"
   Cost: 400
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

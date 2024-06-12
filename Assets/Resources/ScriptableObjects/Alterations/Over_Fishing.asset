@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Over_Fishing
   m_EditorClassIdentifier: 
   name: Over_Fishing
-  Title: Over Fishing
+  Title: Sobrepesca
   DescriptionList:
   - Over_Fishing1
   - Over_Fishing2
@@ -26,4 +26,4 @@ MonoBehaviour:
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   Biome: 0
-  EnviroProblems: 040000000c000000
+  EnviroProblems: 040000000c00000015000000

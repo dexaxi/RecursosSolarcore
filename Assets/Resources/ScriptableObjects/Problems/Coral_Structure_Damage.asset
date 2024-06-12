@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Coral_Structure_Damage
   m_EditorClassIdentifier: 
   name: Coral_Structure_Damage
-  Title: Coral Structure Damage
-  Description: Coral_Structure_Damage
+  Title: "Da\uFFFDo a las estructuras de los corales"
+  Description: "Da\uFFFDo a las estructuras de los corales"
   Type: 4
   Section: 1
   Phase: 0
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 01000000030000000a00000014000000
-  RelatedConsecuences: 
-  RelatedProblems: 
+  PossibleSolutions: 
+  RelatedConsecuences: 0200000003000000
+  RelatedProblems: 15000000

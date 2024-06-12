@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_03
   m_EditorClassIdentifier: 
-  name: Type_03
+  name: RecicladorResiduosVegetales
   Type: 2
-  title: Type 03
-  Description: Type03
+  title: Reciclador de Residuos Vegetales
+  Description: Reciclador de Residuos Vegetales
   Cost: 300
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

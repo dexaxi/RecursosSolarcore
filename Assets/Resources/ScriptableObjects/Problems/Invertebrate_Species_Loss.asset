@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Invertebrate_Species_Loss
   m_EditorClassIdentifier: 
   name: Invertebrate_Species_Loss
-  Title: Invertebrate Species Loss
-  Description: Invertebrate_Species_Loss
+  Title: "Reducci\uFFFDn de cantidad de invertebrados del suelo"
+  Description: "Reducci\uFFFDn de cantidad de invertebrados del suelo"
   Type: 6
   Section: 1
   Phase: 1
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 00000000020000000900000013000000
+  PossibleSolutions: 0f0000001000000011000000
   RelatedConsecuences: 02000000
-  RelatedProblems: 000000000d000000
+  RelatedProblems: 

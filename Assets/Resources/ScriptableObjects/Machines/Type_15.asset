@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_15
   m_EditorClassIdentifier: 
-  name: Type_15
+  name: HidrosiembraAutomatica
   Type: 14
-  title: Type 15
-  Description: Type15
+  title: "Hidrosiembra Autom\uFFFDtica"
+  Description: "Hidrosiembra Autom\uFFFDtica"
   Cost: 300
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

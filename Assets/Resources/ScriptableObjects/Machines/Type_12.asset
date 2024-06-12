@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_12
   m_EditorClassIdentifier: 
-  name: Type_12
+  name: EnriquecedorQuimicoMecanico
   Type: 11
-  title: Type 12
-  Description: Type12
+  title: "Enriquecedor Qu\uFFFDmico y Mec\uFFFDnico"
+  Description: "Enriquecedor Qu\uFFFDmico y Mec\uFFFDnico"
   Cost: 500
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

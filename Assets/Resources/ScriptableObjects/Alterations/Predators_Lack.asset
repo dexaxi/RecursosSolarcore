@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Predators_Lack
   m_EditorClassIdentifier: 
   name: Predators_Lack
-  Title: Predators Lack
+  Title: Falta de depredadores
   DescriptionList:
   - Predators_Lack1
   - Predators_Lack2

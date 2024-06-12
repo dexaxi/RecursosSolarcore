@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Herbivore_Increase
   m_EditorClassIdentifier: 
   name: Herbivore_Increase
-  Title: Herbivore Increase
-  Description: Herbivore_Increase
+  Title: "Aumento de la poblaci\uFFFDn de herb\uFFFDvoros"
+  Description: "Aumento de la poblaci\uFFFDn de herb\uFFFDvoros."
   Type: 5
   Section: 1
   Phase: 0
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 210000000400000026000000
+  PossibleSolutions: 
   RelatedConsecuences: 0200000006000000
-  RelatedProblems: 0a00000013000000
+  RelatedProblems: 17000000

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Wildlife_Habitat_Degradation
   Title: Wildlife Habitat Degradation
-  Description: Wildlife_Habitat_Degradation
+  Description: Wildlife Habitat Degradation
   Type: 14
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Water_Species_Decrease
   m_EditorClassIdentifier: 
   name: Water_Species_Decrease
-  Title: Water Species Decrease
-  Description: Water_Species_Decrease
+  Title: "Disminuci\uFFFDn en la poblaci\uFFFDn de especies acuaticas"
+  Description: "Disminuci\uFFFDn en la poblaci\uFFFDn de especies acuaticas"
   Type: 21
   Section: 1
   Phase: -1
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 00000000020000000900000013000000
-  RelatedConsecuences: 
+  PossibleSolutions: 
+  RelatedConsecuences: 020000000a000000
   RelatedProblems: 

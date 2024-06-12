@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Acidification
   m_EditorClassIdentifier: 
   name: Acidification
-  Title: Acidification
-  Description: Acidification
+  Title: "Acidificaci\uFFFDn y Compactaci\uFFFDn del suelo"
+  Description: "Acidificaci\uFFFDn y Compactaci\uFFFDn del suelo"
   Type: 0
   Section: 0
   Phase: 0
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 00000000020000000900000013000000
-  RelatedConsecuences: 0400000000000000
+  PossibleSolutions: 090000000a0000000b000000
+  RelatedConsecuences: 04000000000000000d000000
   RelatedProblems: 06000000

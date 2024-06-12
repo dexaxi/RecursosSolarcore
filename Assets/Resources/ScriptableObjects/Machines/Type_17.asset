@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_17
   m_EditorClassIdentifier: 
-  name: Type_17
+  name: EnriquecedorHumus
   Type: 16
-  title: Type 17
-  Description: Type17
+  title: Enriquecedor de Humus
+  Description: Enriquecedor de Humus
   Cost: 450
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}

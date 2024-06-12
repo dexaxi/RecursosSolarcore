@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Native_Species_Loss
   m_EditorClassIdentifier: 
   name: Native_Species_Loss
-  Title: Native Species Loss
-  Description: Native_Species_Loss
+  Title: "Disminuci\uFFFDn de especies de animales"
+  Description: "Disminuci\uFFFDn de especies de animales"
   Type: 7
   Section: 1
   Phase: 2
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 210000000400000026000000
+  PossibleSolutions: 060000000700000008000000
   RelatedConsecuences: 02000000
-  RelatedProblems: 13000000
+  RelatedProblems: 

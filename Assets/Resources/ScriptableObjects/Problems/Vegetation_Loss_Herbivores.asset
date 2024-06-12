@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea5d8c8f0eb0fa34485b1dd4ccb18313, type: 3}
-  m_Name: Soil_Roots_Disminution
+  m_Name: Vegetation_Loss_Herbivores
   m_EditorClassIdentifier: 
-  name: Soil_Roots_Disminution
-  Title: Soil Roots Disminution
-  Description: Soil_Roots_Disminution
-  Type: 14
-  Section: 0
-  Phase: -1
+  name: Vegetation_Loss_Herbivores
+  Title: "Degradaci\uFFFDn de la vegetaci\uFFFDn (por exceso de herb\uFFFDvoros)"
+  Description: "Degradaci\uFFFDn de la vegetaci\uFFFDn (por exceso de herb\uFFFDvoros)"
+  Type: 23
+  Section: 2
+  Phase: 1
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 000000000100000002000000
-  RelatedConsecuences: 
+  PossibleSolutions: 
+  RelatedConsecuences: 020000000e000000
   RelatedProblems: 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ecological_Connectivity_Loss
   Title: Ecological Connectivity Loss
-  Description: Ecological_Connectivity_Loss
+  Description: Ecological Connectivity Loss
   Type: 5
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
