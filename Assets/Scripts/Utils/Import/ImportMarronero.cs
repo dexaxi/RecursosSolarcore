@@ -232,7 +232,6 @@ public class ImportMarronero : MonoBehaviour
 				newMachine.MeshRenderer = machineDTODict[type].MeshRenderer;
 				newMachine.ShopSprite = machineDTODict[type].ShopSprite;
 				newMachine.RangePattern = machineDTODict[type].RangePattern;
-				newMachine.OptimizationLevel = machineDTODict[type].OptimizationLevel;
 				newMachine.CompatibleBiomes = machineDTODict[type].CompatibleBiomes;
 
 				machines[type] = newMachine;
