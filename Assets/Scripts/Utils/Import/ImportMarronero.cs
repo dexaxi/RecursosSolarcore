@@ -59,6 +59,7 @@ public class ImportMarronero : EditorWindow
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Biomes" + "/" + type.ToString() + ".asset";
                 AssetDatabase.CreateAsset(newBiome, assetPath);
+				EditorUtility.SetDirty(newBiome);
 				AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 				EditorUtility.FocusProjectWindow();
@@ -164,7 +165,8 @@ public class ImportMarronero : EditorWindow
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Consequences" + "/" + type.ToString() + ".asset";
                 AssetDatabase.CreateAsset(newConsequence, assetPath);
-				AssetDatabase.SaveAssets();
+                EditorUtility.SetDirty(newConsequence);
+                AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 				EditorUtility.FocusProjectWindow();
 				Selection.activeObject = newConsequence;
@@ -202,7 +204,8 @@ public class ImportMarronero : EditorWindow
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Machines" + "/" + type.ToString() + ".asset";
                 AssetDatabase.CreateAsset(newMachine, assetPath);
-				AssetDatabase.SaveAssets();
+				EditorUtility.SetDirty(newMachine);
+                AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 				EditorUtility.FocusProjectWindow();
 				Selection.activeObject = newMachine;
@@ -277,7 +280,8 @@ public class ImportMarronero : EditorWindow
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Problems" + "/" + type.ToString() + ".asset";
 				AssetDatabase.CreateAsset(newProblem, assetPath);
-				AssetDatabase.SaveAssets();
+                EditorUtility.SetDirty(newProblem);
+                AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 				EditorUtility.FocusProjectWindow();
 				Selection.activeObject = newProblem;
@@ -364,7 +368,8 @@ public class ImportMarronero : EditorWindow
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Alterations" + "/" + type.ToString() + ".asset";
                 AssetDatabase.CreateAsset(newAlteration, assetPath);
-				AssetDatabase.SaveAssets();
+                EditorUtility.SetDirty(newAlteration);
+                AssetDatabase.SaveAssets();
 				AssetDatabase.Refresh();
 				EditorUtility.FocusProjectWindow();
 				Selection.activeObject = newAlteration;
