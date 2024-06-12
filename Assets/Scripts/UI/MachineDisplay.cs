@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -31,6 +32,7 @@ public class MachineDisplay : MonoBehaviour
         else Destroy(this);
 
         HandleButtonEvents();
+        MoveToCurrentMachine().Forget();
     }
 
     private void HandleButtonEvents() 
@@ -84,7 +86,6 @@ public class MachineDisplay : MonoBehaviour
         DisableMoveUI();
         DisablePlaceUI();
         _machine.UnHighlightRange();
-        MachineShop.Instance.EnableShopButton();
         Selectable.UnlockSelectable();
     }
 
@@ -93,7 +94,6 @@ public class MachineDisplay : MonoBehaviour
         DisableSellUI();
         DisablePlaceUI();
         EnableMoveUI();
-        MachineShop.Instance.DisableShopButton();
         MoveMachine();
     }
     
@@ -102,7 +102,6 @@ public class MachineDisplay : MonoBehaviour
         DisableMoveUI();
         DisableSellUI();
         EnablePlaceUI();
-        MachineShop.Instance.DisableShopButton();
         MoveMachine();
     }
 
@@ -110,8 +109,19 @@ public class MachineDisplay : MonoBehaviour
     {
         DisableMoveUI();
         DisablePlaceUI();
-        MachineShop.Instance.DisableShopButton();
         EnableSellUI();
+    }
+
+    public async UniTask MoveToCurrentMachine() 
+    {
+        await UniTask.Delay(1);
+        if (_machine != null) 
+        {
+            transform.position = _machine.transform.position + new Vector3(0, 9, 0);
+            var camera = CameraManager.Instance.MainCamera;
+            transform.LookAt(transform.position + camera.transform.rotation * -Vector3.back, camera.transform.rotation * Vector3.up);
+        };
+        MoveToCurrentMachine().Forget();
     }
 
     private void EnableSellUI() { SellUI.alpha = 1; SellUI.interactable = true; SellUI.blocksRaycasts = true; }

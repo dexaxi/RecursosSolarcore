@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,6 @@ public class MachineShop : MonoBehaviour
     [SerializeField] Button prevButton;
     [SerializeField] Button nextButton;
     [SerializeField] Button closeButton;
-    [SerializeField] ShopButton shopButton;
 
 
     private ItemHolder[] _itemHolders;
@@ -21,6 +21,7 @@ public class MachineShop : MonoBehaviour
     private List<Machine> _allFilteredMachines = new();
     private int _currentShopIndex;
 
+    private BiomeType _currentBiome;
 
     private void Awake()
     {
@@ -36,25 +37,41 @@ public class MachineShop : MonoBehaviour
         _currentShopIndex = 0;
     }
 
-    public void PopulateShop()
+    public void PopulateShop(BiomeType biome)
     {
+        _currentBiome = biome;
         MachineHandler machineHandler = MachineHandler.Instance;
-
         _allFilteredMachines = machineHandler.GetFilteredMachines();
-        for (int i = 0; i < _itemHolders.Length; i++) 
+        var alterations = RelationHandler.Instance.GetFilteredAlterations();
+        var problems = RelationHandler.Instance.GetFilteredProblems();
+        foreach (var alteration in alterations) 
         {
-            if (i + _currentShopIndex < _allFilteredMachines.Count)
+            if (alteration.Biome == biome) 
             {
-                _itemHolders[i].EnableHolder();
-                Machine machine = _allFilteredMachines[i + _currentShopIndex];
-                Debug.Log(machine.name);
-                _itemHolders[i].SetMachine(machine);
-            }
-            else 
-            {
-                _itemHolders[i].DisableHolder();
+                foreach (var problem in problems) 
+                {
+                    if (alteration.EnviroProblems.Contains(problem.Type)) 
+                    {
+                        var filteredMachines = _allFilteredMachines.Where((Machine x) => problem.PossibleSolutions.Contains(x.Type)).ToList();
+                        for (int i = 0; i < _itemHolders.Length; i++)
+                        {
+                            if (i + _currentShopIndex < filteredMachines.Count)
+                            {
+                                _itemHolders[i].EnableHolder();
+                                Machine machine = filteredMachines[i + _currentShopIndex];
+                                Debug.Log(machine.name);
+                                _itemHolders[i].SetMachine(machine);
+                            }
+                            else
+                            {
+                                _itemHolders[i].DisableHolder();
+                            }
+                        }
+                    }
+                }
             }
         }
+
         HandleShopButtonsVisibility();
     }
 
@@ -66,7 +83,7 @@ public class MachineShop : MonoBehaviour
         if (_currentShopIndex + _itemHolders.Length >= _allFilteredMachines.Count) return;
         
         _currentShopIndex += _itemHolders.Length;
-        PopulateShop();
+        PopulateShop(_currentBiome);
     }
 
     private void PrevShopTabPressed() 
@@ -74,7 +91,7 @@ public class MachineShop : MonoBehaviour
         if (_currentShopIndex - _itemHolders.Length < 0) return;
         
         _currentShopIndex -= _itemHolders.Length;
-        PopulateShop();
+        PopulateShop(_currentBiome);
     }
 
     public void DisableShopItems() 
@@ -118,7 +135,6 @@ public class MachineShop : MonoBehaviour
         }
     }
 
-    [ContextMenu("EnableShop")]
     public void EnableShop()
     {
         _canvasGroup.alpha = 1;
@@ -127,7 +143,6 @@ public class MachineShop : MonoBehaviour
         IsUsingUI.IsUsingShop = true;
     }
 
-    [ContextMenu("DisableShop")]
     public void DisableShop()
     {
         _canvasGroup.alpha = 0;
@@ -136,22 +151,4 @@ public class MachineShop : MonoBehaviour
         IsUsingUI.IsUsingShop = false;
     }
 
-    public void DisableShopButton() 
-    {
-        shopButton.DisableButton();    
-    }
-
-    public void HideShopButton() 
-    {
-        shopButton.HideButton();
-    }
-    public void ShowShopButton() 
-    {
-        shopButton.ShowButton();
-    }
-
-    public void EnableShopButton()
-    {
-        shopButton.EnableButton();
-    }
 }

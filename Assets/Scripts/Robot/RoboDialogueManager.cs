@@ -1,6 +1,7 @@
 using DUJAL.Systems.Dialogue;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -24,38 +25,56 @@ public class RoboDialogueManager : MonoBehaviour
 
     [SerializeField] public SerializableDictionary<string, DialogueProvider> DialogueTrees = new();
 
+    [SerializeField] private Image backgroundBlocker;
+
+    [SerializeField] TextMeshProUGUI gameplayDialogue;
+    [SerializeField] TextMeshProUGUI relationDialogue;
+
+    [SerializeField] private CanvasGroup RelationCanvasGroup;
+    [SerializeField] CanvasGroup GameplayCanvasGroup;
+
+    private int _maxLines;
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+        SwitchToRelationDialogue();
     }
 
-    [SerializeField] private Image backgroundBlocker;
-    [SerializeField] private CanvasGroup TextCanvasGroup;
+
+    private TextMeshProUGUI _currentDialogueMesh;
+    private CanvasGroup _currentCanvasGroup;
+
+
     private void Start()
     {
         InspectorDialogue dialogueManager = InspectorDialogue.Instance;
         dialogueManager.Exit.AddListener(DisableDialogue);
         dialogueManager.Enter.AddListener(EnableDialogue);
+        GameplayCanvasGroup.alpha = 0;
+        GameplayCanvasGroup.blocksRaycasts = false;
+        GameplayCanvasGroup.interactable = false;
     }
 
     public void EnableDialogue() 
     {
         IsUsingUI.IsUsingDialogue = true;
         backgroundBlocker.enabled = true;
-        TextCanvasGroup.alpha = 1;
-        TextCanvasGroup.blocksRaycasts = true;
-        TextCanvasGroup.interactable= true;
+        _currentCanvasGroup.alpha = 1;
+        _currentCanvasGroup.blocksRaycasts = true;
+        _currentCanvasGroup.interactable= true;
     }
 
     public void DisableDialogue() 
     {
         IsUsingUI.IsUsingDialogue = false;
         backgroundBlocker.enabled = false;
-        TextCanvasGroup.alpha = 0;
-        TextCanvasGroup.blocksRaycasts = false;
-        TextCanvasGroup.interactable = false;
+        _currentCanvasGroup.alpha = 0;
+        _currentCanvasGroup.blocksRaycasts = false;
+        _currentCanvasGroup.interactable = false;
     }
+
+    
 
     public void StartRoboDialogue(string dialogueName) 
     {
@@ -64,8 +83,21 @@ public class RoboDialogueManager : MonoBehaviour
         if (dialogue.Dialogue == null) Debug.LogError($"Could not find dialogue: {dialogueName}");
         InspectorDialogue.Instance.Exit.AddListener(dialogue.DialogueEndEvent.Invoke);
         InspectorDialogue.Instance.Exit.AddListener(delegate { InspectorDialogue.Instance.Exit.RemoveListener(dialogue.DialogueEndEvent.Invoke); });
-        InspectorDialogue.Instance.SetDialogue(dialogue.Dialogue, 0.1f);
+        InspectorDialogue.Instance.SetDialogue(dialogue.Dialogue, 0.05f, _currentDialogueMesh, _maxLines);
         InspectorDialogue.Instance.HandleDialogueStart();
         InspectorDialogue.Instance.PlayText();
+    }
+
+    public void SwitchToGameplayDialogue() 
+    {
+        _currentDialogueMesh = gameplayDialogue;
+        _currentCanvasGroup = GameplayCanvasGroup;
+        _maxLines = 7;
+    }
+    public void SwitchToRelationDialogue() 
+    {
+        _currentDialogueMesh = relationDialogue;
+        _currentCanvasGroup = RelationCanvasGroup;
+        _maxLines = 3;
     }
 }

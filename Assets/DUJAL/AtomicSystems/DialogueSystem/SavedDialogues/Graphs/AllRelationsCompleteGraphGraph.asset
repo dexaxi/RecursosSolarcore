@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa9e8dba58d0b724c85c554208761ff5, type: 3}
+  m_Name: AllRelationsCompleteGraphGraph
+  m_EditorClassIdentifier: 
+  <FileName>k__BackingField: AllRelationsCompleteGraph
+  <Groups>k__BackingField: []
+  <Nodes>k__BackingField:
+  - <ID>k__BackingField: ce662c57-e7e9-45b7-9307-3ad68407aff2
+    <Name>k__BackingField: D2
+    <Text>k__BackingField: You rock! Now you've got to fix them! Click on the different
+      biomes and check how you can fix them! Good luck!
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 996, y: 194}
+    <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
+    <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+  - <ID>k__BackingField: 38a333b3-1ae8-4c23-b334-4c2ce9b37bf3
+    <Name>k__BackingField: D1
+    <Text>k__BackingField: That's right! You've managed to investigate all of the
+      problems withing these biomes!
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: ce662c57-e7e9-45b7-9307-3ad68407aff2
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 229, y: 194}
+    <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
+    <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+  <PreviousGroupTitles>k__BackingField: []
+  <UngroupedNodesPreviousNames>k__BackingField:
+  - D2
+  - D1
+  <GroupedNodesPreviousNames>k__BackingField:
+    list: []

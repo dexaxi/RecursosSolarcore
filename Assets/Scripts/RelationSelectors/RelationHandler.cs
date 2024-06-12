@@ -35,6 +35,8 @@ public class RelationHandler : MonoBehaviour
         FindObjectOfType<BiomeBubble>().HideThisBubble(false);
         ResourceGame.Instance.ProcessActiveScene(LevelSceneFlow.Gameplay);
         IsUsingUI.IsInBubblePhase = false;
+        RoboDialogueManager.Instance.SwitchToGameplayDialogue();
+        RoboDialogueManager.Instance.StartRoboDialogue("AllRelationsComplete");
     }
 
     public void PopulateAlterations()

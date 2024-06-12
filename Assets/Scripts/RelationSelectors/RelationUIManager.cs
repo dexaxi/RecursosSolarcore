@@ -35,7 +35,6 @@ public class RelationUIManager : MonoBehaviour
 
         _raycaster = GetComponent<GraphicRaycaster>();
         ShowBookButton.onClick.AddListener(DisplayBook);
-        ShowBookButton.onClick.AddListener(delegate { MachineShop.Instance.HideShopButton(); });
         _bookmarkManager = FindObjectOfType<BookmarkManager>();
         ShowBookButton.onClick.AddListener(delegate { _bookmarkManager.UpdateBookmarkVisibility(BiomeHandler.Instance.GetFilteredBiomes());});
         DisableBookButton();
@@ -290,7 +289,6 @@ public class RelationBookUiElements : IMappedObject
         PaperScreenArrow2.onClick.AddListener(ShowBook);
         
         CloseButton.onClick.AddListener(DisableBookMenu);
-        CloseButton.onClick.AddListener(delegate { if(ResourceGame.Instance.GetLevelSceneFlow() >= LevelSceneFlow.Gameplay) MachineShop.Instance.ShowShopButton(); });
 
         HidePaper();
         HideBook();

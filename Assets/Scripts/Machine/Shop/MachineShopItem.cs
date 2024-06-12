@@ -39,7 +39,7 @@ public class MachineShopItem : MonoBehaviour
         if (PlayerCurrencyManager.Instance.RemoveCurrency(cost))
         {
             InstantiateMachine();
-            MachineShop.Instance.DisableShop();
+            //MachineShop.Instance.DisableShop();
         }
         else
         {

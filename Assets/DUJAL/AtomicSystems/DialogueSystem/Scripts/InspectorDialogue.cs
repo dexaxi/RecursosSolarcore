@@ -60,11 +60,13 @@ namespace DUJAL.Systems.Dialogue
         private int _auxTMProCharIndex;
         private int _parsedTextIndexDelta;
 
-        public void SetDialogue(DialogueContainerScriptableObject dialogueContainerSO, float textSpeed) 
+        public void SetDialogue(DialogueContainerScriptableObject dialogueContainerSO, float textSpeed, TextMeshProUGUI text, int maxLines) 
         {
             _dialogueContainerSO = dialogueContainerSO;
             _dialogueSO = _dialogueContainerSO.GetFirstStartingDialogue(false);
             _textSpeed = textSpeed;
+            _text = text;
+            _maxLineCount = maxLines;
         }
 
         private void Awake()
