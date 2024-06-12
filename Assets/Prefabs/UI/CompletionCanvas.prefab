@@ -51,7 +51,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 5
+  m_PlaneDistance: 4.5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -120,6 +120,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 937060320489638287, guid: 2da4698a93ed957429fa691c2ef915da, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -136.29999
+      objectReference: {fileID: 0}
     - target: {fileID: 1697949038225634574, guid: 2da4698a93ed957429fa691c2ef915da, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -130,6 +134,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1697949038225634574, guid: 2da4698a93ed957429fa691c2ef915da, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2358330242295205815, guid: 2da4698a93ed957429fa691c2ef915da, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4945680662113490773, guid: 2da4698a93ed957429fa691c2ef915da, type: 3}
@@ -215,6 +223,10 @@ PrefabInstance:
     - target: {fileID: 4945680662113490773, guid: 2da4698a93ed957429fa691c2ef915da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502667248085833945, guid: 2da4698a93ed957429fa691c2ef915da, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.576904
       objectReference: {fileID: 0}
     - target: {fileID: 7019208609516663363, guid: 2da4698a93ed957429fa691c2ef915da, type: 3}
       propertyPath: m_AnchorMax.x

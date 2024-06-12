@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.6627451, g: 0.8627451, b: 0.92156863, a: 0.12941177}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -135,7 +135,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 5
+  m_PlaneDistance: -2
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1429,6 +1429,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookmarkManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1635671458082846297, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658718895350810723, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656378099255957972, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2696177629146359790, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4141684671431541399, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1523,6 +1539,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4141684671431541399, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5496994979172042929, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5620168276563670667, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935391553698421915, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041117870430397089, guid: 394e14c06480cef4b89abf6fe38319e7, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
