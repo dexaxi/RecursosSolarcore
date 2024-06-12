@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Vegetation_Cover_Reduction
   m_EditorClassIdentifier: 
   name: Vegetation_Cover_Reduction
-  Title: "Reducci\uFFFDn de la cobertura vegetal"
-  Description: "Reducci\uFFFDn de la cobertura vegetal"
+  Title: "Reducci\xF3n de la cobertura vegetal"
+  Description: "Reducci\xF3n de la cobertura vegetal"
   Type: 17
   Section: 2
   Phase: 2

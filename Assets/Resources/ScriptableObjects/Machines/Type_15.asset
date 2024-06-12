@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: HidrosiembraAutomatica
   Type: 14
-  title: "Hidrosiembra Autom\uFFFDtica"
-  Description: "Hidrosiembra Autom\uFFFDtica"
+  title: "Hidrosiembra Autom\xE1tica"
+  Description: "Hidrosiembra Autom\xE1tica"
   Cost: 300
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}

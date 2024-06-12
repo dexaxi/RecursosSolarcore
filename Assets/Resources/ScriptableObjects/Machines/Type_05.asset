@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: DispersadorSemillasGenericas
   Type: 4
-  title: "Dispersador de Semillas Gen\uFFFDricas"
-  Description: "Dispersador de Semillas Gen\uFFFDricas"
+  title: "Dispersador de Semillas Gen\xE9ricas"
+  Description: "Dispersador de Semillas Gen\xE9ricas"
   Cost: 450
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: cdeaccc942f4ad94c93b5913c4d75ac8, type: 2}

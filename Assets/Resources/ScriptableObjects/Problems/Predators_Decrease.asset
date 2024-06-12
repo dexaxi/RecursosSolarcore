@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Predators_Decrease
   m_EditorClassIdentifier: 
   name: Predators_Decrease
-  Title: "Reducci\uFFFDn o Extinci\uFFFDn de Depredadores"
-  Description: "Reducci\uFFFDn o Extinci\uFFFDn de Depredadores"
+  Title: "Reducci\xF3n o Extinci\xF3n de Depredadores"
+  Description: "Reducci\xF3n o Extinci\xF3n de Depredadores"
   Type: 10
   Section: 1
   Phase: 1

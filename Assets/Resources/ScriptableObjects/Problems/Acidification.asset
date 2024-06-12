@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Acidification
   m_EditorClassIdentifier: 
   name: Acidification
-  Title: "Acidificaci\uFFFDn y Compactaci\uFFFDn del suelo"
-  Description: "Acidificaci\uFFFDn y Compactaci\uFFFDn del suelo"
+  Title: "Acidificaci\xF3n y Compactaci\xF3n del suelo"
+  Description: "Acidificaci\xF3n y Compactaci\xF3n del suelo"
   Type: 0
   Section: 0
   Phase: 0

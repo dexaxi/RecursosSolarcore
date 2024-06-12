@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Coral_Habitat_Degradation
   m_EditorClassIdentifier: 
   name: Coral_Habitat_Degradation
-  Title: "Degradaci\uFFFDn de los habitats coralinos"
-  Description: "Degradaci\uFFFDn de los habitats coralinos"
+  Title: "Degradaci\xF3n de los habitats coralinos"
+  Description: "Degradaci\xF3n de los habitats coralinos"
   Type: 3
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

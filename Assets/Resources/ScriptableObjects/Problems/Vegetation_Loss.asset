@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Vegetation_Loss
   m_EditorClassIdentifier: 
   name: Vegetation_Loss
-  Title: "Reducci\uFFFDn de especies nativas de plantas"
-  Description: "Reducci\uFFFDn de especies nativas de plantas"
+  Title: "Reducci\xF3n de especies nativas de plantas"
+  Description: "Reducci\xF3n de especies nativas de plantas"
   Type: 19
   Section: 2
   Phase: 1

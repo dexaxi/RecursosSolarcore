@@ -190,5 +190,6 @@ public class GroundTile : MonoBehaviour
         Debug.Log(data);*/
 
         MachineShop.Instance.PopulateShop(Biome.Type);
+        CompletionUIManager.Instance.ShowPopUp(Biome);
     }
 }

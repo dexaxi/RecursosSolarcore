@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Desertification
   m_EditorClassIdentifier: 
   name: Desertification
-  Title: "Desertificaci\uFFFDn"
-  Description: "Desertificaci\uFFFDn"
+  Title: "Desertificaci\xF3n"
+  Description: "Desertificaci\xF3n"
   Type: 4
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

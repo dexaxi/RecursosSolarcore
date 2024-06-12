@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Herbivore_Increase
   m_EditorClassIdentifier: 
   name: Herbivore_Increase
-  Title: "Aumento de la poblaci\uFFFDn de herb\uFFFDvoros"
-  Description: "Aumento de la poblaci\uFFFDn de herb\uFFFDvoros."
+  Title: "Aumento de la poblaci\xF3n de herb\xEDvoros"
+  Description: "Aumento de la poblaci\xF3n de herb\xEDvoros."
   Type: 5
   Section: 1
   Phase: 0
