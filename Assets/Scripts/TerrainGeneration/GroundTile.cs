@@ -15,6 +15,8 @@ public class GroundTile : MonoBehaviour
     public Highlightable Highlightable { get; private set; }
     public Selectable Selectable { get; private set; }
 
+    public readonly List<PlaceableMachine> affectingMachines = new();
+
     Vector3 _originalPosition;
     Vector3 _introStartingPosition;
 
@@ -44,6 +46,17 @@ public class GroundTile : MonoBehaviour
         _introStartingPosition = _originalPosition + new Vector3(0, 0.1f + _cordsOffset.x * Mathf.Abs(CellCoord.x) + _cordsOffset.y * Mathf.Abs(CellCoord.y), 0) * _introDepth;
 
         StartCoroutine(IntroAnimationCoroutine());
+    }
+
+    public List<MachineType> GetAffectingMachineTypes() 
+    {
+        List <MachineType> machineTypes = new List<MachineType>();  
+        foreach(var machine in affectingMachines) 
+        {
+            if (!machineTypes.Contains(machine.GetMachineType())) machineTypes.Add(machine.GetMachineType());
+        }
+
+        return machineTypes;
     }
 
     IEnumerator IntroAnimationCoroutine()
@@ -120,11 +133,18 @@ public class GroundTile : MonoBehaviour
         Biome = biome;
         GetComponent<MeshFilter>().mesh = Biome.Mesh;
         GetComponent<MeshRenderer>().material = Biome.Material;
+        foreach(GroundDecorationsCreator creator in GetComponentsInChildren<GroundDecorationsCreator>())
+        {
+            if(creator.Type == DecorationType.Grass)
+            {
+                creator.SetGrassColor(Biome.grassBottomColor, Biome.grassTopColor);
+            }
+        }
         Highlightable.UpdateOriginalMaterials();
         BiomeHandler.Instance.TilesPerBiome[Biome.Type].Add(this);
     }
 
-    private void HighlightBiomeTiles() 
+    public void HighlightBiomeTiles() 
     {
         if (!Draggable.IsDragging) 
         {
@@ -134,9 +154,9 @@ public class GroundTile : MonoBehaviour
                 tile.Highlightable.Highlight("Highlight");
             }
         }
-    }    
+    }
     
-    private void UnhighlightBiomeTiles() 
+    public void UnhighlightBiomeTiles() 
     {
         List < GroundTile > biomeTiles = BiomeHandler.Instance.TilesPerBiome[Biome.Type];
         foreach (GroundTile tile in biomeTiles) 

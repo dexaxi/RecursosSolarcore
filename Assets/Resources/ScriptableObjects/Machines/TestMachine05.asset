@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: TestMachine05
   Type: 4
+  title: 
   Description: Maquina para hacer cosas supongo
   Cost: 12000
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 2100000, guid: 9f74a13152dad544abedc7538eb3182c, type: 2}
   ShopSprite: {fileID: 21300000, guid: d98fbe17966d8ef449b25b99024bf36f, type: 3}
   RangePattern: {fileID: 2800000, guid: 6ad5fc487c9cf68488b56cf2baaaec5c, type: 3}
-  CompatibleBiomes: 0200000003000000
+  RestrictionType: 1
+  RestrictionTier: 1
+  CompletionRateModifier: -1
+  PatternType: 1
+  CompatibleBiomes: 02000000030000000000000000000000

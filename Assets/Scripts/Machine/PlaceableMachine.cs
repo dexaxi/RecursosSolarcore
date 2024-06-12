@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -103,6 +104,9 @@ public class PlaceableMachine : Draggable
         Selectable.SELECTABLE_LOCK = GetComponent<Selectable>();
     }
 
+    public MachineType GetMachineType() { return _machine.Type; }
+    public Machine GetRelatedMachine() { return _machine; }
+
     private void HandleHighlightableAwake()
     {
         _highlightable = GetComponent<Highlightable>();
@@ -182,6 +186,7 @@ public class PlaceableMachine : Draggable
         IsPlaced = true;
         UpdateRangeDisplay();
         _highlightable.Unhighlight();
+        ApplyMachinePlacement().Forget();
         return isOnValidTerrain;
     }
 
@@ -255,8 +260,38 @@ public class PlaceableMachine : Draggable
         _machine.Copy(machine);
     }
 
+    public List<GroundTile> GetCurrentAffectedTiles() 
+    {
+        List<GroundTile> returnList = new();
+
+        Vector2Int currentCoords = GetCoords();
+        int[,] pattern = _machine.GetRangePattern();
+        Vector2Int centerCoords = new(pattern.GetLength(0) / 2, pattern.GetLength(1) / 2);
+
+        int currX, currY;
+        for (int i = 0; i < pattern.GetLength(0); i++)
+        {
+            currX = currentCoords.x - centerCoords.x + i;
+            for (int j = 0; j < pattern.GetLength(1); j++)
+            {
+                currY = currentCoords.y - centerCoords.y + j;
+                GroundTile currentTile = Ground.Instance.GetTileFromCellCoords(new Vector2Int(currX, currY));
+                if (currentTile == null) continue;
+                if (pattern[i, j] == 1) returnList.Add(currentTile);
+            }
+        }
+
+        return returnList;
+    }
+
     public void UpdateRangeDisplay(bool forced = false)
     {
+        if (_machine.PatternType == PatternType.Biome) 
+        {
+            UpdateGroundTile();
+            HighlightBiomeTiles();
+            return;
+        }
         bool showHighlight = !IsPlaced || forced;
 
         Vector2Int currentCoords = GetCoords();
@@ -267,7 +302,7 @@ public class PlaceableMachine : Draggable
         Vector2Int centerCoords = new(pattern.GetLength(0) / 2, pattern.GetLength(1) / 2);
 
         Queue<GroundTile> highlightedTiles = new Queue<GroundTile>();
-    int currX, currY;
+        int currX, currY;
         for (int i = 0; i < pattern.GetLength(0); i++)
         {
             currX = currentCoords.x - centerCoords.x + i;
@@ -277,7 +312,10 @@ public class PlaceableMachine : Draggable
                 GroundTile currentTile = Ground.Instance.GetTileFromCellCoords(new Vector2Int(currX, currY));
                 if (currentTile == null) continue;
                 if (pattern[i, j] == 1) highlightedTiles.Enqueue(currentTile);
-                else currentTile.Highlightable.Unhighlight();
+                else 
+                {
+                    currentTile.Highlightable.Unhighlight();
+                }
             }
         }
 
@@ -298,6 +336,29 @@ public class PlaceableMachine : Draggable
         }
     }
 
+    private void HighlightBiomeTiles() 
+    {
+        var biomes = BiomeHandler.Instance.GetFilteredBiomes();
+        foreach (Biome biome in biomes) 
+        {
+            List<GroundTile> biomeTiles = BiomeHandler.Instance.TilesPerBiome[biome.Type];
+            foreach (GroundTile tile in biomeTiles)
+            {
+                if (tile.Biome.Type == GroundTile.Biome.Type)
+                {
+                    string highlightMaterial = IsBiomeCompatible(tile.Biome.Type) ? "Highlight" : "InvalidBiome";
+                    tile.Highlightable.Highlight(highlightMaterial);
+                    _highlightedTiles.Add(tile);
+                }
+                else
+                {
+                    tile.Highlightable.Unhighlight();
+                    _highlightedTiles.Remove(tile);
+                }
+            }
+        }
+    }
+
     public void UnHighlightRange() 
     {
         foreach(GroundTile tile in _highlightedTiles)
@@ -310,6 +371,20 @@ public class PlaceableMachine : Draggable
     private bool IsBiomeCompatible(BiomeType biomeType)
     {
         return _machine.CompatibleBiomes.Contains(biomeType);
+    }
+    
+
+    public int GetMachineWaiting() 
+    {
+        if (_machine.PatternType == PatternType.Biome) return 5000;
+        if (_machine.PatternType == PatternType.Pattern) return 2000;
+        return -1;
+    }
+
+    public async UniTask ApplyMachinePlacement() 
+    {
+        await UniTask.Delay(GetMachineWaiting());
+        BiomePhaseHandler.Instance.ProcessMachineImpact(this);
     }
 
     /// <summary>
