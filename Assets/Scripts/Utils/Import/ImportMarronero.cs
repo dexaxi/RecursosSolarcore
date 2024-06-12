@@ -68,6 +68,8 @@ public class ImportMarronero : EditorWindow
 				newBiome.biomeWeight = biomeDTODict[type].biomeWeight;
 				newBiome.Sprite = biomeDTODict[type].Sprite;
 				newBiome.EnviroAlterations = biomeDTODict[type].EnviroAlterations;
+				newBiome.grassBottomColor = biomeDTODict[type].grassBottomColor;
+				newBiome.grassTopColor = biomeDTODict[type].grassTopColor;
 
                 AssetDatabase.CreateAsset(newBiome, assetPath);
                 EditorUtility.SetDirty(newBiome);
@@ -626,6 +628,8 @@ public class ImportMarronero : EditorWindow
         if (ColorUtility.TryParseHtmlString(text, out Color returnCol)) return returnCol;
         return Color.white;
 	}
+
+
 
     static string ModelPath = "Assets/3DAssets/Models/";
     static Mesh FindMesh(string text)
