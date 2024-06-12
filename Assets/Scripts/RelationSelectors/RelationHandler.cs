@@ -32,10 +32,11 @@ public class RelationHandler : MonoBehaviour
 
     public void EndRelationPhase() 
     {
-        FindObjectOfType<BiomeBubble>().HideThisBubble(false);
+        FindObjectOfType<BiomeBubble>().BubbleComplete(false);
         ResourceGame.Instance.ProcessActiveScene(LevelSceneFlow.Gameplay);
         IsUsingUI.IsInBubblePhase = false;
         RoboDialogueManager.Instance.SwitchToGameplayDialogue();
+        KillBiomeBubbles();
         RoboDialogueManager.Instance.StartRoboDialogue("AllRelationsComplete");
     }
 
@@ -103,7 +104,7 @@ public class RelationHandler : MonoBehaviour
             {
                 Vector3 adjustedPos = finalPos;
                 var bubble = Instantiate(BiomeBubble, adjustedPos, Quaternion.identity).GetComponent<BiomeBubble>();
-                bubble.SetBiomeType(biome);
+                bubble.SetBiomeType(biome, BiomeHandler.Instance.GetFilteredBiomes().Where((Biome x) => x.Type == biome).ToList()[0].Sprite);
                 bubble.GetComponentInChildren<FloaterComponent>().SetOffset(new Vector3(0, 1.5f, 0));
             }
         }

@@ -118,7 +118,7 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         _prevColor = GetComponentInChildren<Image>().color;
-        GetComponentInChildren<Image>().color = Color.green;
+        GetComponentInChildren<Image>().color = ShopPopupCanvasUiElements.greenColor;
         DrawLine();
     }
 
@@ -164,7 +164,7 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         }
         foreach (var anchor in AnchorPoints[CurrentBiome]) 
         {
-            anchor.GetComponentInChildren<Image>().color = Color.green;
+            anchor.GetComponentInChildren<Image>().color = ShopPopupCanvasUiElements.greenColor;
         }
     }
 
@@ -213,7 +213,7 @@ public class AnchorPoint : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
             }
             else BiomeFinished[CurrentBiome].Invoke();
         }
-        destNode.GetComponentInChildren<Image>().color = Color.green;
+        destNode.GetComponentInChildren<Image>().color = ShopPopupCanvasUiElements.greenColor;
     }
 
     public bool CheckAllBiomesFinished() 
