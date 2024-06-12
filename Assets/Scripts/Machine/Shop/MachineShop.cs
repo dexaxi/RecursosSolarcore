@@ -75,7 +75,7 @@ public class MachineShop : MonoBehaviour
         HandleShopButtonsVisibility();
     }
 
-    private void NextShopTabPressed() 
+    private void NextShopTabPressed()
     {
         MachineHandler machineHandler = MachineHandler.Instance;
         _allFilteredMachines = machineHandler.GetFilteredMachines();

@@ -25,12 +25,14 @@ public class MachineShopItem : MonoBehaviour
     public void BuyMachine()
     {
         MachineShop.Instance.DisableShopItems();
-        var popUp = GenericPopUpLoader.LoadGenericPopUp();
         UnityEvent acceptEvent = new();
+        MachinePopupHandler.Instance.ShowPopUp(_machine, acceptEvent);
         acceptEvent.AddListener(PerformBuyMachine);
-        UnityEvent cancelEvent = new();
-        cancelEvent.AddListener(MachineShop.Instance.EnableShopItems);
-        popUp.BuildOptionPopupPlainColor("Buy " + _machine.name, "This operation will cost " + _machine.Cost, 1, Color.white, Color.white, Color.white, Color.black, Color.black, acceptEvent, cancelEvent);
+        //var popUp = GenericPopUpLoader.LoadGenericPopUp();
+        //UnityEvent cancelEvent = new();
+        //cancelEvent.AddListener();
+        //popUp.BuildOptionPopupPlainColor("Buy " + _machine.name, "This operation will cost " + _machine.Cost, 1, Color.white, Color.white, Color.white, Color.black, Color.black, acceptEvent, cancelEvent);
+        
     }
 
     private void PerformBuyMachine()
