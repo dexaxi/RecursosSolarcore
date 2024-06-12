@@ -38,6 +38,7 @@ public class MachineProgressDisplay : MonoBehaviour
     {
         await UniTask.Delay(200);
         BiomePhaseHandler.Instance.ProcessMachineImpact(MachineRef);
+        CompletionUIManager.Instance.UpdateUI(MachineRef.GroundTile.Biome);
         if(gameObject != null) Destroy(gameObject);
     }
 

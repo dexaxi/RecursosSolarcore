@@ -141,7 +141,7 @@ MonoBehaviour:
   _smooth: 1
   _smoothSpeed: 6
   _doFixHeight: 1
-  FixedHeight: 2
+  FixedHeight: 1
 --- !u!114 &7439252330647743850
 MonoBehaviour:
   m_ObjectHideFlags: 0

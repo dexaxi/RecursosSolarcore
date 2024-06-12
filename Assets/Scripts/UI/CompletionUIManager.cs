@@ -46,7 +46,7 @@ public class CompletionUIManager : MonoBehaviour
             PhaseUI[i].interactable = true;
             PhaseUI[i].blocksRaycasts = true;
             var currentCompletion = BiomePhaseHandler.Instance.CurrentCompletion[problems[i]];
-            ProgressImages[i].fillAmount = (currentCompletion == 0 ? 0.0f : 1.0f / currentCompletion); ;
+            ProgressImages[i].fillAmount = (currentCompletion == 0 ? 0.0f : currentCompletion / 100.0f); ;
             int maxCompletion = (int) BiomePhaseHandler.Instance.MaxCompletion[problems[i]];
             ProgressScrolls[i].value = (float) maxCompletion / 100;
             if (currentCompletion >= maxCompletion) CheckIcons[i].enabled = true;
