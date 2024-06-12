@@ -29,8 +29,10 @@ public class Machine : ScriptableObject
 
     public Machine() 
     {
+        //Esto quizás se llame despues de setearlo mediante el importmarronero
+        if (name != "") return;
+
         name = "MachineXXX";
-        Type = MachineType.Type01;
         Description = "Machine Uninitialized";
         Cost = -1;
         MeshFilter = null;
@@ -69,6 +71,6 @@ public class Machine : ScriptableObject
 		public Sprite ShopSprite;
 		public Texture2D RangePattern;
 		public int OptimizationLevel;
-		public List<BiomeType> CompatibleBiomes;
+		public List<BiomeType> CompatibleBiomes = new();
 	}
 }

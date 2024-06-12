@@ -22,6 +22,7 @@ public class EnviroConsequence : ScriptableObject
 		public EnviroConsequenceType Type;
 		public Sprite Sprite;
 		public Color color;
-		public List<EnviroProblemType> RelatedProblems;
+		public List<EnviroProblemType> RelatedProblems = new();
+
 	}
 }

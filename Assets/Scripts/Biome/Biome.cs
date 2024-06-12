@@ -45,6 +45,6 @@ public class Biome : ScriptableObject
 		public GameObject tilePrefab;
 		public int biomeWeight;
 		public Sprite Sprite;
-		public List<EnviroAlterationType> EnviroAlterations;
+		public List<EnviroAlterationType> EnviroAlterations = new();
 	}
 }
