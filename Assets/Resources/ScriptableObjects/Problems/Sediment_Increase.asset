@@ -20,6 +20,6 @@ MonoBehaviour:
   Phase: 1
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 
+  PossibleSolutions: 120000001300000014000000
   RelatedConsecuences: 030000000c000000
   RelatedProblems: 

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
+  m_Name: Type_34
+  m_EditorClassIdentifier: 
+  name: RestauradorCoralesTermico
+  Type: 33
+  title: "Restaurador de Corales T\xE9rmico"
+  Description: "Restaurador de Corales T\xE9rmico"
+  Cost: 515
+  MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
+  MeshRenderer: {fileID: 2100000, guid: 105f0e1590fe3e448981961d4def79be, type: 2}
+  ShopSprite: {fileID: 0}
+  RangePattern: {fileID: 0}
+  RestrictionType: 2
+  RestrictionTier: 1
+  CompletionRateModifier: 60
+  PatternType: 0
+  CompatibleBiomes: 

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
+  m_Name: Type_41
+  m_EditorClassIdentifier: 
+  name: HidrosiembraAutomatica
+  Type: 40
+  title: "Hidrosiembra Autom\xE1tica"
+  Description: "Hidrosiembra Autom\xE1tica"
+  Cost: 522
+  MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
+  MeshRenderer: {fileID: 2100000, guid: cdeaccc942f4ad94c93b5913c4d75ac8, type: 2}
+  ShopSprite: {fileID: 0}
+  RangePattern: {fileID: 2800000, guid: 5400f279c81d5e94ab0f3a42304a9e30, type: 3}
+  RestrictionType: 2
+  RestrictionTier: 3
+  CompletionRateModifier: 80
+  PatternType: 0
+  CompatibleBiomes: 
