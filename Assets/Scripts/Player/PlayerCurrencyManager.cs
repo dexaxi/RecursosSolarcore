@@ -27,6 +27,7 @@ public class PlayerCurrencyManager : MonoBehaviour
         }
         Currency += amount;
         UpdateCurrencyUI();
+        _infoManager.GetComponent<CanvasGroup>().alpha = 1.0f;
     }
 
     public bool RemoveCurrency(float amount) 

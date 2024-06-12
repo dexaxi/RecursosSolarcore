@@ -92,7 +92,7 @@ public class RoboDialogueManager : MonoBehaviour
     {
         _currentDialogueMesh = gameplayDialogue;
         _currentCanvasGroup = GameplayCanvasGroup;
-        _maxLines = 7;
+        _maxLines = 5;
     }
     public void SwitchToRelationDialogue() 
     {

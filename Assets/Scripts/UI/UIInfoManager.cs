@@ -19,5 +19,8 @@ public class UIInfoManager : MonoBehaviour
             _currentMoney = CurrentMoney;
         }
     }
-
+    private void Awake()
+    {
+        GetComponent<CanvasGroup>().alpha = 0;
+    }
 }
