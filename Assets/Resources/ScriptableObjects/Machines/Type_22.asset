@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445140b1fb71b154c9e48c0c91664435, type: 3}
   m_Name: Type_22
   m_EditorClassIdentifier: 
-  name: 
-  Type: 0
-  title: 
-  Description: 
-  Cost: 0
+  name: Type_22
+  Type: 21
+  title: Type 22
+  Description: Type22
+  Cost: 400
   MeshFilter: {fileID: 0}
   MeshRenderer: {fileID: 0}
   ShopSprite: {fileID: 0}
   RangePattern: {fileID: 0}
-  RestrictionType: 0
-  RestrictionTier: 0
-  CompletionRateModifier: 0
+  RestrictionType: 2
+  RestrictionTier: 2
+  CompletionRateModifier: 70
   PatternType: 0
   CompatibleBiomes: 

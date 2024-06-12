@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f2aadf987821644a8327a532c2e644, type: 3}
   m_Name: Jungle
   m_EditorClassIdentifier: 
-  name: 
+  name: Jungle
   Type: 0
-  Description: 
-  Mesh: {fileID: 0}
-  Material: {fileID: 0}
+  Description: Jungle Biome
+  Mesh: {fileID: -3040160402251708652, guid: 7d3f8ba939ae02f4da8f0ccd52f8645b, type: 3}
+  Material: {fileID: 2100000, guid: 63a57ec8b48432148a938b0d7a56f654, type: 2}
   grassBottomColor: {r: 0, g: 0, b: 0, a: 0}
   grassTopColor: {r: 0, g: 0, b: 0, a: 0}
-  tilePrefab: {fileID: 0}
-  biomeWeight: 0
+  tilePrefab: {fileID: 1810241591079234738, guid: 72f932d52504e3c489d03a0fb6070a86, type: 3}
+  biomeWeight: 2
   biomeTiles: []
   spawnCount: 0
   Sprite: {fileID: 0}
-  EnviroAlterations: 
+  EnviroAlterations: 0000000001000000

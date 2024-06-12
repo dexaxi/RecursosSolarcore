@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d249e6281b75624bb52656ab50af599, type: 3}
   m_Name: Ecological_Connectivity_Loss
   m_EditorClassIdentifier: 
-  name: 
-  Title: 
-  Description: 
-  Type: 0
+  name: Ecological_Connectivity_Loss
+  Title: Ecological Connectivity Loss
+  Description: Ecological_Connectivity_Loss
+  Type: 5
   Sprite: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 1}

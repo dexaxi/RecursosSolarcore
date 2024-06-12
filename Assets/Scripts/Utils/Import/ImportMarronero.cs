@@ -58,12 +58,6 @@ public class ImportMarronero : EditorWindow
 				var newBiome = ScriptableObject.CreateInstance<Biome>();
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Biomes" + "/" + type.ToString() + ".asset";
-                AssetDatabase.CreateAsset(newBiome, assetPath);
-				EditorUtility.SetDirty(newBiome);
-				AssetDatabase.SaveAssets();
-				AssetDatabase.Refresh();
-				EditorUtility.FocusProjectWindow();
-				Selection.activeObject = newBiome;
 
 				newBiome.name = biomeDTODict[type].name;
 				newBiome.Type = biomeDTODict[type].Type;
@@ -74,8 +68,16 @@ public class ImportMarronero : EditorWindow
 				newBiome.biomeWeight = biomeDTODict[type].biomeWeight;
 				newBiome.Sprite = biomeDTODict[type].Sprite;
 				newBiome.EnviroAlterations = biomeDTODict[type].EnviroAlterations;
-			}
-		}
+
+                AssetDatabase.CreateAsset(newBiome, assetPath);
+                EditorUtility.SetDirty(newBiome);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                EditorUtility.FocusProjectWindow();
+                Selection.activeObject = newBiome;
+
+            }
+        }
 
 		return dict;
 
@@ -164,12 +166,6 @@ public class ImportMarronero : EditorWindow
 				var newConsequence = ScriptableObject.CreateInstance<EnviroConsequence>();
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Consequences" + "/" + type.ToString() + ".asset";
-                AssetDatabase.CreateAsset(newConsequence, assetPath);
-                EditorUtility.SetDirty(newConsequence);
-                AssetDatabase.SaveAssets();
-				AssetDatabase.Refresh();
-				EditorUtility.FocusProjectWindow();
-				Selection.activeObject = newConsequence;
 
 				newConsequence.name = consequenceDTODict[type].name;
 				newConsequence.Title = consequenceDTODict[type].Title;
@@ -178,7 +174,14 @@ public class ImportMarronero : EditorWindow
 				newConsequence.Sprite = consequenceDTODict[type].Sprite;
 				newConsequence.color = consequenceDTODict[type].color;
 
-				consequences[type] = newConsequence;
+                AssetDatabase.CreateAsset(newConsequence, assetPath);
+                EditorUtility.SetDirty(newConsequence);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                EditorUtility.FocusProjectWindow();
+                Selection.activeObject = newConsequence;
+
+                consequences[type] = newConsequence;
 			}
 		}
 		return consequences;
@@ -203,12 +206,6 @@ public class ImportMarronero : EditorWindow
 				var newMachine = ScriptableObject.CreateInstance<Machine>();
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Machines" + "/" + type.ToString() + ".asset";
-                AssetDatabase.CreateAsset(newMachine, assetPath);
-				EditorUtility.SetDirty(newMachine);
-                AssetDatabase.SaveAssets();
-				AssetDatabase.Refresh();
-				EditorUtility.FocusProjectWindow();
-				Selection.activeObject = newMachine;
 
 				newMachine.name = machineDTODict[type].name;
 				newMachine.Type = machineDTODict[type].Type;
@@ -222,8 +219,15 @@ public class ImportMarronero : EditorWindow
 				newMachine.RestrictionType = machineDTODict[type].RestrictionType;
 				newMachine.RestrictionTier = machineDTODict[type].RestrictionTier;
 				newMachine.CompletionRateModifier = machineDTODict[type].CompletionRateModifier;
-			}
-		}
+
+                AssetDatabase.CreateAsset(newMachine, assetPath);
+                EditorUtility.SetDirty(newMachine);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                EditorUtility.FocusProjectWindow();
+                Selection.activeObject = newMachine;
+            }
+        }
 		return machines;
 	}
 
@@ -279,12 +283,6 @@ public class ImportMarronero : EditorWindow
 				var newProblem = ScriptableObject.CreateInstance<EnviroProblem>();
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Problems" + "/" + type.ToString() + ".asset";
-				AssetDatabase.CreateAsset(newProblem, assetPath);
-                EditorUtility.SetDirty(newProblem);
-                AssetDatabase.SaveAssets();
-				AssetDatabase.Refresh();
-				EditorUtility.FocusProjectWindow();
-				Selection.activeObject = newProblem;
 
 				newProblem.name = problemDTODict[type].name;
 				newProblem.Title = problemDTODict[type].Title;
@@ -300,7 +298,15 @@ public class ImportMarronero : EditorWindow
 				newProblem.RelatedConsecuences = problemDTODict[type].RelatedConsecuences;
 				newProblem.RelatedProblems = problemDTODict[type].RelatedProblems;
 
-				problems[type] = newProblem;
+                AssetDatabase.CreateAsset(newProblem, assetPath);
+                EditorUtility.SetDirty(newProblem);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                EditorUtility.FocusProjectWindow();
+                Selection.activeObject = newProblem;
+
+
+                problems[type] = newProblem;
 			}
 		}
 
@@ -367,13 +373,6 @@ public class ImportMarronero : EditorWindow
 				var newAlteration = ScriptableObject.CreateInstance<EnviroAlteration>();
 
 				string assetPath = ImportMarroneroPath + "ScriptableObjects/" + "Alterations" + "/" + type.ToString() + ".asset";
-                AssetDatabase.CreateAsset(newAlteration, assetPath);
-                EditorUtility.SetDirty(newAlteration);
-                AssetDatabase.SaveAssets();
-				AssetDatabase.Refresh();
-				EditorUtility.FocusProjectWindow();
-				Selection.activeObject = newAlteration;
-
 				newAlteration.name = alterationDTODict[type].name;
 				newAlteration.Title = alterationDTODict[type].Title;
 				newAlteration.DescriptionList = alterationDTODict[type].DescriptionList;
@@ -383,7 +382,15 @@ public class ImportMarronero : EditorWindow
 				newAlteration.color = alterationDTODict[type].color;
 				newAlteration.EnviroProblems = alterationDTODict[type].EnviroProblems;
 
-				alterations[type] = newAlteration;
+                AssetDatabase.CreateAsset(newAlteration, assetPath);
+                EditorUtility.SetDirty(newAlteration);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                EditorUtility.FocusProjectWindow();
+                Selection.activeObject = newAlteration;
+
+
+                alterations[type] = newAlteration;
 			}
 		}
 

@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e73e8c3ba435f4faae579c32822dae, type: 3}
   m_Name: Water_Temp_Rise
   m_EditorClassIdentifier: 
-  name: 
-  Title: 
-  DescriptionList: []
-  Type: 0
-  SpriteDescriptions: []
+  name: Water_Temp_Rise
+  Title: Water Temp Rise
+  DescriptionList:
+  - Water_Temp_Rise1
+  - Water_Temp_Rise2
+  - Water_Temp_Rise3
+  Type: 5
+  SpriteDescriptions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Icon: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 1}
   Biome: 0
-  EnviroProblems: 
+  EnviroProblems: 160000000300000014000000

@@ -12,12 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e73e8c3ba435f4faae579c32822dae, type: 3}
   m_Name: Predators_Lack
   m_EditorClassIdentifier: 
-  name: 
-  Title: 
-  DescriptionList: []
-  Type: 0
-  SpriteDescriptions: []
+  name: Predators_Lack
+  Title: Predators Lack
+  DescriptionList:
+  - Predators_Lack1
+  - Predators_Lack2
+  - Predators_Lack3
+  Type: 4
+  SpriteDescriptions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Icon: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 1}
   Biome: 0
-  EnviroProblems: 
+  EnviroProblems: 050000000a00000013000000

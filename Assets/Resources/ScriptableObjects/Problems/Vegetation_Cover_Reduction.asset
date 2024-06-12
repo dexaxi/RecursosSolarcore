@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5d8c8f0eb0fa34485b1dd4ccb18313, type: 3}
   m_Name: Vegetation_Cover_Reduction
   m_EditorClassIdentifier: 
-  name: 
-  Title: 
-  Description: 
-  Type: 0
-  Section: 0
-  Phase: 0
+  name: Vegetation_Cover_Reduction
+  Title: Vegetation Cover Reduction
+  Description: Vegetation_Cover_Reduction
+  Type: 17
+  Section: 2
+  Phase: 2
   Icon: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
-  PossibleSolutions: 
-  RelatedConsecuences: 
-  RelatedProblems: 
+  color: {r: 1, g: 1, b: 1, a: 1}
+  PossibleSolutions: 0c000000210000001800000014000000
+  RelatedConsecuences: 02000000
+  RelatedProblems: 080000000e00000007000000

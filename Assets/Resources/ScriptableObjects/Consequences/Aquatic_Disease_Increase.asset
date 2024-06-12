@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d249e6281b75624bb52656ab50af599, type: 3}
   m_Name: Aquatic_Disease_Increase
   m_EditorClassIdentifier: 
-  name: 
-  Title: 
-  Description: 
-  Type: 0
+  name: Aquatic_Disease_Increase
+  Title: Aquatic Disease Increase
+  Description: Aquatic_Disease_Increase
+  Type: 1
   Sprite: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 1}
