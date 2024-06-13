@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Invertebrate_Species_Loss
   Title: "Reducci\xF3n de cantidad de invertebrados del suelo"
   Description: "Reducci\xF3n de cantidad de invertebrados del suelo"
-  Type: 6
+  Type: 5
   Section: 1
   Phase: 2
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 0f0000001000000011000000
-  RelatedConsecuences: 02000000
+  RelatedConsecuences: 09000000
   RelatedProblems: 

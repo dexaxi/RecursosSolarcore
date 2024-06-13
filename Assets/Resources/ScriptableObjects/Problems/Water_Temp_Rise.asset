@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Water_Temp_Rise
   Title: Incremento de la temperatura del agua
   Description: Incremento de la temperatura del agua
-  Type: 22
+  Type: 9
   Section: 0
   Phase: 0
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 1b0000001c0000001d000000
-  RelatedConsecuences: 0200000001000000
-  RelatedProblems: 1400000003000000
+  RelatedConsecuences: 0900000000000000
+  RelatedProblems: 0a0000000b000000

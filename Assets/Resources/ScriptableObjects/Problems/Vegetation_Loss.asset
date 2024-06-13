@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Vegetation_Loss
   Title: "Reducci\xF3n de especies nativas de plantas"
   Description: "Reducci\xF3n de especies nativas de plantas"
-  Type: 19
+  Type: 4
   Section: 2
   Phase: 1
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
-  PossibleSolutions: 030000000400000005000000
-  RelatedConsecuences: 02000000
-  RelatedProblems: 0800000007000000
+  PossibleSolutions: 0c0000000d0000000e000000
+  RelatedConsecuences: 09000000
+  RelatedProblems: 

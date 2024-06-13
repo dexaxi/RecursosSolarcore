@@ -16,13 +16,13 @@ MonoBehaviour:
   Type: 30
   title: "Monitoreo y Redistribuci\xF3n de Especies"
   Description: "Monitoreo y Redistribuci\xF3n de Especies"
-  Cost: 512
+  Cost: 400
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 1cbeaa69cee19da4284e1d4e908a434f, type: 2}
   ShopSprite: {fileID: 21300000, guid: 8afa874929330f644a436ef758092f24, type: 3}
   RangePattern: {fileID: 0}
-  RestrictionType: 2
-  RestrictionTier: 1
-  CompletionRateModifier: 70
+  RestrictionType: 0
+  RestrictionTier: 0
+  CompletionRateModifier: 100
   PatternType: 0
   CompatibleBiomes: 

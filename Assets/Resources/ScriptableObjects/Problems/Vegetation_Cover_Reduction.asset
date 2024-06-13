@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Vegetation_Cover_Reduction
   Title: "Reducci\xF3n de la cobertura vegetal"
   Description: "Reducci\xF3n de la cobertura vegetal"
-  Type: 17
+  Type: 13
   Section: 2
-  Phase: 2
+  Phase: 1
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 270000002800000029000000
-  RelatedConsecuences: 02000000
-  RelatedProblems: 080000000e00000007000000
+  RelatedConsecuences: 09000000
+  RelatedProblems: 0e000000

@@ -16,13 +16,13 @@ MonoBehaviour:
   Type: 28
   title: "Generador de Sombras Oce\xE1nicas"
   Description: "Generador de Sombras Oce\xE1nicas"
-  Cost: 510
+  Cost: 400
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 91c7324234b4bec44a633f9974f6ed07, type: 2}
   ShopSprite: {fileID: 21300000, guid: 8461c4d7c23e84e449f4e693e588f41e, type: 3}
   RangePattern: {fileID: 0}
-  RestrictionType: 0
-  RestrictionTier: 1
-  CompletionRateModifier: 50
+  RestrictionType: 1
+  RestrictionTier: 3
+  CompletionRateModifier: 0
   PatternType: 0
   CompatibleBiomes: 

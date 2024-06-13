@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Forest_Fires
   m_EditorClassIdentifier: 
   name: Forest_Fires
-  Title: Incendio Forestal
+  Title: Incendios Forestales
   DescriptionList:
   - Forest_Fires1
   - Forest_Fires2
   - Forest_Fires3
-  Type: 2
+  Type: 4
   SpriteDescriptions:
   - {fileID: 0}
   - {fileID: 0}
@@ -26,4 +26,4 @@ MonoBehaviour:
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   Biome: 0
-  EnviroProblems: 020000000700000011000000
+  EnviroProblems: 0c0000000e0000000d000000

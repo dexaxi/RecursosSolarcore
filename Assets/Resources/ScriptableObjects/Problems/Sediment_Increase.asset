@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Sediment_Increase
   Title: Aumento de sedimentos (Turbidez del agua)
   Description: Aumento de sedimentos (Turbidez del agua)
-  Type: 12
+  Type: 6
   Section: 0
-  Phase: 1
+  Phase: 0
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 120000001300000014000000
-  RelatedConsecuences: 030000000c000000
+  RelatedConsecuences: 0500000008000000
   RelatedProblems: 

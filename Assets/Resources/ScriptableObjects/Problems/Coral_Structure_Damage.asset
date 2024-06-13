@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Coral_Structure_Damage
   Title: "Da\xF1o a las estructuras de los corales"
   Description: "Da\xF1o a las estructuras de los corales"
-  Type: 4
+  Type: 8
   Section: 1
-  Phase: 0
+  Phase: 2
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 18000000190000001a000000
-  RelatedConsecuences: 0200000003000000
-  RelatedProblems: 15000000
+  RelatedConsecuences: 0900000005000000
+  RelatedProblems: 07000000

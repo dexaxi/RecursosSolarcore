@@ -1,1 +1,1 @@
-public enum EnviroAlterationType{Deforestation, Farming_Caused_Soil_Degradation, Forest_Fires, Over_Fishing, Predators_Lack, Water_Temp_Rise, }
+public enum EnviroAlterationType{Deforestation, Farming_Caused_Soil_Degradation, Over_Fishing, Water_Temp_Rise, Forest_Fires, Predators_Lack, }

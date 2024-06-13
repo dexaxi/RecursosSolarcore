@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Farming_Caused_Soil_Degradation
   m_EditorClassIdentifier: 
   name: Farming_Caused_Soil_Degradation
-  Title: "Degradaci\xF3n del suelo (por agricultura intensiva)"
+  Title: "Degradaci\xF3n del Suelo"
   DescriptionList:
   - Farming_Caused_Soil_Degradation1
   - Farming_Caused_Soil_Degradation2
@@ -26,4 +26,4 @@ MonoBehaviour:
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   Biome: 0
-  EnviroProblems: 000000001300000006000000
+  EnviroProblems: 030000000400000005000000

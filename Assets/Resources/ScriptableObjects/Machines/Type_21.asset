@@ -16,13 +16,13 @@ MonoBehaviour:
   Type: 20
   title: Circulador de Agua Artificial
   Description: Circulador de Agua Artificial
-  Cost: 502
+  Cost: 250
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 6e8e99e143716b74e82f60b6b413ab34, type: 2}
   ShopSprite: {fileID: 21300000, guid: db1a32d7e020a7f49bc97916e98c336e, type: 3}
-  RangePattern: {fileID: 2800000, guid: 5400f279c81d5e94ab0f3a42304a9e30, type: 3}
-  RestrictionType: 1
-  RestrictionTier: 2
-  CompletionRateModifier: 60
+  RangePattern: {fileID: 0}
+  RestrictionType: 2
+  RestrictionTier: 0
+  CompletionRateModifier: 80
   PatternType: 0
   CompatibleBiomes: 

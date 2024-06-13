@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Predators_Decrease
   m_EditorClassIdentifier: 
   name: Predators_Decrease
-  Title: "Reducci\xF3n o Extinci\xF3n de Depredadores"
-  Description: "Reducci\xF3n o Extinci\xF3n de Depredadores"
-  Type: 10
+  Title: "Reducci\xF3n de depredadores"
+  Description: "Reducci\xF3n de depredadores"
+  Type: 15
   Section: 1
-  Phase: 1
+  Phase: 0
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 2d0000002e0000002f000000
-  RelatedConsecuences: 0200000006000000
-  RelatedProblems: 05000000
+  RelatedConsecuences: 0900000003000000
+  RelatedProblems: 11000000

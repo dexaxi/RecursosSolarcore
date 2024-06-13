@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Organic_Material_Loss
   Title: "Disminuci\xF3n de ra\xEDces y materia org\xE1nica"
   Description: "Disminuci\xF3n de ra\xEDces y materia org\xE1nica"
-  Type: 8
+  Type: 0
   Section: 0
   Phase: 0
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 000000000100000002000000
-  RelatedConsecuences: 0900000004000000
+  RelatedConsecuences: 0600000007000000
   RelatedProblems: 

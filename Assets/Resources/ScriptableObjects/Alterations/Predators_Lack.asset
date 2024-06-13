@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Predators_Lack
   m_EditorClassIdentifier: 
   name: Predators_Lack
-  Title: Falta de depredadores
+  Title: Falta de Depredadores
   DescriptionList:
   - Predators_Lack1
   - Predators_Lack2
   - Predators_Lack3
-  Type: 4
+  Type: 5
   SpriteDescriptions:
   - {fileID: 0}
   - {fileID: 0}
@@ -26,4 +26,4 @@ MonoBehaviour:
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   Biome: 0
-  EnviroProblems: 050000000a00000013000000
+  EnviroProblems: 110000000f00000010000000

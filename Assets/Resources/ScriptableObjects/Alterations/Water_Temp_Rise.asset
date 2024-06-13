@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Water_Temp_Rise
   m_EditorClassIdentifier: 
   name: Water_Temp_Rise
-  Title: Water Temp Rise
+  Title: Aumento de la temperatura del agua
   DescriptionList:
   - Water_Temp_Rise1
   - Water_Temp_Rise2
   - Water_Temp_Rise3
-  Type: 5
+  Type: 3
   SpriteDescriptions:
   - {fileID: 0}
   - {fileID: 0}
@@ -26,4 +26,4 @@ MonoBehaviour:
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   Biome: 0
-  EnviroProblems: 160000000300000014000000
+  EnviroProblems: 090000000b0000000a000000

@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Water_Species_Behaviour_Changes
   Title: Cambios en el comportamiento de especies marinas
   Description: Cambios en el comportamiento de especies marinas
-  Type: 20
+  Type: 10
   Section: 1
-  Phase: 2
+  Phase: 1
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 1e0000001f00000020000000
-  RelatedConsecuences: 02000000
+  RelatedConsecuences: 09000000
   RelatedProblems: 

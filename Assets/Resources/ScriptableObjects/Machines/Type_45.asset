@@ -16,13 +16,13 @@ MonoBehaviour:
   Type: 44
   title: Instalador de Refugios Artificiales
   Description: Instalador de Refugios Artificiales
-  Cost: 526
+  Cost: 100
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}
   ShopSprite: {fileID: 21300000, guid: e9454e294215b67438305874c104e4ba, type: 3}
-  RangePattern: {fileID: 2800000, guid: eebb6db42c020dc49910818878ffa78a, type: 3}
+  RangePattern: {fileID: 0}
   RestrictionType: 2
   RestrictionTier: 2
-  CompletionRateModifier: 60
+  CompletionRateModifier: 80
   PatternType: 0
   CompatibleBiomes: 

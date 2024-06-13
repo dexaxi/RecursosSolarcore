@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Aquatic_Disease_Increase
   Title: Aumento en enfermedades marinas
   Description: Aumento en enfermedades marinas
-  Type: 1
+  Type: 0
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

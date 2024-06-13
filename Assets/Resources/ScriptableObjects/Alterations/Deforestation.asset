@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Deforestation
   m_EditorClassIdentifier: 
   name: Deforestation
-  Title: Deforestation
+  Title: "Deforestaci\xF3n"
   DescriptionList:
   - Deforestation1
   - Deforestation2
@@ -26,4 +26,4 @@ MonoBehaviour:
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   Biome: 0
-  EnviroProblems: 080000001300000007000000
+  EnviroProblems: 000000000100000002000000

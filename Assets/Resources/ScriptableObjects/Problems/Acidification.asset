@@ -15,11 +15,11 @@ MonoBehaviour:
   name: Acidification
   Title: "Acidificaci\xF3n y Compactaci\xF3n del suelo"
   Description: "Acidificaci\xF3n y Compactaci\xF3n del suelo"
-  Type: 0
+  Type: 3
   Section: 0
   Phase: 0
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 090000000a0000000b000000
-  RelatedConsecuences: 04000000000000000d000000
-  RelatedProblems: 06000000
+  RelatedConsecuences: 0a00000009000000070000000b000000
+  RelatedProblems: 05000000

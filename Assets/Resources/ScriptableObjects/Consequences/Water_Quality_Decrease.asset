@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Water_Quality_Decrease
   Title: "Disminuci\xF3n en la calidad del agua"
   Description: "Disminuci\xF3n en la calidad del agua"
-  Type: 12
+  Type: 8
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

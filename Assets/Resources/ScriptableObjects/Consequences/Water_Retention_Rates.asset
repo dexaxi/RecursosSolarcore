@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Water_Retention_Rates
   m_EditorClassIdentifier: 
   name: Water_Retention_Rates
-  Title: "Disminuci\xF3n en la capacidad de absorber agua."
-  Description: "Disminuci\xF3n en la capacidad de absorber agua."
-  Type: 13
+  Title: "Reducci\xF3n en la capacidad de almacenamiento de agua"
+  Description: "Reducci\xF3n en la capacidad de almacenamiento de agua"
+  Type: 11
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

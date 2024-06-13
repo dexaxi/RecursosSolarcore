@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fire_Rate_Increase
   m_EditorClassIdentifier: 
   name: Fire_Rate_Increase
-  Title: Aumento de la probabilidad de incencios
-  Description: Aumento de la probabilidad de incencios
-  Type: 8
+  Title: Aumento en la frecuencia de incendios
+  Description: Aumento en la frecuencia de incendios
+  Type: 2
   Sprite: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}

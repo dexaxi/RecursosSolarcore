@@ -16,13 +16,13 @@ MonoBehaviour:
   Type: 41
   title: Dispensador de Semillas Resilientes
   Description: Dispensador de Semillas Resilientes
-  Cost: 523
+  Cost: 300
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 1cbeaa69cee19da4284e1d4e908a434f, type: 2}
   ShopSprite: {fileID: 21300000, guid: 8afa874929330f644a436ef758092f24, type: 3}
   RangePattern: {fileID: 0}
-  RestrictionType: 1
-  RestrictionTier: 2
-  CompletionRateModifier: 90
+  RestrictionType: 0
+  RestrictionTier: 0
+  CompletionRateModifier: 80
   PatternType: 0
   CompatibleBiomes: 

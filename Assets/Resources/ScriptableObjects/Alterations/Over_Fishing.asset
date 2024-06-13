@@ -18,7 +18,7 @@ MonoBehaviour:
   - Over_Fishing1
   - Over_Fishing2
   - Over_Fishing3
-  Type: 3
+  Type: 2
   SpriteDescriptions:
   - {fileID: 0}
   - {fileID: 0}
@@ -26,4 +26,4 @@ MonoBehaviour:
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   Biome: 0
-  EnviroProblems: 040000000c00000015000000
+  EnviroProblems: 080000000600000007000000
