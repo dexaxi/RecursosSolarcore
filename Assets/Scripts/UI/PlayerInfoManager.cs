@@ -46,13 +46,12 @@ public class PlayerInfoManager : MonoBehaviour
 
     public void Confirm() 
     {
-        Age = Int32.Parse(Edad.text);
-        if (Nombre.text.Trim() != "") Name = Nombre.text;
-        else return;
         SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SCENE);
-
         canvas.alpha = 0.0f;
         canvas.interactable = false;
         canvas.blocksRaycasts = false;
+        Age = Int32.Parse(Edad.text);
+        if (Nombre.text.Trim() != "") Name = Nombre.text;
+        else return;
     }
 }
