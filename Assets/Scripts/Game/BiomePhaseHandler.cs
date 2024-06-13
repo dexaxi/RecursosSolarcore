@@ -188,6 +188,7 @@ public class BiomePhaseHandler : MonoBehaviour
         if (!found) 
         {
             DBConnection.Instance.phase_sucess++;
+            DBConnection.Instance.UpdateUser();
             CompletedBiomes.Add(biome);
             if (!CheckAllBiomesCompleted()) 
             {

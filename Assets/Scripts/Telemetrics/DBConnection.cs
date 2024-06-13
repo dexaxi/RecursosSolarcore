@@ -78,6 +78,8 @@ public class DBConnection : MonoBehaviour
 				InsertNewUser(username, age, gender, machines_placed, machines_sold, phase_sucess, phase_fail, (int)(duration / 60), completition, null);
 
 			}
+
+			request.Dispose();
 		}));
 	}
 
@@ -108,6 +110,8 @@ public class DBConnection : MonoBehaviour
 				}
 				callback?.Invoke(newId);
 			}
+
+			request.Dispose();
 		}));
 	}
 
@@ -137,6 +141,8 @@ public class DBConnection : MonoBehaviour
 					callback?.Invoke(response.data[0]);
 				}
 			}
+
+			request.Dispose();
 		}));
 	}
 
@@ -169,6 +175,8 @@ public class DBConnection : MonoBehaviour
 						Debug.Log(request.downloadHandler.text);
 						callback?.Invoke(newId);
 					}
+
+					request.Dispose();
 				}));
 			}
 			else
@@ -198,6 +206,9 @@ public class DBConnection : MonoBehaviour
 				// La solicitud fue exitosa, puedes acceder a la respuesta
 				Debug.Log(request.downloadHandler.text);
 			}
+
+			request.Dispose();
+
 		}));
 
 
@@ -221,6 +232,9 @@ public class DBConnection : MonoBehaviour
 
 		yield return request.SendWebRequest();
 
+		request.disposeUploadHandlerOnDispose = true;
+		request.disposeDownloadHandlerOnDispose = true;
+
 		callback?.Invoke(request);
 	}
 
@@ -242,7 +256,10 @@ public class DBConnection : MonoBehaviour
 					total += Mathf.Clamp(item.Value, 0, 100);
 				}
 
-				completition = total / dict.Count;
+				completition = 0;
+				if (dict.Count > 0)
+					completition = total / dict.Count;
+			
 			}
 
 			UpdateUser();
