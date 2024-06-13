@@ -51,7 +51,7 @@ public class DBConnection : MonoBehaviour
 		if (PlayerInfoManager.Instance != null)
 		{
 			age = PlayerInfoManager.Instance.Age;
-			username = PlayerInfoManager.Instance.name;
+			username = PlayerInfoManager.Instance.Name;
 			gender = PlayerInfoManager.Instance.gender.ToString();
 		}
 
