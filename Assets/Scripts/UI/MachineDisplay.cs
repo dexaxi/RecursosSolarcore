@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -107,6 +108,14 @@ public class MachineDisplay : MonoBehaviour
 
     public void ShowSellDisplay() 
     {
+        var biome = _machine.GroundTile.Biome;
+        var currentPhase = BiomePhaseHandler.Instance.CurrentPhasePerBiome[biome.Type];
+        var currentPhaseMachines = BiomePhaseHandler.Instance.MachinesPerProblem[currentPhase.Type];
+        if (!currentPhaseMachines.Contains(_machine.GetMachineType())) 
+        {
+            Selectable.UnlockSelectable();
+            return;
+        }
         DisableMoveUI();
         DisablePlaceUI();
         EnableSellUI();

@@ -482,6 +482,8 @@ MonoBehaviour:
   Elements:
   - GameObject: {fileID: 591770959878680720}
     Path: 
+  - GameObject: {fileID: 5605699279556168260}
+    Path: 5b6f2619
   - GameObject: {fileID: 7712135021335742172}
     Path: 0c658756
   - GameObject: {fileID: 8179501851992312031}

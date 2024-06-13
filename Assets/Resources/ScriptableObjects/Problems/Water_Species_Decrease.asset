@@ -17,7 +17,7 @@ MonoBehaviour:
   Description: "Disminuci\xF3n en la poblaci\xF3n de especies acuaticas"
   Type: 21
   Section: 1
-  Phase: -1
+  Phase: 2
   Icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   PossibleSolutions: 150000001600000017000000

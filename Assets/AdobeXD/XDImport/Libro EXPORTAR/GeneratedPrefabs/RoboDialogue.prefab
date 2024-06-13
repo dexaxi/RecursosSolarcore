@@ -551,7 +551,7 @@ MonoBehaviour:
             m_Calls:
             - m_Target: {fileID: 0}
               m_TargetAssemblyTypeName: RelationHandler, Assembly-CSharp
-              m_MethodName: SpawnBiomeBubbles
+              m_MethodName: SetBubblePhase
               m_Mode: 1
               m_Arguments:
                 m_ObjectArgument: {fileID: 0}
@@ -576,6 +576,30 @@ MonoBehaviour:
     - Key: AllRelationsComplete
       Value:
         Dialogue: {fileID: 11400000, guid: 73935f749dbf1b54bbc27eb85ff7bc9c, type: 2}
+        DialogueEndEvent:
+          m_PersistentCalls:
+            m_Calls: []
+    - Key: JungleInfo
+      Value:
+        Dialogue: {fileID: 11400000, guid: ce3b6877356a6294aa83027ebf888a63, type: 2}
+        DialogueEndEvent:
+          m_PersistentCalls:
+            m_Calls: []
+    - Key: ForestInfo
+      Value:
+        Dialogue: {fileID: 11400000, guid: 4272040e6c6971741a539f5b1e7f1009, type: 2}
+        DialogueEndEvent:
+          m_PersistentCalls:
+            m_Calls: []
+    - Key: OceanInfo
+      Value:
+        Dialogue: {fileID: 11400000, guid: 2a4f47990a65b3c4faeeab5092864b7a, type: 2}
+        DialogueEndEvent:
+          m_PersistentCalls:
+            m_Calls: []
+    - Key: ReiniciarFase
+      Value:
+        Dialogue: {fileID: 11400000, guid: d8543745433d56d419790365c8ce0d3d, type: 2}
         DialogueEndEvent:
           m_PersistentCalls:
             m_Calls: []
@@ -1182,9 +1206,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2918177151501190373}
     m_Modifications:
+    - target: {fileID: 1788300665529447202, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_text
+      value: "El primer paso es restaurar la Disminuci\xF3n de materia org\xE1nica
+        y ra\xEDces.El primer paso es restaurar la Disminuci\xF3n de materia org\xE1nica
+        y ra\xEDces.El primer paso es restaurar la Disminuci\xF3n de materia org\xE1nica
+        y ra\xEDces."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509113998417234257, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 583.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509113998417234257, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 596.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509113998417234257, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -35.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509113998417234257, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 132.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 3509113998417234257, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -153.51
+      objectReference: {fileID: 0}
     - target: {fileID: 5863160777668388108, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
       propertyPath: m_Name
       value: Robot_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111242380717028067, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -7.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111242380717028067, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -8.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111242380717028067, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -33.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111242380717028067, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -80.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111242380717028067, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 74.43
       objectReference: {fileID: 0}
     - target: {fileID: 6840827579290001188, guid: 8c74b267d22f74c4580b3ac2c78f24f5, type: 3}
       propertyPath: m_Pivot.x

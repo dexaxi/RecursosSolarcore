@@ -30,6 +30,8 @@ public class RelationHandler : MonoBehaviour
         Instance = this;
     }
 
+    public EnviroProblem GetProblem(EnviroProblemType type) { EnviroProblem returnProblem; _problems.TryGetValue(type, out returnProblem); return returnProblem; }
+
     public void EndRelationPhase() 
     {
         FindObjectOfType<BiomeBubble>().BubbleComplete(false);

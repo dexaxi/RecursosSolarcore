@@ -133,15 +133,20 @@ public class GroundTile : MonoBehaviour
         Biome = biome;
         GetComponent<MeshFilter>().mesh = Biome.Mesh;
         GetComponent<MeshRenderer>().material = Biome.Material;
-        foreach(GroundDecorationsCreator creator in GetComponentsInChildren<GroundDecorationsCreator>())
-        {
-            if(creator.Type == DecorationType.Grass)
-            {
-                creator.SetGrassColor(Biome.grassBottomColor, Biome.grassTopColor);
-            }
-        }
+        UpdateBiomeColor(Biome.grassBottomColor, Biome.grassTopColor);
         Highlightable.UpdateOriginalMaterials();
         BiomeHandler.Instance.TilesPerBiome[Biome.Type].Add(this);
+    }
+
+    public void UpdateBiomeColor(Color grassBottomColor, Color grassTopColor) 
+    {
+        foreach (GroundDecorationsCreator creator in GetComponentsInChildren<GroundDecorationsCreator>())
+        {
+            if (creator.Type == DecorationType.Grass)
+            {
+                creator.SetGrassColor(grassBottomColor, grassTopColor);
+            }
+        }
     }
 
     public void HighlightBiomeTiles() 

@@ -33,6 +33,8 @@ public class RoboDialogueManager : MonoBehaviour
     [SerializeField] private CanvasGroup RelationCanvasGroup;
     [SerializeField] CanvasGroup GameplayCanvasGroup;
 
+    private SerializableDictionary<string, int> DialogueCounter = new();
+
     private int _maxLines;
     private void Awake()
     {
@@ -74,7 +76,23 @@ public class RoboDialogueManager : MonoBehaviour
         _currentCanvasGroup.interactable = false;
     }
 
-    
+    public void PlayOnce(string dialogueName) 
+    {
+        if (DialogueCounter.ContainsKey(dialogueName)) 
+        {
+            return;
+        }
+        DialogueCounter[dialogueName] = 1;
+        StartRoboDialogue(dialogueName);
+    }
+
+    public void PlayNTimes(string dialogueName, int times) 
+    {
+        if (DialogueCounter.ContainsKey(dialogueName) && DialogueCounter[dialogueName] >= times) return;
+        if (!DialogueCounter.ContainsKey(dialogueName)) DialogueCounter[dialogueName] = 0;
+        else DialogueCounter[dialogueName]++;
+        StartRoboDialogue(dialogueName);
+    }
 
     public void StartRoboDialogue(string dialogueName) 
     {
@@ -92,7 +110,7 @@ public class RoboDialogueManager : MonoBehaviour
     {
         _currentDialogueMesh = gameplayDialogue;
         _currentCanvasGroup = GameplayCanvasGroup;
-        _maxLines = 5;
+        _maxLines = 9;
     }
     public void SwitchToRelationDialogue() 
     {

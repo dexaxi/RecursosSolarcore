@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks.Triggers;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,7 +7,8 @@ using UnityEngine.UI;
 public class CompletionUIManager : MonoBehaviour
 {
     public static CompletionUIManager Instance;
-    
+
+    [field: SerializeField] public GameObject ResetButton { get; private set; }
     [field: SerializeField] public List<CanvasGroup> PhaseUI { get; private set; } = new();
     [field: SerializeField] public List<Image> ProgressImages { get; private set; } = new();
     [field: SerializeField] public List<Scrollbar> ProgressScrolls { get; private set; } = new();
@@ -42,17 +44,18 @@ public class CompletionUIManager : MonoBehaviour
         var problems = BiomePhaseHandler.Instance.ProblemsPerBiome[biome.Type];
         for (int i = 0; i < problems.Count; i++)
         {
-            PhaseUI[i].alpha = 1.0f;
-            PhaseUI[i].interactable = true;
-            PhaseUI[i].blocksRaycasts = true;
+            var phaseIndex = RelationHandler.Instance.GetProblem(problems[i]).Phase;
+            PhaseUI[phaseIndex].alpha = 1.0f;
+            PhaseUI[phaseIndex].interactable = true;
+            PhaseUI[phaseIndex].blocksRaycasts = true;
             var currentCompletion = BiomePhaseHandler.Instance.CurrentCompletion[problems[i]];
-            ProgressImages[i].fillAmount = (currentCompletion == 0 ? 0.0f : currentCompletion / 100.0f); ;
+            ProgressImages[phaseIndex].fillAmount = (currentCompletion == 0 ? 0.0f : currentCompletion / 100.0f); ;
             int maxCompletion = (int) BiomePhaseHandler.Instance.MaxCompletion[problems[i]];
-            ProgressScrolls[i].value = (float) maxCompletion / 100;
-            if (currentCompletion >= maxCompletion) CheckIcons[i].enabled = true;
-            else CheckIcons[i].enabled = false;
-            ProgressScrolls[i].interactable = false;
-            ProgressText[i].text = maxCompletion + "%";
+            ProgressScrolls[phaseIndex].value = (float) maxCompletion / 100;
+            if (currentCompletion >= maxCompletion) CheckIcons[phaseIndex].enabled = true;
+            else CheckIcons[phaseIndex].enabled = false;
+            ProgressScrolls[phaseIndex].interactable = false;
+            ProgressText[phaseIndex].text = maxCompletion + "%";
         }
 
         for (int i = problems.Count; i < PhaseUI.Count; i++)

@@ -321,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f929387486d434a84eaa35fd60357b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ResetButton>k__BackingField: {fileID: 4974404600908367926, guid: d37eaca122b96f844bbe324f3060c0b4, type: 3}
   <PhaseUI>k__BackingField:
   - {fileID: 7211892444785404195}
   - {fileID: 1052095756283619603}
@@ -628,6 +629,10 @@ PrefabInstance:
     - target: {fileID: 1969447356838289697, guid: bad9502aa98ecde438e6d6fbb072daf8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5271709757964441330, guid: bad9502aa98ecde438e6d6fbb072daf8, type: 3}
+      propertyPath: m_text
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7094780810457404605, guid: bad9502aa98ecde438e6d6fbb072daf8, type: 3}
       propertyPath: m_Name

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum CompletionRate
 {
@@ -164,10 +165,15 @@ public class BiomePhaseHandler : MonoBehaviour
             {
                 found = true;
                 CurrentPhasePerBiome[biome] = problem;
+                MachineShop.Instance.PopulateShop(biome);
                 continue;
             }
         }
-        if (!found) CompletedBiomes.Add(biome);
+        if (!found) 
+        {
+            CompletedBiomes.Add(biome);
+            CheckAllBiomesCompleted();
+        }
     }
 
     public void CheckAllBiomesCompleted()
@@ -182,9 +188,9 @@ public class BiomePhaseHandler : MonoBehaviour
     {
         foreach (var problem in MachinesPerProblem.Keys)
         {
-            foreach (var machine in _machines)
+            foreach (var machine in MachinesPerProblem[problem])
             {
-                if (machine.Type == type) return problem;
+                if (machine == type) return problem;
             }
         }
         return (EnviroProblemType)(-1);
@@ -194,9 +200,9 @@ public class BiomePhaseHandler : MonoBehaviour
     {
         foreach (var biome in ProblemsPerBiome.Keys)
         {
-            foreach (var problem in _problems)
+            foreach (var problem in ProblemsPerBiome[biome])
             {
-                if (problem.Type == type) return biome;
+                if (problem == type) return biome;
             }
         }
         return (BiomeType)(-1);
@@ -204,7 +210,34 @@ public class BiomePhaseHandler : MonoBehaviour
 
     public void AttemptResetPhase(MachineType type, EnviroProblemType phase)
     {
-        ResetPhase(type, phase);
+        var biome = BiomeHandler.Instance.GetFilteredBiomes().Where( (Biome x) => x.Type == GetBiomeFromPhase(phase) ).FirstOrDefault();
+        var tiles = BiomeHandler.Instance.TilesPerBiome[biome.Type];
+        int tileCount = 0;
+        Vector3 tilePos = Vector3.zero;
+        foreach(var tile in tiles) 
+        {
+            tileCount++;
+            tilePos += tile.transform.position;
+            tile.Highlightable.Highlight("Dead");
+            tile.UpdateBiomeColor(Color.gray, Color.gray);
+        }
+        IsUsingUI.IsInResetPhase = true;
+        Vector3 tileCenter = tilePos / tileCount;
+        Button instance = Instantiate(CompletionUIManager.Instance.ResetButton, tileCenter + new Vector3(0, 4.5f, 0), Quaternion.identity).GetComponentInChildren<Button>();
+        instance.onClick.AddListener(delegate
+        {
+            ResetPhase(type, phase);
+            IsUsingUI.IsInResetPhase = false;
+            var tiles = BiomeHandler.Instance.TilesPerBiome[biome.Type];
+            foreach (var tile in tiles)
+            {
+                tile.Highlightable.Unhighlight();
+                tile.UpdateBiomeColor(tile.Biome.grassBottomColor, tile.Biome.grassTopColor);
+            }
+            Destroy(instance.gameObject);
+        });
+        MachineDisplay.Instance.ExitDisplay();
+        RoboDialogueManager.Instance.PlayOnce("ReiniciarFase");
     }
     public void ResetPhase(MachineType type, EnviroProblemType phase)
     {

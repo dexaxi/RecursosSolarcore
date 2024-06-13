@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,7 @@ public class MachineShop : MonoBehaviour
     [SerializeField] Button prevButton;
     [SerializeField] Button nextButton;
     [SerializeField] Button closeButton;
+    [SerializeField] TextMeshProUGUI ProblemTitle;
 
 
     private ItemHolder[] _itemHolders;
@@ -43,7 +45,7 @@ public class MachineShop : MonoBehaviour
         var machinesPerProblem = BiomePhaseHandler.Instance.MachinesPerProblem;
         var curPhase = BiomePhaseHandler.Instance.CurrentPhasePerBiome[biome];
         var possibleMachines = MachineHandler.Instance.GetFilteredMachines().Where( (Machine x) => (machinesPerProblem[curPhase.Type].Contains(x.Type))).ToList();
-        
+        ProblemTitle.text = BiomePhaseHandler.Instance.CurrentPhasePerBiome[biome].Title;
         for (int i = 0; i < _itemHolders.Length; i++)
         {
             if (i + _currentShopIndex < possibleMachines.Count)
