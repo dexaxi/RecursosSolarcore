@@ -661,7 +661,6 @@ GameObject:
   - component: {fileID: 500506117}
   - component: {fileID: 500506121}
   - component: {fileID: 500506122}
-  - component: {fileID: 500506123}
   m_Layer: 5
   m_Name: MiscCanvas
   m_TagString: Untagged
@@ -786,28 +785,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _handUIInfo: {fileID: 1065991488}
   _desktopUIInfo: {fileID: 472967304}
---- !u!114 &500506123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500506116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6356d8e44ad3b642a1b2e80801f092e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  username: Juanita! Testeo :p
-  gender: X
-  age: 2
-  machines_placed: 3
-  machines_sold: 4
-  phase_sucess: 56
-  phase_fail: 8
-  completition: 7
-  duration: 100
-  updateTimeInMinutes: 1
 --- !u!224 &555309233 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8033359681716910767, guid: 04c1a0947c9907c47b92420c4f8a5c97, type: 3}
@@ -1630,6 +1607,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1636684590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1636684592}
+  - component: {fileID: 1636684591}
+  m_Layer: 0
+  m_Name: DBConnection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1636684591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636684590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6356d8e44ad3b642a1b2e80801f092e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  username: Juanita! Testeo :p
+  gender: X
+  age: 2
+  machines_placed: 3
+  machines_sold: 4
+  phase_sucess: 56
+  phase_fail: 8
+  completition: 7
+  duration: 100
+  updateTimeInMinutes: 1
+--- !u!4 &1636684592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636684590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.707799, y: 2.6562595, z: 1.2512932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1807531310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1820,7 +1851,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
 --- !u!1001 &358759497867132075
 PrefabInstance:
