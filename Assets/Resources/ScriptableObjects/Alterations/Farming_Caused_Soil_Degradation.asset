@@ -15,9 +15,12 @@ MonoBehaviour:
   name: Farming_Caused_Soil_Degradation
   Title: "Degradaci\xF3n del Suelo"
   DescriptionList:
-  - Farming_Caused_Soil_Degradation1
-  - Farming_Caused_Soil_Degradation2
-  - Farming_Caused_Soil_Degradation3
+  - "La degradaci\xF3n del suelo es la perdida de las capacidades f\xEDsicas y qu\xEDmicas
+    de un \xE1rea de terreno, independientemente de su tama\xF1o."
+  - "El uso de maquinaria pesada, o especialmente, la agricultura intensiva son las
+    principales causas de esta alteraci\xF3n ambiental."
+  - "Algunas de las caracter\xEDsticas de este fen\xF3meno son la p\xE9rdida de nutrientes,
+    la acidificaci\xF3n o la compactaci\xF3n."
   Type: 1
   SpriteDescriptions:
   - {fileID: 0}

@@ -15,9 +15,13 @@ MonoBehaviour:
   name: Water_Temp_Rise
   Title: Aumento de la temperatura del agua
   DescriptionList:
-  - Water_Temp_Rise1
-  - Water_Temp_Rise2
-  - Water_Temp_Rise3
+  - "La temperatura del agua de los mares y oc\xE9anos causada por el calentamiento
+    global tiene efectos desastrosos a muchos niveles."
+  - "La alteraci\xF3n de las corrientes y el deshielo puede provocar efectos clim\xE1ticos
+    adversos y extremos en zonas anormales"
+  - "A parte de esto, las especies marinas se ven muy afectadas por estos cambios,
+    hasta el punto de tener que cambiar de rutas migratorias o siendo incapaces de
+    vivir en sus zonas geogr\xE1ficas habituales."
   Type: 3
   SpriteDescriptions:
   - {fileID: 0}

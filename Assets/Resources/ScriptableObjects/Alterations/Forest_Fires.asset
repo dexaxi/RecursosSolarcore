@@ -15,9 +15,13 @@ MonoBehaviour:
   name: Forest_Fires
   Title: Incendios Forestales
   DescriptionList:
-  - Forest_Fires1
-  - Forest_Fires2
-  - Forest_Fires3
+  - Un incendio forestal es el fuego que se extiende sin control en terreno silvestre,
+    afectando a flora y fauna.
+  - "Si bien es cierto que pueden ser naturales o provocados, el cambio clim\xE1tico
+    y la falta de cuidado y preservaci\xF3n de los bosques acent\xFAan este problema."
+  - "Un incendio forestal de grandes dimensiones puede ser un desastre ecol\xF3gico
+    enorme, destruyendo una gran cantidad de terreno y provocando que sea m\xE1s
+    probable que haya m\xE1s incendios en el futuro en la misma zona."
   Type: 4
   SpriteDescriptions:
   - {fileID: 0}
