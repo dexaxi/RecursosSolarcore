@@ -630,8 +630,6 @@ public class ImportMarronero : EditorWindow
         return Color.white;
 	}
 
-
-
     static string ModelPath = "Assets/3DAssets/Models/";
     static Mesh FindMesh(string text)
 	{
