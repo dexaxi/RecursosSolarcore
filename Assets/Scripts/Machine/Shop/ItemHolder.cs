@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class ItemHolder : MonoBehaviour
 {
     private MachineShopItem _machineItem;
-    private Image _image;
+    [SerializeField] private Image _image;
     private Button _button;
     private void Awake()
     {
         _machineItem = GetComponentInChildren<MachineShopItem>();
-        _image = GetComponent<Image>();
         _button = GetComponent<Button>();
     }
 

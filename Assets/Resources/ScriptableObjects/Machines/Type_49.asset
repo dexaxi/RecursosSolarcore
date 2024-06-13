@@ -19,7 +19,7 @@ MonoBehaviour:
   Cost: 530
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 1cbeaa69cee19da4284e1d4e908a434f, type: 2}
-  ShopSprite: {fileID: 0}
+  ShopSprite: {fileID: 21300000, guid: 8afa874929330f644a436ef758092f24, type: 3}
   RangePattern: {fileID: 0}
   RestrictionType: 2
   RestrictionTier: 2
