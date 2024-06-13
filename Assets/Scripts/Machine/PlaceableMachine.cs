@@ -192,7 +192,16 @@ public class PlaceableMachine : Draggable
         UpdateRangeDisplay();
         _highlightable.Unhighlight();
         ApplyMachinePlacement();
+        UpdateMachinePos(GroundTile.Biome.Type);
         return isOnValidTerrain;
+    }
+
+    public void UpdateMachinePos(BiomeType biome) 
+    {
+        if (BiomeSortingRule.IsWaterBiome(biome))
+        {
+            GetComponent<SnapToGrid>().FixedHeight -= 0.3f;
+        }
     }
 
     public void Move()
@@ -218,7 +227,7 @@ public class PlaceableMachine : Draggable
     public void SellFullCost()
     {
         PlayerCurrencyManager.Instance.AddCurrency(_machine.Cost);
-        MachineHandler.Instance.PlacedMachines[GetCoords()] = null;
+        MachineHandler.Instance.PlacedMachines.Remove(GetCoords());
         UnHighlightRange();
         Destroy(gameObject);
     }
@@ -273,6 +282,7 @@ public class PlaceableMachine : Draggable
 
         Vector2Int currentCoords = GetCoords();
         int[,] pattern = _machine.GetRangePattern();
+        if (pattern == null) return returnList;
         Vector2Int centerCoords = new(pattern.GetLength(0) / 2, pattern.GetLength(1) / 2);
 
         int currX, currY;
@@ -284,7 +294,7 @@ public class PlaceableMachine : Draggable
                 currY = currentCoords.y - centerCoords.y + j;
                 GroundTile currentTile = Ground.Instance.GetTileFromCellCoords(new Vector2Int(currX, currY));
                 if (currentTile == null) continue;
-                if (pattern[i, j] == 1) returnList.Add(currentTile);
+                if (pattern[i, j] == 1 && IsBiomeCompatible(currentTile.Biome.Type)) returnList.Add(currentTile);
             }
         }
 
@@ -383,8 +393,8 @@ public class PlaceableMachine : Draggable
 
     public int GetMachineWaiting() 
     {
-        if (_machine.PatternType == PatternType.Biome) return 5000;
-        if (_machine.PatternType == PatternType.Pattern) return 2000;
+        if (_machine.PatternType == PatternType.Biome) return 2000;
+        if (_machine.PatternType == PatternType.Pattern) return 500;
         return -1;
     }
 

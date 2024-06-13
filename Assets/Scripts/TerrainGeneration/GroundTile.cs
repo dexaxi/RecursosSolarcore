@@ -181,7 +181,7 @@ public class GroundTile : MonoBehaviour
         data += "biomeWeight: " + Biome.biomeWeight + "\n";
         data += "tilePrefab.name: " + Biome.tilePrefab.name + "\n";
         Debug.Log(data);*/
-
+        if (BiomePhaseHandler.Instance.CompletedBiomes.Contains(Biome.Type)) return;
         MachineShop.Instance.PopulateShop(Biome.Type);
         CompletionUIManager.Instance.ShowCompletionBar(Biome);
     }

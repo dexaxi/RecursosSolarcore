@@ -112,7 +112,7 @@ public class BiomeSortingRule
         return biomeCopy;
     }
 
-    public bool IsWaterBiome(BiomeType biomeType) 
+    public static bool IsWaterBiome(BiomeType biomeType) 
     {
         return biomeType == BiomeType.Ocean;
     }

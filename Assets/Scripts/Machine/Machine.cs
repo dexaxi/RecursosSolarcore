@@ -42,7 +42,7 @@ public class Machine : ScriptableObject
         return Cost * SELL_COST_MULTIPLIER;
     }
 
-    public int[,] GetRangePattern() { return _highlightPattern.GetPattern(); }
+    public int[,] GetRangePattern() { return _highlightPattern?.GetPattern(); }
 
     public float GetOptimizationTierValue() 
     {

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -128,23 +129,28 @@ public class BiomePhaseHandler : MonoBehaviour
             var allMachines = MachineHandler.Instance.PlacedMachines.Values;
             var affectedTiles = new Dictionary<GroundTile, List<PlaceableMachine>>();
             var affectedTileCount = 0;
+            var tiles = machine.GetCurrentAffectedTiles();
             foreach (var plaMachine in allMachines) 
             {
+                if (plaMachine == machine) continue;
                 var otherMachineTiles = plaMachine.GetCurrentAffectedTiles();
                 foreach(var otherTile in otherMachineTiles) 
                 {
+                    if (!affectedTiles.ContainsKey(otherTile)) affectedTiles[otherTile] = new();
                     affectedTiles[otherTile].Add(plaMachine);
                 }
             }
-            var tiles = machine.GetCurrentAffectedTiles();
             foreach (var tile in tiles)
             {
                 bool containsType = false;
-                foreach (var plaMachine in affectedTiles[tile])
+                if (affectedTiles.TryGetValue(tile, out List<PlaceableMachine> plaMachinesInTile)) 
                 {
-                    if (plaMachine.GetMachineType() == (machine.GetMachineType()))
+                    foreach (var plaMachine in plaMachinesInTile)
                     {
-                        containsType = true;
+                        if (plaMachine.GetMachineType() == (machine.GetMachineType()))
+                        {
+                            containsType = true;
+                        }
                     }
                 }
                 if (!containsType) affectedTileCount += 1;
@@ -171,7 +177,7 @@ public class BiomePhaseHandler : MonoBehaviour
         bool found = false;
         foreach (var problem in _problems)
         {
-            if (CurrentPhasePerBiome[biome].Phase < problem.Phase && ProblemsPerBiome[biome].Contains(problem.Type))
+            if (ProblemsPerBiome[biome].Contains(problem.Type) && (CurrentPhasePerBiome[biome].Phase + 1) == problem.Phase)
             {
                 found = true;
                 CurrentPhasePerBiome[biome] = problem;
@@ -182,16 +188,31 @@ public class BiomePhaseHandler : MonoBehaviour
         if (!found) 
         {
             CompletedBiomes.Add(biome);
-            CheckAllBiomesCompleted();
+            if (!CheckAllBiomesCompleted()) 
+            {
+                RoboDialogueManager.Instance.StartRoboDialogue("BiomeRestorationCompleted");
+                var biomes = ProblemsPerBiome.Keys;
+                foreach (var newBiome in biomes) 
+                {
+                    if (!CompletedBiomes.Contains(newBiome)) 
+                    {
+                        MachineShop.Instance.PopulateShop(newBiome);
+                        CompletionUIManager.Instance.UpdateUI(BiomeHandler.Instance.GetFilteredBiomes().Where((Biome x) => x.Type == newBiome).FirstOrDefault());
+                        return;
+                    }
+                }
+            }
         }
     }
 
-    public void CheckAllBiomesCompleted()
+    public bool CheckAllBiomesCompleted()
     {
         if (CompletedBiomes.Count == BiomeHandler.Instance.GetFilteredBiomes().Count) 
         {
             UnityEngine.Debug.Log("LEVEL FINISHED");
+            return true;
         }
+        return false;
     }
 
     public EnviroProblemType GetPhaseFromMachine(MachineType type)
@@ -247,6 +268,7 @@ public class BiomePhaseHandler : MonoBehaviour
             }
             Destroy(resetInstance.gameObject);
         });
+        MachineShop.Instance.DisableShopItems();
         MachineDisplay.Instance.ExitDisplay();
         RoboDialogueManager.Instance.PlayOnce("ReiniciarFase");
     }
@@ -256,12 +278,18 @@ public class BiomePhaseHandler : MonoBehaviour
         var biome = GetBiomeFromPhase(phase);
         var machines = MachineHandler.Instance.PlacedMachines.Values;
         CompletionUIManager.Instance.UpdateUI(BiomeHandler.Instance.GetFilteredBiomes().Where( (Biome x) => x.Type == biome).ToList()[0]);
+        Queue<PlaceableMachine> machinesToSell = new();
         foreach (var machine in machines) 
         {
             if (MachinesPerProblem[phase].Contains(machine.GetMachineType()))
             {
-                machine.Sell();
+                machinesToSell.Enqueue(machine);
             }
+        }
+        while (machinesToSell.Count > 0) 
+        {
+            var machine = machinesToSell.Dequeue();
+            machine.Sell();
         }
         CurrentCompletion[phase] = 0;
         MachinePlaceRestrictionCount[type] = 0;

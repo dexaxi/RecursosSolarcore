@@ -603,6 +603,12 @@ MonoBehaviour:
         DialogueEndEvent:
           m_PersistentCalls:
             m_Calls: []
+    - Key: BiomeRestorationCompleted
+      Value:
+        Dialogue: {fileID: 11400000, guid: 0149643fd44dbe342bcd76007785c751, type: 2}
+        DialogueEndEvent:
+          m_PersistentCalls:
+            m_Calls: []
   backgroundBlocker: {fileID: 2127604887120155769}
   gameplayDialogue: {fileID: 5166708159760716984}
   relationDialogue: {fileID: 882208924071043699}
