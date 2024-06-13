@@ -88,6 +88,7 @@ public class MachineDisplay : MonoBehaviour
         DisablePlaceUI();
         _machine.UnHighlightRange();
         Selectable.UnlockSelectable();
+        MachineShop.Instance.EnableShopItems();
     }
 
     public void ShowMoveDisplay() 
@@ -108,10 +109,16 @@ public class MachineDisplay : MonoBehaviour
 
     public void ShowSellDisplay() 
     {
-        var biome = _machine.GroundTile.Biome;
-        var currentPhase = BiomePhaseHandler.Instance.CurrentPhasePerBiome[biome.Type];
-        var currentPhaseMachines = BiomePhaseHandler.Instance.MachinesPerProblem[currentPhase.Type];
-        if (!currentPhaseMachines.Contains(_machine.GetMachineType())) 
+        bool currentPhaseMachine = false;
+        foreach (var currentPhase in BiomePhaseHandler.Instance.CurrentPhasePerBiome.Values) 
+        {
+            var currentPhaseMachines = BiomePhaseHandler.Instance.MachinesPerProblem[currentPhase.Type];
+            if (currentPhaseMachines.Contains(_machine.GetMachineType())) 
+            {
+                currentPhaseMachine = true;
+            }
+        }
+        if (!currentPhaseMachine) 
         {
             Selectable.UnlockSelectable();
             return;

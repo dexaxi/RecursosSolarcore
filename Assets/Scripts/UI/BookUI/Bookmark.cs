@@ -27,6 +27,7 @@ public class Bookmark : MonoBehaviour
 
     private void UpdateBook() 
     {
+        RoboDialogueManager.Instance.SwitchToRelationDialogue();
         RelationHandler.Instance.InitBookUI(BiomeType);
     }
 }

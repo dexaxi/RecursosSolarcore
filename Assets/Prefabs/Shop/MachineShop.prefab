@@ -1037,6 +1037,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5065412717157243897, guid: f1a9a53a233cf274ea44ead2522b26b3, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065412717157243897, guid: f1a9a53a233cf274ea44ead2522b26b3, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 6559972668765049215, guid: f1a9a53a233cf274ea44ead2522b26b3, type: 3}
       propertyPath: m_Name
       value: Shop

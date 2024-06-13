@@ -15,8 +15,6 @@ public class GroundTile : MonoBehaviour
     public Highlightable Highlightable { get; private set; }
     public Selectable Selectable { get; private set; }
 
-    public readonly List<PlaceableMachine> affectingMachines = new();
-
     Vector3 _originalPosition;
     Vector3 _introStartingPosition;
 
@@ -48,16 +46,6 @@ public class GroundTile : MonoBehaviour
         StartCoroutine(IntroAnimationCoroutine());
     }
 
-    public List<MachineType> GetAffectingMachineTypes() 
-    {
-        List <MachineType> machineTypes = new List<MachineType>();  
-        foreach(var machine in affectingMachines) 
-        {
-            if (!machineTypes.Contains(machine.GetMachineType())) machineTypes.Add(machine.GetMachineType());
-        }
-
-        return machineTypes;
-    }
 
     IEnumerator IntroAnimationCoroutine()
     {

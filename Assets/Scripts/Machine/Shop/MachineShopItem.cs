@@ -41,15 +41,15 @@ public class MachineShopItem : MonoBehaviour
         if (PlayerCurrencyManager.Instance.RemoveCurrency(cost))
         {
             InstantiateMachine();
-            //MachineShop.Instance.DisableShop();
+            MachineShop.Instance.DisableShopItems();
         }
         else
         {
             var popUp = GenericPopUpLoader.LoadGenericPopUp();
             popUp.BuildInfoPopupPlainColor("Warning!", "You are out of funds for this purchase...", 1, Color.white, Color.white, Color.white, Color.black, Color.black);
             Debug.LogWarning("WARNING: Not enough funds...");
+            MachineShop.Instance.EnableShopItems();
         }
-        MachineShop.Instance.EnableShopItems();
     }
 
     public void InstantiateMachine() 

@@ -579,19 +579,19 @@ MonoBehaviour:
         DialogueEndEvent:
           m_PersistentCalls:
             m_Calls: []
-    - Key: JungleInfo
+    - Key: JunglaInfo
       Value:
         Dialogue: {fileID: 11400000, guid: ce3b6877356a6294aa83027ebf888a63, type: 2}
         DialogueEndEvent:
           m_PersistentCalls:
             m_Calls: []
-    - Key: ForestInfo
+    - Key: BosqueInfo
       Value:
         Dialogue: {fileID: 11400000, guid: 4272040e6c6971741a539f5b1e7f1009, type: 2}
         DialogueEndEvent:
           m_PersistentCalls:
             m_Calls: []
-    - Key: OceanInfo
+    - Key: "Oc\xE9anoInfo"
       Value:
         Dialogue: {fileID: 11400000, guid: 2a4f47990a65b3c4faeeab5092864b7a, type: 2}
         DialogueEndEvent:

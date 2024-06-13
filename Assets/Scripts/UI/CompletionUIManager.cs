@@ -17,6 +17,8 @@ public class CompletionUIManager : MonoBehaviour
     [field: SerializeField] public Image Icon { get; private set; }
     [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
 
+    public BiomeType CurrentSelectedBiome {  get; private set; }
+
     public void Start()
     {
         HideCompletionBar();
@@ -25,6 +27,7 @@ public class CompletionUIManager : MonoBehaviour
 
     public void ShowCompletionBar(Biome biome)
     {
+        CurrentSelectedBiome = biome.Type;
         CanvasGroup.alpha = 1.0f;
         CanvasGroup.interactable = true;
         CanvasGroup.blocksRaycasts = true;

@@ -21,10 +21,11 @@ public class MachineProgressDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (MachineRef != null) 
+        if (MachineRef != null && !_destroyed) 
         {
             FillImage.fillAmount = MachineRef.MachineProgress;
             transform.position = MachineRef.transform.position + new Vector3(0, 3, 0);
+            MachineShop.Instance.DisableShopItems();
         }
 
         if (FillImage.fillAmount >= 1.0f && !_destroyed)
@@ -38,8 +39,12 @@ public class MachineProgressDisplay : MonoBehaviour
     {
         await UniTask.Delay(200);
         BiomePhaseHandler.Instance.ProcessMachineImpact(MachineRef);
-        CompletionUIManager.Instance.UpdateUI(MachineRef.GroundTile.Biome);
-        if(gameObject != null) Destroy(gameObject);
+        if (CompletionUIManager.Instance.CurrentSelectedBiome == MachineRef.GroundTile.Biome.Type)
+        {
+            CompletionUIManager.Instance.UpdateUI(MachineRef.GroundTile.Biome);
+        }
+        MachineShop.Instance.EnableShopItems();
+        if (gameObject != null) Destroy(gameObject);
     }
 
 }

@@ -184,8 +184,8 @@ public class PlaceableMachine : Draggable
         }
         else
         {
-            MachineHandler.Instance.PlacedMachines[PrevCoords] = null;
-            MachineHandler.Instance.PlacedMachines[Ground.Instance.ToCellCoords(transform.position)] = this;
+            MachineHandler.Instance.PlacedMachines.Remove(PrevCoords);
+            MachineHandler.Instance.PlacedMachines[GetCoords()] = this;
         }
         HasBeenFirstPlaced = true;
         IsPlaced = true;
@@ -210,6 +210,7 @@ public class PlaceableMachine : Draggable
     public void Sell()
     {
         PlayerCurrencyManager.Instance.AddCurrency(_machine.CalculateSellCost());
+        MachineHandler.Instance.PlacedMachines.Remove(GetCoords());
         UnHighlightRange();
         Destroy(gameObject);
     }
@@ -217,6 +218,7 @@ public class PlaceableMachine : Draggable
     public void SellFullCost()
     {
         PlayerCurrencyManager.Instance.AddCurrency(_machine.Cost);
+        MachineHandler.Instance.PlacedMachines[GetCoords()] = null;
         UnHighlightRange();
         Destroy(gameObject);
     }

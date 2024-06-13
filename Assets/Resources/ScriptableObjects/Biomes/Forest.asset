@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f2aadf987821644a8327a532c2e644, type: 3}
   m_Name: Forest
   m_EditorClassIdentifier: 
-  name: Forest
+  name: Bosque
   Type: 1
   Description: Forest Biome
   Mesh: {fileID: -3040160402251708652, guid: 7d3f8ba939ae02f4da8f0ccd52f8645b, type: 3}

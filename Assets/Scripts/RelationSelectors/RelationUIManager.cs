@@ -316,7 +316,7 @@ public class RelationBookUiElements : IMappedObject
         Manager.GetComponent<CanvasGroup>().alpha = 0.0f;
         Manager.GetComponent<CanvasGroup>().blocksRaycasts = false;
         Manager.GetComponent<CanvasGroup>().interactable = false;
-
+        if(ResourceGame.Instance.GetLevelSceneFlow() == LevelSceneFlow.Gameplay) RoboDialogueManager.Instance.SwitchToGameplayDialogue();
         CameraManager.Instance?.SetGameplayCamera();
     }
 

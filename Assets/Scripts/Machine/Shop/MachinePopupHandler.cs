@@ -95,14 +95,11 @@ public class ShopPopupCanvasUiElements : IMappedObject
 
         Title.text = machine.title;
         Description.text = machine.Description;
-        var usesCanvas = Uses.GetComponentInParent<CanvasGroup>();
-        var progressCanvas = Progress.GetComponentInParent<CanvasGroup>();
-        var riskCanvas = Fail_Text.GetComponentInParent<CanvasGroup>();
+
         if (machine.RestrictionType == MachineRestrictionType.Limited_Placing)
         {
-            usesCanvas.alpha = 1.0f;
-            usesCanvas.interactable = true;
-            usesCanvas.blocksRaycasts = true;
+            EnableUsesCanvas();
+            DisableRiskCanvas();
             var useCount = BiomePhaseHandler.Instance.MachinePlaceRestrictionCount[machine.Type];
             var useProportion = machine.RestrictionTier == 0 ? 0 : useCount / machine.RestrictionTier;
             Uses.color = GetProportionColor(useProportion);
@@ -110,36 +107,75 @@ public class ShopPopupCanvasUiElements : IMappedObject
             Uses.SetAllDirty();
             Uses.ForceMeshUpdate();
         }
-        else
+        else if (machine.RestrictionType == MachineRestrictionType.Gambling)
         {
-            usesCanvas.alpha = 0.0f;
-            usesCanvas.interactable = false;
-            usesCanvas.blocksRaycasts = false;
-        }
-
-        if (machine.RangePattern == null) 
-        {
-            progressCanvas.alpha = 1.0f;
-            progressCanvas.interactable = true;
-            progressCanvas.blocksRaycasts = true;
-            Progress.text = machine.CompletionRateModifier + "%";
-            riskCanvas.alpha = 1.0f;
-            riskCanvas.interactable = true;
-            riskCanvas.blocksRaycasts = true;
+            EnableRiskCanvas();
+            DisableUsesCanvas();
             Fail_Text.text = GetRiskText(machine);
             Fail_Text.color = GetRiskColor(machine);
             Fail_Text.SetAllDirty();
             Fail_Text.ForceMeshUpdate();
         }
+        else 
+        {
+            DisableUsesCanvas();
+            DisableRiskCanvas();
+        }
+
+        if (machine.RangePattern == null) 
+        {
+            EnableProgressCanvas();
+            Progress.text = machine.CompletionRateModifier + "%";
+        }
         else
         {
-            riskCanvas.alpha = 0.0f;
-            riskCanvas.interactable = false;
-            riskCanvas.blocksRaycasts = false;
-            progressCanvas.alpha = 0.0f;
-            progressCanvas.interactable = false;
-            progressCanvas.blocksRaycasts = false;
+            DisableProgressCanvas();
         }
+    }
+
+    public void EnableRiskCanvas() 
+    {
+        var riskCanvas = Fail_Text.GetComponentInParent<CanvasGroup>();
+        riskCanvas.alpha = 1.0f;
+        riskCanvas.interactable = true;
+        riskCanvas.blocksRaycasts = true;
+    }
+    public void DisableRiskCanvas() 
+    {
+        var riskCanvas = Fail_Text.GetComponentInParent<CanvasGroup>();
+        riskCanvas.alpha = 0.0f;
+        riskCanvas.interactable = false;
+        riskCanvas.blocksRaycasts = false;
+    }
+    public void EnableProgressCanvas() 
+    {
+        var progressCanvas = Progress.GetComponentInParent<CanvasGroup>();
+
+        progressCanvas.alpha = 1.0f;
+        progressCanvas.interactable = true;
+        progressCanvas.blocksRaycasts = true;
+
+    }
+    public void DisableProgressCanvas() 
+    {
+        var progressCanvas = Progress.GetComponentInParent<CanvasGroup>();
+        progressCanvas.alpha = 0.0f;
+        progressCanvas.interactable = false;
+        progressCanvas.blocksRaycasts = false;
+    }
+    public void EnableUsesCanvas() 
+    {
+        var usesCanvas = Uses.GetComponentInParent<CanvasGroup>();
+        usesCanvas.alpha = 1.0f;
+        usesCanvas.interactable = true;
+        usesCanvas.blocksRaycasts = true;
+    }
+    public void DisableUsesCanvas() 
+    {
+        var usesCanvas = Uses.GetComponentInParent<CanvasGroup>();
+        usesCanvas.alpha = 0.0f;
+        usesCanvas.interactable = false;
+        usesCanvas.blocksRaycasts = false;
     }
 
     public string GetRiskText(Machine machine)
