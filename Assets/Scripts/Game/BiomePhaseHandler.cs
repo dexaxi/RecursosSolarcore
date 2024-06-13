@@ -159,7 +159,7 @@ public class BiomePhaseHandler : MonoBehaviour
             val = (int) (100.0f * ( affectedTileCount / (float) tileCount));
         }
         CurrentCompletion[phase] += val;
-
+        machine.CurrentAffectingPhasePercent = val;
         CheckPhaseCompletion(phase);
     }
 
@@ -182,7 +182,7 @@ public class BiomePhaseHandler : MonoBehaviour
                 found = true;
                 CurrentPhasePerBiome[biome] = problem;
                 MachineShop.Instance.PopulateShop(biome);
-                continue;
+                break;
             }
         }
         if (!found) 
@@ -293,10 +293,7 @@ public class BiomePhaseHandler : MonoBehaviour
         {
             var machine = machinesToSell.Dequeue();
             machine.Sell();
-        }
-        CurrentCompletion[phase] = 0;
-        MachinePlaceRestrictionCount[type] = 0;
-        
+        }        
     }
 
     public bool Gamble(float gamble) 
