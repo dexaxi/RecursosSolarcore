@@ -15,9 +15,14 @@ MonoBehaviour:
   name: Predators_Lack
   Title: Falta de Depredadores
   DescriptionList:
-  - Predators_Lack1
-  - Predators_Lack2
-  - Predators_Lack3
+  - "La ausencia de depredadores en un ecosistema puede provocar un desequilibrio
+    del mismo a niveles catastr\xF3ficos."
+  - "Sin depredadores, las presas, normalmente herviboros, se reproducen y crecen
+    sin control ejerciendo mucha presi\xF3n sobre la flora, pudiendo llegar a acabar
+    con ella."
+  - "La desaparici\xF3n de depredadores muchas veces esta relacionada con la actividad
+    humana, ya que, algunos de ellos como los lobos resultan molestos para las zonas
+    rurales."
   Type: 5
   SpriteDescriptions:
   - {fileID: 0}

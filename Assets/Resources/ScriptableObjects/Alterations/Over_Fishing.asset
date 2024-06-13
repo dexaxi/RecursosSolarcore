@@ -15,9 +15,13 @@ MonoBehaviour:
   name: Over_Fishing
   Title: Sobrepesca
   DescriptionList:
-  - Over_Fishing1
-  - Over_Fishing2
-  - Over_Fishing3
+  - "La sobrepesca es la pesca masiva de especies acu\xE1ticas es una cierta zona
+    de mares y oc\xE9anos."
+  - "No solo afecta a la especie que se busca capturar, por ejemplo, la pesca de
+    arrastre captura casi todo lo que se encuentra en sus redes, incluyendo peces
+    j\xF3venes o crust\xE1ceos"
+  - "La sobrepesca altera gravemente el equilibrio de los ecosistemas ya que reduce
+    rapidamente el n\xFAmero de peces de una zona acabando con depredadores y presas."
   Type: 2
   SpriteDescriptions:
   - {fileID: 0}

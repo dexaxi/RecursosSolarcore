@@ -15,9 +15,12 @@ MonoBehaviour:
   name: Deforestation
   Title: "Deforestaci\xF3n"
   DescriptionList:
-  - Deforestation1
-  - Deforestation2
-  - Deforestation3
+  - "La deforestaci\xF3n es la p\xE9rdida de bosques y selvas debido al impacto de
+    actividades humanas o causas naturales."
+  - "Esta causada por la tala excesiva de \xE1rboles y acarrea la perdida de la cubierta
+    vegetal as\xED como la desaparici\xF3n de animales y plantas en toda esa zona"
+  - "Suele estar motivada para ampliar zonas de cultivo agr\xEDcola, producci\xF3n
+    de animales o excavaciones mineras."
   Type: 0
   SpriteDescriptions:
   - {fileID: 0}
