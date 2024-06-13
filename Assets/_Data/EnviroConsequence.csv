@@ -1,20 +1,31 @@
 Name|Title|Description|Type|Sprite|Color
-Agriculture_Production_Worsening|Pérdida de la fertilidad del suelo|Pérdida de la fertilidad del suelo|Agriculture_Production_Worsening|Agriculture_Production_Worsening_sprite|#FFFFFF
 Aquatic_Disease_Increase|Aumento en enfermedades marinas|Aumento en enfermedades marinas|Aquatic_Disease_Increase|Aquatic_Disease_Increase_sprite|#FFFFFF
-Biodiversity_Loss|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss|Biodiversity_Loss_sprite|#FFFFFF
-Coral_Habitat_Degradation|Degradación de los habitats coralinos|Degradación de los habitats coralinos|Coral_Habitat_Degradation|Coral_Habitat_Degradation_sprite|#FFFFFF
-Desertification|Desertificación|Desertificación|Desertification|Desertification_sprite|#FFFFFF
-Ecological_Connectivity_Loss|Pérdida de la conectividad ecológica|Pérdida de la conectividad ecológica|Ecological_Connectivity_Loss|Ecological_Connectivity_Loss_sprite|#FFFFFF
-Ecosystem_Structure_Alterations|Cambio en la estructura del ecosistema|Cambio en la estructura del ecosistema|Ecosystem_Structure_Alterations|Ecosystem_Structure_Alterations_sprite|#FFFFFF
 Erosion_Increase|Aumento de la erosión|Aumento de la erosión|Erosion_Increase|Erosion_Increase_sprite|#FFFFFF
-Fire_Rate_Increase|Aumento de la probabilidad de incencios|Aumento de la probabilidad de incencios|Fire_Rate_Increase|Fire_Rate_Increase_sprite|#FFFFFF
+Fire_Rate_Increase|Aumento en la frecuencia de incendios|Aumento en la frecuencia de incendios|Fire_Rate_Increase|Fire_Rate_Increase_sprite|#FFFFFF
+Ecosystem_Structure_Alterations|Cambio en la estructura del ecosistema|Cambio en la estructura del ecosistema|Ecosystem_Structure_Alterations|Ecosystem_Structure_Alterations_sprite|#FFFFFF
+Habitat_Degradation|Degradación del hábitat|Degradación del hábitat|Habitat_Degradation|Habitat_Degradation_sprite|#FFFFFF
+Coral_Habitat_Degradation|Degradación de los hábitats coralinos|Degradación de los hábitats coralinos|Coral_Habitat_Degradation|Coral_Habitat_Degradation_sprite|#FFFFFF
 Soil_Degradation|Degradación del suelo|Degradación del suelo|Soil_Degradation|Soil_Degradation_sprite|#FFFFFF
-Trophic_Chain_Alterations|Alteración de la cadena trófica |Alteración de la cadena trófica |Trophic_Chain_Alterations|Trophic_Chain_Alterations_sprite|#FFFFFF
-Water_Biodiversity_Loss|Water Biodiversity Loss|Water Biodiversity Loss|Water_Biodiversity_Loss|Water_Biodiversity_Loss_sprite|#FFFFFF
+Desertification|Desertificación|Desertificación|Desertification|Desertification_sprite|#FFFFFF
 Water_Quality_Decrease|Disminución en la calidad del agua|Disminución en la calidad del agua|Water_Quality_Decrease|Water_Quality_Decrease_sprite|#FFFFFF
-Water_Retention_Rates|Disminución en la capacidad de absorber agua.|Disminución en la capacidad de absorber agua.|Water_Retention_Rates|Water_Retention_Rates_sprite|#FFFFFF
-Wildlife_Habitat_Degradation|Wildlife Habitat Degradation|Wildlife Habitat Degradation|Wildlife_Habitat_Degradation|Wildlife_Habitat_Degradation_sprite|#FFFFFF
-Organic_Material_Loss|Perdida de materia orgánica|Perdida de materia orgánica|Organic_Material_Loss|Organic_Material_Loss_sprite|#FFFFFF
-Soil_Roots_Disminution|Soil Roots Disminution|Soil Roots Disminution|Soil_Roots_Disminution|Soil_Roots_Disminution_sprite|#FFFFFF
-Native_Species_Loss|Disminución de especies animales|Disminución de especies animales|Native_Species_Loss|Native_Species_Loss|#FFFFFF
-Water_Species_Behaviour_Change|Cambio en el comportamiento de las especies marinas|Cambio en el comportamiento de las especies marinas|Water_Species_Behaviour_Change|Water_Species_Behaviour_Change|#FFFFFF
+Biodiversity_Loss|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss|Biodiversity_Loss_sprite|#FFFFFF
+Agriculture_Production_Worsening|Pérdida de fertilidad del suelo|Pérdida de fertilidad del suelo|Agriculture_Production_Worsening|Agriculture_Production_Worsening_sprite|#FFFFFF
+Water_Retention_Rates|Reducción en la capacidad de almacenamiento de agua|Reducción en la capacidad de almacenamiento de agua|Water_Retention_Rates|Water_Retention_Rates_sprite|#FFFFFF
+Trophic_Chain_Alterations|Alteración de la cadena trófica|Alteración de la cadena trófica|Trophic_Chain_Alterations|Trophic_Chain_Alterations_sprite|#FFFFFF
+Ecosystem_Structure_Alterations_1|Cambio en la estructura del ecosistema|Cambio en la estructura del ecosistema|Ecosystem_Structure_Alterations_1|Ecosystem_Structure_Alterations_1_sprite|#FFFFFF
+Coral_Habitat_Degradation_1|Degradación de los hábitats coralinos|Degradación de los hábitats coralinos|Coral_Habitat_Degradation_1|Coral_Habitat_Degradation_1_sprite|#FFFFFF
+Coral_Habitat_Degradation_2|Degradación de los hábitats coralinos|Degradación de los hábitats coralinos|Coral_Habitat_Degradation_2|Coral_Habitat_Degradation_2_sprite|#FFFFFF
+Soil_Degradation_1|Degradación del suelo|Degradación del suelo|Soil_Degradation_1|Soil_Degradation_1_sprite|#FFFFFF
+Desertification_1|Desertificación|Desertificación|Desertification_1|Desertification_1_sprite|#FFFFFF
+Biodiversity_Loss_1|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_1|Biodiversity_Loss_1_sprite|#FFFFFF
+Biodiversity_Loss_2|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_2|Biodiversity_Loss_2_sprite|#FFFFFF
+Biodiversity_Loss_3|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_3|Biodiversity_Loss_3_sprite|#FFFFFF
+Biodiversity_Loss_4|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_4|Biodiversity_Loss_4_sprite|#FFFFFF
+Biodiversity_Loss_5|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_5|Biodiversity_Loss_5_sprite|#FFFFFF
+Biodiversity_Loss_6|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_6|Biodiversity_Loss_6_sprite|#FFFFFF
+Biodiversity_Loss_7|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_7|Biodiversity_Loss_7_sprite|#FFFFFF
+Biodiversity_Loss_8|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_8|Biodiversity_Loss_8_sprite|#FFFFFF
+Biodiversity_Loss_9|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_9|Biodiversity_Loss_9_sprite|#FFFFFF
+Biodiversity_Loss_10|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_10|Biodiversity_Loss_10_sprite|#FFFFFF
+Biodiversity_Loss_11|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_11|Biodiversity_Loss_11_sprite|#FFFFFF
+Biodiversity_Loss_12|Pérdida de biodiversidad|Pérdida de biodiversidad|Biodiversity_Loss_12|Biodiversity_Loss_12_sprite|#FFFFFF
