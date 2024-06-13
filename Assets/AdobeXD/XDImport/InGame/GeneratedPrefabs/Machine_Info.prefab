@@ -531,7 +531,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591770959878680720}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -1373,7 +1373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -433358.34, y: -41.529175}
+  m_AnchoredPosition: {x: -433358.34, y: -24}
   m_SizeDelta: {x: -866907.25, y: 347.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4584278789138164976
@@ -1406,7 +1406,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Recoge y tritura restos vegetales para compostaje.\nEs menos eficiente,
     pero m\xE1s ecol\xF3gico. Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-    amet amet amet."
+    amet amet amet.Recoge y tritura restos vegetales para compostaje.dasdaskljdaskldjksadlsajdaslkdjsakldjasljdaslkdjakljd"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5925e4dffbeba6f48b9603b5aaeaa690, type: 2}
   m_sharedMaterial: {fileID: -3492372514045503593, guid: 5925e4dffbeba6f48b9603b5aaeaa690, type: 2}
@@ -1512,7 +1512,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -432874.62, y: 222}
-  m_SizeDelta: {x: 74, y: 74}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6910890561195544221
 CanvasRenderer:

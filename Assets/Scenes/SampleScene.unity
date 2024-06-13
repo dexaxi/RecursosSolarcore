@@ -1364,6 +1364,10 @@ PrefabInstance:
       propertyPath: ShowBookButton
       value: 
       objectReference: {fileID: 1112071884}
+    - target: {fileID: 2070198096612944048, guid: 18893eb255f8b3640876c7773061bcf2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36.000015
+      objectReference: {fileID: 0}
     - target: {fileID: 3694310894567999337, guid: 18893eb255f8b3640876c7773061bcf2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1749,7 +1753,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2024005785}
   - component: {fileID: 2024005784}
-  - component: {fileID: 2024005783}
   - component: {fileID: 2024005782}
   m_Layer: 0
   m_Name: ScreenshotCamera
@@ -1791,14 +1794,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &2024005783
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024005781}
-  m_Enabled: 1
 --- !u!20 &2024005784
 Camera:
   m_ObjectHideFlags: 0

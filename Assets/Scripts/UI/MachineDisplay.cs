@@ -120,7 +120,7 @@ public class MachineDisplay : MonoBehaviour
                 currentPhaseMachine = true;
             }
         }
-        if (!currentPhaseMachine) 
+        if (!currentPhaseMachine || BiomePhaseHandler.Instance.CompletedBiomes.Contains(_machine.GroundTile.Biome.Type)) 
         {
             Selectable.UnlockSelectable();
             return;

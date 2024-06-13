@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
@@ -22,7 +23,9 @@ public class PlaceableMachine : Draggable
 
     private Vector2Int _previousRangeCenterCoords;
     private List<GroundTile> _highlightedTiles;
-    
+
+    public int CurrentAffectingPhasePercent = 0;
+
     public float MachineProgress {  get; private set; }
 
     public override void OnMouseOver()
@@ -221,6 +224,17 @@ public class PlaceableMachine : Draggable
         PlayerCurrencyManager.Instance.AddCurrency(_machine.CalculateSellCost());
         MachineHandler.Instance.PlacedMachines.Remove(GetCoords());
         UnHighlightRange();
+        var problems = BiomePhaseHandler.Instance.ProblemsPerBiome[GroundTile.Biome.Type];
+        foreach (var problem in problems) 
+        {
+            if (RelationHandler.Instance.GetProblem(problem).PossibleSolutions.Contains(_machine.Type)) 
+            {
+                var currentCompletion = BiomePhaseHandler.Instance.CurrentCompletion[problem];
+                BiomePhaseHandler.Instance.CurrentCompletion[problem] = Mathf.Max(currentCompletion - CurrentAffectingPhasePercent, 0);
+            }
+        }
+        BiomePhaseHandler.Instance.MachinePlaceRestrictionCount[_machine.Type]--;
+        CompletionUIManager.Instance.UpdateUI(GroundTile.Biome);
         Destroy(gameObject);
     }
 
