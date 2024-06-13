@@ -18,27 +18,26 @@ MonoBehaviour:
   - <ID>k__BackingField: dfdc0afd-2e70-41da-806c-a81ee57074e2
     <Name>k__BackingField: Entrada
     <Text>k__BackingField: "\xA1Oh no! Parece que esa m\xE1quina ha hecho m\xE1s
-      mal que bien, el ecosistema ha sido destruido :("
+      mal que bien, el ecosistema ha sido destruido. :("
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: c74a9453-7a10-43b7-a055-db27b3959e65
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 326, y: 242}
+    <Position>k__BackingField: {x: 326.4, y: 242.40001}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
     <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: e139f4513f8af9047a8a9b250b3f6fbe, type: 3}
   - <ID>k__BackingField: c74a9453-7a10-43b7-a055-db27b3959e65
     <Name>k__BackingField: DialogueName
     <Text>k__BackingField: "\xA1Pero no te preocupes! \xA1Gracias a la tecnolog\xEDa
-      milagrosa\u2122 de EcoRescue\u2122 podemos volver a atr\xE1s con un simple
-      click!"
+      milagrosa\u2122 de EcoRescue\u2122 podemos volver atr\xE1s en un santiam\xE9n!"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 0ee5fd41-c8c6-4d8a-8d5a-3d84f4e30176
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1087, y: 242}
+    <Position>k__BackingField: {x: 1087.2, y: 242.40001}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
     <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
@@ -53,19 +52,19 @@ MonoBehaviour:
       <NodeID>k__BackingField: 1d4c7157-f040-4214-820d-3312fecae65e
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1937, y: 242}
+    <Position>k__BackingField: {x: 1936.8, y: 242.40001}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
     <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: e139f4513f8af9047a8a9b250b3f6fbe, type: 3}
   - <ID>k__BackingField: 1d4c7157-f040-4214-820d-3312fecae65e
     <Name>k__BackingField: DialogueName4
-    <Text>k__BackingField: "\xA1\xC1nimo con esa restauraci\xF3n!"
+    <Text>k__BackingField: "\xA1\xC1nimo con esa restauraci\xF3n! \xA1No te rindas!"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 2767, y: 256}
+    <Position>k__BackingField: {x: 2767.2, y: 255.99998}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
     <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}

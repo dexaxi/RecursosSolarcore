@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DialogueName>k__BackingField: DialogueName
   <Text>k__BackingField: "Los oc\xE9anos son biomas con un balance ecosist\xE9mico
-    muy delicado, alteraciones como la sobrepesca o el calentamiento global pueden
-    ser mortales para gran parte de sus especies end\xE9micas."
+    muy delicado. Son muy sensibles a la actividad humana."
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 0}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 62b58f1872d07d7428695efbcef883bc, type: 2}
   <DialogueType>k__BackingField: 0
   <IsStartingDialogue>k__BackingField: 1
   <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
