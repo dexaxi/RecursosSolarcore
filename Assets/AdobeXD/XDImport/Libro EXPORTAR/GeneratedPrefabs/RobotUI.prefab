@@ -363,6 +363,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoboDialogue
       objectReference: {fileID: 0}
+    - target: {fileID: 5659737651920972009, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
+    - target: {fileID: 5659737651920972009, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356972635834709087, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 410.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356972635834709087, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 386.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6356972635834709087, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 56
+      objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: DialogueTrees.list.Array.size
       value: 11
