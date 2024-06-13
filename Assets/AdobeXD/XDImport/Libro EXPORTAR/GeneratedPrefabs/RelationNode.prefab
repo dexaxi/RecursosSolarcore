@@ -172,16 +172,16 @@ MonoBehaviour:
   m_fontSize: 30
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 0
-  m_fontSizeMax: 0
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 30
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -8.233337
+  m_lineSpacing: -8
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -521,6 +521,7 @@ MonoBehaviour:
   <NodeType>k__BackingField: 0
   RelatedProblems: 
   RelatedConsequences: 
+  CurrentBiome: 0
 --- !u!1 &5362363555069471770
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,3 +651,4 @@ MonoBehaviour:
   <NodeType>k__BackingField: 1
   RelatedProblems: 
   RelatedConsequences: 
+  CurrentBiome: 0
