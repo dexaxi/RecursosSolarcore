@@ -15,35 +15,35 @@ MonoBehaviour:
   <FileName>k__BackingField: AllRelationsCompleteGraph
   <Groups>k__BackingField: []
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: ce662c57-e7e9-45b7-9307-3ad68407aff2
-    <Name>k__BackingField: D2
-    <Text>k__BackingField: "\xA1Eres la monda! \xA1Ahora toca arreglarlos! Haz click
-      en los diferentes biomas para poder investigar c\xF3mo restaurarlos."
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 
-    <GroupID>k__BackingField: 
-    <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 996, y: 194}
-    <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
-    <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
   - <ID>k__BackingField: 38a333b3-1ae8-4c23-b334-4c2ce9b37bf3
     <Name>k__BackingField: D1
     <Text>k__BackingField: "\xA1Muy bien! \xA1Has podido investigar todas las alteraciones
-      que afectan a este ecosistema!"
+      que afectan a este ecosistema!\n"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: ce662c57-e7e9-45b7-9307-3ad68407aff2
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 229, y: 194}
+    <Position>k__BackingField: {x: 228.8, y: 194.4}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 26c2774c889d53e4f92eae43ae2b546d, type: 3}
+  - <ID>k__BackingField: ce662c57-e7e9-45b7-9307-3ad68407aff2
+    <Name>k__BackingField: D2
+    <Text>k__BackingField: "\xA1Eres la ca\xF1a! \xA1Ahora toca ponernos manos a
+      la obra! Haz click en los diferentes biomas para poder investigar c\xF3mo restaurarlos."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 996, y: 194.4}
+    <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
+    <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   <PreviousGroupTitles>k__BackingField: []
   <UngroupedNodesPreviousNames>k__BackingField:
-  - D2
   - D1
+  - D2
   <GroupedNodesPreviousNames>k__BackingField:
     list: []

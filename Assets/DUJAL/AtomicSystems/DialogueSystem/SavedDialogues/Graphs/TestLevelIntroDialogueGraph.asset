@@ -23,10 +23,10 @@ MonoBehaviour:
       <NodeID>k__BackingField: 419af8fa-ec8f-4b2a-9b13-4ebc440d5752
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 275, y: 176}
+    <Position>k__BackingField: {x: 277.6, y: 176}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   - <ID>k__BackingField: 419af8fa-ec8f-4b2a-9b13-4ebc440d5752
     <Name>k__BackingField: Intro2
     <Text>k__BackingField: "Primero vamos a comenzar investigando qu\xE9 es lo que
@@ -40,7 +40,7 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 768, y: 176}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   <PreviousGroupTitles>k__BackingField: []
   <UngroupedNodesPreviousNames>k__BackingField:
   - Intro1

@@ -24,10 +24,10 @@ MonoBehaviour:
       <NodeID>k__BackingField: a51fe23c-8d43-4676-8d40-8385d1c2db33
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 228, y: 185}
+    <Position>k__BackingField: {x: 228, y: 185.59999}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   - <ID>k__BackingField: a51fe23c-8d43-4676-8d40-8385d1c2db33
     <Name>k__BackingField: DialogueName2
     <Text>k__BackingField: "Cuando hayas terminado de informarte, haz clic en las
@@ -38,10 +38,10 @@ MonoBehaviour:
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1051, y: 174}
+    <Position>k__BackingField: {x: 1052, y: 174.4}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: e139f4513f8af9047a8a9b250b3f6fbe, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   <PreviousGroupTitles>k__BackingField: []
   <UngroupedNodesPreviousNames>k__BackingField:
   - DialogueName

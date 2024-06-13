@@ -27,7 +27,7 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 326.4, y: 242.40001}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: e139f4513f8af9047a8a9b250b3f6fbe, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: d9509bbdf1dd3424f94266add81eff93, type: 3}
   - <ID>k__BackingField: c74a9453-7a10-43b7-a055-db27b3959e65
     <Name>k__BackingField: DialogueName
     <Text>k__BackingField: "\xA1Pero no te preocupes! \xA1Gracias a la tecnolog\xEDa
@@ -37,10 +37,10 @@ MonoBehaviour:
       <NodeID>k__BackingField: 0ee5fd41-c8c6-4d8a-8d5a-3d84f4e30176
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1087.2, y: 242.40001}
+    <Position>k__BackingField: {x: 1083.2, y: 242.40001}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   - <ID>k__BackingField: 0ee5fd41-c8c6-4d8a-8d5a-3d84f4e30176
     <Name>k__BackingField: DialogueName3
     <Text>k__BackingField: "Hacer click en el bot\xF3n de reiniciar fase restautar\xE1
@@ -55,7 +55,7 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 1936.8, y: 242.40001}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: e139f4513f8af9047a8a9b250b3f6fbe, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   - <ID>k__BackingField: 1d4c7157-f040-4214-820d-3312fecae65e
     <Name>k__BackingField: DialogueName4
     <Text>k__BackingField: "\xA1\xC1nimo con esa restauraci\xF3n! \xA1No te rindas!"
@@ -67,7 +67,7 @@ MonoBehaviour:
     <Position>k__BackingField: {x: 2767.2, y: 255.99998}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   <PreviousGroupTitles>k__BackingField: []
   <UngroupedNodesPreviousNames>k__BackingField:
   - Entrada
