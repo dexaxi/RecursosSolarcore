@@ -1,0 +1,26 @@
+Diario de Rorscharch:
+Si no te gustan los campos, que he elegido para la base de datos:
+
+Te vas al link: https://tfvj.etsii.urjc.es/phpmyadmin/index.php?route=/table/sql&db=TFGMVAB&table=users
+TFGMVAB
+2024TFGjuegogestionecoPC
+
+pegas el mandato de sql que te diga el chatgpt con lo siguiente:
+
+##############################################################################
+Maquina, creame dos sentencias de MySQL(ponlas en la misma ventana para copiar y pegar), una que haga drop sobre una tabla llamada users, y otra que cree una tabla users con lo siguiente:
+
+-id primary int que incremente automaticamente tras cada inserción y que no tenga que especificarlo en el insert
+-user_id int
+-name varchar
+-gender varchar
+-age int
+-progress int
+-machines_placed int
+-machines_sold int
+-success_phase int
+-failure_phase int
+-duration int
+-insertion_time fecha de inserción, que sea automatica
+##############################################################################
+
