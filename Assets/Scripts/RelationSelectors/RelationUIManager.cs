@@ -243,6 +243,7 @@ public class RelationUIManager : MonoBehaviour
 
     public void DisplayBook() 
     {
+        RoboDialogueManager.Instance.PlayOnce("FirstOpenBook");
         _relationBooks.EnableBookMenu();
         
     }
@@ -338,6 +339,7 @@ public class RelationBookUiElements : IMappedObject
     {
         HideBook();
         ShowLineRenderers();
+        RoboDialogueManager.Instance.PlayOnce("FirstOpenPaper");
         PaperGroup.interactable = true;
         PaperGroup.alpha = 1.0f;
         PaperGroup.blocksRaycasts = true;

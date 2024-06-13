@@ -17,7 +17,9 @@ MonoBehaviour:
   <Nodes>k__BackingField:
   - <ID>k__BackingField: fa9441a3-d2a2-4ad0-9e05-10960151046b
     <Name>k__BackingField: DialogueName
-    <Text>k__BackingField: Ocean Info Dump
+    <Text>k__BackingField: "Los oc\xE9anos son biomas con un balance ecosist\xE9mico
+      muy delicado, alteraciones como la sobrepesca o el calentamiento global pueden
+      ser mortales para gran parte de sus especies end\xE9micas."
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 

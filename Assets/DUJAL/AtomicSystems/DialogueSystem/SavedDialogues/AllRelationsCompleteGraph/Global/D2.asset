@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: D2
   m_EditorClassIdentifier: 
   <DialogueName>k__BackingField: D2
-  <Text>k__BackingField: You rock! Now you've got to fix them! Click on the different
-    biomes and check how you can fix them! Good luck!
+  <Text>k__BackingField: "\xA1Eres la monda! \xA1Ahora toca arreglarlos! Haz click
+    en los diferentes biomas para poder investigar c\xF3mo restaurarlos."
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
     <NextDialogue>k__BackingField: {fileID: 0}

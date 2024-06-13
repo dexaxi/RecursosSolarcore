@@ -197,7 +197,7 @@ public class BiomePhaseHandler : MonoBehaviour
                     if (!CompletedBiomes.Contains(newBiome)) 
                     {
                         MachineShop.Instance.PopulateShop(newBiome);
-                        CompletionUIManager.Instance.UpdateUI(BiomeHandler.Instance.GetFilteredBiomes().Where((Biome x) => x.Type == newBiome).FirstOrDefault());
+                        CompletionUIManager.Instance.UpdateUI(BiomeHandler.Instance.GetBiome(newBiome));
                         return;
                     }
                 }
@@ -241,7 +241,7 @@ public class BiomePhaseHandler : MonoBehaviour
 
     public void AttemptResetPhase(MachineType type, EnviroProblemType phase)
     {
-        var biome = BiomeHandler.Instance.GetFilteredBiomes().Where( (Biome x) => x.Type == GetBiomeFromPhase(phase) ).FirstOrDefault();
+        var biome = BiomeHandler.Instance.GetBiome(GetBiomeFromPhase(phase));
         var tiles = BiomeHandler.Instance.TilesPerBiome[biome.Type];
         int tileCount = 0;
         Vector3 tilePos = Vector3.zero;
@@ -275,9 +275,9 @@ public class BiomePhaseHandler : MonoBehaviour
     public void ResetPhase(MachineType type, EnviroProblemType phase)
     {
         IsUsingUI.IsInResetPhase = false;
-        var biome = GetBiomeFromPhase(phase);
+        var biomeType = GetBiomeFromPhase(phase);
         var machines = MachineHandler.Instance.PlacedMachines.Values;
-        CompletionUIManager.Instance.UpdateUI(BiomeHandler.Instance.GetFilteredBiomes().Where( (Biome x) => x.Type == biome).ToList()[0]);
+        CompletionUIManager.Instance.UpdateUI(BiomeHandler.Instance.GetBiome(biomeType));
         Queue<PlaceableMachine> machinesToSell = new();
         foreach (var machine in machines) 
         {

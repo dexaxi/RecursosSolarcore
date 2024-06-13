@@ -106,7 +106,7 @@ public class RelationHandler : MonoBehaviour
             {
                 Vector3 adjustedPos = finalPos;
                 var bubble = Instantiate(BiomeBubble, adjustedPos, Quaternion.identity).GetComponent<BiomeBubble>();
-                bubble.SetBiomeType(biome, BiomeHandler.Instance.GetFilteredBiomes().Where((Biome x) => x.Type == biome).ToList()[0].Sprite);
+                bubble.SetBiomeType(biome, BiomeHandler.Instance.GetBiome(biome).Sprite);
                 bubble.GetComponentInChildren<FloaterComponent>().SetOffset(new Vector3(0, 1.5f, 0));
             }
         }

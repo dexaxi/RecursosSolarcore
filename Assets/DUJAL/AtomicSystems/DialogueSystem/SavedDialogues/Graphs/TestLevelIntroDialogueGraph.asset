@@ -17,9 +17,7 @@ MonoBehaviour:
   <Nodes>k__BackingField:
   - <ID>k__BackingField: c0819cd8-2785-4256-b73a-ca7a0fd0ed7b
     <Name>k__BackingField: Intro1
-    <Text>k__BackingField: 'Hello there!! this biome is pretty shitty
-
-'
+    <Text>k__BackingField: "\xA1Bueno, aqu\xED estamos! Bienvenid@ a EcoRescue\u2122"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 419af8fa-ec8f-4b2a-9b13-4ebc440d5752
@@ -31,27 +29,15 @@ MonoBehaviour:
     <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
   - <ID>k__BackingField: 419af8fa-ec8f-4b2a-9b13-4ebc440d5752
     <Name>k__BackingField: Intro2
-    <Text>k__BackingField: hit the bubbles to start investigating why
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 35c808fa-12ba-4f49-abbd-e0b980dcda7f
-    <GroupID>k__BackingField: 
-    <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 768, y: 176}
-    <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
-    <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
-  - <ID>k__BackingField: 35c808fa-12ba-4f49-abbd-e0b980dcda7f
-    <Name>k__BackingField: Intro3
-    <Text>k__BackingField: 'lmk if you need any help
-
-'
+    <Text>k__BackingField: "Primero vamos a comenzar investigando qu\xE9 es lo que
+      puede estar pasando en estos biomas, haz click en las burbujas para ver m\xE1s
+      detalles de cada uno."
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1250, y: 176}
+    <Position>k__BackingField: {x: 768, y: 176}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
     <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
@@ -59,6 +45,5 @@ MonoBehaviour:
   <UngroupedNodesPreviousNames>k__BackingField:
   - Intro1
   - Intro2
-  - Intro3
   <GroupedNodesPreviousNames>k__BackingField:
     list: []

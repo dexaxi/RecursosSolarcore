@@ -71,15 +71,8 @@ public class BookInfoProvider
 
     private void SetBiome()
     {
-        List<Biome> biomes = BiomeHandler.Instance.GetFilteredBiomes();
-        foreach (Biome biome in biomes) 
-        {
-            if (biome.Type == BiomeType) 
-            {
-                _biome = biome; 
-                break; 
-            }
-        }
+        Biome biome = BiomeHandler.Instance.GetBiome(BiomeType);
+        _biome = biome; 
         BiomeSprite = _biome.Sprite;
         BiomeName = _biome.name;
     }

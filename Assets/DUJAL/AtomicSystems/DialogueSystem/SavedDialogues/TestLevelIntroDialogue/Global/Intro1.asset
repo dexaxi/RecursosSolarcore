@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: Intro1
   m_EditorClassIdentifier: 
   <DialogueName>k__BackingField: Intro1
-  <Text>k__BackingField: 'Hello there!! this biome is pretty shitty
-
-'
+  <Text>k__BackingField: "\xA1Bueno, aqu\xED estamos! Bienvenid@ a EcoRescue\u2122"
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
     <NextDialogue>k__BackingField: {fileID: 11400000, guid: 178bc6f82a54d064eb78113763557bb2, type: 2}

@@ -17,7 +17,11 @@ MonoBehaviour:
   <Nodes>k__BackingField:
   - <ID>k__BackingField: ea9fa932-d053-4f6b-8a0f-0ecaa24efec7
     <Name>k__BackingField: DialogueName
-    <Text>k__BackingField: Forest Info Dump
+    <Text>k__BackingField: "Los bosques templados son biomas muy ricos en fauna local,
+      sin embargo las cadenas tr\xF3ficas son muy delicadas, y una falta de depredadores
+      puede resultar fatal para todo el ecosistema. Adem\xE1s, estos ecosistemas
+      boscosos dependen de sus \xE1rboles para subsistir, y los incendios forestales
+      provocan estragos al balance natural."
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 

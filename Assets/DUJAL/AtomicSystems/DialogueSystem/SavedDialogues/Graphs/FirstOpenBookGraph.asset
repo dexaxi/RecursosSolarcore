@@ -10,40 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa9e8dba58d0b724c85c554208761ff5, type: 3}
-  m_Name: AllRelationsCompleteGraphGraph
+  m_Name: FirstOpenBookGraph
   m_EditorClassIdentifier: 
-  <FileName>k__BackingField: AllRelationsCompleteGraph
+  <FileName>k__BackingField: FirstOpenBook
   <Groups>k__BackingField: []
   <Nodes>k__BackingField:
-  - <ID>k__BackingField: ce662c57-e7e9-45b7-9307-3ad68407aff2
-    <Name>k__BackingField: D2
-    <Text>k__BackingField: "\xA1Eres la monda! \xA1Ahora toca arreglarlos! Haz click
-      en los diferentes biomas para poder investigar c\xF3mo restaurarlos."
+  - <ID>k__BackingField: d8171b76-4786-4d7b-8326-c22dd198ce45
+    <Name>k__BackingField: DialogueName
+    <Text>k__BackingField: "\xA1Este es el Libro de Investigaci\xF3n! Aqu\xED puedes
+      informarte sobre qu\xE9 problemas hemos descubierto en estos biomas."
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: a51fe23c-8d43-4676-8d40-8385d1c2db33
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 228, y: 185}
+    <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
+    <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+  - <ID>k__BackingField: a51fe23c-8d43-4676-8d40-8385d1c2db33
+    <Name>k__BackingField: DialogueName2
+    <Text>k__BackingField: "Cuando hayas terminado de informarte, haz clic en las
+      flechas a los lados del libro para pasar a la siguiente p\xE1gina, donde tendr\xE1s
+      que descubrir qu\xE9 consecuencias tienen estas alteraciones."
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 996, y: 194}
+    <Position>k__BackingField: {x: 1051, y: 174}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
-  - <ID>k__BackingField: 38a333b3-1ae8-4c23-b334-4c2ce9b37bf3
-    <Name>k__BackingField: D1
-    <Text>k__BackingField: "\xA1Muy bien! \xA1Has podido investigar todas las alteraciones
-      que afectan a este ecosistema!"
-    <Choices>k__BackingField:
-    - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: ce662c57-e7e9-45b7-9307-3ad68407aff2
-    <GroupID>k__BackingField: 
-    <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 229, y: 194}
-    <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
-    <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
-    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: ded4da6814cd0b5459a3ef6eacc3ddd9, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: e139f4513f8af9047a8a9b250b3f6fbe, type: 3}
   <PreviousGroupTitles>k__BackingField: []
   <UngroupedNodesPreviousNames>k__BackingField:
-  - D2
-  - D1
+  - DialogueName
+  - DialogueName2
   <GroupedNodesPreviousNames>k__BackingField:
     list: []

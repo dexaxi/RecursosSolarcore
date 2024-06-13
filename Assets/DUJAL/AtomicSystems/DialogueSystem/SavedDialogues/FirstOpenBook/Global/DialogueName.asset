@@ -13,14 +13,11 @@ MonoBehaviour:
   m_Name: DialogueName
   m_EditorClassIdentifier: 
   <DialogueName>k__BackingField: DialogueName
-  <Text>k__BackingField: "Los bosques templados son biomas muy ricos en fauna local,
-    sin embargo las cadenas tr\xF3ficas son muy delicadas, y una falta de depredadores
-    puede resultar fatal para todo el ecosistema. Adem\xE1s, estos ecosistemas boscosos
-    dependen de sus \xE1rboles para subsistir, y los incendios forestales provocan
-    estragos al balance natural."
+  <Text>k__BackingField: "\xA1Este es el Libro de Investigaci\xF3n! Aqu\xED puedes
+    informarte sobre qu\xE9 problemas hemos descubierto en estos biomas."
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 0}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: a6f5cb8676f31214fb6987317a9eed97, type: 2}
   <DialogueType>k__BackingField: 0
   <IsStartingDialogue>k__BackingField: 1
   <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}

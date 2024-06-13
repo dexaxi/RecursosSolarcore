@@ -17,8 +17,8 @@ MonoBehaviour:
   <Nodes>k__BackingField:
   - <ID>k__BackingField: 37b93964-4aca-40e8-8041-6861023cb809
     <Name>k__BackingField: DialogueName
-    <Text>k__BackingField: Wow! You sure know loads about this biome! Try the next
-      one!
+    <Text>k__BackingField: "\xA1Wow! \xA1Sabes ahora mont\xF3n sobre este bioma!
+      \xA1A ver como te manejas con el resto!"
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
       <NodeID>k__BackingField: 

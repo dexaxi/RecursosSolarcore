@@ -12,6 +12,11 @@ public class BiomeHandler : MonoBehaviour
 
     [SerializeField] private List<BiomeType> _biomeFilters = new();
 
+    public Biome GetBiome(BiomeType biomeType) 
+    {
+        return _biomes[biomeType];
+    }
+
     private void Awake()
     {
         if (Instance == null) Instance = this;

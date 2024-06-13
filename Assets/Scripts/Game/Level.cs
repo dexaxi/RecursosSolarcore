@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -106,14 +107,14 @@ public class Level : ScriptableObject
     public void InitGameplayLevel() 
     {
         BiomePhaseHandler.Instance.InitGameplay();
-
-        MachineShop.Instance.PopulateShop(BiomeHandler.Instance.GetFilteredBiomes()[0].Type);
+        var startingBiome = BiomeHandler.Instance.GetFilteredBiomes().FirstOrDefault();
+        MachineShop.Instance.PopulateShop(startingBiome.Type);
         MachineShop.Instance.EnableShop();
 
         PlayerCurrencyManager.Instance.AddCurrency(CalculateBudget());
         RelationUIManager.Instance.EnableBookButton();
 
-        CompletionUIManager.Instance.ShowCompletionBar(BiomeHandler.Instance.GetFilteredBiomes()[0]);
+        CompletionUIManager.Instance.ShowCompletionBar(startingBiome);
     }
 
     private void GenerateMachineFilters() 

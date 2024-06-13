@@ -364,9 +364,45 @@ PrefabInstance:
       value: RoboDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[9].Key
+      value: FirstOpenBook
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[10].Key
+      value: FirstOpenPaper
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[9].Value.Dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ec9b7a5d97556e4581363d5709d6b08, type: 2}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[10].Value.Dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 8595c09008b31f240a93bc74190ca17a, type: 2}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[10].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[10].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[0].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: DialogueTrees.list.Array.data[3].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4334206633677879512}
+    - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
+      propertyPath: DialogueTrees.list.Array.data[10].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6698315665359981651, guid: 53aa8e7d8cf8f9a4592c852598dad9bd, type: 3}
       propertyPath: DialogueTrees.list.Array.data[3].Value.DialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SwitchToGameplayDialogue
