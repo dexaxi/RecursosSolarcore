@@ -15,7 +15,9 @@ MonoBehaviour:
   name: CirculadorAguaArtificial
   Type: 20
   title: Circulador de Agua Artificial
-  Description: Circulador de Agua Artificial
+  Description: "Utiliza corrientes artificiales para redistribuir el sedimento y
+    reducir la turbidez. Puede mejorar la calidad del agua a corto plazo, pero tambi\xE9n
+    puede perturbar los h\xE1bitats marinos."
   Cost: 250
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 6e8e99e143716b74e82f60b6b413ab34, type: 2}

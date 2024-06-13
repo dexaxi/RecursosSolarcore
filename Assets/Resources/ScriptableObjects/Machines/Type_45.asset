@@ -15,7 +15,9 @@ MonoBehaviour:
   name: InstaladorRefugiosArtificiales
   Type: 44
   title: Instalador de Refugios Artificiales
-  Description: Instalador de Refugios Artificiales
+  Description: "Crea refugios artificiales para proporcionar h\xE1bitats temporales
+    a las especies animales desplazadas. Aunque ayuda a corto plazo, puede no ser
+    suficiente sin la reintroducci\xF3n directa de especies."
   Cost: 100
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}

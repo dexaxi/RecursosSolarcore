@@ -15,7 +15,8 @@ MonoBehaviour:
   name: RestauradorCoralesTermico
   Type: 33
   title: "Restaurador de Corales T\xE9rmico"
-  Description: "Restaurador de Corales T\xE9rmico"
+  Description: Coloca fragmentos de coral resistentes al calor sobre estructuras
+    artificiales que favorecen su crecimiento y supervivencia.
   Cost: 400
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 105f0e1590fe3e448981961d4def79be, type: 2}

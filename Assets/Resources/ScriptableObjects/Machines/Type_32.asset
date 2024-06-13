@@ -15,7 +15,9 @@ MonoBehaviour:
   name: InstaladorRefugiosTermicos
   Type: 31
   title: "Instalador de Refugios T\xE9rmicos"
-  Description: "Instalador de Refugios T\xE9rmicos"
+  Description: Crea refugios submarinos con temperaturas controladas para proporcionar
+    un ambiente seguro a las especies marinas afectadas. Estos refugios pueden no
+    ser suficientes si requieren mucho espacio.
   Cost: 100
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 26ba4636fc5b2604e9b623d38f941e10, type: 2}

@@ -15,7 +15,9 @@ MonoBehaviour:
   name: DispensadorRepelentesNaturales
   Type: 49
   title: Dispensador de Repelentes Naturales
-  Description: Dispensador de Repelentes Naturales
+  Description: "Utiliza repelentes naturales para mantener a los herb\xEDvoros alejados
+    de \xE1reas cr\xEDticas de regeneraci\xF3n vegetal. Requiere aplicaci\xF3n continua
+    y puede llegar a contaminar y afectar negativamente al comportamiento de la fauna."
   Cost: 100
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 26ba4636fc5b2604e9b623d38f941e10, type: 2}

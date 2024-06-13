@@ -15,7 +15,9 @@ MonoBehaviour:
   name: InstaladorMicrohabitats
   Type: 34
   title: Instalador de Microhabitats
-  Description: Instalador de Microhabitats
+  Description: "Crea microh\xE1bitats espec\xEDficos para corales utilizando estructuras
+    que proporcionan sombra y reducen el estr\xE9s t\xE9rmico. Menos efectivo a gran
+    escala ademas de requerir mantenimiento y monitoreo continuos."
   Cost: 100
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 1cbeaa69cee19da4284e1d4e908a434f, type: 2}

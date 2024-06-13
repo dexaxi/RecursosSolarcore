@@ -15,7 +15,9 @@ MonoBehaviour:
   name: DispersadorSemillasMixtas
   Type: 13
   title: "Dispersador de Semillas Gen\xE9ricas"
-  Description: Dispersador de Semillas Mixtas
+  Description: "Dispersa semillas de r\xE1pido crecimiento que no son necesariamente 
+    especies nativas. Aunque proporciona una cobertura vegetal r\xE1pida, puede llevar
+    a la introducci\xF3n de especies invasoras."
   Cost: 250
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 26ba4636fc5b2604e9b623d38f941e10, type: 2}

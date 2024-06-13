@@ -15,7 +15,8 @@ MonoBehaviour:
   name: MejoradorMicrobianodelSuelo
   Type: 17
   title: Mejorador Microbiano del Suelo
-  Description: Mejorador Microbiano del Suelo
+  Description: Introduce una mezcla de microorganismos y nutrientes que mejoran la
+    calidad del suelo y promueven el desarrollo de comunidades de invertebrados.
   Cost: 300
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}

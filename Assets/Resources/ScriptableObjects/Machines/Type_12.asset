@@ -15,7 +15,9 @@ MonoBehaviour:
   name: EnriquecedorQuimicoMecanico
   Type: 11
   title: "Enriquecedor Qu\xEDmico y Mec\xE1nico"
-  Description: "Enriquecedor Qu\xEDmico y Mec\xE1nico"
+  Description: "Corrige la acidificaci\xF3n usando fertilizantes qu\xEDmicos y la
+    compactaci\xF3n mediante procesos mec\xE1nicos, pero tiene mucho riesgo de contaminar
+    el suelo y agua."
   Cost: 100
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 7a4f6cd6256bf284f98c5f34ca69b77e, type: 2}

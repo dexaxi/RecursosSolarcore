@@ -15,7 +15,9 @@ MonoBehaviour:
   name: DispensadorAlimentoControlado
   Type: 22
   title: Dispensador de Alimento Controlado
-  Description: Dispensador de Alimento Controlado
+  Description: "Proporciona alimento a las especies afectadas para apoyar su recuperaci\xF3n.
+    Puede mejorar temporalmente las poblaciones, pero no soluciona las causas de
+    la disminuci\xF3n de especies."
   Cost: 300
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: cdeaccc942f4ad94c93b5913c4d75ac8, type: 2}

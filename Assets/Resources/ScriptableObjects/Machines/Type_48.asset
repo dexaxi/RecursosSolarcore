@@ -15,7 +15,9 @@ MonoBehaviour:
   name: AtrayenteDepredadores
   Type: 47
   title: Atrayente de Depredadores
-  Description: Atrayente de Depredadores
+  Description: "Utiliza atrayentes naturales para atraer a los depredadores a \xE1reas
+    espec\xEDficas aumentando temporalmente su presencia, pero no garantiza una soluci\xF3n
+    a largo plazo."
   Cost: 250
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 7a4f6cd6256bf284f98c5f34ca69b77e, type: 2}

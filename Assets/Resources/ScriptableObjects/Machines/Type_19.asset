@@ -15,7 +15,8 @@ MonoBehaviour:
   name: FiltroSedimentosMarinos
   Type: 18
   title: Filtro de Sedimentos Marinos
-  Description: Filtro de Sedimentos Marinos
+  Description: "Utiliza tecnolog\xEDa de filtrado avanzada para eliminar sedimentos
+    de grandes cantidades de agua, reduciendo la turbidez del \xE1rea afectada."
   Cost: 400
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: b3f1733913592504da3265fd1434a7dc, type: 2}

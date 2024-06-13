@@ -15,7 +15,10 @@ MonoBehaviour:
   name: GeneradorHabitatsArtificiales
   Type: 26
   title: "Generador de H\xE1bitats Artificiales"
-  Description: "Generador de H\xE1bitats Artificiales"
+  Description: "Instala estructuras artificiales en el fondo marino que act\xFAan
+    como anclajes para el crecimiento de nuevos corales y proporcionan refugio a
+    especies marinas. La efectividad es limitada si no se combina con t\xE9cnicas
+    de cultivo de corales."
   Cost: 100
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}

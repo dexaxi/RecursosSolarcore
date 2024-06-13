@@ -15,7 +15,9 @@ MonoBehaviour:
   name: InyectorBiochar
   Type: 37
   title: Inyector de Biochar
-  Description: Inyector de Biochar
+  Description: "Introduce biochar en el suelo, un material carbonizado que mejora
+    la retenci\xF3n de agua y nutrientes, mejorando as\xED la estructura del suelo
+    y su resilencia."
   Cost: 100
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 449e66b64c43f2449a89d3519c1b4d35, type: 2}

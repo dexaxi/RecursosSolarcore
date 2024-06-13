@@ -15,7 +15,9 @@ MonoBehaviour:
   name: CorrectorpHArado
   Type: 10
   title: Corrector de pH y Arado
-  Description: Corrector de pH y Arado
+  Description: "Utiliza un arado mec\xE1nico para descompactar el suelo mientras
+    se aplica cal para corregir la acidez. Puede da\xF1ar la estructura y la biota
+    del suelo debido a la perturbaci\xF3n mec\xE1nica."
   Cost: 250
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 91c7324234b4bec44a633f9974f6ed07, type: 2}

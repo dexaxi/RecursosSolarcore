@@ -15,7 +15,9 @@ MonoBehaviour:
   name: AplicadorEnmiendasQuimicas
   Type: 1
   title: "Aplicador de Enmiendas Qu\xEDmicas"
-  Description: "Aplicador de Enmiendas Qu\xEDmicas"
+  Description: "Distribuye fertilizantes qu\xEDmicos en el suelo para aumentar r\xE1pidamente
+    los nutrientes disponibles. Mejora la fertilidad del suelo a corto plazo pero
+    puede causar da\xF1os si se usa en exceso."
   Cost: 100
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 449e66b64c43f2449a89d3519c1b4d35, type: 2}

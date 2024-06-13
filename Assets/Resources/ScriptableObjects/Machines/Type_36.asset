@@ -15,7 +15,9 @@ MonoBehaviour:
   name: InyectorNutrientesProbioticos
   Type: 35
   title: "Inyector de Nutrientes y Probi\xF3ticos"
-  Description: "Inyector de Nutrientes y Probi\xF3ticos"
+  Description: "Introduce una mezcla de nutrientes y probi\xF3ticos directamente
+    en los corales para fortalecer su resistencia al calor y enfermedades. Su eficacia
+    es limitada si no se combina con otras t\xE9cnicas."
   Cost: 300
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}

@@ -15,7 +15,8 @@ MonoBehaviour:
   name: ReconstructorSueloOrganico
   Type: 0
   title: "Reconstructor de suelo org\xE1nico"
-  Description: "Reconstructor de suelo org\xE1nico"
+  Description: "Introduce materia org\xE1nica  y ra\xEDces artificiales biodegradables
+    en el suelo para estabilizalo y aumentar su capacidad de retener agua y nutrientes."
   Cost: 400
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: b3f1733913592504da3265fd1434a7dc, type: 2}

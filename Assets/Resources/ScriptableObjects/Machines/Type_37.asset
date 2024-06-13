@@ -15,7 +15,8 @@ MonoBehaviour:
   name: RecicladorCenizas
   Type: 36
   title: Reciclador de Cenizas
-  Description: Reciclador de Cenizas
+  Description: "Convierte las cenizas resultantes del incendio en materiales org\xE1nicos
+    que se mezclan con el suelo para mejorar su estructura y fertilidad."
   Cost: 400
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: b3f1733913592504da3265fd1434a7dc, type: 2}

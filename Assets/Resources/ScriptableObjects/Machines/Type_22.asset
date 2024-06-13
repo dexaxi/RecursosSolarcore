@@ -15,7 +15,9 @@ MonoBehaviour:
   name: ReproductorEspeciesMarinas
   Type: 21
   title: Reproductor de Especies Marinas
-  Description: Reproductor de Especies Marinas
+  Description: "Libera larvas de especies nativas en \xE1reas protegidas para repoblar.
+    Utiliza t\xE9cnicas avanzadas de acuicultura y monitoreo para asegurar la supervivencia
+    de las especies reintroducidas."
   Cost: 400
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 6e8e99e143716b74e82f60b6b413ab34, type: 2}

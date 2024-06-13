@@ -15,7 +15,9 @@ MonoBehaviour:
   name: DispersadorSemillasGenericas
   Type: 4
   title: "Dispersador de Semillas Gen\xE9ricas"
-  Description: "Dispersador de Semillas Gen\xE9ricas"
+  Description: "Dispersa semillas de r\xE1pido crecimiento que no son necesariamente 
+    especies nativas. Aunque proporciona una cobertura vegetal r\xE1pida, puede llevar
+    a la introducci\xF3n de especies invasoras."
   Cost: 250
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: cdeaccc942f4ad94c93b5913c4d75ac8, type: 2}

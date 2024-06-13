@@ -15,7 +15,9 @@ MonoBehaviour:
   name: InstaladorCorredoresCaza
   Type: 46
   title: Instalador de Corredores de Caza
-  Description: Instalador de Corredores de Caza
+  Description: "Crea corredores de caza protegidos que facilitan el movimiento y
+    la actividad de los depredadores en el ecosistema. Es menos efectivo que la reintroducci\xF3n
+    directa de estos."
   Cost: 300
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 91c7324234b4bec44a633f9974f6ed07, type: 2}

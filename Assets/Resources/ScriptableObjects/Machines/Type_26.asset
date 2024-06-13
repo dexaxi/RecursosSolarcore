@@ -15,7 +15,9 @@ MonoBehaviour:
   name: InstaladorRefugiosArtificiales
   Type: 25
   title: Instalador de Refugios Artificiales
-  Description: Instalador de Refugios Artificiales
+  Description: "Crea refugios artificiales para especies marinas utilizando estructuras
+    sumergibles que imitan h\xE1bitats naturales. Puede no ser suficiente sin la
+    restauraci\xF3n de los corales."
   Cost: 250
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 26ba4636fc5b2604e9b623d38f941e10, type: 2}

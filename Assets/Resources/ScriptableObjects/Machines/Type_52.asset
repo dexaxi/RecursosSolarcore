@@ -15,7 +15,9 @@ MonoBehaviour:
   name: ControladorPoblacionHerbivoros
   Type: 51
   title: "Controlador de Poblaci\xF3n de Herb\xEDvoros"
-  Description: "Controlador de Poblaci\xF3n de Herb\xEDvoros"
+  Description: "Implementa m\xE9todos de control de la poblaci\xF3n de herb\xEDvoros
+    a trav\xE9s de t\xE9cnicas no letales como la captura y reubicaci\xF3n. Es una
+    soluci\xF3n temporal que no aborda la causa subyacente de la falta de depredadores."
   Cost: 400
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 105f0e1590fe3e448981961d4def79be, type: 2}

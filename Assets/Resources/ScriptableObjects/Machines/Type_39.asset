@@ -15,7 +15,9 @@ MonoBehaviour:
   name: CorrectorHidrofobicidadSuelo
   Type: 38
   title: Corrector de Hidrofobicidad del Suelo
-  Description: Corrector de Hidrofobicidad del Suelo
+  Description: Aplica productos para eliminar la hidrofobicidad del suelo creada
+    por el intenso calor del incendio, mejorando su capacidad del suelo para absorber
+    y retener agua.
   Cost: 300
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 6e8e99e143716b74e82f60b6b413ab34, type: 2}

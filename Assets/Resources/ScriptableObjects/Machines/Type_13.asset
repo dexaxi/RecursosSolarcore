@@ -15,7 +15,9 @@ MonoBehaviour:
   name: PlantadorEspeciesNativas
   Type: 12
   title: Plantador de Especies Nativas
-  Description: Plantador de Especies Nativas
+  Description: "Planta de forma autom\xE1tica semillas de especies nativas en el
+    \xE1rea deforestada.  Tambi\xE9n incluye un sistema de riego automatizado que
+    asegura la supervivencia de los brotes durante los primeros meses."
   Cost: 400
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 1cbeaa69cee19da4284e1d4e908a434f, type: 2}

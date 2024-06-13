@@ -15,7 +15,9 @@ MonoBehaviour:
   name: EnfriadorOceanico
   Type: 27
   title: "Enfriador Oce\xE1nico"
-  Description: "Enfriador Oce\xE1nico"
+  Description: "Utiliza tecnolog\xEDa de enfriamiento para reducir la temperatura
+    del agua en \xE1reas espec\xEDficas, absorviendo el calor del agua y disolviendolo
+    en la atm\xF3sfera."
   Cost: 400
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 4552c860ccdb02f41b8f48ade69cc177, type: 2}

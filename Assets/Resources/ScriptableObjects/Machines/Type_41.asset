@@ -15,7 +15,9 @@ MonoBehaviour:
   name: HidrosiembraAutomatica
   Type: 40
   title: "Hidrosiembra Autom\xE1tica"
-  Description: "Hidrosiembra Autom\xE1tica"
+  Description: "Utiliza una mezcla de semillas, agua, fertilizantes y materia org\xE1nica
+    para rociar \xE1reas grandes. Es eficaz, pero hace falta utilizar muchas semillas
+    para conseguir una buena cobertura."
   Cost: 200
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: cdeaccc942f4ad94c93b5913c4d75ac8, type: 2}

@@ -15,7 +15,9 @@ MonoBehaviour:
   name: DispensadorAlimentoControlado
   Type: 32
   title: Dispensador de Alimento Controlado
-  Description: Dispensador de Alimento Controlado
+  Description: "Proporciona alimento adicional a las especies afectadas por el aumento
+    de temperatura para apoyar su recuperaci\xF3n pero no aborda directamente el
+    cambio de comportamiento."
   Cost: 300
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}

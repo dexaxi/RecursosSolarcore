@@ -15,7 +15,9 @@ MonoBehaviour:
   name: IntroduccionEspeciesResilientes
   Type: 23
   title: "Introducci\xF3n de Especies Resilientes"
-  Description: "Introducci\xF3n de Especies Resilientes"
+  Description: "Introduce especies m\xE1s resistentes a condiciones cambiantes para
+    estabilizar la cadena tr\xF3fica. Aunque puede ayudar a corto plazo, la introducci\xF3n
+    de especies no nativas puede alterar a\xFAn m\xE1s el ecosistema."
   Cost: 200
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 1cbeaa69cee19da4284e1d4e908a434f, type: 2}

@@ -15,7 +15,9 @@ MonoBehaviour:
   name: InstaladorCorredoresEcologicos
   Type: 53
   title: "Instalador de Corredores Ecol\xF3gicos"
-  Description: "Instalador de Corredores Ecol\xF3gicos"
+  Description: "Crea corredores ecol\xF3gicos que facilitan la dispersi\xF3n de herb\xEDvoros
+    hacia otras \xE1reas, reduciendo la presi\xF3n sobre la vegetaci\xF3n local.
+    Aunque \xFAtil, puede no ser suficiente sin medidas adicionales."
   Cost: 250
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}

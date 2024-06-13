@@ -15,7 +15,9 @@ MonoBehaviour:
   name: RestauradorCorales
   Type: 24
   title: Restaurador de Corales
-  Description: Restaurador de Corales
+  Description: "Utiliza t\xE9cnicas de restauraci\xF3n para reparar los corales da\xF1ados.
+    Se colocan fragmentos de coral cultivados en laboratorios sobre estructuras artificiales
+    que favorecen su crecimiento y supervivencia."
   Cost: 400
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 4552c860ccdb02f41b8f48ade69cc177, type: 2}

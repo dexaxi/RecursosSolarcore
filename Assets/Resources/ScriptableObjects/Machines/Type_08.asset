@@ -15,7 +15,9 @@ MonoBehaviour:
   name: LiberadorEspeciesGenericas
   Type: 7
   title: "Liberador de Especies Gen\xE9ricas"
-  Description: "Liberador de Especies Gen\xE9ricas"
+  Description: "Libera animales criados en cautividad sin monitoreo detallado ni
+    preparaci\xF3n de h\xE1bitats espec\xEDficos. Puede aumentar temporalmente la
+    diversidad, pero con alto riesgo de fallos de adaptaci\xF3n y supervivencia."
   Cost: 200
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 26ba4636fc5b2604e9b623d38f941e10, type: 2}

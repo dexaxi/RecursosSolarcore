@@ -15,7 +15,9 @@ MonoBehaviour:
   name: InyectorHielo
   Type: 29
   title: Inyector de Hielo
-  Description: Inyector de Hielo
+  Description: "Se depositan trozos de hielo en las zonas del oc\xE9ano donde la
+    temperatura ha aumentado. Disminuye la temperatura a costa de da\xF1ar el polo
+    norte si se quita mucho hielo."
   Cost: 400
   MeshFilter: {fileID: 4821953760727478775, guid: f0ff367b967d7eb438db95f341379470, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 7a4f6cd6256bf284f98c5f34ca69b77e, type: 2}

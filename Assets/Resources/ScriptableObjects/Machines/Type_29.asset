@@ -15,7 +15,9 @@ MonoBehaviour:
   name: GeneradorSombrasOceanicas
   Type: 28
   title: "Generador de Sombras Oce\xE1nicas"
-  Description: "Generador de Sombras Oce\xE1nicas"
+  Description: "Instala estructuras flotantes que generan sombra sobre la superficie
+    del agua para disminuir la temperatura del agua. Sin embargo, puede afectar negativamente
+    a la fotos\xEDntesis de las algas y corales."
   Cost: 400
   MeshFilter: {fileID: -6825875012872461222, guid: 6d7bb7d6a6b0de241b9485f07952a7e1, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 91c7324234b4bec44a633f9974f6ed07, type: 2}

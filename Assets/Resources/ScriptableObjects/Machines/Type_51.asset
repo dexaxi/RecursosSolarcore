@@ -15,7 +15,9 @@ MonoBehaviour:
   name: RestauradorVegetacion
   Type: 50
   title: "Restaurador de Vegetaci\xF3n"
-  Description: "Restaurador de Vegetaci\xF3n"
+  Description: "Planta y protege especies vegetales nativas mediante el uso de tecnolog\xEDas
+    avanzadas de plantaci\xF3n y riego, sin embargo, no modifica el comportamiento
+    de los herbivoros por lo que puede llegar a ser poco efectivo."
   Cost: 250
   MeshFilter: {fileID: 5729012611752641254, guid: 869e78a91ea92c443a22aa94982270f9, type: 3}
   MeshRenderer: {fileID: 2100000, guid: 15188dcbd4163fa4fab48a098bb89dc6, type: 2}
