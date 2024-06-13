@@ -31,18 +31,30 @@ public class DBConnection : MonoBehaviour
 	[Range(0, 10)]
 	public float updateTimeInMinutes = 2;
 
-	static DBConnection _instance;
+	public static DBConnection Instance { get; private set; }
 
 	private void Awake()
 	{
-		if (_instance != null)
+		if (Instance != null)
 		{
 			//Nope, nope, nope Estoy cansado jefe
 			Destroy(gameObject);
 			return;
 		}
-		_instance = this;
+		Instance = this;
 		DontDestroyOnLoad(this);
+
+	}
+
+	void Start()
+	{
+		if (PlayerInfoManager.Instance != null)
+		{
+			age = PlayerInfoManager.Instance.Age;
+			username = PlayerInfoManager.Instance.name;
+			gender = PlayerInfoManager.Instance.gender.ToString();
+		}
+
 		GetToken();
 	}
 
@@ -220,6 +232,19 @@ public class DBConnection : MonoBehaviour
 		duration += Time.deltaTime;
 		if (elapsedTime >= updateTimeInMinutes * 60)
 		{
+			if (BiomePhaseHandler.Instance)
+			{
+				var dict = BiomePhaseHandler.Instance.CurrentCompletion;
+
+				var total = 0;
+				foreach (var item in dict)
+				{
+					total += Mathf.Clamp(item.Value, 0, 100);
+				}
+
+				completition = total / dict.Count;
+			}
+
 			UpdateUser();
 			elapsedTime = 0;
 		}

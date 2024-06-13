@@ -88,8 +88,6 @@ public class BiomePhaseHandler : MonoBehaviour
             MaxCompletion[problem.Type] = _completionRates[Random.Range(0, _completionRates.Count)];
             CurrentCompletion[problem.Type] = 0;
         }
-
-
     }
 
     public void ProcessMachineImpact(PlaceableMachine machine)
@@ -189,6 +187,7 @@ public class BiomePhaseHandler : MonoBehaviour
         }
         if (!found) 
         {
+            DBConnection.Instance.phase_sucess++;
             CompletedBiomes.Add(biome);
             if (!CheckAllBiomesCompleted()) 
             {
@@ -276,6 +275,7 @@ public class BiomePhaseHandler : MonoBehaviour
     }
     public void ResetPhase(MachineType type, EnviroProblemType phase)
     {
+        DBConnection.Instance.phase_fail++;
         IsUsingUI.IsInResetPhase = false;
         var biomeType = GetBiomeFromPhase(phase);
         var machines = MachineHandler.Instance.PlacedMachines.Values;

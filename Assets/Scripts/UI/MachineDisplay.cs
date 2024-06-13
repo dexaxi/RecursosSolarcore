@@ -54,7 +54,8 @@ public class MachineDisplay : MonoBehaviour
 
     public void SellMachine()
     {
-        _machine.Sell();
+		DBConnection.Instance.machines_sold++;
+		_machine.Sell();
         ExitDisplay();
     }
     public void MoveMachine()
@@ -66,7 +67,8 @@ public class MachineDisplay : MonoBehaviour
     {
         if (_machine.ConfirmPlacement()) 
         {
-            ExitDisplay();
+			DBConnection.Instance.machines_placed++;
+			ExitDisplay();
         }
     }
 
