@@ -11,10 +11,11 @@ public enum SceneIndex
 {
     NO_SCENE = -1,
     MAIN_MENU = 0,
-    LEVEL_SELECTOR = 1,
-    LOADING_SCREEN = 2,
-    PROBLEM_SCREEN = 3,
-    LEVEL_SCENE = 4,
+    CHARACTER_SELECTOR = 1,
+    LEVEL_SELECTOR = 2,
+    LOADING_SCREEN = 3,
+    PROBLEM_SCREEN = 4,
+    LEVEL_SCENE = 5,
 }
 
 public class SceneLoader : MonoBehaviour
