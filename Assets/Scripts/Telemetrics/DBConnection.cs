@@ -29,12 +29,21 @@ public class DBConnection : MonoBehaviour
 	public float duration;
 
 	[Range(0, 10)]
-	public float updateTimeInMinutes;
+	public float updateTimeInMinutes = 2;
+
+	static DBConnection _instance;
 
 	private void Awake()
 	{
-		GetToken();
+		if (_instance != null)
+		{
+			//Nope, nope, nope Estoy cansado jefe
+			Destroy(gameObject);
+			return;
+		}
+		_instance = this;
 		DontDestroyOnLoad(this);
+		GetToken();
 	}
 
 	//---------- TOKEN ----------
