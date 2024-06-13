@@ -46,11 +46,7 @@ public class PlayerInfoManager : MonoBehaviour
 
     public void Confirm() 
     {
-        if (int.TryParse(Edad.text, out int age))
-        {
-            Age = age;
-        }
-        else return;
+        Age = Int32.Parse(Edad.text);
         if (Nombre.text.Trim() != "") Name = Nombre.text;
         else return;
         SceneLoader.Instance.LoadScene(SceneIndex.LEVEL_SCENE);
