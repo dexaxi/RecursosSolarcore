@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class BookUIManager : MonoBehaviour
 {
@@ -182,7 +183,7 @@ public class BookUiElements : IMappedObject
         _problemCount = _provider.EnviroProblems.Count;
         List<EnviroProblemProvider> problems = _provider.EnviroProblems;
 
-        _photoUI.Photo.sprite = _provider.BiomeSprite;
+        _photoUI.Photo.sprite = Sprite.Create(_provider.BiomeSprite, new Rect(0.0f, 0.0f, _provider.BiomeSprite.width, _provider.BiomeSprite.height), new Vector2(0.5f, 0.5f), 100.0f);
         _titleUI.Title.text = _provider.BiomeName;
         _titleUI.Info.onClick.RemoveAllListeners();
         _titleUI.Info.onClick.AddListener(delegate { RoboDialogueManager.Instance.StartRoboDialogue(provider.BiomeName + "Info"); });
@@ -217,7 +218,7 @@ public class PhotoUiElements : IMappedObject
 {
     public IMapper Mapper { get; private set; }
     public GameObject Root { get; private set; }
-    public Image Photo { get; private set; }
+    public UnityEngine.UI.Image Photo { get; private set; }
     public PhotoUiElements() { }
     public PhotoUiElements(IMapper mapper) { Initialize(mapper); }
 
@@ -225,7 +226,7 @@ public class PhotoUiElements : IMappedObject
     {
         Mapper = mapper;
         Root = mapper.Get();
-        Photo = mapper.Get<Image>("Base");
+        Photo = mapper.Get<UnityEngine.UI.Image>("Background");
     }
 }
 
@@ -268,7 +269,7 @@ public class DataUiElements : IMappedObject
 {
     public IMapper Mapper { get; private set; }
     public GameObject Root { get; private set; }
-    public Image Icon { get; private set; }
+    public UnityEngine.UI.Image Icon { get; private set; }
     public TextMeshProUGUI Text { get; private set; }
     public TextMeshProUGUI Section { get; private set; }
     public DataUiElements() { }
@@ -278,7 +279,7 @@ public class DataUiElements : IMappedObject
     {
         Mapper = mapper;
         Root = mapper.Get();
-        Icon = mapper.Get<Image>("Icon");
+        Icon = mapper.Get<UnityEngine.UI.Image>("Icon");
         Text = mapper.Get<TextMeshProUGUI>("Text");
         Section = mapper.Get<TextMeshProUGUI>("Tipe");
     }
@@ -288,7 +289,7 @@ public class ExIconsUiElements : IMappedObject
 {
     public IMapper Mapper { get; private set; }
     public GameObject Root { get; private set; }
-    public List<Image> ExIcons { get; private set; } = new();
+    public List<UnityEngine.UI.Image> ExIcons { get; private set; } = new();
 
     public ExIconsUiElements() { }
     public ExIconsUiElements(IMapper mapper) { Initialize(mapper); }
@@ -297,9 +298,9 @@ public class ExIconsUiElements : IMappedObject
     {
         Mapper = mapper;
         Root = mapper.Get();
-        ExIcons.Add(mapper.Get<Image>("Ex_Icon1"));
-        ExIcons.Add(mapper.Get<Image>("Ex_Icon2"));
-        ExIcons.Add(mapper.Get<Image>("Ex_Icon3"));
+        ExIcons.Add(mapper.Get<UnityEngine.UI.Image>("Ex_Icon1"));
+        ExIcons.Add(mapper.Get<UnityEngine.UI.Image>("Ex_Icon2"));
+        ExIcons.Add(mapper.Get<UnityEngine.UI.Image>("Ex_Icon3"));
     }
 
     public void UpdateExIcons(List<EnviroProblemType> problems) 
@@ -352,7 +353,7 @@ public class DiagnosisInfoUiElements : IMappedObject
     public IMapper Mapper { get; private set; }
     public GameObject Root { get; private set; }
     public List<TextMeshProUGUI> Texts { get; private set; } = new();
-    public List<Image> Sprites { get; private set; } = new();
+    public List<UnityEngine.UI.Image> Sprites { get; private set; } = new();
     public Scrollbar Scrollbar { get; private set; } 
     public DiagnosisInfoUiElements() { }
     public DiagnosisInfoUiElements(IMapper mapper) { Initialize(mapper); }
@@ -366,9 +367,9 @@ public class DiagnosisInfoUiElements : IMappedObject
         Texts.Add(mapper.Get<TextMeshProUGUI>("Diag_Text2"));
         Texts.Add(mapper.Get<TextMeshProUGUI>("Diag_Text3"));
 
-        Sprites.Add(mapper.Get<Image>("Diag_Image1"));
-        Sprites.Add(mapper.Get<Image>("Diag_Image2"));
-        Sprites.Add(mapper.Get<Image>("Diag_Image3"));
+        Sprites.Add(mapper.Get<UnityEngine.UI.Image>("Diag_Image1"));
+        Sprites.Add(mapper.Get<UnityEngine.UI.Image>("Diag_Image2"));
+        Sprites.Add(mapper.Get<UnityEngine.UI.Image>("Diag_Image3"));
 
         Scrollbar = mapper.Get<Scrollbar>("Scrollbar");
 

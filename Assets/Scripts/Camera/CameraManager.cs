@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CameraManager : MonoBehaviour
 {
@@ -32,13 +33,15 @@ public class CameraManager : MonoBehaviour
     {
         SetCameraTransform(new Vector3(-40, 0, 0), Vector3.zero);
         MainCamera.orthographic = true;
-        UpdateCameraCanvas(); 
+        UpdateCameraCanvas();
+        FindObjectOfType<Volume>().enabled = false;
     }
     public void SetGameplayCamera() 
     {
         SetCameraTransform(new Vector3(0, 7, 0), new Vector3(30, 45, 0));
         MainCamera.orthographic = true;
         UpdateCameraCanvas();
+        FindObjectOfType<Volume>().enabled = true;
     }
 
     public void UpdateCameraCanvas() 

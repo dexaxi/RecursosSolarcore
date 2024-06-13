@@ -26,6 +26,8 @@ public class BiomePhaseHandler : MonoBehaviour
     public List<BiomeType> CompletedBiomes = new();
     public Dictionary<MachineType, int> MachinePlaceRestrictionCount = new();
 
+    [SerializeField] Camera biomeScreenshotCamera;
+
     private List<Biome> _biomes;
     private List<EnviroProblem> _problems;
     private List<Machine> _machines;
@@ -299,5 +301,23 @@ public class BiomePhaseHandler : MonoBehaviour
     public bool Gamble(float gamble) 
     {
         return Random.Range(0.0f, 1.0f) > gamble;
+    }
+
+    public Texture2D GetBiomeScreenshot(Biome biome)
+    {
+        RenderTexture targetTexture = new RenderTexture(399, 271, 24);
+
+        biomeScreenshotCamera.targetTexture = targetTexture;
+        Ground.Instance.DisableOtherBiomes(biome.Type);
+        biomeScreenshotCamera.Render();
+        RenderTexture.active = targetTexture;
+        Texture2D tex = new Texture2D(targetTexture.width, targetTexture.height, TextureFormat.RGBAHalf, false);
+        tex.ReadPixels(new Rect(0, 0, targetTexture.width, targetTexture.height), 0, 0);
+        tex.Apply();
+
+        RenderTexture.active = null;
+        Ground.Instance.EnableBiomes(biome.Type);
+
+        return tex;
     }
 }

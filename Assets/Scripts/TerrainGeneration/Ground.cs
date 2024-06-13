@@ -48,6 +48,34 @@ public class Ground : MonoBehaviour
     const float RootOf2 = 1.41421356f;
     const float MinimumFloatValue = 0.01f;
 
+    //se usa para hacer animaciones chulas
+    private Dictionary<BiomeType, Selectable> biomesSelectables = new Dictionary<BiomeType, Selectable>();
+
+    public void DisableOtherBiomes(BiomeType type)
+    {
+        foreach(BiomeType t in biomesSelectables.Keys)
+        {
+            if(t != type) {
+                List<GroundTile> biomeTiles = BiomeHandler.Instance.TilesPerBiome[t];
+                foreach (GroundTile tile in biomeTiles)
+                {
+                    tile.Highlightable.Highlight("Highlight");
+                }
+            }
+        }
+    }
+    public void EnableBiomes(BiomeType type)
+    {
+        foreach (BiomeType t in biomesSelectables.Keys)
+        {
+            List<GroundTile> biomeTiles = BiomeHandler.Instance.TilesPerBiome[t];
+            foreach (GroundTile tile in biomeTiles)
+            {
+                tile.Highlightable.Unhighlight();
+            }
+        }
+    }
+
     enum Generation
     {
         GetFromScene,
@@ -119,6 +147,10 @@ public class Ground : MonoBehaviour
                     newTile.transform.parent = transform;
                     outTile = newTile.GetComponent<GroundTile>();
                     outTile.SetBiome(biome);
+                    if (!biomesSelectables.ContainsKey(biome.Type))
+                    {
+                        biomesSelectables.Add(biome.Type, outTile.GetComponent<Selectable>());
+                    }
                     GroundMap.Add(v, outTile);
                 }
             }

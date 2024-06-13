@@ -42,7 +42,7 @@ public class BookInfoProvider
 
     public readonly List<EnviroProblemProvider> EnviroProblems = new();
     public BiomeType BiomeType;
-    public Sprite BiomeSprite;
+    public Texture2D BiomeSprite;
     public string BiomeName;
     private Biome _biome;
 
@@ -72,8 +72,8 @@ public class BookInfoProvider
     private void SetBiome()
     {
         Biome biome = BiomeHandler.Instance.GetBiome(BiomeType);
-        _biome = biome; 
-        BiomeSprite = _biome.Sprite;
+        _biome = biome;
+        BiomeSprite = BiomePhaseHandler.Instance.GetBiomeScreenshot(biome);
         BiomeName = _biome.name;
     }
 
