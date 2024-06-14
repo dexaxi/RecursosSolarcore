@@ -1,4 +1,5 @@
 using AnKuchen.Map;
+using DUJAL.Systems.Audio;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -41,6 +42,10 @@ public class RelationUIManager : MonoBehaviour
 
         _raycaster = GetComponent<GraphicRaycaster>();
         ShowBookButton.onClick.AddListener(DisplayBook);
+        ShowBookButton.onClick.AddListener(delegate
+        {
+            AudioManager.Instance.Play("Page_Turn");
+        });
         _bookmarkManager = FindObjectOfType<BookmarkManager>();
         ShowBookButton.onClick.AddListener(delegate { _bookmarkManager.UpdateBookmarkVisibility(BiomeHandler.Instance.GetFilteredBiomes());});
         DisableBookButton();
@@ -290,10 +295,26 @@ public class RelationBookUiElements : IMappedObject
         PaperGroup = mapper.Get<CanvasGroup>("Paper Screen");
 
         BookArrow.onClick.AddListener(ShowPaper);
+        BookArrow.onClick.AddListener(delegate
+        {
+            AudioManager.Instance.Play("Page_Turn");
+        });
         BookArrow2.onClick.AddListener(ShowPaper);
+        BookArrow2.onClick.AddListener(delegate
+        {
+            AudioManager.Instance.Play("Page_Turn");
+        });
 
         PaperScreenArrow.onClick.AddListener(ShowBook);
+        PaperScreenArrow.onClick.AddListener(delegate
+        {
+            AudioManager.Instance.Play("Page_Turn");
+        });
         PaperScreenArrow2.onClick.AddListener(ShowBook);
+        PaperScreenArrow2.onClick.AddListener(delegate
+        {
+            AudioManager.Instance.Play("Page_Turn");
+        });
         
         CloseButton.onClick.AddListener(DisableBookMenu);
 

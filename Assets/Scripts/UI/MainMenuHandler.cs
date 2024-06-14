@@ -19,11 +19,11 @@ public class MainMenuHandler : MonoBehaviour
 
     private void MainScreenSetup() 
     {
-        var mainUI = new IPad1UiElements(mainScreenCache);
+        var mainUI = new MainMenuUIElements(mainScreenCache);
         mainUI.Root.SetActive(true);
     }
 
-    public class IPad1UiElements : IMappedObject
+    public class MainMenuUIElements : IMappedObject
     {
         public IMapper Mapper { get; private set; }
         public GameObject Root { get; private set; }
@@ -32,21 +32,17 @@ public class MainMenuHandler : MonoBehaviour
         public Button Settings_But_Button { get; private set; }
         public Button Controls_But_Button { get; private set; }
 
-        public IPad1UiElements() { }
-        public IPad1UiElements(IMapper mapper) { Initialize(mapper); }
+        public MainMenuUIElements() { }
+        public MainMenuUIElements(IMapper mapper) { Initialize(mapper); }
 
         public void Initialize(IMapper mapper)
         {
             Mapper = mapper;
             Root = mapper.Get();
-            Play_But_Button = mapper.Get<Button>("Play_But_Button");
-            Quit_But_Button = mapper.Get<Button>("Quit_But_Button");
-            Settings_But_Button = mapper.Get<Button>("Settings_But_Button");
-            Controls_But_Button = mapper.Get<Button>("Controls_But_Button");
+            Play_But_Button = mapper.Get<Button>("BTN_Play_Button");
+            Quit_But_Button = mapper.Get<Button>("BTN_Quit_Button");
             Play_But_Button.onClick.AddListener(Play);
             Quit_But_Button.onClick.AddListener(QuitGame);
-            Settings_But_Button.onClick.AddListener(LoadSettings);
-            Controls_But_Button.onClick.AddListener(LoadControls);
         }
         private void Play()
         {

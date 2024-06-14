@@ -120,6 +120,17 @@ public partial class @DialogueInputActions : IInputActionCollection2, IDisposabl
                 },
                 {
                     ""name"": """",
+                    ""id"": ""779a09ba-9ea6-4ea3-9f4d-0383609ab9c0"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""ff98292a-7bc1-4b36-98a5-df7dde4c8c7b"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
