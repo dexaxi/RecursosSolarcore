@@ -41,6 +41,11 @@ public class RelationUIManager : MonoBehaviour
         _relationBooks.Root.SetActive(true);
 
         _raycaster = GetComponent<GraphicRaycaster>();
+        ShowBookButton.onClick.AddListener( delegate
+        {
+            var bookmark = _bookmarkManager.bookmarks.Where((Bookmark b) => b.BiomeType == CompletionUIManager.Instance.CurrentSelectedBiome).First();
+            bookmark.UpdateBook();
+        });
         ShowBookButton.onClick.AddListener(DisplayBook);
         ShowBookButton.onClick.AddListener(delegate
         {

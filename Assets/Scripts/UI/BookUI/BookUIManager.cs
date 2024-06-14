@@ -182,12 +182,13 @@ public class BookUiElements : IMappedObject
 
         for (int i = 0; i < _problemCount; i++)
         {
-            _dataUI[i].Section.enabled = true;
-            _dataUI[i].Text.enabled = true;
-            _dataUI[i].Icon.enabled = true;
-            _dataUI[i].Section.text = _provider.GetEnviroProblemSectionString(problems[i].Section);
-            _dataUI[i].Text.text = problems[i].Title;
-            _dataUI[i].Icon.sprite = BookInfoProvider.GetEnviroProblemIcon(problems[i].Section, _provider.BiomeType);
+            var phase = problems[i].Phase;
+            _dataUI[phase].Section.enabled = true;
+            _dataUI[phase].Text.enabled = true;
+            _dataUI[phase].Icon.enabled = true;
+            _dataUI[phase].Section.text = _provider.GetEnviroProblemSectionString(problems[i].Section);
+            _dataUI[phase].Text.text = problems[i].Title;
+            _dataUI[phase].Icon.sprite = BookInfoProvider.GetEnviroProblemIcon(problems[i].Section, _provider.BiomeType);
         }
 
         for (int i = _problemCount; i < _dataUI.Count; i++)

@@ -1,5 +1,7 @@
+using DUJAL.Systems.Audio;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,9 +27,10 @@ public class Bookmark : MonoBehaviour
         BiomeType = biome;
     }
 
-    private void UpdateBook() 
+    public void UpdateBook() 
     {
         RoboDialogueManager.Instance.SwitchToRelationDialogue();
+        AudioManager.Instance.Play("Page_Turn");
         RelationHandler.Instance.InitBookUI(BiomeType);
     }
 }

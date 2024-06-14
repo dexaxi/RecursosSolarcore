@@ -22,9 +22,10 @@ public struct EnviroProblemProvider
     public Sprite ProblemIcon;
     public List<EnviroConsequenceType> Consequences;
     public List<EnviroProblemType> Problems;
+    public int Phase;
     public EnviroProblemProvider(EnviroProblemSection section, EnviroProblemType type, string title, 
         string alterationTitle, List<string> descriptions, List<Sprite> sprites, Sprite icon, 
-        List<EnviroConsequenceType> consequences, List<EnviroProblemType> problems) 
+        List<EnviroConsequenceType> consequences, List<EnviroProblemType> problems, int phase) 
     {
         Section = section;
         Type = type;
@@ -35,6 +36,7 @@ public struct EnviroProblemProvider
         ProblemIcon = icon;
         Consequences = consequences;
         Problems = problems;
+        Phase = phase;
     }
 }
 public class BookInfoProvider
@@ -63,7 +65,8 @@ public class BookInfoProvider
                     AlterationSpritesDescriptions = alteration.SpriteDescriptions,
                     ProblemIcon = problem.Icon,
                     Consequences = problem.RelatedConsecuences,
-                    Problems = problem.RelatedProblems
+                    Problems = problem.RelatedProblems,
+                    Phase = problem.Phase
                 };
                 EnviroProblems.Add(provider);
         }
