@@ -177,6 +177,7 @@ public class Ground : MonoBehaviour
         }
         Debug.Log("Map loaded successfully.");
         HasLoaded = true;
+        RoboDialogueManager.Instance.StartRoboDialogue("TestLevelIntroDialogueGraph");
         SceneLoader.Instance.HOLD_LOADING = false;
     }
 

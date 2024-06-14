@@ -85,7 +85,6 @@ public class Level : ScriptableObject
 
         Ground.Instance.StartMapGeneration();
 
-        RoboDialogueManager.Instance.StartRoboDialogue("TestLevelIntroDialogueGraph");
         AnchorPoint.AllBiomesFinished.AddListener(RelationHandler.Instance.EndRelationPhase);
     }
 

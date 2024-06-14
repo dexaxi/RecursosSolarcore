@@ -75,12 +75,12 @@ public class ShopPopupCanvasUiElements : IMappedObject
         CanvasGroup.alpha = 0.0f;
         CanvasGroup.interactable = false;
         CanvasGroup.blocksRaycasts = false;
-        IsUsingUI.IsUsingPopUp = false;
+        IsUsingUI.IsUsingMachinePopUp = false;
     }
 
     public void ShowPopup(Machine machine, UnityEvent acceptEvent)
     {
-        IsUsingUI.IsUsingPopUp = true;
+        IsUsingUI.IsUsingMachinePopUp = true;
         CanvasGroup.alpha = 1.0f;
         CanvasGroup.interactable = true;
         CanvasGroup.blocksRaycasts = true;

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
@@ -191,19 +192,26 @@ public class BiomePhaseHandler : MonoBehaviour
             DBConnection.Instance.phase_sucess++;
             DBConnection.Instance.UpdateUser();
             CompletedBiomes.Add(biome);
-            if (!CheckAllBiomesCompleted()) 
+            if (!CheckAllBiomesCompleted())
             {
                 RoboDialogueManager.Instance.StartRoboDialogue("BiomeRestorationCompleted");
                 var biomes = ProblemsPerBiome.Keys;
-                foreach (var newBiome in biomes) 
+                foreach (var newBiome in biomes)
                 {
-                    if (!CompletedBiomes.Contains(newBiome)) 
+                    if (!CompletedBiomes.Contains(newBiome))
                     {
                         MachineShop.Instance.PopulateShop(newBiome);
                         CompletionUIManager.Instance.UpdateUI(BiomeHandler.Instance.GetBiome(newBiome));
                         return;
                     }
                 }
+            }
+            else
+            {
+                var popUp = GenericPopUpLoader.LoadGenericPopUp();
+                UnityEvent finishDemoEvent = new();
+                finishDemoEvent.AddListener(delegate { SceneLoader.Instance.LoadScene(SceneIndex.MAIN_MENU); });
+                popUp.BuildInfoPopupPlainColor("¡Demo Completada!", "¡Enhorabuena! Has completado la demo de EcoRescue™, muchísimas gracias por jugar :)", 1, Color.white, Color.white, Color.white, Color.black, Color.black, finishDemoEvent);
             }
         }
     }

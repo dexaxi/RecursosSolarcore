@@ -47,7 +47,7 @@ public class MachineShopItem : MonoBehaviour
         else
         {
             var popUp = GenericPopUpLoader.LoadGenericPopUp();
-            popUp.BuildInfoPopupPlainColor("Warning!", "You are out of funds for this purchase...", 1, Color.white, Color.white, Color.white, Color.black, Color.black);
+            popUp.BuildInfoPopupPlainColor("Aviso!", "No te quedan EcoMonedas™ para efectuar la compra...", 1, Color.white, Color.white, Color.white, Color.black, Color.black);
             Debug.LogWarning("WARNING: Not enough funds...");
             MachineShop.Instance.EnableShopItems();
         }
