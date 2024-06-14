@@ -21,9 +21,6 @@ public class BookUIManager : MonoBehaviour
     [field: SerializeField] private UICache diagnosticsTitleUICache = default;
     [field: SerializeField] private UICache diagnosticsInfoUICache= default;
 
-    [SerializeField] public Sprite IncompleteSprite;
-    [SerializeField] public Sprite CompleteSprite;
-
     private BookUiElements _bookUI;
 
     private void Awake()
@@ -150,21 +147,14 @@ public class BookUiElements : IMappedObject
         _diagnosticsInfoUI.Scrollbar.size = 1.0f / _diagnosticsInfoUI.Scrollbar.numberOfSteps;
 
         int scrollbarVal = Mathf.RoundToInt(_diagnosticsInfoUI.Scrollbar.value + 0.01f * tmproCount);
-        
-        var problemTypes = new List<EnviroProblemType>();
-        foreach(var problem in problems) 
-        {
-            problemTypes.Add(problem.Type);
-        }
-        _exIconUI.UpdateExIcons(problemTypes);
 
         _diagnosticsTitleUI.Text.text = problems[0].AlterationTitle;
         for (int i = 0; i < tmproCount; i++)
         {
             if (i + (scrollbarVal * tmproCount) >= descriptionCount) continue; 
             _diagnosticsInfoUI.Texts[i].text = problems[0].AlterationDescriptionList[i + (scrollbarVal * tmproCount)];
-            _diagnosticsInfoUI.Sprites[i].sprite = problems[0].AlterationSpritesDescriptions[i + (scrollbarVal * tmproCount)];
-            _diagnosticsInfoUI.Sprites[i].enabled = true;
+            //_diagnosticsInfoUI.Sprites[i].sprite = problems[0].AlterationSpritesDescriptions[i + (scrollbarVal * tmproCount)];
+            //_diagnosticsInfoUI.Sprites[i].enabled = true;
         }
 
         for (int i = 0; i < _diagnosticsInfoUI.Texts.Count; i++)
@@ -172,7 +162,7 @@ public class BookUiElements : IMappedObject
             if (i + (scrollbarVal * tmproCount) >= descriptionCount) 
             {
                 _diagnosticsInfoUI.Texts[i].text = "";
-                _diagnosticsInfoUI.Sprites[i].enabled = false;
+                //_diagnosticsInfoUI.Sprites[i].enabled = false;
             }
         }
     }
@@ -197,7 +187,7 @@ public class BookUiElements : IMappedObject
             _dataUI[i].Icon.enabled = true;
             _dataUI[i].Section.text = _provider.GetEnviroProblemSectionString(problems[i].Section);
             _dataUI[i].Text.text = problems[i].Title;
-            _dataUI[i].Icon.sprite = problems[i].ProblemIcon;
+            _dataUI[i].Icon.sprite = _provider.GetEnviroProblemIcon(problems[i].Section);
         }
 
         for (int i = _problemCount; i < _dataUI.Count; i++)
@@ -206,6 +196,13 @@ public class BookUiElements : IMappedObject
             _dataUI[i].Text.enabled = false;
             _dataUI[i].Icon.enabled = false;
         }
+
+        var problemTypes = new List<EnviroProblemType>();
+        foreach (var problem in problems)
+        {
+            problemTypes.Add(problem.Type);
+        }
+        _exIconUI.UpdateExIcons(problemTypes);
     }
 
     public void Initialize(IMapper mapper)
@@ -290,6 +287,7 @@ public class ExIconsUiElements : IMappedObject
     public IMapper Mapper { get; private set; }
     public GameObject Root { get; private set; }
     public List<UnityEngine.UI.Image> ExIcons { get; private set; } = new();
+    public List<UnityEngine.UI.Image> CheckIcons { get; private set; } = new();
 
     public ExIconsUiElements() { }
     public ExIconsUiElements(IMapper mapper) { Initialize(mapper); }
@@ -301,6 +299,12 @@ public class ExIconsUiElements : IMappedObject
         ExIcons.Add(mapper.Get<UnityEngine.UI.Image>("Ex_Icon1"));
         ExIcons.Add(mapper.Get<UnityEngine.UI.Image>("Ex_Icon2"));
         ExIcons.Add(mapper.Get<UnityEngine.UI.Image>("Ex_Icon3"));
+        CheckIcons.Add(mapper.Get<UnityEngine.UI.Image>("Val_Icon1"));
+        CheckIcons.Add(mapper.Get<UnityEngine.UI.Image>("Val_Icon2"));
+        CheckIcons.Add(mapper.Get<UnityEngine.UI.Image>("Val_Icon3"));
+
+        foreach (var exicon in ExIcons) exicon.enabled = true;
+        foreach (var checkicon in CheckIcons) checkicon.enabled = false;
     }
 
     public void UpdateExIcons(List<EnviroProblemType> problems) 
@@ -313,11 +317,13 @@ public class ExIconsUiElements : IMappedObject
             bool hasVal = BiomePhaseHandler.Instance.CurrentCompletion.TryGetValue(problem, out curCompletion);
             if (hasVal && curCompletion >= 100)
             {
-                ExIcons[i].sprite = BookUIManager.Instance.CompleteSprite;
+                ExIcons[i].enabled = false;
+                CheckIcons[i].enabled = true;
             }
             else 
             {
-                ExIcons[i].sprite = BookUIManager.Instance.IncompleteSprite;
+                ExIcons[i].enabled = true;
+                CheckIcons[i].enabled = false;
             }
             i++;
         }
@@ -325,6 +331,7 @@ public class ExIconsUiElements : IMappedObject
         for (int j = problems.Count; j < ExIcons.Count; j++) 
         {
             ExIcons[j].enabled = false;
+            CheckIcons[j].enabled = false;
         }
     }
 }

@@ -41,11 +41,7 @@ public class Level : ScriptableObject
 
     public float CalculateBudget() 
     {
-        _budget = 0;
-        foreach(EnviroAlterationType alteration in SelectedBiomes) 
-        {
-            _budget += 100000;
-        }
+        _budget = 3600;
         return _budget;
     }
 

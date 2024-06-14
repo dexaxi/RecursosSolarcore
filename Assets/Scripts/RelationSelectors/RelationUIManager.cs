@@ -21,6 +21,11 @@ public class RelationUIManager : MonoBehaviour
     private RelationBookUiElements _relationBooks;
     private readonly List<TextMeshProUGUI> _consecuenceTexts = new();
     private readonly List<TextMeshProUGUI> _problemTexts = new();
+    
+    public Sprite Wildlife;
+    public Sprite Plantlife;
+    public Sprite Floor;
+    public Sprite Water;
 
     private void Awake()
     {

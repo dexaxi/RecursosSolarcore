@@ -79,13 +79,33 @@ public class BookInfoProvider
 
     public string GetEnviroProblemSectionString(EnviroProblemSection section) 
     {
-        return section switch
+        switch (section) 
         {
-            EnviroProblemSection.Plantlife => "Plant Life",
-            EnviroProblemSection.Wildlife => "Wild Life",
-            EnviroProblemSection.Floor => "Soil",
-            _ => "ERROR: INVALID DATA",
-        };
+            case EnviroProblemSection.Plantlife:
+                return "Flora";
+            case EnviroProblemSection.Wildlife:
+                return "Fauna";
+            case EnviroProblemSection.Floor:
+                if (BiomeSortingRule.IsWaterBiome(_biome.Type)) return "Agua";
+                return "Suelo";
+            default:
+                return "ERROR: INVALID DATA";
+        }
+    }
+
+    public Sprite GetEnviroProblemIcon(EnviroProblemSection section) 
+    {
+        switch (section) 
+        {
+            case EnviroProblemSection.Plantlife:
+                return RelationUIManager.Instance.Plantlife;
+            case EnviroProblemSection.Wildlife:
+                return RelationUIManager.Instance.Wildlife;
+            case EnviroProblemSection.Floor:
+            default:
+                if (BiomeSortingRule.IsWaterBiome(_biome.Type)) return RelationUIManager.Instance.Water;
+                return RelationUIManager.Instance.Floor;
+        }
     }
 
     public List<EnviroProblem> GetFilteredProblems(EnviroAlteration alteration) 
