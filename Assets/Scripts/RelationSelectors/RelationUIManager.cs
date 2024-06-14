@@ -235,6 +235,7 @@ public class RelationUIManager : MonoBehaviour
             _problemTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().alpha = 1.0f;
             _problemTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().blocksRaycasts = true;
             _problemTexts[i].GetComponentInParent<LineSpawner>().GetComponent<CanvasGroup>().interactable = true;
+            _problemTexts[i].GetComponentInChildren<Image>().sprite = BookInfoProvider.GetEnviroProblemIcon(problems[i].Section, biome);
         }
 
         for (int i = consequences.Count; i < _consecuenceTexts.Count;i++) 

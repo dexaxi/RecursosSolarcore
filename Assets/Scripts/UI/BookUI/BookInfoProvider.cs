@@ -93,7 +93,7 @@ public class BookInfoProvider
         }
     }
 
-    public Sprite GetEnviroProblemIcon(EnviroProblemSection section) 
+    public static Sprite GetEnviroProblemIcon(EnviroProblemSection section, BiomeType biometype) 
     {
         switch (section) 
         {
@@ -103,7 +103,7 @@ public class BookInfoProvider
                 return RelationUIManager.Instance.Wildlife;
             case EnviroProblemSection.Floor:
             default:
-                if (BiomeSortingRule.IsWaterBiome(_biome.Type)) return RelationUIManager.Instance.Water;
+                if (BiomeSortingRule.IsWaterBiome(biometype)) return RelationUIManager.Instance.Water;
                 return RelationUIManager.Instance.Floor;
         }
     }

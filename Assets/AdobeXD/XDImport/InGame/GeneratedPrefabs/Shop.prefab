@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b174cf587f866c2448b9c7a409c3e8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _machineItem: {fileID: 5112724105049726266}
   _image: {fileID: 6222298804406774317}
 --- !u!114 &4707911257208343540
 MonoBehaviour:
@@ -561,6 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b174cf587f866c2448b9c7a409c3e8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _machineItem: {fileID: 303221456167377471}
   _image: {fileID: 929308481563948536}
 --- !u!114 &1372596864712245720
 MonoBehaviour:
@@ -673,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92dd0be53b8ff884c9056cc0605ce537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _priceTextObject: {fileID: 3176249533561391116}
+  _priceTextObject: {fileID: 5947334499694441476}
   machinePrefab: {fileID: 5070200472257248130, guid: 917f70fe1601efa4a9f79168b557be6e, type: 3}
 --- !u!114 &929308481563948536
 MonoBehaviour:
@@ -990,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92dd0be53b8ff884c9056cc0605ce537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _priceTextObject: {fileID: 3176249533561391116}
+  _priceTextObject: {fileID: 5318463736637626264}
   machinePrefab: {fileID: 5070200472257248130, guid: 917f70fe1601efa4a9f79168b557be6e, type: 3}
 --- !u!114 &6824757215294640067
 MonoBehaviour:
@@ -1075,6 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b174cf587f866c2448b9c7a409c3e8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _machineItem: {fileID: 1847578979022061054}
   _image: {fileID: 6824757215294640067}
 --- !u!114 &1334427352950741691
 MonoBehaviour:

@@ -15,6 +15,7 @@ public class MachineShopItem : MonoBehaviour
     {
         _machine = machine;
         _priceTextObject.text = _machine.Cost.ToString();
+        _priceTextObject.ForceMeshUpdate();
     }
 
     public Machine GetMachine() 

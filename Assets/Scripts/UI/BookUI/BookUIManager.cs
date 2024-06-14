@@ -187,7 +187,7 @@ public class BookUiElements : IMappedObject
             _dataUI[i].Icon.enabled = true;
             _dataUI[i].Section.text = _provider.GetEnviroProblemSectionString(problems[i].Section);
             _dataUI[i].Text.text = problems[i].Title;
-            _dataUI[i].Icon.sprite = _provider.GetEnviroProblemIcon(problems[i].Section);
+            _dataUI[i].Icon.sprite = BookInfoProvider.GetEnviroProblemIcon(problems[i].Section, _provider.BiomeType);
         }
 
         for (int i = _problemCount; i < _dataUI.Count; i++)
