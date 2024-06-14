@@ -1,3 +1,4 @@
+using DUJAL.Systems.Audio;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -102,5 +103,10 @@ public class BiomeHandler : MonoBehaviour
             BiomeForcePositions = biomeForcePositions
         };
         return rule.SortBiomes(biomes);
+    
+    }
+    public void PlayBiomeAudio(BiomeType biome) 
+    {
+        AudioManager.Instance.Play(GetBiome(biome).name);
     }
 }

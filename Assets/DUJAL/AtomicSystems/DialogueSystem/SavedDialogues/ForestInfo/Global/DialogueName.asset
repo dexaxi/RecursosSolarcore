@@ -20,7 +20,7 @@ MonoBehaviour:
     estragos al balance natural."
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 0}
+    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 92c6db7d84eac7a4cb24bf157205f283, type: 2}
   <DialogueType>k__BackingField: 0
   <IsStartingDialogue>k__BackingField: 1
   <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}

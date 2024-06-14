@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
 public class RenderController : MonoBehaviour
 {
     static string SpritePath = "Assets/2DAssets/Sprites/";
@@ -39,7 +37,10 @@ public class RenderController : MonoBehaviour
             DestroyImmediate(newGameObject);
         }
     }
+#endif
 
+
+#if UNITY_EDITOR
     public static Sprite RenderToSprite(int width, int height, Camera cam, string path, int maxTextureSize)
     {
         RenderTexture targetTexture = new RenderTexture(width, height, 24);
@@ -80,9 +81,10 @@ public class RenderController : MonoBehaviour
 
 
 }
+#endif
 
 #if UNITY_EDITOR
-    [CustomEditor(typeof(RenderController))]
+[CustomEditor(typeof(RenderController))]
     class RenderControllerEditor : Editor
     {
         public override void OnInspectorGUI()

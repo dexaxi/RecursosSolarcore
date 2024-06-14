@@ -1,3 +1,4 @@
+using DUJAL.Systems.Audio;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -273,6 +274,7 @@ public class BiomePhaseHandler : MonoBehaviour
         MachineShop.Instance.DisableShopItems();
         MachineDisplay.Instance.ExitDisplay();
         RoboDialogueManager.Instance.PlayOnce("ReiniciarFase");
+        AudioManager.Instance.Play("Fail");
     }
     public void ResetPhase(MachineType type, EnviroProblemType phase)
     {

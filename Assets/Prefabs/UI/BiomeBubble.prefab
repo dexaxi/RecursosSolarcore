@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 4095190798117047877}
   - component: {fileID: 4095190798117047928}
   - component: {fileID: 4095190798117047929}
+  - component: {fileID: 5293459572054676592}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -288,6 +289,18 @@ MonoBehaviour:
   frequency: {x: 0, y: 1, z: 0}
   offset: {x: 0, y: 0, z: 0}
   resetRotation: 0
+--- !u!114 &5293459572054676592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095190798117047879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728a101303598cc42bc958ce0fe87228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5352285460639573279
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ MonoBehaviour:
       <NodeID>k__BackingField: 2af5c0a7-12f6-4be2-b0b4-6aee9c8297e4
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 337.6, y: 154.4}
+    <Position>k__BackingField: {x: 338, y: 154}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
     <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 09fe923c7205e724eb10d1980e20762a, type: 3}
@@ -34,16 +34,29 @@ MonoBehaviour:
       para gran parte de sus especies end\xE9micas y provocar cambios desastrosos."
     <Choices>k__BackingField:
     - <Text>k__BackingField: Next Dialogue
-      <NodeID>k__BackingField: 
+      <NodeID>k__BackingField: cbe1505d-0c42-4bbd-bae4-bf17f5db6352
     <GroupID>k__BackingField: 
     <DialogueType>k__BackingField: 0
-    <Position>k__BackingField: {x: 1047.2, y: 154.4}
+    <Position>k__BackingField: {x: 1047, y: 154}
     <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
     <VoiceLine>k__BackingField: {fileID: 0}
     <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 09fe923c7205e724eb10d1980e20762a, type: 3}
+  - <ID>k__BackingField: cbe1505d-0c42-4bbd-bae4-bf17f5db6352
+    <Name>k__BackingField: DialogueName3
+    <Text>k__BackingField: "\xA1\xC1nimo con la Investigaci\xF3n!"
+    <Choices>k__BackingField:
+    - <Text>k__BackingField: Next Dialogue
+      <NodeID>k__BackingField: 
+    <GroupID>k__BackingField: 
+    <DialogueType>k__BackingField: 0
+    <Position>k__BackingField: {x: 1750, y: 236}
+    <BackgroundColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}
+    <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
+    <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   <PreviousGroupTitles>k__BackingField: []
   <UngroupedNodesPreviousNames>k__BackingField:
   - DialogueName
   - DialogueName1
+  - DialogueName3
   <GroupedNodesPreviousNames>k__BackingField:
     list: []

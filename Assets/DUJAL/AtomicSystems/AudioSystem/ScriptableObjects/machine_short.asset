@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67c1ac9ef4a862d4e9df0aa77773182d, type: 3}
-  m_Name: "Oc\xE9ano"
+  m_Name: machine_short
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 949677bda36f39c469adcc710828c766, type: 3}
-  volume: 1
-  pitch: 1
+  clip: {fileID: 8300000, guid: 0691f5c14420d04438ed182412b042ad, type: 3}
+  volume: 0.487
+  pitch: 1.35
   loop: 0
   sfx: 1
   audioSource: {fileID: 0}

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using AnKuchen.Map;
 using Cysharp.Threading.Tasks;
 using System.Reflection;
+using DUJAL.Systems.Audio;
 
 public class MainMenuHandler : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MainMenuHandler : MonoBehaviour
     private void Start()
     {
         MainScreenSetup();
+        AudioManager.Instance.Play("Musica_Fondo");
     }
 
     private void MainScreenSetup() 

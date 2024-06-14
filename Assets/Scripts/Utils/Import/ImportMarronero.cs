@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using UnityEditor;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
+#if UNITY_EDITOR
 public class ImportMarronero : EditorWindow
 {
 	static string ImportMarroneroPath = "Assets/Resources/";
@@ -655,3 +654,5 @@ public class ImportMarronero : EditorWindow
         return asset;
 	}
 }
+
+#endif

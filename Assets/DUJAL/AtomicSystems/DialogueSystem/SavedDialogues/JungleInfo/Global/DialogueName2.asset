@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6855f3c16f7a49c4580dc3c94a532dec, type: 3}
-  m_Name: DialogueName1
+  m_Name: DialogueName2
   m_EditorClassIdentifier: 
-  <DialogueName>k__BackingField: DialogueName1
-  <Text>k__BackingField: "La sobrepesca o el calentamiento global pueden ser mortales
-    para gran parte de sus especies end\xE9micas y provocar cambios desastrosos."
+  <DialogueName>k__BackingField: DialogueName2
+  <Text>k__BackingField: "\xA1\xC1nimo con la Investigaci\xF3n!"
   <Choices>k__BackingField:
   - <Text>k__BackingField: Next Dialogue
-    <NextDialogue>k__BackingField: {fileID: 11400000, guid: 7b45d5261ac7188408084246db5122e3, type: 2}
+    <NextDialogue>k__BackingField: {fileID: 0}
   <DialogueType>k__BackingField: 0
   <IsStartingDialogue>k__BackingField: 0
-  <VoiceLine>k__BackingField: {fileID: 0}
-  <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 09fe923c7205e724eb10d1980e20762a, type: 3}
+  <VoiceLine>k__BackingField: {fileID: 8300000, guid: db73cff07fa294b4b990de1c612c06ec, type: 3}
+  <SpeakerSprite>k__BackingField: {fileID: 21300000, guid: 2d3b84315fe9f894380df66e29cecca8, type: 3}
   <DialogueColor>k__BackingField: {r: 0.11372549, g: 0.11372549, b: 0.11764706, a: 1}

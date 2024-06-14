@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Oc\xE9ano"
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 949677bda36f39c469adcc710828c766, type: 3}
-  volume: 1
+  volume: 0.382
   pitch: 1
   loop: 0
   sfx: 1

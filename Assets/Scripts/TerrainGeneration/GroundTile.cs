@@ -184,5 +184,6 @@ public class GroundTile : MonoBehaviour
         if (BiomePhaseHandler.Instance.CompletedBiomes.Contains(Biome.Type)) return;
         MachineShop.Instance.PopulateShop(Biome.Type);
         CompletionUIManager.Instance.ShowCompletionBar(Biome);
+        BiomeHandler.Instance.PlayBiomeAudio(Biome.Type);
     }
 }

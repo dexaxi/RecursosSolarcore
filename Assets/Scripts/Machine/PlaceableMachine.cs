@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DUJAL.Systems.Audio;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -196,6 +197,7 @@ public class PlaceableMachine : Draggable
         _highlightable.Unhighlight();
         ApplyMachinePlacement();
         UpdateMachinePos(GroundTile.Biome.Type);
+        BiomeHandler.Instance.PlayBiomeAudio(GroundTile.Biome.Type);
         return isOnValidTerrain;
     }
 
@@ -235,6 +237,7 @@ public class PlaceableMachine : Draggable
         }
         BiomePhaseHandler.Instance.MachinePlaceRestrictionCount[_machine.Type]--;
         CompletionUIManager.Instance.UpdateUI(GroundTile.Biome);
+        AudioManager.Instance.Play("Coin");
         Destroy(gameObject);
     }
 
@@ -407,8 +410,14 @@ public class PlaceableMachine : Draggable
 
     public int GetMachineWaiting() 
     {
-        if (_machine.PatternType == PatternType.Biome) return 2000;
-        if (_machine.PatternType == PatternType.Pattern) return 500;
+        if (_machine.PatternType == PatternType.Biome) 
+        {
+            return 1600;
+        }
+        if (_machine.PatternType == PatternType.Pattern) 
+        {
+            return 1000;
+        }
         return -1;
     }
 
@@ -416,6 +425,15 @@ public class PlaceableMachine : Draggable
     {
         var progress = Instantiate(TimerGameObject).GetComponent<MachineProgressDisplay>();
         progress.MachineRef = this;
+        if (_machine.PatternType == PatternType.Biome)
+        {
+            AudioManager.Instance.Play("machine_long");
+        }
+        if (_machine.PatternType == PatternType.Pattern)
+        {
+            AudioManager.Instance.Play("machine_short");
+        }
+
         MachinePlacementTimer().Forget();
     }
 
