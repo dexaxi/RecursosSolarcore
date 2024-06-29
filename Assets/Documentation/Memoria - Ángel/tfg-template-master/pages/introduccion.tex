@@ -18,16 +18,17 @@ EcoRescue es un videojuego que además de ser un apoyo en el desarrollo del PC, 
 Las mecánicas de EcoRescue se pueden definir en dos fases, la de investigación y la de restauración. Al iniciar el juego, el jugador se encuentra con una lista de niveles que muestran una serie de biomas y características a restaurar, una vez entra, comenzará la fase de investigación:
 \begin{compactitem}
     \item Durante la fase de investigación, el jugador puede observar un mapa cuadriculado en vista isométrica con varios biomas visibles.
-    \item Encima de cada bioma, verá una burbuja de texto con la que deberá interactuar para aprender sobre qué le puede estar ocurriendo al bioma.
+    \item Encima de cada bioma, verá una burbuja con un icono (Figura \ref{fig:burbujas}) con la que deberá interactuar para aprender sobre qué le puede estar ocurriendo al bioma.
     \item Esta interacción muestra un libro con información acerca del bioma, su alteración y sus problemas.
     \item El jugador tendrá que completar un minijuego en el que relacione los problemas con sus posibles consecuencias para demostrar que ha entendido qué es lo que le está ocurriendo al bioma.
 \end{compactitem}
-
-\begin{figure}
+\begin{figure}[H]
   \centering
-	\includegraphics[width=\textwidth,clip=true]{res_arquitecturaSoftware.pdf}
+	\includegraphics[width=350px,clip=true]{burbujas.png}
   \caption{Mapa con burbujas de bioma visibles}
+  \label{fig:burbujas}
 \end{figure}
+\newpage
 
 Una vez el jugador haya demostrado que ha entendido todas las alteraciones y problemas de todos los biomas, el juego pasará a la segunda fase, la de restauración.
 \begin{compactitem}
@@ -36,8 +37,10 @@ Una vez el jugador haya demostrado que ha entendido todas las alteraciones y pro
     \item El jugador deberá comprar máquinas restauradoras de la tienda y colocarlas en el bioma para que puedan hacer efecto, los distintos efectos de estas restaurarán el ecosistema de una forma u otra.
     \item La jugabilidad radica en que el jugador tendrá distintas opciones de máquinas (tres) por cada fase de cada bioma, y cada opción tendrá un efecto distinto, teniendo en cuenta la información que ha adquirido durante la primera fase, y la información que proporciona la tienda acerca del efecto de la máquina, el jugador deberá hacer una elección que le permita restaurar el ecosistema por un coste apropiado, con el objetivo de no quedarse sin presupuesto antes de terminar todas las fases de todos los biomas.
 \end{compactitem}
-Teniendo en cuenta las estrategias del PC y las mecánicas del juego, podemos asimismo definir una tabla (Figura \ref{fig:tablaPCMecanicas}) que las relacione entre sí, dejando claro de qué forma se pretende ayudar a potenciar el PC en los jugadores.
-\begin{table}[ht!]
+
+Teniendo en cuenta las estrategias del PC y las mecánicas del juego, podemos asimismo definir una tabla (Tabla \ref{fig:tablaPCMecanicas}) que las relacione entre sí, dejando claro de qué forma se pretende ayudar a potenciar el PC en los jugadores.
+\raggedbottom
+\begin{table}[H]
 \begin{center}
 \setlength{\tabcolsep}{5pt}
 \renewcommand{\arraystretch}{1.2}
@@ -65,6 +68,7 @@ Teniendo en cuenta las estrategias del PC y las mecánicas del juego, podemos as
 \label{fig:tablaPCMecanicas}
 \end{center}
 \end{table}
+
 
 \section{Motivación}
 
