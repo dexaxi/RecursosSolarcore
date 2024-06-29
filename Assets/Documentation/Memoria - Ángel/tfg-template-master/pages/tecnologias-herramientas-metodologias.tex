@@ -1,18 +1,51 @@
-Descripción de los lenguajes de programación, entornos de desarrollo, herramientas auxiliares, librerías de terceros, sistemas operativos, navegadores web, etc… utilizados para la realización del proyecto así como la metodología empleada. 
-El grado de profundidad a la hora de explicar cada tecnología dependerá de lo relevante que ha sido para el proyecto y lo conocida que es. 
-Por ejemplo, si se usa el lenguaje de programación Java, no es necesario entrar en tanto detalle que si se usa un lenguaje mucho menos usado como Scala, por ejemplo. Respecto a la metodología, dada la naturaleza de los proyectos, se suele describir una metodología iterativa e incremental en espiral, en la que se van sucediendo reuniones con el profesor que van definiendo el ámbito del proyecto. Este capítulo puede tener una extensión entre 10 y 15 páginas.
 \section{Herramientas y Tecnologías}
 
-\subsection{C\# y Unity}
+\subsection{C\# \& Unity}
 
 Se ha utilizado Unity\cite{unity} como motor para el desarrollo de EcoRescue y C\#\cite{csharp} como lenguaje de programación, se ha elegido este motor dado que era el motor público con el que los desarrolladores teníamos más experiencia.
 
 \subsection{Git \& Github}
 
-Github \cite{github} es un entorno de desarrollo y control de versiones colaborativo basado en la tecnología Git 
+Github \cite{github} es un entorno de desarrollo colaborativo y control de versiones web basado en la tecnología Git. Para mantener el proyecto y poder trabajar en el desde distintos equipos, se ha alojado el proyecto de EcoRescuen en él \cite{Repo}.
+
+\subsection{FastNoiseLite}
+
+La generación procedimental de los mapas de los niveles del prototipo utilizan texturas de ruido perlin generadas automáticamente por la librería FastNoiseLite\cite{FastNoiseLite}. Esta es una librería ligera, optimizada y muy sencilla de usar que permite obtener patrones aleatorios altamente personalizables de una forma muy cómoda y sencilla.
+
+\subsection{Adobe XD \& AkyuiUnity}
+
+Adobe XD\cite{xd} es un programa que forma parte de la 'Suite' creativa de Adobe, permite a los usuarios el desarrollo de interfaces basado en iconos y formas vectoriales. \nombrecoautor ha utilizado este programa para desarrollar las interfaces e iconos del videojuego. Esta herramientas se ha aprovechado enormemente mediante el uso de AkyuiUnity\cite{AkyuiUnity} y AnKuchen\cite{AnKuchen}, dado que el conjunto de estas dos librerías permiten establecer un flujo de trabajo mediante el cual se pueden importar los proyectos de Adobe XD como prefabs dentro de Unity, además de auto generar clases para poder acceder a todos los elementos del prefab a partir de su ID. Este 'workflow' ha permitido que el desarrollo e implementación de interfaces sea muy dinámico y fluido. 
+
+\subsection{UniTask}
+
+UniTask\cite{UniTask} es una librería que ofrece una implementación de async/await sin necesidad de alocataciones de memoria basada en estructuras. Se ha aprovechado esta librería para la implementación de varias rutinas de comportamiento del prototipo, desde eventos de UI hasta los propios controles del juego.
+
+\subsection{DUJAL}
+
+DUJAL\cite{DUJAL} es una librería de creación propia para otro Trabajo de Fin de Grado, esta librería contiene utilidades como un sistema de diálogos basado en grafos, un sistema de sonido estático y accesible desde todo el proyecto, llamadas estáticas a sacudidas de cámara, controladores de personajes y más. En este proyecto se ha importado solamente los módulos de diálogo, sonido y guardado de partida.
+
+\subsection{Audacity}
+
+Audacity\cite{Audacity} es un programa de edición y grabación de audio, todos los sonidos del videojuego se han obtenido retocando samples de uso libre utilizando Audacity.  
+
+\subsection{Notion}
+
+Notion \cite{notion} es una plataforma para la creación de documentos, wikis, listas de tareas y más. Para el desarrollo del proyecto hemos utilizado Notion como base de la documentación para almacenar toda la información referente al diseño, implementación, contenido y referencias artisticas y mecánicas.
 
 \section{Metodologías}
 
-Aquí se detallarán las metodologías de desarrollo de software utilizadas (usualmente iterativa e incremental). 
-También se puede hablar de metodologías de gestión de proyectos como Scrum, Kanban, etc... 
-Aquí también se hablará del modelo de desarrollo utilizado con Git (GitFlow, GitHub Flow, etc...)
+Para el desarrollo del prototipo se ha utilizado una metodología de trabajo iterativa-incremental enfocada en la revisión de objetivos y
+avances entre el tutor y los alumnos. Durante una serie de revisiones se ha evaluado el estado del proyecto y se han marcado objetivos de cara a las siguientes revisiones. El desarrollo se puede dividir en tres fases: 
+\begin{itemize}
+	\item Fase 1: Pre-Producción y Análisis de Requisitos Junio 2023 - Diciembre 2023
+	\item Fase 2: Producción Enero 2024 - Mayo 2024
+	\item Fase 3: Polish y Validación Junio 2024 
+\end{itemize}
+
+La primera fase se utilizó como una ventana de tiempo en la que prototipar los controles y la generación procedimental del mapa, además de realizar un análisis de requisitos y un documento de diseño exhaustivo para tener claro qué clase de prototipo realizar. Este documento de diseño se fue iterando con \nombretutor de cara a la producción final.
+
+Durante la segunda fase se realizó el groso de la producción del juego, con el diseño ya fijado, esta fase consistió sobre todo en implementar el bucle de juego general y definir el contenido que iba a estar presente en el juego final.
+
+La tercera y última fase consistió en la creación de herramientas para el desarrollo de contenido/niveles, pulir el juego añadiendo pequeñas animaciones, efectos y sonidos, implementar un sistema de recogida de datos en tiempo real via una base de datos remota y finalmente acudir a un instituto para poder validar el prototipo con alumnos de verdad.
+
+Esta metodología ha acabado siendo todo un exito con este prototipo, ya que ha permitido un avance progresivo donde no ha acabado habiendo esfuerzo malgastado, esto ha permitido que el desarrollo del prototipo haya sido sólido y no se hayan requerido cambios radicales.
