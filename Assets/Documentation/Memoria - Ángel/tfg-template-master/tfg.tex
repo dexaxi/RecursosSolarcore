@@ -62,6 +62,7 @@
 
 \newcommand{\nombreautor}{Ángel Baeza Sánchez}
 \newcommand{\nombrecoautor}{Marta Vidal González}
+\newcommand{\nombrecoautorespacio}{Marta Vidal González }
 \newcommand{\nombreproductor}{Eva María Pérez Lajarín}
 \newcommand{\nombretutor}{María Zapata Cáceres }
 \newcommand{\titulotrabajo}{Programación de un Videojuego para el Desarrollo del Pensamiento Computacional}
@@ -431,12 +432,10 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 
 % Índice de tablas (OPCIONAL)
 \listoftables
-\afterpage{\blankpage}
 \addcontentsline{toc}{chapter}{\noindent \listtablename}
 
 % Índice de figuras (OPCIONAL)
 \listoffigures
-\afterpage{\blankpage}
 \addcontentsline{toc}{chapter}{\listfigurename}
 
 % Índice de códigos/algoritmos (OPCIONAL).   El término "Códigos" se puede cambiar por "Métodos", "Funciones", "Algoritmos", etc.
@@ -445,7 +444,6 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 \renewcommand\lstlistlistingname{Índice de códigos}
 
 \lstlistoflistings
-\afterpage{\blankpage}
 \addcontentsline{toc}{chapter}{\lstlistlistingname}
 
 
@@ -513,10 +511,7 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 
 % Capítulo 2
 \chapter{Objetivos}
-
 \input{pages/objetivos.tex}
-
-\blankpage
 
 % Capítulo 3
 \chapter{Tecnologías, Herramientas y Metodologías}
@@ -530,8 +525,6 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 \label{sec:descripcionInformatica}
 
 \input{pages/descripcion-informatica.tex}
-
-\blankpage
 
 % Capítulo 5
 
