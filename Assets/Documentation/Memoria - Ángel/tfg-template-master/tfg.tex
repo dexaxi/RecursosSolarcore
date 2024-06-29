@@ -486,6 +486,7 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 
 % Capítulo 1
 \chapter{Introducción}
+\label{sec:intro}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -510,27 +511,40 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 % \afterpage{\blankpage} % puede generar problema en índice de contenidos
 % \newpage
 
-
 % Capítulo 2
-\chapter{Objetivos}
-\input{pages/objetivos.tex}
+\chapter{Estado del Arte}
+\label{sec:estadodelarte}
+
+\input{pages/estadodelarte.tex}
 
 % Capítulo 3
+\chapter{Objetivos}
+\label{sec:objetivos}
+
+\input{pages/objetivos.tex}
+
+% Capítulo 4
 \chapter{Tecnologías, Herramientas y Metodologías}
-\label{chap:tecnologias}
+\label{sec:tecnologias}
 
 \input{pages/tecnologias-herramientas-metodologias.tex}
 
-
-% Capítulo 4
+% Capítulo 5
 \chapter{Descripción Informática}
 \label{sec:descripcionInformatica}
 
 \input{pages/descripcion-informatica.tex}
 
-% Capítulo 5
+% Capítulo 6
+\chapter{Validación}
+\label{sec:validacion}
+
+\input{pages/validacion.tex}
+
+% Capítulo 7
 
 \chapter{Conclusiones y trabajos futuros}
+\label{sec:conclusiones}
 
 \input{pages/conclusiones.tex}
 
@@ -552,12 +566,7 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 
 % No expandir elementos para llenar toda la página
 \raggedbottom
-\afterpage{\blankpage}
-
 \newpage
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Apéndices %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -577,10 +586,8 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 \mbox{}
 \thispagestyle{empty}
 
-\newpage
 \mbox{}
 \thispagestyle{empty}
-\newpage
 
 
 % Primer apéndice
