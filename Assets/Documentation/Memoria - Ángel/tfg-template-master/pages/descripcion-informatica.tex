@@ -1,22 +1,86 @@
 \section{Requisitos}
-En esta sección se abordarán los requisitos planteados en la aplicación, tanto los iniciales como los que se han ido planteando a lo largo del desarrollo. 
-También se nombrarán otro tipo de requisitos a la hora de desarrollar el proyecto que no están relacionados en sí con el propio funcionamiento de la aplicación.
+En esta sección se abordarán los requisitos planteados en la aplicación, tanto los iniciales como los que se han ido planteando a lo largo del desarrollo ya sean funcionales o no funcionales. 
 
 \subsection{Requisitos Funcionales}
 
 \begin{itemize}
-    \item RF1. Como usuario puedo ...
+    \item RF1. Como usuario puedo rellenar mi nombre, edad y género.
+    \item RF2. Como usuario puedo interactuar con las burbujas de cada bioma.
+    \item RF3. Como usuario puedo informarme acerca de los alteraciones y problemas de los biomas desde el libro informativo.
+    \item RF4. Como usuario puedo relacionar problemas con consequencias y ser informado de si una relación es correcta.
+    \item RF5. Como usuario puedo pasar de la fase de investigación a la fase de restauración.
+    \item RF6. Como usuario puedo ver en la tienda distintas máquinas restauradoras con distinos efectos.
+    \item RF7. Como usuario puedo colocar una máquina y ver que tiene efecto sobre el bioma.
+    \item RF8. Como usuario puedo vender esa máquina si opino que no ha funcionado como esperaba.
+    \item RF9. Como usuario puedo reiniciar una fase si una máquina destruye el ecosistema.
+    \item RF10. Como usuario puedo reiniciar un nivel si me quedo sin dinero u opino que he cometido un error crítico.
+    \item RF11. Como usuario puedo abrir el libro informativo en cualquier momento para consultar la información y relaciones de los problemas.
+    \item RF12. Como usuario puedo ver el progreso actual de cada fase de cada bioma.
+    \item RF13. Como usuario puedo terminar una fase colocando suficientes máquinas restauradoras correctamente.
+    \item RF14. Como usuario puedo terminar un nivel una vez he terminado todas las fases de todos los biomas.
 \end{itemize}
 
 \subsection{Requisitos No Funcionales}
 
 \begin{itemize}
-    \item RNF1. La aplicación web debe ser fácil de usar ...
+    \item RNF1. El videojuego tiene que ser divertido.
+    \item RNF2. El videojuego tiene que tener una usabilidad mínima.
+    \item RNF3. El videojuego debe ser divulgativo en lo referente al a restauración de ecosistemas.
+    \item RNF4. El videojuego debe desarrollar el PC
+    \item RNF5. El videojuego debe tener herramientas que ayuden al desarrollo de contenido
+    \item RNF6. El videojuego debe ser multiplataforma (PC, Tablet, Móvil, Web).
 \end{itemize}
 
 \section{Arquitectura y Análisis}
 
 Descripción de los aspectos de alto nivel de la aplicación. Diagramas de clases de análisis, diagramas de clases de diseño, etc. Se debe incluir la suficiente información para que el lector pueda entender la estructura de alto nivel del software desarrollado. Se pueden incluir diagramas de casos de uso si se considera útil.
+
+\subsection{Clases 'Handler' y diseño con enumerados}
+EcoRescue está implementado de forma que todo el juego se pueda gestionar a partir de clases de tipo Singleton que contienen referencias a tipos de datos que contienen el estado actualizado de la partida. Estos managers estáticos se encargande gestionar una parte concreta del juego y sus funciones relacionadas.
+
+Para entender cómo funcionan estas clases gestoras, primero hay que explicar el patrón de diseño que se ha utilizado de cara a organizar el gran volumen de datos necesario para hacer un juego de este tipo de forma procedimental. Este patrón consiste en utilizar enumeraciones para identificar inequívocamente a un ScriptableObject que representa un elemento de juego, para el ejemplo podemos utilizar una 'Machine'. Una 'Machine' tendrá asociado un MachineType que deberá ser único para este ScriptableObject en particular. De esta forma, cuando se esté tratando esta máquina y no se necesite acceder a nada que no sea su nombre, se puede utilizar este enumerado para identificarla. 
+
+Este patrón satisface dos problemas a resolver, el primero es poder utilizar el nombre del enumerado como string en un archivo de tipo excel de cara a poder autogenerar los enumerados de C\#, de forma que el contenido se importe automáticamente mediante un MenuItem de Unity, el segundo motivo es que permite ahorrar memoria a la hora de crear estructuras que necesiten contener listas de ScriptableObject, dado que se estaría guardando únicamente el valor del enumerado, en lugar de tener que hacer copias del propio archivo del ScriptableObject para poder utilziar los valores. Para acceder a los valores que contiene el ScriptableObject se almacena en la clase gestora un diccionario que relaciona el valor del enumerado con el ScriptableObject almacenado en memoria. 
+
+\subsection{Biome, Machine y Relation 'Handlers'}
+
+Estas clases utilizan todas el patrón mencionado anteriormente, BiomeHandler y MachineHandler tienen diccionarios que contienen relaciones entre Biomas y Máquinas con sus respectivos enumerados, además de una lista de todos los enumerados posibles para el nivel actual. RelationHandler es ligeramente más compleja en el sentido de que tiene tres sets de listas y diccionarios, para alteraciones, problemas y consecuencias. Todas estas clases se poblan en base a los datos que se reciben del nivel seleccionado (contenido en el ScriptableObject de la clase Level). De forma que en todo momomento contienen la información actualizada del nivel actual, que puede ser consultada por la lógica del juego cuando es requerida. 
+
+Cabe destacar que cada una tiene funciones especializadas, ya sea para guardar información de un diccionario que relacione las máquinas colocadas en el tablero de juego con la casilla sobre la que se encuentran colocadas en ese momento. O BiomeHandler, que relaciona cada bioma con todas las casillas asociadas a este.
+
+\subsection{ResourceGame y Level}
+
+ResourceGame es la clase que gestiona las fases y los datos de un nivel, este lee todos los niveles que existan dentro de la carpeta de Levels y carga el que el botón del selector de niveles le pase por argumento.
+
+La clase Level, por otro lado, contiene las funciones que poblan todos los 'Handlers', y que gestionan el flujo de un nivel.
+\begin{itemize}
+    \item InitPreLevel - 'Cachea' todos los datos del Level en las estructuras de datos contenidas en los 'Handlers'.
+    \item InitBubblePhase - Instancia las burbujas que abren el libro de relaciones encima de cada bioma.
+    \item InitRelationLevel - Inicializa el libro de relaciones y espera a que se hayan completado todas las relaciones de todos los biomas.
+    \item InitGameplayLevel - Habilita la tienda y pasa al modo colocar máquinas, se queda así hasta que se restauran todos los ecosistemas.
+\end{itemize}
+
+La clase Level también dobla como herramienta de desarrollo, ya que al ser un ScriptableObject permite al diseñador modificar sus propiedades desde el editor. En este caso, se ha añadido una serie de reglas y opciones de personalización que permiten al diseñador elegir qué clase de reglas quiere que la generación procedimental siga. También permite seleccionar qué biomas van a estar presentes en ese nivel. 
+
+\subsection{Ground \& Generación Procedimental}
+
+La clase Ground se encarga de instanciar todas las casillas del mapa siguiendo una serie de reglas definidas en la clase Level. La generación procedimental utiliza una matriz discretizada a partir de un mapa de ruido perlin generado mediante la librería de FastNoiseLite\cite{FastNoiseLite}. La altura del mapa perlin se utiliza para definir qué bioma va en cada lugar, para asegurar que el juego no es injusto se aplican una serie de cupos de casillas mínimas por cada bioma, si el mapa generado no lo cumple, se regenera.
+
+Cada casilla contenida en Ground tiene asignado un componente de tipo GroundTile, con información relevante acerca del bioma y coordenadas discretas de esa casilla en concreto. 
+
+\subsection{PlayerCurrencyManager}
+
+La clase PlayerCurrencyManager es una clase sencilla que solamente se encarga de mantener actualizado el presupuesto de energía del jugador en todo momento. Gestiona las transacciones de compra y venta de máquinas durante la fase de restauración.
+
+\subsection{Interfaces, XD y AnKuchen}
+
+Todas las interfaces del juego se han ilustrado en Adobe XD y convertido en prefabs utilizando AkyuiUnity\cite{AkyuiUnity}, permite generar prefabs a partir de la definición de formato de interfaz Ankyui desarrollada por kyubuns. AnkyuiUnity a su vez permite convertir los archivos en formato de AdobeXD en archivos de definición de formato de Ankyui, de forma que se genera un workflow Adobe XD - Unity directo.
+
+Mediante el uso de AnKuchen\cite{AnKuchen}, también desarrollado por kyubuns, se pueden autogenerar unas clases 'template' a partir de las estructuras en el arbol de la escena de unity mediante el uso de un componente UICache, estas 'templates' permiten al programador acceder a los elementos de interfaz ('scrollbar', 'button', 'slider') desde código sin necesitar de preocuparse por referencias o jerarquías. Esta librería, en conjunto con UniTask\cite{UniTask} permite definir comportamientod de interfaces de forma muy cómoda.
+
+\subsection{Cargas, Audio y Diálogos}
+
+EcoRescue utiliza un sistema de carga asíncrona que lanza una pantalla de carga mientras se cargan cosas por detrás, además de un sistema de gestión de audio y una herramienta de creación de diálogos basada en grafos. Sin embargo estas herramientas son parte de DUJAL\cite{DUJAL} y quedan fuera del alcance de este documento. 
 
 \section{Diseño e Implementación} 
 
