@@ -1,7 +1,9 @@
 \section{Descripción General}
 En este documento se desarrollarán las motivaciones, implicaciones y detalles de la implementación de este Trabajo de Fin de Grado.
 
-El objetivo general de este proyecto ha sido el desarrollo de un videojuego educativo que sirva como apoyo para el desarrollo del Pensamiento Computacional (en adelante PC) en niños de Primaria/ESO. El PC se define como una habilidad cognitiva que permite resolver problemas utilizando estrategias computacionales\cite{tesismaria}, de las cuales se pueden extraer seis factores y sus definiciones\cite{tesismaria}:
+El objetivo general de este proyecto ha sido el desarrollo de un videojuego educativo en conjunto con otra alumna, \nombrecoautorespacio que se ha encargado de la del diseño y el arte del videojuego.
+Este videojuego tiene como meta servir como apoyo para el desarrollo del Pensamiento Computacional (en adelante PC) en niños de Primaria/ESO. El PC se define como una habilidad cognitiva que permite resolver problemas
+ utilizando estrategias computacionales\cite{tesismaria}, de las cuales se pueden extraer seis factores y sus definiciones\cite{tesismaria}:
 \begin{compactitem}
     \item Abstracción: Proceso de obtener algo simple desde algo complejo, obviando los detalles.
     \item Análisis de datos: Buscar, seleccionar, organizar y analizar lógicamente los datos. 
@@ -83,15 +85,107 @@ Teniendo en cuenta las estrategias del PC y las mecánicas del juego, podemos as
 \end{center}
 \end{table}
 
-
 \section{Motivación}
 
-La motivación para el desarrollo de EcoRescue surge de proponerle a \nombretutor el desarrollo de un videojuego junto con otra alumna, \nombrecoautor. \nombretutor aceptó la propuesta y planteó que el videojuego formase parte de una iniciativa Europea para desarrollar videojuegos que ayuden a fomentar el PC en niños y adolescentes.
+La motivación para el desarrollo de EcoRescue nace como respuesta al Plan de Acción de Educación Digital 2021-2027 de la Comisión Europea\cite{europaPlan}, además de verse reforzada en 
+España por la modificación de la Ley Orgánica 3/2020 del 3 de diciembre de 2020\cite{lomce}, y los Reales Decretos 95/2022\cite{boeInfantil}, 157/2022\cite{boePrimaria}, 217/2022\cite{boeSecundaria} y 243/2022\cite{boebachillerato}, del 1 de febrero, 1 y 19 de marzo y 5 de abril del 2022 respectivamente, 
+que establecen las enseñanzas mínimas de la educación, incluyendo el PC, en las etapas de Educación Infantil, Primaria y Secundaria Obligatoria y Bachillerato, como una competencia transversal en diversas asignaturas o en asignaturas determinadas.
 
-Esta iniciativa nace a a raíz del Plan de Acción de Educación Digital 2021-2027 de la Comisión Europea\cite{europaPlan}, además de verse reforzada en España por los Reales Decretos 157/2022\cite{boePrimaria} y 217/2022\cite{boeSecundaria}, del 1 y 19 de marzo del 2022 respectivamente, que abogan por la inclusión del desarrollo del PC como competencia obligatoria a enseñar en las etapas de Educación Primaria y Secundaria Obligatoria.
+Como se ha mencionado anteriormente, además de servir para desarrollar el PC, uno de los objetivos del proyecto es concienciar sobre la importancia de cuidar el medioambiente y de como distintos indicadores y alteraciones pueden afectar negativamente a estos. De esta forma, el juego puede ayudar a niños y adolescentes a relacionar consecuencias del sistema productivo de la sociedad actual con los daños que sufren actualmente nuestros ecosistemas y entornos naturales. A su vez, ilustra de forma eficiente como interaccionan diferentes ecosistemas entre sí y como se relacionan sus diferentes elementos: fauna, flora y el soporte natural. Además, el juego aporta una versión optimista de como entornos que se consideran destruidos se pueden recuperar mediante la intervención y tecnología adecuados. 
 
-Como se ha mencionado anteriormente, además de servir para desarrollar el PC, uno de los objetivos del proyecto es informar sobre la importancia de cuidar el medioambiente y de como distintos indicadores y alteraciones pueden afectar negativamente a estos. De esta forma, el juego puede ayudar a niños y adolescentes a relacionar consecuencias del sistema productivo de la sociedad actual con los daños que sufren actualmente nuestros ecosistemas y entornos naturales. A su vez, ilustra de forma eficiente como interaccionan diferentes ecosistemas entre sí y como se relacionan sus diferentes elementos: fauna, flora y el soporte natural. Además, el juego aporta una versión optimista de como entornos que se consideran destruidos se pueden recuperar mediante la intervención y tecnología adecuados. 
-
-Este enfoque es relevante dado que según los Reales Decretos mencionados anteriormente\cite{boePrimaria}\cite{boeSecundaria} se estipula que en lo relacionado al Conocimiento del Medio, Biología y Geología se buscará fomentar el razonamiento y pensamiento crítico (computacional) para resolver problemas o dar explicación a procesos de la vida cotidiana relacionados.
+Este enfoque es relevante dado que según los Reales Decretos mencionados anteriormente\cite{boeInfantil}\cite{boePrimaria}\cite{boeSecundaria}\cite{boebachillerato} se estipula que en lo relacionado al Conocimiento del Medio, Biología y Geología se buscará fomentar el razonamiento y pensamiento crítico (computacional) para resolver problemas o dar explicación a procesos de la vida cotidiana.
 
 Finalmente habría que considerar también la motivación adicional de aprender el uso de nuevas tecnologías mediante el desarrollo de un proyecto, que tendría como objetivo el propio aprendizaje y la acumulación de experiencia de llevar un proyecto desde su etapa de concepción hasta validarlo con un grupo de alumnos de instituto.
+
+\raggedbottom
+\section{Objetivos}
+\subsection{Objetivos generales}
+El objetivo general del trabajo es la elaboración de un prototipo funcional del videojuego EcoRescue para el desarrollo del PC y la concienciación en la restauración de ecosistemas, 
+en el que los jugadores puedan acceder a niveles generados procedimentalmente, compuestos por un número
+de 1-N biomas. Posteriormente deberán poder informarse de estos, relacionar problemas y consecuencias y finalmente 
+colocar máquinas en los biomas para restaurar los distintos problemas de cada alteracion.
+
+El prototipo deberá tener interfaces funcionales que muestren la información de los niveles, biomas, alteraciones, problemas, consecuencias, máquinas y tutoriales (Figura \ref{fig:UI}). Los tutoriales vendrán dados por diálogos que saldrán del 
+icono de un robot (Figura \ref{fig:robot}) que guiará al jugador durante su experiencia de juego.
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{interfaz_restauracion.png}
+    \caption{Interfaz general de EcoRescue}
+    \label{fig:UI}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{convo_robot.png}
+    \caption{Conversación de tutorial del robot}
+    \label{fig:robot}
+\end{figure}
+
+El prototipo también deberá ser jugablemente disfrutable, esto implica desarrollar sistemas de control, sonido y animaciones que hagan que el juego sea vistoso y satisfactorio de jugar.
+
+\subsection{Generación procedimental}
+
+Una parte importante de EcoRescue es la facilidad de creación de contenido, para que desarrollar niveles sea más sencillo, el juego se ha enfocado desde un principio con la generación procedimental en mente, de forma que los niveles deberán generarse en base a algoritmia\cite{FastNoiseLite}, y cosas como las alteraciones en un nivel o el percentil al que se debe completar una fase deberán del mismo modo seguir un patrón procedimental.
+
+\subsection{Herramientas del desarrollo}
+
+De cara a la generación procedimental de niveles, el prototipo necesitará herramientas para que enlazar el gran volumen de contenido requerido por este enfoque de desarrollo con las estructuras internas del videojuego sea sencillo y mayormente automatizado. 
+
+De esta forma, se requiere desarrollar un script que importe automáticamente todo el contenido (biomas, alteraciones, problemas, consecuencias, sprites, modelos...) desde un fichero de excel a un formato legible por el juego.
+
+Además, también se requiere la creación de herramientas que permitan elegir de qué forma se quiere que se presente un nivel, incluyendo: personalización de las reglas de la generación procedimental de mapas, selección de Biomas por nivel y selección de Alteraciones por Bioma.
+
+Además, el prototipo necesitará un sistema de generación de diálogos para que el robot de los tutoriales pueda comunicarse efectivamente con el jugador.
+
+\subsection{Recogida de datos}
+
+De cara a la medición de resultados, es necesario que el prototipo sea capaz de comunicarse con una base de datos para poder monitorizar las partidas de los jugadores y así poder interpretar sus movimientos. 
+Esta comunicación con la base de datos debería recoger los datos básicos del usuario (nombre, edad...) (Figura \ref{fig:datos}) así como datos sobre su partida (máquinas colocadas, relaciones correctas, veces que ha perdido el nivel...).
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{datos_pj.png}
+    \caption{Pantalla de introducción de datos personales}
+    \label{fig:datos}
+\end{figure}
+
+\subsection{Validación}
+
+El objetivo más importante a nivel de proyecto es validar el prototipo frente a un grupo de alumnos de 1º de la ESO reales, con el objetivo de poder utilizar los datos de una encuesta así como los datos obtenidos en la base de datos para poder extraer conclusiones acerca de la efectividad del prototipo como herramienta didáctica para el desarrollo del PC, además de como herramienta divulgativa en lo referente a la restauración de ecosistemas.
+Queda patente, pues, que los objetivos de la validación deben ser:
+\begin{compactitem}
+    \item Que el juego verdaderamente sirva para desarrolar el PC.
+    \item Que el juego divulge información interesante acerca de la restauración de ecosistemas.
+    \item Que el juego resulte una expriencia amena y divertida, a fin de que los alumnos disfruten del aprendizaje.
+\end{compactitem} 
+
+\subsection{Resumen de Objetivos}
+
+En resumen, el el proyecto pretende, como objetivo principal desarrollar un juego completo y funcional que permita al jugador informarse sobre la restauración de ecosistemas y actuar en consecuencia.
+
+Además de los objetivos secundarios:
+\begin{compactitem}
+  \item Desarrollar el PC del jugador en el aula.
+  \item Desarrollar un juego que sea divertido y ameno.
+  \item Desarrollar un juego con niveles generados procedimentalmente, además de herramientas que permitan crear contenido de forma eficiente para este.
+  \item Recabar información sobre las partidas de los jugadores con el objetivo de interpretar sus movimientos y extraer conclusiones sobre la efectividad del prototipo.
+\end{compactitem}
+
+\section{Metodología}
+
+Para el desarrollo del prototipo se ha utilizado una metodología de trabajo iterativa-incremental enfocada en la revisión de objetivos y
+avances entre el tutor y los alumnos. Durante una serie de revisiones se ha evaluado el estado del proyecto y se han marcado objetivos de cara a las siguientes revisiones. El desarrollo se puede dividir en tres fases: 
+\begin{itemize}
+	\item Fase 1: Pre-Producción y Análisis de Requisitos, Junio 2023 - Diciembre 2023
+	\item Fase 2: Producción, Enero 2024 - Mayo 2024
+	\item Fase 3: Polish y Validación, Junio 2024 
+\end{itemize}
+
+La primera fase se utilizó como una ventana de tiempo en la que prototipar los controles y la generación procedimental del mapa, además de realizar un análisis de requisitos y un documento de diseño exhaustivo para tener claro qué clase de prototipo realizar. Este documento de diseño se fue iterando con \nombretutor de cara a la producción final.
+
+Durante la segunda fase se realizó el groso de la producción del juego, con el diseño ya fijado, esta fase consistió sobre todo en implementar el bucle de juego general y definir el contenido que iba a estar presente en el juego final.
+
+La tercera y última fase consistió en la creación de herramientas para el desarrollo de contenido/niveles, pulir el juego añadiendo pequeñas animaciones, efectos y sonidos, implementar un sistema de recogida de datos en tiempo real via una base de datos remota y finalmente acudir a un instituto para poder validar el prototipo con alumnos de verdad.
+
+Esta metodología ha acabado siendo todo un exito con este prototipo, ya que ha permitido un avance progresivo donde no ha acabado habiendo esfuerzo malgastado, esto ha permitido que el desarrollo del prototipo haya sido sólido y no se hayan requerido cambios radicales.

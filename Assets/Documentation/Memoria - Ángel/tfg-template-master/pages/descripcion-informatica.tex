@@ -3,7 +3,6 @@
 En esta sección se abordarán los requisitos planteados en la aplicación, tanto los iniciales como los que se han ido planteando a lo largo del desarrollo ya sean funcionales o no funcionales. 
 
 \subsection{Requisitos Funcionales}
-
 \begin{itemize}
     \item RF1. Como usuario puedo rellenar mi nombre, edad y género.
     \item RF2. Como usuario puedo interactuar con las burbujas de cada bioma.
@@ -31,6 +30,60 @@ En esta sección se abordarán los requisitos planteados en la aplicación, tant
     \item RNF5. El videojuego debe tener herramientas que ayuden al desarrollo de contenido
     \item RNF6. El videojuego debe ser multiplataforma (PC, Tablet, Móvil, Web).
 \end{itemize}
+
+\subsection{Requisitos de Diseño}
+
+\begin{itemize}
+    \item RD1. Cada nivel del videojuego debe tener 1-N biomas posibles.
+    \item RD2. Cada bioma debe tener dos alteraciones posibles.
+    \item RD3. Al iniciar el nivel, se deberá elegir una alteración de las dos posibles por cada bioma.
+    \item RD4. Cada alteración deberá tener 1-3 problemas relacionadas.
+    \item RD5. Cada problema deberá tener de 0-2 problemas y de 1-4 consecuencias relacionados.
+    \item RD6. Cada problema deberá tener 2-3 máquinas relacionadas.
+\end{itemize}
+
+\section{Herramientas y Tecnologías}
+
+\subsection{C\# \& Unity}
+
+Se ha utilizado Unity\cite{unity} como motor para el desarrollo de EcoRescue y C\#\cite{csharp} como lenguaje de programación, se ha elegido este motor dado que era el motor público con el que los desarrolladores teníamos más experiencia.
+
+\subsection{Visual Studio}
+
+Visual Studio\cite{visualstudio} es un IDE y editor de código para C++ y .Net y C\#, es el editor de código por defecto de Unity y el que se ha utilizado por defecto para el desarrollo del proyecto. 
+
+\subsection{Git \& Github}
+
+Github\cite{github} es un entorno de desarrollo colaborativo y control de versiones web basado en la tecnología Git. Para mantener el proyecto y poder trabajar en el desde distintos equipos, se ha alojado el proyecto de EcoRescue\cite{Repo} en él.
+
+\subsection{FastNoiseLite}
+
+La generación procedimental de los mapas de los niveles del prototipo utilizan texturas de ruido perlin generadas automáticamente por la librería FastNoiseLite\cite{FastNoiseLite}. Esta es una librería ligera, optimizada y muy sencilla de usar que permite obtener patrones aleatorios altamente personalizables de una forma muy cómoda y sencilla.
+
+\subsection{Adobe XD \& AkyuiUnity}
+
+Adobe XD\cite{xd} es un programa que forma parte de la 'Suite' creativa de Adobe, permite a los usuarios el desarrollo de interfaces basado en iconos y formas vectoriales. \nombrecoautorespacio ha utilizado este programa para desarrollar las interfaces e iconos del videojuego. Esta herramientas se ha aprovechado enormemente mediante el uso de AkyuiUnity\cite{AkyuiUnity} y AnKuchen\cite{AnKuchen}, dado que el conjunto de estas dos librerías permiten establecer un flujo de trabajo mediante el cual se pueden importar los proyectos de Adobe XD como prefabs dentro de Unity, además de auto generar clases para poder acceder a todos los elementos del prefab a partir de su ID. Este 'workflow' ha permitido que el desarrollo e implementación de interfaces sea muy dinámico y fluido. 
+
+\subsection{UniTask}
+
+UniTask\cite{UniTask} es una librería que ofrece una implementación de async/await sin necesidad de alocataciones de memoria basada en estructuras. Se ha aprovechado esta librería para la implementación de varias rutinas de comportamiento del prototipo, desde eventos de UI hasta los propios controles del juego.
+
+\subsection{DUJAL}
+
+DUJAL\cite{DUJAL} es una librería de creación propia para otro Trabajo de Fin de Grado, esta librería contiene utilidades como un sistema de diálogos basado en grafos, un sistema de sonido estático y accesible desde todo el proyecto, llamadas estáticas a sacudidas de cámara, controladores de personajes y más. En este proyecto se ha importado solamente los módulos de diálogo, sonido y guardado de partida.
+
+\subsection{Audacity}
+
+Audacity\cite{Audacity} es un programa de edición y grabación de audio, todos los sonidos del videojuego se han obtenido retocando samples de uso libre utilizando Audacity.  
+
+\subsection{Notion}
+
+Notion\cite{notion} es una plataforma para la creación de documentos, wikis, listas de tareas y más. Para el desarrollo del proyecto se ha utilizado Notion como base de la documentación para almacenar toda la información referente al diseño, implementación, contenido y referencias artisticas y mecánicas.
+
+\subsection{MariaDB \& SQL}
+
+Para el almacenamiento de datos acerca de los jugadores y las partidas, se ha utilizado una base de datos proporcionada por la URJC basada en MariaDB\cite{mariadb}, un modelo de base de datos relacional que sigue el estándar SQL.
+
 
 \section{Arquitectura y Análisis}
 \subsection{Clases 'Handler' y diseño con enumerados}
@@ -466,7 +519,7 @@ static Dictionary<EnviroConsequenceType, EnviroConsequence> CreateConsequences()
 
 \subsection{AutoSlicer}
 
-De cara a ayudar a \nombrecoautorespacio se ha desarrollado también una pequeña herramienta usando el plugin Auto9Slicer\cite{Auto9Slicer} de kyubuns que permite hacer 'slice' automáticamente de sprites en formato png (Código \ref{alg:spriteslicer}), de forma que se puedan estirar sin deformarse. 
+Se ha desarrollado también una pequeña herramienta usando el plugin Auto9Slicer\cite{Auto9Slicer} de kyubuns que permite hacer 'slice' automáticamente de sprites en formato png (Código \ref{alg:spriteslicer}), de forma que se puedan estirar sin deformarse. 
 
 \begin{mypython}[caption={Código para aplicar automáticamente el algoritmo de slice sobre los sprites deseados.},label={alg:spriteslicer}]
 [CustomEditor(typeof(Auto9SliceTester))]
