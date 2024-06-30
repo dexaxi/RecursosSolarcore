@@ -44,7 +44,11 @@
 \usepackage{fancyhdr}
 \usepackage{rotating}
 \usepackage{multirow}
-
+\usepackage{animate}
+\usepackage{movie15}
+\usepackage{media9}
+\usepackage{graphicx}
+\usepackage{epstopdf}
 
 % Otros paquetes
 
@@ -52,11 +56,6 @@
 \usepackage{lipsum}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%% Definiciones básicas %%%%%%%%%%%%%%%%%%%%%%%
 
@@ -512,7 +511,7 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 % \newpage
 
 % Capítulo 2
-\chapter{Estado del Arte}
+\chapter{Marco Teórico y Estado del Arte}
 \label{sec:estadodelarte}
 
 \input{pages/estadodelarte.tex}
@@ -573,7 +572,7 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 \appendix
 
 \phantomsection
-\addcontentsline{toc}{chapter}{Apéndices}
+\addcontentsline{toc}{chapter}{Anexos}
 
 \mbox{}
 \vfill
@@ -591,7 +590,7 @@ Breve resumen del Trabajo de Fin de Grado (TFG). Una página resumiendo el conte
 
 
 % Primer apéndice
-\chapter{Este es el primer apéndice}
+\chapter{Anexo}
 \label{sec:apendice}
 
 \input{pages/appendixes/apendice-1.tex}

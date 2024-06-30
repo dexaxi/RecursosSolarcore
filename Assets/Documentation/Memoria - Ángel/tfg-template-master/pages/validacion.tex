@@ -1,7 +1,44 @@
 \section{Encuestas}
 
+De cara a validar el prototipo, la primera fuente de datos planteada fue preparar una encuesta (Disponible en el Anexo \ref{sec:apendice}) con la que obtener sensaciones e impresiones de primera mano de los alumnos.
 
+El objetivo de estas preguntas es tanto obtener una idea general de si el prototipo verdaderamente está sirviendo como ayuda para desarrollar el PC, como comprobar si está sirviendo para divulgar acerca de la restauración de cosistemas, y además comprobar cómo de divertido y usable es como videojuego.
+
+El resultado hn sido muy útil e ilustrador, dado que el feedback ha sido increíblemente positivo. 
 
 \section{Datos recabados}
 
+Por desgracia los datos recabados son ligeramente dispares y no representan la muestra total de alumnos que evaluamos con el juego (~20 alumnos), ya que el instituto tenía una serie de Firewalls que acabaron bloqueando las conexiones del prototipo con la BBDD, no obstante, los datos que sí hay pueden usarse.
+
+Los datos recabados finalmente son:
+
+\begin{compactitem}
+    \item User\textunderscore Id - El id inequívoco de un usuario.
+    \item Name - el usuario que hayan elegido.
+    \item Gender - el Icono que hayan elegido.
+    \item Age - la edad del usuario.
+    \item Progress - la cantidad media de progreso de todas las fases (máximo 100).
+    \item Machines Placed - La cantidad de máquinas colocadas.
+    \item Machines Sold - La cantidad de máquianas vendidas.
+    \item Success Phase - La cantidad de fases completadas.
+    \item Failure Phase - La cantidad de fases reiniciadas.
+    \item Duration - El tiempo de juego.
+\end{compactitem}
+
 \section{Experiencia de Validación}
+
+La experiencia de la validación fue en general muy positiva, se pudo observar a los niños interactuar en tiempo real con el juego y ver dónde les costaba avanzar. El resultado es una vez más muy positivo dado que todos los alumnos menos dos fueron capaces de completar la demo. No obstante, la gran mayoría se atascó en la fase de relacionar problemas con otros problemas y consecuencias, por lo que quizás ese apartado no está bien explicado o es demasiado complejo para niños de esas edades.
+
+Por otra parte, el ambiente en la clase fue muy bueno y la experiencia fue positiva y amena para todos los implicados, los profesores estuvieron de acuerdo en que utilizar este tipo de herramientas de forma didáctica es una muy buena forma de mejorar el ambiente en el aula sin dejar de enseñar a los alumnos.
+
+\section{Resultados}
+
+En primer lugar, podemos ver que en la representación de género (Figura \ref{fig:questionario_2}) ha habido bastante paridad (58 - 42\%). Además de poder encontrar que la distribución de regularidad a la hora de jugara videojuegos también es bastante equitativa (Figura \ref{fig:questionario_3}) donde se puede observar que más o menos la mitad de los alumnos jugaban a diario, y el resto se dividían entre semanalmente y casi nunca.
+
+Además, en las Figuras \ref{fig:questionario_4}, \ref{fig:questionario_5}, \ref{fig:questionario_6} y \ref{fig:questionario_7} se puede observar cómo los alumnos sí que han entrenado su pensamiento computacional, donde el 67\% afirma haber practicado la depuración de errores, el 87\% comenta haber seguido un orden específico a la hora de seleccionar restauraciones que practicar (Lo que implica que estaban desarrollando algoritmia) y, finalmente, el 92\% de alumnos ha desarrollado el Análisis de Datos y la Generalización al leer los datos de las alteraciones y probolemas, y utilizar dicha información a la hora de restaurar problemas similares de distintos biomas.
+
+Estas conclusiones se ven reflejadas en los datos recogidos en la Base de Datos, donde se puede ver claramente que pese a que de media los alumnos tuvieron que reiniciar las fases 3 o 4 veces, la gran mayoría consiguieron completar toda la demo, también se puede observar un alto grado de experimentación a la hora de jugar, dado que prácticamente todos los alumnos vendieron 3 o más máquinas. 
+
+Es relevante quizás mencionar que 'Pako' y 'Paula' no fueron capaces de completar el juego, por los resultados podemos observar que 'Pako' se quedó atascado reintentando la misma fase una y otra vez, probablemente intentando colocar una máquina con 90\% de probabilidad de fallo, y 'Paula' no vendió ni una sola máquina, quizás provocando que se quedase sin dinero.
+
+Otros datos a tener en cuenta son los de la Tabla \ref{fig:tablaResultadosPC}, donde se pueden encontrar testimonios en los que los alumnos indican sus partes favoritas del prototipo. En general queda patente que el sentimiento general hacia el juego es positivo, la opinión es que el juego es 'divertido', 'original' y 'fácil de usar', pero además, merece la pena destacar que los propios alumnos opinan que ha sido una experiencia de aprendizaje amena y divertida, 'mucho más divertida' al ser 'comparada con otros utensilios de clase'.

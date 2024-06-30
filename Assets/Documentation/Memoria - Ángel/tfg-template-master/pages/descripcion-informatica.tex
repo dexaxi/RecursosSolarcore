@@ -48,7 +48,14 @@ Estas clases utilizan todas el patrón mencionado anteriormente, BiomeHandler y 
 
 Cabe destacar que cada una tiene funciones especializadas, ya sea para guardar información de un diccionario que relacione las máquinas colocadas en el tablero de juego con la casilla sobre la que se encuentran colocadas en ese momento. O BiomeHandler, que relaciona cada bioma con todas las casillas asociadas a este.
 
-Por último, el BiomePhaseHandler es el que se encarga de gestionar toda la progresión de la fase de restauración, contiene diccionarios que relacionan todos los problemas que hay en el nivel actual por cada bioma y todas las máquinas posibles por cada problema. Además de diccionarios que relacionan el percentil mínimo de compleción por fase, la compleción actual por fase o la fase actual por bioma. Esta clase se encarga de registrar si al colocar una máquina esta restaura correctamente el problema relacionado o si en su lugar destruye el ecosistema y fuerza el reinicio de esa fase en ese bioma, y también se encarga de comprobar cuándo se pasa de fase así como de comprobar si todas las fases se han completado.
+Por último, el BiomePhaseHandler es el que se encarga de gestionar toda la progresión de la fase de restauración, contiene diccionarios que relacionan todos los problemas que hay en el nivel actual por cada bioma y todas las máquinas posibles por cada problema. Además de diccionarios que relacionan el percentil (Figura \ref{fig:progresion}) mínimo de compleción por fase, la compleción actual por fase o la fase actual por bioma. Esta clase se encarga de registrar si al colocar una máquina esta restaura correctamente el problema relacionado o si en su lugar destruye el ecosistema y fuerza el reinicio de esa fase en ese bioma, y también se encarga de comprobar cuándo se pasa de fase así como de comprobar si todas las fases se han completado.
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{progresion.png}
+    \caption{Interfaz de progresion de la fase de restauración}
+    \label{fig:progresion}
+  \end{figure}
 
 \subsection{ResourceGame y Level}
 
@@ -157,12 +164,33 @@ Las restricciones se gestionan todas en base a un enumerado del tipo de restricc
 
 Rangos:
 \begin{compactitem}
-    \item Rango infinito - La máquina afecta a absolutamente todo el bioma.
-    \item Rango por forma - La máquina afecta proporcionalmente al bioma en base número de casillas que afecta por su rango sobre el número de casillas totales del bioma.
+    \item Rango infinito (Figura \ref{fig:rango_inf}) - La máquina afecta a absolutamente todo el bioma.
+    \item Rango por forma (Figura \ref{fig:rango_form}) - La máquina afecta proporcionalmente al bioma en base número de casillas que afecta por su rango sobre el número de casillas totales del bioma.
 \end{compactitem}
 
-La implementación de las máquinas con rango por forma es destacable dado que se utiliza una textura en blanco y negro con la forma del rango que se quiera utilizar y esta se cachea al inicializar la máquina (Código \ref{alg:matrizmachine}) (durante la carga del nivel) en forma de una matriz bidimensional de ceros y unos, donde los unos son las casillas sobre las que actúa la máquina.
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{rango_infinito.png}
+    \caption{Máquina de rango infinito}
+    \label{fig:rango_inf}
+  \end{figure}
+
+  \begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{rango_chiquito.png}
+    \caption{Máquina de rango por forma}
+    \label{fig:rango_form}
+  \end{figure}
+
+La implementación de las máquinas con rango por forma es destacable dado que se utiliza una textura en blanco y negro (Figura \ref{fig:rango_pattern}) con la forma del rango que se quiera utilizar y esta se cachea al inicializar la máquina (Código \ref{alg:matrizmachine}) (durante la carga del nivel) en forma de una matriz bidimensional de ceros y unos, donde los unos son las casillas sobre las que actúa la máquina.
 Esta implementación es bastante eficiente y permite limpiar las casillas que no son afectadas por la máquina a la vez que resaltan las que si lo son sin necesidad de hacer pasadas extra.
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{Cross_MachinePattern.png}
+    \caption{Ejemplo de textura usado para el rango de una máquina}
+    \label{fig:rango_pattern}
+  \end{figure}
 
 \begin{mypython}[caption={Código para cachear la matríz del rango de una máquina.},label={alg:matrizmachine}]
 private void PrecalcTexture() 
@@ -181,9 +209,17 @@ private void PrecalcTexture()
 }
 \end{mypython}
 
-La tienda, por otro lado, es una interfaz de Unity basada en AnKuchen\cite{AnKuchen}, como todas las interfaces del juego. La tienda permite al jugador ver la información destacable de una máquina a la hora de comprarla (Restricción y valores asociados, precio y porcentaje de compleción añadido si aplica). 
+La tienda (Figura \ref{fig:tienda}), por otro lado, es una interfaz de Unity basada en AnKuchen\cite{AnKuchen}, como todas las interfaces del juego. La tienda permite al jugador ver la información destacable de una máquina a la hora de comprarla (Restricción y valores asociados, precio y porcentaje de compleción añadido si aplica). 
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=350px,clip=true]{tienda.png}
+\caption{Máquina de rango por forma}
+\label{fig:tienda}
+\end{figure}
 
 Al comprar una máquina desde la tienda se crea una instancia de un PlaceableMachine y se hace una copia profunda de la máquina asociada al 'ItemHolder' de la tienda. Esto permite obtener copias lógicas de las distintas máquinas utilizando un único prefab.
+
 
 \subsection{Relaciones Visuales}
 
