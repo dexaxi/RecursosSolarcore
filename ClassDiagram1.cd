@@ -1,0 +1,862 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Biome">
+    <Position X="26.25" Y="11" Width="2" />
+    <NestedTypes>
+      <Class Name="Biome.BiomeDTO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Biome\Biome.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AEAAAUAAAAAgCAAAAggAAAAAAAAEAIAQAQAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Biome\Biome.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BiomeHandler">
+    <Position X="24" Y="0.5" Width="1.5" />
+    <AssociationLine Name="_biomes" Type="Biome" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.75" Y="4.684" />
+        <Point X="24.75" Y="6.793" />
+        <Point X="26.688" Y="6.793" />
+        <Point X="26.688" Y="11" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QIAAAAAAAAUAQAAAAAAAEAQAAAIAAAAQQAGAIAAiAEA=</HashCode>
+      <FileName>Assets\Scripts\Biome\BiomeHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_biomes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BiomePhaseHandler">
+    <Position X="25.75" Y="0.5" Width="2.5" />
+    <AssociationLine Name="_machines" Type="Machine" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="26.688" Y="6.482" />
+        <Point X="26.688" Y="9.52" />
+        <Point X="26" Y="9.52" />
+        <Point X="26" Y="15.86" />
+        <Point X="21.5" Y="15.86" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="SSS" Type="EnviroProblem" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="26.688" Y="6.482" />
+        <Point X="26.688" Y="9.516" />
+        <Point X="30.104" Y="9.516" Type="JumpStart" />
+        <Point X="30.271" Y="9.516" Type="JumpEnd" />
+        <Point X="36.76" Y="9.516" Type="JumpStart" />
+        <Point X="36.927" Y="9.516" Type="JumpEnd" />
+        <Point X="37.453" Y="9.516" />
+        <Point X="37.453" Y="11" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>sCkAAAABAQEQAAACIiAAggQAAAAEAAABQAAAAAggElA=</HashCode>
+      <FileName>Assets\Scripts\Game\BiomePhaseHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_biomes" />
+      <Field Name="_machines" />
+      <Field Name="SSS" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EnviroAlteration">
+    <Position X="23" Y="11" Width="1.75" />
+    <NestedTypes>
+      <Class Name="EnviroAlteration.EnviroAlterationDTO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Game\EnviroAlteration.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAABAACAAAAAEAIAAAAAAgAAAAEAACAAQAAAAEAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\EnviroAlteration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnviroConsequence">
+    <Position X="29" Y="11" Width="1.5" />
+    <NestedTypes>
+      <Class Name="EnviroConsequence.EnviroConsequenceDTO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Game\EnviroConsequence.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEIAAAAAAAAAAAAEAACQAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\EnviroConsequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnviroProblem">
+    <Position X="36.5" Y="11" Width="1.5" />
+    <NestedTypes>
+      <Class Name="EnviroProblem.EnviroProblemDTO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Game\EnviroProblem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAgAEIAAAAAAAAAAAAEAACAAQAAAIEABAA=</HashCode>
+      <FileName>Assets\Scripts\Game\EnviroProblem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Level">
+    <Position X="31.25" Y="11" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QCBAAAAAACIgAEABAAAASQAAQAAEAAAAgABAwBAIAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceGame">
+    <Position X="35" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCQAAAAgAAAAAAIAAAAQAAAAAAAAAAABQAAIAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\ResourceGame.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Level" />
+      <Field Name="_currentSceneFlow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Machine">
+    <Position X="19.5" Y="11" Width="2" />
+    <NestedTypes>
+      <Class Name="Machine.MachineDTO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Machine\Machine.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAABABQAAgQAAICACAABAAAgAUAAIAQUAQAIAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Machine\Machine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_highlightPattern" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MachineHandler">
+    <Position X="19.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAQAAAACAAACAAAAAAAAgAAAAQAACQgAAgEA=</HashCode>
+      <FileName>Assets\Scripts\Machine\MachineHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_machines" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MachineProgressDisplay">
+    <Position X="5.75" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAACAAAAAAAAAABAAAAAAAAEAAAAAAAAAAAAAAAEg=</HashCode>
+      <FileName>Assets\Scripts\Machine\MachineProgressDisplay.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="MachineRef" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PlaceableMachine">
+    <Position X="8" Y="18.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABAQgQABAZCAAUIAUAhITQAEkAABMAQCPgQSAAI2AFA=</HashCode>
+      <FileName>Assets\Scripts\Machine\PlaceableMachine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_machine" />
+      <Property Name="GroundTile" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_highlightedTiles" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ItemHolder">
+    <Position X="14.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAACIAAAAgAAIgAQAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Machine\Shop\ItemHolder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_machineItem" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MachinePopupHandler">
+    <Position X="67.75" Y="19" Width="1.5" />
+    <AssociationLine Name="_popupCache" Type="AnKuchen.Map.UICache" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="68.5" Y="19" />
+        <Point X="68.5" Y="17.75" />
+        <Point X="71.5" Y="17.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.029" Y="0.083" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAACAAIACIAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Machine\Shop\MachinePopupHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_popupCache" />
+      <Field Name="_popupHandler" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ShopPopupCanvasUiElements" BaseTypeListCollapsed="true">
+    <Position X="60.75" Y="23" Width="1.5" />
+    <AssociationLine Name="Mapper" Type="AnKuchen.Map.IMapper" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="61.5" Y="23" />
+        <Point X="61.5" Y="18.429" />
+        <Point X="56.875" Y="18.429" />
+        <Point X="56.875" Y="17.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIIQIKAgCAAkAXAAiAIQACAAAAAAAQAAAAABIACQAAA=</HashCode>
+      <FileName>Assets\Scripts\Machine\Shop\MachinePopupHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mapper" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MachineShop">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <AssociationLine Name="_itemHolders" Type="ItemHolder" FixedToPoint="true">
+      <Path>
+        <Point X="12.75" Y="4.938" />
+        <Point X="14.5" Y="4.938" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgEUCAAIgCAAAAAgACAgAEAAIQAEAAAAQAAgAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Machine\Shop\MachineShop.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_itemHolders" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="MachineShopItem">
+    <Position X="17.5" Y="6" Width="1.5" />
+    <AssociationLine Name="_machine" Type="Machine" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.844" Y="8.646" />
+        <Point X="17.844" Y="11.336" />
+        <Point X="19.5" Y="11.336" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAAgAAAAUAAAgAAAAAAAAAAAAAADAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Machine\Shop\MachineShopItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_machine" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PlayerCurrencyManager">
+    <Position X="33" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAACCAAACAAAAAAAQAAAAABAAEA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerCurrencyManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_infoManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Draggable">
+    <Position X="8.25" Y="12.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAIAAAgAAAAAIAAAQAEAABQAIBAEAAAGAEQ=</HashCode>
+      <FileName>Assets\Scripts\Input\Draggable.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_snapToGrid" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Highlightable">
+    <Position X="3.75" Y="8.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAABAACAIAAAAAEAAAAAAAAIMAEAAAAAAAAACI=</HashCode>
+      <FileName>Assets\Scripts\Input\Highlightable.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="HighlightableMaterials" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Hoverable">
+    <Position X="8.25" Y="7.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAACAAAAAAAABAAAAEEAAAAAAAAAAAAAIQAEA=</HashCode>
+      <FileName>Assets\Scripts\Input\Hoverable.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_highlightable" />
+      <Field Name="_selectable" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Selectable">
+    <Position X="1.25" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAIAAAyAgCAAAAAAAAAEAAgCAAUAAQBAAAkA=</HashCode>
+      <FileName>Assets\Scripts\Input\Selectable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScreenSelector">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAEEgABCAAIAAAEAAAAAAAIAAAIAAAAAAACCAEAEA=</HashCode>
+      <FileName>Assets\Scripts\Input\ScreenSelector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_selectedObject" />
+      <Field Name="inputMapContainer" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AnchorPoint" BaseTypeListCollapsed="true">
+    <Position X="70.75" Y="29.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QACCgiAAAAAIIQsADYEABBICEFAgrACSCEAAAEChCsg=</HashCode>
+      <FileName>Assets\Scripts\RelationSelectors\AnchorPoint.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_relationUIManager" />
+      <Field Name="_spawner" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LineSpawner">
+    <Position X="68.5" Y="29.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\RelationSelectors\LineSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RelationHandler">
+    <Position X="29" Y="0.5" Width="3" />
+    <AssociationLine Name="_alterations" Type="EnviroAlteration" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="30.188" Y="6.867" />
+        <Point X="30.188" Y="7.242" />
+        <Point X="26.771" Y="7.242" Type="JumpStart" />
+        <Point X="26.604" Y="7.242" Type="JumpEnd" />
+        <Point X="23.406" Y="7.242" />
+        <Point X="23.406" Y="11" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_problems" Type="EnviroProblem" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="30.188" Y="6.867" />
+        <Point X="30.188" Y="7.242" />
+        <Point X="36.844" Y="7.242" />
+        <Point X="36.844" Y="11" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAAIEFUhgACAACQAACAABCAAAADgCAABSIAABIAAAUA=</HashCode>
+      <FileName>Assets\Scripts\RelationSelectors\RelationHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_alterations" />
+      <Field Name="_consequences" />
+      <Field Name="_problems" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="RelationUIManager">
+    <Position X="71.75" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAEAQAGAIgAAwAAAAQAAgEiAAAAQQBQAIQAAkA=</HashCode>
+      <FileName>Assets\Scripts\RelationSelectors\RelationUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="relationUICache" />
+      <Field Name="_bookmarkManager" />
+      <Field Name="_relationBooks" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="RelationBookUiElements" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="23" Width="2" />
+    <AssociationLine Name="Mapper" Type="AnKuchen.Map.IMapper" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="64.75" Y="26.606" />
+        <Point X="64.75" Y="26.606" Type="JumpStart" />
+        <Point X="64.5" Y="26.606" Type="JumpEnd" />
+        <Point X="63.896" Y="26.606" Type="JumpStart" />
+        <Point X="63.729" Y="26.606" Type="JumpEnd" />
+        <Point X="62.5" Y="26.606" />
+        <Point X="62.5" Y="18.445" />
+        <Point X="56.875" Y="18.445" />
+        <Point X="56.875" Y="17.812" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.093" Y="0.108" Height="0.182" Width="0.689" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIAAIAAAAAAAQSAACQAAAAEAAAAABBEAMAiwCEAAIEA=</HashCode>
+      <FileName>Assets\Scripts\RelationSelectors\RelationUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Manager" />
+      <Property Name="Mapper" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Ground">
+    <Position X="29" Y="22" Width="2.25" />
+    <NestedTypes>
+      <Enum Name="Ground.Generation" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\TerrainGeneration\Ground.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>cgAEEBAAJSAAAEAIAiwc4ABAoEAAAAAERABKAEIAQkA=</HashCode>
+      <FileName>Assets\Scripts\TerrainGeneration\Ground.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_biomeScriptableObjects" />
+      <Field Name="_noiseGenerator" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="biomesSelectables" />
+      <Field Name="GroundMap" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="GroundTile">
+    <Position X="25.25" Y="18.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAggADADAAAAKBSAABBAAAAAAIAQABAAJAAAAAImA=</HashCode>
+      <FileName>Assets\Scripts\TerrainGeneration\GroundTile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Biome" />
+      <Field Name="neighbours" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BookInfoProvider">
+    <Position X="55.5" Y="30.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAJAQAAAAAAAAAAAAAAAAAAAAAAACAAIIAABAAIQA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookInfoProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookmarkManager">
+    <Position X="76" Y="22.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAEAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookmarkManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="bookmarks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BookUIManager">
+    <Position X="64.25" Y="31.75" Width="1.5" />
+    <AssociationLine Name="bookUICache" Type="AnKuchen.Map.UICache" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="64.604" Y="31.75" />
+        <Point X="64.604" Y="17.312" />
+        <Point X="71.5" Y="17.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.213" Y="0.79" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="dataInfoUICache" Type="AnKuchen.Map.UICache">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.173" Y="0.073" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="diagnosticsInfoUICache" Type="AnKuchen.Map.UICache" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="64.583" Y="31.75" />
+        <Point X="64.583" Y="17.312" />
+        <Point X="71.5" Y="17.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.292" Y="1.482" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="diagnosticsTitleUICache" Type="AnKuchen.Map.UICache" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="64.667" Y="31.75" />
+        <Point X="64.667" Y="17.312" />
+        <Point X="71.5" Y="17.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.257" Y="1.698" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="exIconUICache" Type="AnKuchen.Map.UICache" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="64.625" Y="31.75" />
+        <Point X="64.625" Y="17.312" />
+        <Point X="71.5" Y="17.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.221" Y="0.304" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="titleUICache" Type="AnKuchen.Map.UICache" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="64.625" Y="31.75" />
+        <Point X="64.625" Y="17.312" />
+        <Point X="71.5" Y="17.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.185" Y="0.546" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="photoUICache" Type="AnKuchen.Map.UICache" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="64.625" Y="31.75" />
+        <Point X="64.625" Y="17.312" />
+        <Point X="71.5" Y="17.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.275" Y="1.243" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="dataUICache" Type="AnKuchen.Map.UICache" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="64.625" Y="31.75" />
+        <Point X="64.625" Y="17.312" />
+        <Point X="71.562" Y="17.312" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.327" Y="1.035" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_bookUI" Type="BookUiElements" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="64.25" Y="32.688" />
+        <Point X="58" Y="32.688" />
+        <Point X="58" Y="28.875" />
+        <Point X="57.5" Y="28.875" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AkAAAAABEAAAAEAgAAAAAAAAAAAAAAAAwIFAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="bookUICache" />
+      <Field Name="dataInfoUICache" />
+      <Field Name="diagnosticsInfoUICache" />
+      <Field Name="diagnosticsTitleUICache" />
+      <Field Name="exIconUICache" />
+      <Field Name="titleUICache" />
+      <Field Name="photoUICache" />
+      <Field Name="_bookUI" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="dataUICache" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="BookUiElements" BaseTypeListCollapsed="true">
+    <Position X="56" Y="25.75" Width="1.5" />
+    <AssociationLine Name="_diagnosticsTitleUI" Type="DiagnosisTitleUiElements" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="57.25" Y="29.295" />
+        <Point X="57.25" Y="29.979" />
+        <Point X="57.917" Y="29.979" Type="JumpStart" />
+        <Point X="58.083" Y="29.979" Type="JumpEnd" />
+        <Point X="63.812" Y="29.979" />
+        <Point X="63.812" Y="25.132" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.124" Y="0.185" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="_exIconUI" Type="ExIconsUiElements" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="56" Y="28.841" />
+        <Point X="53" Y="28.841" />
+        <Point X="53" Y="31.074" />
+        <Point X="52.062" Y="31.074" />
+        <Point X="52.062" Y="30.824" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_photoUI" Type="PhotoUiElements" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="56" Y="26.593" />
+        <Point X="55.625" Y="26.593" />
+        <Point X="55.625" Y="25.688" />
+        <Point X="53.708" Y="25.688" Type="JumpStart" />
+        <Point X="53.542" Y="25.688" Type="JumpEnd" />
+        <Point X="51.958" Y="25.688" Type="JumpStart" />
+        <Point X="51.792" Y="25.688" Type="JumpEnd" />
+        <Point X="50.25" Y="25.688" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="_titleUI" Type="TitleUiElements" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="57.5" Y="26.125" />
+        <Point X="57.875" Y="26.125" />
+        <Point X="57.875" Y="23.999" />
+        <Point X="58.5" Y="23.999" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAGgDAACAIABSAFCAAAAAEAAAAACAAAQAgAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_dataInfoUI" />
+      <Field Name="_diagnosticsInfoUI" />
+      <Field Name="_diagnosticsTitleUI" />
+      <Field Name="_provider" />
+      <Field Name="_exIconUI" />
+      <Field Name="_photoUI" />
+      <Field Name="_titleUI" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_dataUI" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PhotoUiElements" BaseTypeListCollapsed="true">
+    <Position X="48.75" Y="25.5" Width="1.5" />
+    <AssociationLine Name="Mapper" Type="AnKuchen.Map.IMapper" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="49.469" Y="25.5" />
+        <Point X="49.469" Y="18.429" />
+        <Point X="56.875" Y="18.429" />
+        <Point X="56.875" Y="17.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAASAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mapper" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TitleUiElements" BaseTypeListCollapsed="true">
+    <Position X="58.5" Y="23" Width="1.5" />
+    <AssociationLine Name="Mapper" Type="AnKuchen.Map.IMapper" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="59.25" Y="23" />
+        <Point X="59.25" Y="18.453" />
+        <Point X="56.875" Y="18.453" />
+        <Point X="56.875" Y="17.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAWAACAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mapper" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DataInfoUiElements" BaseTypeListCollapsed="true">
+    <Position X="55.75" Y="23" Width="1.5" />
+    <AssociationLine Name="Mapper" Type="AnKuchen.Map.IMapper" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="56.875" Y="23" />
+        <Point X="56.875" Y="17.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAASAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mapper" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ExIconsUiElements" BaseTypeListCollapsed="true">
+    <Position X="51.25" Y="28.5" Width="1.5" />
+    <AssociationLine Name="Mapper" Type="AnKuchen.Map.IMapper" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="51.875" Y="28.5" />
+        <Point X="51.875" Y="18.461" />
+        <Point X="56.875" Y="18.461" />
+        <Point X="56.875" Y="17.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAASAADAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mapper" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DiagnosisTitleUiElements" BaseTypeListCollapsed="true">
+    <Position X="63" Y="23" Width="1.5" />
+    <AssociationLine Name="Mapper" Type="AnKuchen.Map.IMapper" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="63.75" Y="23" />
+        <Point X="63.75" Y="18.445" />
+        <Point X="56.875" Y="18.445" />
+        <Point X="56.875" Y="17.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAWAACAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mapper" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GenericPopUpSO">
+    <Position X="34" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\GenericPopUpSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MachineDisplay">
+    <Position X="8.5" Y="31.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABkEMASAAUEAAARAIAgIACACBAgMCAEBZIAECAAEAEA=</HashCode>
+      <FileName>Assets\Scripts\UI\MachineDisplay.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_machine" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MainMenuHandler">
+    <Position X="79.5" Y="20.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="MainMenuHandler.MainMenuUIElements" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\UI\MainMenuHandler.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQEAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\MainMenuHandler.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mainScreenCache" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="AnKuchen.Map.UICache" Collapsed="true">
+    <Position X="71.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnityEngine.ScriptableObject" Collapsed="true">
+    <Position X="24.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SnapToGrid">
+    <Position X="5.25" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAcAAAARAAAAABAAAAgAAAAAAAAJAAAAQAAIBAAAQAA=</HashCode>
+      <FileName>Assets\Scripts\Input\SnapToGrid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HighlightPattern">
+    <Position X="16.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAABAAFAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Shaders\HighlightPattern.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FastNoiseLite" Collapsed="true">
+    <Position X="32.75" Y="22" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>2ACYQKBADoIj0ChhCZQCyMAggiiIgAACnCYAICYAImQ=</HashCode>
+      <FileName>Assets\Thirdparty\FastNoiseLite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataUiElements">
+    <Position X="53.5" Y="26" Width="1.5" />
+    <AssociationLine Name="Mapper" Type="AnKuchen.Map.IMapper" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="53.625" Y="26" />
+        <Point X="53.625" Y="18.46" />
+        <Point X="56.875" Y="18.46" />
+        <Point X="56.875" Y="17.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAASAACAAAAAAAAAAAAAAAAAAACIEAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mapper" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DiagnosisInfoUiElements">
+    <Position X="58.5" Y="26" Width="1.5" />
+    <AssociationLine Name="Mapper" Type="AnKuchen.Map.IMapper" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="60" Y="27.162" />
+        <Point X="60.375" Y="27.162" />
+        <Point X="60.375" Y="18.439" />
+        <Point X="56.875" Y="18.439" />
+        <Point X="56.875" Y="17.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAASAACAAAAAAAAAAAAAAAAMAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\BookUIManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mapper" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Bookmark">
+    <Position X="76" Y="25.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAACAAACAAAAAAAAAAAAAAAAAAABAAAAAAAAEAIwA=</HashCode>
+      <FileName>Assets\Scripts\UI\BookUI\Bookmark.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputMapContainer" Collapsed="true">
+    <Position X="1.25" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Input\InputMapContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIInfoManager">
+    <Position X="36" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\UI\UIInfoManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="HighlightableMaterial">
+    <Position X="2.25" Y="13" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Assets\Scripts\Input\Highlightable.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="AnKuchen.Map.IMapper" Collapsed="true">
+    <Position X="56" Y="17.25" Width="1.75" />
+    <TypeIdentifier />
+  </Interface>
+  <Enum Name="LevelSceneFlow">
+    <Position X="37.25" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAiAAAEAAQAAAAAAAAAAAAAAAAQAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\ResourceGame.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
