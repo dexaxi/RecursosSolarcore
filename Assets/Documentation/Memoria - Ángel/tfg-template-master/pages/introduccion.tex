@@ -102,10 +102,17 @@ Finalmente habría que considerar también la motivación adicional de aprender 
 \subsection{Objetivos generales}
 El objetivo general del trabajo es la elaboración de un prototipo funcional del videojuego EcoRescue para el desarrollo del PC y la concienciación en la restauración de ecosistemas, 
 en el que los jugadores puedan acceder a niveles generados procedimentalmente, compuestos por un número
-de 1-N biomas. Posteriormente deberán poder informarse de estos, relacionar problemas y consecuencias y finalmente 
+de 1-N biomas. Posteriormente deberán poder informarse de estos, relacionar problemas y consecuencias (Figura \ref{fig:diagconsecuencias}) y finalmente 
 colocar máquinas en los biomas para restaurar los distintos problemas de cada alteracion.
 
-El prototipo deberá tener interfaces funcionales que muestren la información de los niveles, biomas, alteraciones, problemas, consecuencias, máquinas y tutoriales (Figura \ref{fig:UI}). Los tutoriales vendrán dados por diálogos que saldrán del 
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=350px,clip=true]{diagramaproblemasconsecuencias.png}
+  \caption{Diagrama de relaciones entre problemas y problemas y consecuencias}
+  \label{fig:diagconsecuencias}
+\end{figure}
+
+El prototipo deberá tener interfaces funcionales que muestren la información de los niveles, biomas, alteraciones, problemas, consecuencias, máquinas y tutoriales (Figuras \ref{fig:UI} y \ref{fig:diagUI}). Los tutoriales vendrán dados por diálogos que saldrán del 
 icono de un robot (Figura \ref{fig:robot}) que guiará al jugador durante su experiencia de juego.
 
 \begin{figure}[H]
@@ -113,6 +120,13 @@ icono de un robot (Figura \ref{fig:robot}) que guiará al jugador durante su exp
       \includegraphics[width=350px,clip=true]{interfaz_restauracion.png}
     \caption{Interfaz general de EcoRescue}
     \label{fig:UI}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{diagramapantallas.jpg}
+    \caption{Diagrama de flujo de UI de EcoRescue}
+    \label{fig:diagUI}
 \end{figure}
 
 \begin{figure}[H]
@@ -126,7 +140,14 @@ El prototipo también deberá ser jugablemente disfrutable, esto implica desarro
 
 \subsection{Generación procedimental}
 
-Una parte importante de EcoRescue es la facilidad de creación de contenido, para que desarrollar niveles sea más sencillo, el juego se ha enfocado desde un principio con la generación procedimental en mente, de forma que los niveles deberán generarse en base a algoritmia\cite{FastNoiseLite}, y cosas como las alteraciones en un nivel o el percentil al que se debe completar una fase deberán del mismo modo seguir un patrón procedimental.
+Una parte importante de EcoRescue es la facilidad de creación de contenido, para que desarrollar niveles sea más sencillo, el juego se ha enfocado desde un principio con la generación procedimental en mente, de forma que los niveles deberán generarse en base a algoritmia\cite{FastNoiseLite}, y cosas como las alteraciones en un nivel o el percentil (Figura \ref{fig:percentil}) al que se debe completar una fase deberán del mismo modo seguir un patrón procedimental.
+
+\begin{figure}[H]
+  \centering
+    \includegraphics[width=350px,clip=true]{diagramafases.png}
+  \caption{Diagrama explicativo de los percentiles a completar de cada fase}
+  \label{fig:percentil}
+\end{figure}
 
 \subsection{Herramientas del desarrollo}
 

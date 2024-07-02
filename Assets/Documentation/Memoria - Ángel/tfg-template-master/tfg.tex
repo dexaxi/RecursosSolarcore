@@ -49,6 +49,9 @@
 \usepackage{media9}
 \usepackage{graphicx}
 \usepackage{epstopdf}
+\usepackage{attachfile}
+\usepackage{embedfile}
+\usepackage{hypgotoe}
 
 % Otros paquetes
 
@@ -243,6 +246,7 @@ upquote=true,
 %                           Inicio del documento                       
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand*{\embedfileandcreatelink}[2]{\embedfile{#1}\href{gotoe:embedded=#1}{#2}}
 
 \begin{document}
 
