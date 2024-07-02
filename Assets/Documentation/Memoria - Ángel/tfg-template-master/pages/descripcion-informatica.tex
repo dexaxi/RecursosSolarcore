@@ -95,9 +95,17 @@ Este patrón satisface dos problemas a resolver, el primero es poder utilizar el
 
 \subsection{Biome, Machine, Relation y Phase 'Handlers'}
 
-Estas clases utilizan todas el patrón mencionado anteriormente, 'BiomeHandler' y 'MachineHandler' tienen diccionarios que contienen relaciones entre Biomas y Máquinas con sus respectivos enumerados, además de una lista de todos los enumerados posibles para el nivel actual. 'RelationHandler' es ligeramente más compleja en el sentido de que tiene tres sets de listas y diccionarios, para alteraciones, problemas y consecuencias. Todas estas clases se poblan en base a los datos que se reciben del nivel seleccionado (contenido en el 'ScriptableObject' de la clase 'Level'). De forma que en todo momomento contienen la información actualizada del nivel actual, que puede ser consultada por la lógica del juego cuando es requerida. 
+Estas clases (Figura \ref{fig:handlerUML}) utilizan todas el patrón mencionado anteriormente, 'BiomeHandler' y 'MachineHandler' tienen diccionarios que contienen relaciones entre Biomas y Máquinas con sus respectivos enumerados, además de una lista de todos los enumerados posibles para el nivel actual. 'RelationHandler' es ligeramente más compleja en el sentido de que tiene tres sets de listas y diccionarios, para alteraciones, problemas y consecuencias. Todas estas clases se poblan en base a los datos que se reciben del nivel seleccionado (contenido en el 'ScriptableObject' de la clase 'Level'). De forma que en todo momomento contienen la información actualizada del nivel actual, que puede ser consultada por la lógica del juego cuando es requerida. 
 
 Cabe destacar que cada una tiene funciones especializadas, ya sea el 'MachineHandler' para guardar información de un diccionario que relacione las máquinas colocadas en el tablero de juego con la casilla sobre la que se encuentran colocadas en ese momento. O BiomeHandler, que relaciona cada bioma con todas las casillas asociadas a este.
+  
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{Handler_Class_Diagram.png}
+    \caption{Diagrama de clases de los Handlers y ResourceGame}
+    \label{fig:handlerUML}
+\end{figure}
+
 
 Por último, el 'BiomePhaseHandler' es el que se encarga de gestionar toda la progresión de la fase de restauración, contiene diccionarios que relacionan todos los problemas que hay en el nivel actual por cada bioma y todas las máquinas posibles por cada problema. Además de diccionarios que relacionan el percentil (Figura \ref{fig:progresion}) mínimo de compleción por fase, la compleción actual por fase o la fase actual por bioma. Esta clase se encarga de registrar si al colocar una máquina esta restaura correctamente el problema relacionado o si en su lugar destruye el ecosistema y fuerza el reinicio de esa fase en ese bioma, y también se encarga de comprobar cuándo se pasa de fase así como de comprobar si todas las fases se han completado.
 
@@ -136,7 +144,14 @@ La clase 'PlayerCurrencyManager' es una clase sencilla que solamente se encarga 
 
 Todas las interfaces del juego se han ilustrado en Adobe XD y convertido en prefabs utilizando AkyuiUnity\cite{AkyuiUnity}, que permite generar prefabs a partir de la definición de formato de interfaz Ankyui desarrollada por kyubuns. Akyui.Xd a su vez permite convertir los archivos en formato de AdobeXD en archivos de definición de formato de Akyui, de forma que se genera un workflow Adobe XD - Unity directo.
 
-Mediante el uso de AnKuchen\cite{AnKuchen}, también desarrollado por kyubuns, se pueden autogenerar unas clases 'template' a partir de las estructuras en el arbol de la escena de Unity mediante el uso de un componente UICache, estas 'templates' permiten al programador acceder a los elementos de interfaz ('scrollbar', 'button', 'slider') desde código sin necesitar de preocuparse por referencias o jerarquías. Esta librería, en conjunto con UniTask\cite{UniTask} permite definir comportamientod de interfaces de forma muy cómoda.
+Mediante el uso de AnKuchen\cite{AnKuchen}, también desarrollado por kyubuns, se pueden autogenerar unas clases 'template' a partir de las estructuras en el arbol de la escena de Unity mediante el uso de un componente UICache (Figura \ref{UIuml}), estas 'templates' permiten al programador acceder a los elementos de interfaz ('scrollbar', 'button', 'slider') desde código sin necesitar de preocuparse por referencias o jerarquías. Esta librería, en conjunto con UniTask\cite{UniTask} permite definir comportamientod de interfaces de forma muy cómoda.
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{UI_Class_Diagram.png}
+    \caption{Diagrama de clases de la UI del juego}
+    \label{UIuml}
+\end{figure}
 
 \subsection{Cargas, Audio y Diálogos}
 
@@ -153,12 +168,19 @@ EcoRescue utiliza un sistema de carga asíncrona que lanza una pantalla de carga
 
 \subsection{Controles}
 
-El componente de control de EcoRescue es una de las partes de la implementación que más tiempo ha llevado, esto es por que el objetivo era que fuese lo más satisfactorio e intuitivo posible. De esta forma, los componentes que gestionan el poder colocar y mover máquinas están organizados en jerarquías de herencia que permiten controlar la forma en la que se interactúa con estas de forma modular y sencilla. Las PlaceableMachines, que son las instancias de las máquinas que se pueden colocar, heredan del componente Draggable (Que a su vez hereda de Hoverable). 
+El componente de control de EcoRescue es una de las partes de la implementación que más tiempo ha llevado, esto es por que el objetivo era que fuese lo más satisfactorio e intuitivo posible. De esta forma, los componentes que gestionan el poder colocar y mover máquinas (Figura \ref{fig:controlUML}) están organizados en jerarquías de herencia que permiten controlar la forma en la que se interactúa con estas de forma modular y sencilla. Las PlaceableMachines, que son las instancias de las máquinas que se pueden colocar, heredan del componente Draggable (Que a su vez hereda de Hoverable). 
 \begin{itemize}
     \item Hoverable gestiona el hecho de poder pasar el ratón/dedo por encima de una entidad y lanzar un callback cuando ese evento ocurra. 
     \item Draggable mantiene ese comportamiento, pero también tiene funcionalidad para poder arrastrar el propio GameObject
     \item PlaceableMachine permite invocar la interfaz contextual que se encarga de permitir mover, colocar y vender las máquinas, además de tener una copia profunda del ScriptableObject de la máquina a partir de la cuál se ha creado. 
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+      \includegraphics[width=350px,clip=true]{Controls_Class_Diagram.png}
+    \caption{Diagrama de clases de las clases de control del juego}
+    \label{fig:controlUML}
+\end{figure}
 
 Además, para poder añadir comportamiento de resaltado a las casillas y máquinas, se ha añadido un componente de tipo Highlighteable a todos los componentes de tipo Hoverable, de forma que se puede modificar el shader y el material del MeshRenderer utilizando el string asociado al tipo de 'Highlight' que corresponda.
 
@@ -267,13 +289,20 @@ private void PrecalcTexture()
 }
 \end{mypython}
 
-La tienda (Figura \ref{fig:tienda}), por otro lado, es una interfaz de Unity basada en AnKuchen\cite{AnKuchen}, como todas las interfaces del juego. La tienda permite al jugador ver la información destacable de una máquina a la hora de comprarla (Restricción y valores asociados, precio y porcentaje de compleción añadido si aplica). 
+La tienda (Figura \ref{fig:tienda}), por otro lado, es una interfaz de Unity basada en AnKuchen\cite{AnKuchen} (Figura \ref{fig:tiendaUML}), como todas las interfaces del juego. La tienda permite al jugador ver la información destacable de una máquina a la hora de comprarla (Restricción y valores asociados, precio y porcentaje de compleción añadido si aplica). 
 
 \begin{figure}[H]
 \centering
     \includegraphics[width=350px,clip=true]{tienda.png}
 \caption{Tienda de Máquinas, compra de una máquina que restaura el 75\% de una fase}
 \label{fig:tienda}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=350px,clip=true]{Machine_Shop_UI.png}
+\caption{Diagrama de clases de la tienda}
+\label{fig:tiendaUML}
 \end{figure}
 
 Al comprar una máquina desde la tienda se crea una instancia de un PlaceableMachine y se hace una copia profunda de la máquina asociada al 'ItemHolder' de la tienda. Esto permite obtener copias lógicas de las distintas máquinas utilizando un único prefab.
